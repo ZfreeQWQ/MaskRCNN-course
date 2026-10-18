@@ -20,6 +20,8 @@ import numpy as np
 # 允许从仓库根目录或当前脚本目录直接执行。
 ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "../.."))
 SAMPLE_DIR = os.path.dirname(os.path.abspath(__file__))
+# 服务器启动脚本通常设置 ROOT=$HOME/MaskRCNN；训练产物统一放在 ROOT/runs/member-a。
+# 即使 ROOT 没有 export，运行时也会从数据集路径自动推导同一个目录。
 if ROOT_DIR not in sys.path:
     sys.path.append(ROOT_DIR)
 if SAMPLE_DIR not in sys.path:
@@ -177,6 +179,18 @@ def _load_datasets(dataset_dir, train_limit=0, val_limit=0, depth_max_m=1.0):
     return train_dataset, val_dataset
 
 
+def _default_runs_dir(dataset_dir):
+    """根据 .../MaskRCNN/data/blender 推导成员的运行产物目录。"""
+    configured_root = os.environ.get("ROOT")
+    if configured_root:
+        root = os.path.abspath(configured_root)
+    else:
+        dataset_dir = os.path.abspath(dataset_dir)
+        # 数据集通常位于 ROOT/data/blender；这样无需 export ROOT 也能定位。
+        root = os.path.abspath(os.path.join(dataset_dir, os.pardir, os.pardir))
+    return os.path.join(root, "runs", "member-a")
+
+
 def check_data_batch(dataset, config, name):
     """用 Matterport 生成器读取一个 batch，检查四通道和训练目标形状。"""
     generator = modellib.data_generator(
@@ -200,16 +214,17 @@ def make_parser():
         help="none、coco、last 或已有 .h5 文件路径；默认 none",
     )
     parser.add_argument(
-        "--coco-weights", default=os.path.join(ROOT_DIR, "mask_rcnn_coco.h5"),
-        help="--weights coco 时使用的 COCO 权重路径",
+        "--coco-weights", default=None,
+        help="--weights coco 时使用的 COCO 权重路径，默认位于 runs/member-a/weights",
     )
     parser.add_argument(
-        "--logs", default=os.path.join(ROOT_DIR, "logs"),
-        help="训练日志和 checkpoint 保存目录",
+        "--logs", default=None,
+        help="训练日志和 checkpoint 保存目录，默认是 ROOT/runs/member-a",
     )
     parser.add_argument(
-        "--layers", choices=("auto", "heads", "4+", "all"), default="auto",
-        help="训练层；auto 在随机初始化时使用 all，否则使用 heads",
+        "--layers", choices=("auto", "heads", "heads+depth", "4+", "all"),
+        default="auto",
+        help="训练层；auto 会根据权重类型选择 all、heads+depth 或 heads",
     )
     parser.add_argument("--epochs", type=int, default=1, help="训练总 epoch 数")
     parser.add_argument("--steps-per-epoch", type=int, default=0,
@@ -242,6 +257,13 @@ def main(args=None):
         raise ValueError("--workers 不能为负数")
     if args.depth_max_m <= 0:
         raise ValueError("--depth-max-m 必须大于 0")
+
+    runs_dir = os.path.abspath(args.logs) if args.logs else _default_runs_dir(args.dataset)
+    coco_weights_path = os.path.abspath(args.coco_weights) if args.coco_weights else os.path.join(
+        runs_dir, "weights", "mask_rcnn_coco.h5")
+    args.logs = runs_dir
+    args.coco_weights = coco_weights_path
+    print("运行产物目录: {}".format(args.logs))
 
     if args.smoke_test:
         if args.train_limit == 0:
