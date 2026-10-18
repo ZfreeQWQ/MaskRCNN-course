@@ -12,8 +12,10 @@
 from __future__ import print_function
 
 import argparse
+import json
 import os
 import sys
+from datetime import datetime
 
 import numpy as np
 
@@ -29,6 +31,7 @@ if SAMPLE_DIR not in sys.path:
 
 from blender import BlenderConfig, BlenderDataset
 from mrcnn import model as modellib
+from keras.callbacks import Callback
 
 
 COCO_EXCLUDED_LAYERS = [
@@ -191,6 +194,138 @@ def _default_runs_dir(dataset_dir):
     return os.path.join(root, "runs", "member-a")
 
 
+def _json_safe(value):
+    """将 Keras/Numpy 日志值转换为可写入 JSON 的类型。"""
+    if isinstance(value, dict):
+        return {str(key): _json_safe(item) for key, item in value.items()}
+    if isinstance(value, (list, tuple)):
+        return [_json_safe(item) for item in value]
+    if isinstance(value, np.generic):
+        return value.item()
+    if isinstance(value, (str, int, float, bool)) or value is None:
+        return value
+    return str(value)
+
+
+def _utc_now():
+    """返回适合写入状态文件的 UTC 时间。"""
+    return datetime.utcnow().replace(microsecond=0).isoformat() + "Z"
+
+
+def write_status(status_file, **updates):
+    """原子更新训练状态文件，避免查看时读到半个 JSON。"""
+    status_file = os.path.abspath(status_file)
+    parent = os.path.dirname(status_file)
+    if parent and not os.path.isdir(parent):
+        os.makedirs(parent)
+    payload = {}
+    if os.path.isfile(status_file):
+        try:
+            with open(status_file, "r", encoding="utf-8") as stream:
+                payload = json.load(stream)
+        except (IOError, ValueError):
+            payload = {}
+    payload.update(_json_safe(updates))
+    payload["updated_at"] = _utc_now()
+    temporary = status_file + ".tmp"
+    with open(temporary, "w", encoding="utf-8") as stream:
+        json.dump(payload, stream, ensure_ascii=False, indent=2, sort_keys=True)
+    os.replace(temporary, status_file)
+
+
+class TrainingStatusCallback(Callback):
+    """低频写入训练进度，不向终端输出每个 batch。"""
+
+    def __init__(self, status_file, epochs, steps_per_epoch,
+                 validation_steps, status_interval, checkpoint_pattern):
+        super(TrainingStatusCallback, self).__init__()
+        self.status_file = status_file
+        self.epochs = int(epochs)
+        self.steps_per_epoch = int(steps_per_epoch)
+        self.validation_steps = int(validation_steps)
+        self.status_interval = max(1, int(status_interval))
+        self.checkpoint_pattern = checkpoint_pattern
+        self.current_epoch = 0
+
+    def _checkpoint_for_epoch(self, epoch):
+        try:
+            return self.checkpoint_pattern.format(epoch=epoch)
+        except (KeyError, IndexError, ValueError):
+            return self.checkpoint_pattern
+
+    def on_train_begin(self, logs=None):
+        write_status(
+            self.status_file,
+            status="running",
+            phase="training",
+            epoch=0,
+            epochs=self.epochs,
+            step=0,
+            steps_per_epoch=self.steps_per_epoch,
+            validation_steps=self.validation_steps,
+            global_step=0,
+            progress_percent=0.0,
+            last_logs={},
+        )
+
+    def on_epoch_begin(self, epoch, logs=None):
+        self.current_epoch = int(epoch) + 1
+        write_status(
+            self.status_file,
+            status="running",
+            phase="training",
+            epoch=self.current_epoch,
+            step=0,
+            global_step=int(epoch) * self.steps_per_epoch,
+            progress_percent=round(
+                100.0 * float(epoch) / max(1, self.epochs), 3),
+        )
+
+    def on_batch_end(self, batch, logs=None):
+        step = int(batch) + 1
+        if step != 1 and step % self.status_interval != 0 and step != self.steps_per_epoch:
+            return
+        global_step = (self.current_epoch - 1) * self.steps_per_epoch + step
+        total_steps = max(1, self.epochs * self.steps_per_epoch)
+        write_status(
+            self.status_file,
+            status="running",
+            phase="training",
+            epoch=self.current_epoch,
+            step=step,
+            global_step=global_step,
+            progress_percent=round(100.0 * global_step / total_steps, 3),
+            last_logs=logs or {},
+        )
+
+    def on_epoch_end(self, epoch, logs=None):
+        current_epoch = int(epoch) + 1
+        write_status(
+            self.status_file,
+            status="running" if current_epoch < self.epochs else "saving",
+            phase="epoch_end",
+            epoch=current_epoch,
+            step=self.steps_per_epoch,
+            global_step=current_epoch * self.steps_per_epoch,
+            progress_percent=round(
+                100.0 * current_epoch / max(1, self.epochs), 3),
+            last_logs=logs or {},
+            last_checkpoint=self._checkpoint_for_epoch(current_epoch),
+        )
+
+    def on_train_end(self, logs=None):
+        write_status(
+            self.status_file,
+            status="completed",
+            phase="finished",
+            epoch=self.epochs,
+            step=self.steps_per_epoch,
+            global_step=self.epochs * self.steps_per_epoch,
+            progress_percent=100.0,
+            last_logs=logs or {},
+        )
+
+
 def check_data_batch(dataset, config, name):
     """用 Matterport 生成器读取一个 batch，检查四通道和训练目标形状。"""
     generator = modellib.data_generator(
@@ -230,7 +365,9 @@ def make_parser():
     parser.add_argument("--steps-per-epoch", type=int, default=0,
                         help="每 epoch step 数；0 表示按数据量自动设置")
     parser.add_argument("--validation-steps", type=int, default=0,
-                        help="验证 step 数；0 表示按数据量自动设置")
+                        help="验证 step 数；0 表示完整覆盖当前验证集一遍")
+    parser.add_argument("--full-pass", action="store_true",
+                        help="每个 epoch 完整遍历当前 train/val；默认使用 1000/100 steps")
     parser.add_argument("--train-limit", type=int, default=0,
                         help="只使用前 N 张训练图像，0 表示全部")
     parser.add_argument("--val-limit", type=int, default=0,
@@ -241,6 +378,10 @@ def make_parser():
                         help="数据加载 worker 数，默认 0 便于调试")
     parser.add_argument("--multiprocessing", action="store_true",
                         help="使用 Keras 多进程数据加载；需同时设置 workers")
+    parser.add_argument("--status-file", default=None,
+                        help="训练状态 JSON 路径；默认写入本次日志目录/status.json")
+    parser.add_argument("--status-interval", type=int, default=50,
+                        help="每隔多少个训练 step 更新一次状态 JSON，默认 50")
     parser.add_argument("--smoke-test", action="store_true",
                         help="使用 2 张训练图、1 张验证图、1 个 step 做短跑")
     parser.add_argument("--check-data-only", action="store_true",
@@ -257,6 +398,8 @@ def main(args=None):
         raise ValueError("--workers 不能为负数")
     if args.depth_max_m <= 0:
         raise ValueError("--depth-max-m 必须大于 0")
+    if args.status_interval < 1:
+        raise ValueError("--status-interval 必须大于等于 1")
 
     runs_dir = os.path.abspath(args.logs) if args.logs else _default_runs_dir(args.dataset)
     coco_weights_path = os.path.abspath(args.coco_weights) if args.coco_weights else os.path.join(
@@ -280,14 +423,24 @@ def main(args=None):
     config = BlenderConfig()
     if args.steps_per_epoch > 0:
         config.STEPS_PER_EPOCH = args.steps_per_epoch
+    elif args.full_pass:
+        config.STEPS_PER_EPOCH = max(1, int(np.ceil(
+            float(train_dataset.num_images) / config.BATCH_SIZE)))
     elif args.train_limit > 0:
         config.STEPS_PER_EPOCH = max(1, int(np.ceil(
             float(train_dataset.num_images) / config.BATCH_SIZE)))
+    else:
+        config.STEPS_PER_EPOCH = 1000
     if args.validation_steps > 0:
         config.VALIDATION_STEPS = args.validation_steps
+    elif args.full_pass:
+        config.VALIDATION_STEPS = max(1, int(np.ceil(
+            float(val_dataset.num_images) / config.BATCH_SIZE)))
     elif args.val_limit > 0:
         config.VALIDATION_STEPS = max(1, int(np.ceil(
             float(val_dataset.num_images) / config.BATCH_SIZE)))
+    else:
+        config.VALIDATION_STEPS = 100
 
     print("训练图像数: {}, 验证图像数: {}".format(
         train_dataset.num_images, val_dataset.num_images))
@@ -316,16 +469,62 @@ def main(args=None):
     if args.multiprocessing and args.workers == 0:
         raise ValueError("--multiprocessing 需要同时设置 --workers > 0")
 
-    model.train(
-        train_dataset,
-        val_dataset,
-        learning_rate=config.LEARNING_RATE,
+    status_file = os.path.abspath(args.status_file) if args.status_file else os.path.join(
+        model.log_dir, "status.json")
+    status_callback = TrainingStatusCallback(
+        status_file=status_file,
         epochs=args.epochs,
-        layers=layers,
-        workers=args.workers,
-        use_multiprocessing=args.multiprocessing,
+        steps_per_epoch=config.STEPS_PER_EPOCH,
+        validation_steps=config.VALIDATION_STEPS,
+        status_interval=args.status_interval,
+        checkpoint_pattern=model.checkpoint_path,
     )
+    write_status(
+        status_file,
+        status="starting",
+        phase="initializing",
+        started_at=_utc_now(),
+        pid=os.getpid(),
+        command=" ".join(sys.argv),
+        python=sys.executable,
+        dataset=args.dataset,
+        train_images=train_dataset.num_images,
+        val_images=val_dataset.num_images,
+        image_shape=tuple(config.IMAGE_SHAPE),
+        depth_max_m=args.depth_max_m,
+        batch_size=config.BATCH_SIZE,
+        epochs=args.epochs,
+        steps_per_epoch=config.STEPS_PER_EPOCH,
+        validation_steps=config.VALIDATION_STEPS,
+        weights=weight_description,
+        layers=layers,
+        log_dir=model.log_dir,
+        checkpoint_pattern=model.checkpoint_path,
+    )
+    try:
+        model.train(
+            train_dataset,
+            val_dataset,
+            learning_rate=config.LEARNING_RATE,
+            epochs=args.epochs,
+            layers=layers,
+            workers=args.workers,
+            use_multiprocessing=args.multiprocessing,
+            custom_callbacks=[status_callback],
+            verbose=2,
+            layer_verbose=0,
+        )
+    except Exception as error:
+        write_status(
+            status_file,
+            status="failed",
+            phase="error",
+            error_type=type(error).__name__,
+            error=str(error),
+        )
+        raise
     print("训练完成，日志和 checkpoint 位于: {}".format(model.log_dir))
+    print("训练状态文件: {}".format(status_file))
     return 0
 
 

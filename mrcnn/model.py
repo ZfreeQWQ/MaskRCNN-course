@@ -2275,7 +2275,8 @@ class MaskRCNN():
 
     def train(self, train_dataset, val_dataset, learning_rate, epochs, layers,
               augmentation=None, custom_callbacks=None, no_augmentation_sources=None,
-              workers=None, use_multiprocessing=True, max_queue_size=100):
+              workers=None, use_multiprocessing=True, max_queue_size=100,
+              verbose=2, layer_verbose=0):
         """Train the model.
         train_dataset, val_dataset: Training and validation Dataset objects.
         learning_rate: The learning rate to train with
@@ -2353,7 +2354,7 @@ class MaskRCNN():
         # Train
         log("\nStarting at epoch {}. LR={}\n".format(self.epoch, learning_rate))
         log("Checkpoint Path: {}".format(self.checkpoint_path))
-        self.set_trainable(layers)
+        self.set_trainable(layers, verbose=layer_verbose)
         self.compile(learning_rate, self.config.LEARNING_MOMENTUM)
 
         # Windows 默认关闭多进程；调用方可以显式传入 workers 和
@@ -2376,6 +2377,7 @@ class MaskRCNN():
             max_queue_size=max_queue_size,
             workers=workers,
             use_multiprocessing=use_multiprocessing,
+            verbose=verbose,
         )
         self.epoch = max(self.epoch, epochs)
 
