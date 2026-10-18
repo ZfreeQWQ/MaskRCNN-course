@@ -32,7 +32,7 @@ class BlenderConfig(Config):
 
     NAME = "blender_rgbd"
     GPU_COUNT = 1
-    IMAGES_PER_GPU = 1
+    IMAGES_PER_GPU = 2
     NUM_CLASSES = 2  # 背景 + 组件（component）
     IMAGE_CHANNEL_COUNT = 4
     IMAGE_MIN_DIM = 1024
