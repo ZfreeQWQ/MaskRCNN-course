@@ -2274,7 +2274,8 @@ class MaskRCNN():
             "*epoch*", "{epoch:04d}")
 
     def train(self, train_dataset, val_dataset, learning_rate, epochs, layers,
-              augmentation=None, custom_callbacks=None, no_augmentation_sources=None):
+              augmentation=None, custom_callbacks=None, no_augmentation_sources=None,
+              workers=None, use_multiprocessing=True, max_queue_size=100):
         """Train the model.
         train_dataset, val_dataset: Training and validation Dataset objects.
         learning_rate: The learning rate to train with
@@ -2313,6 +2314,8 @@ class MaskRCNN():
         layer_regex = {
             # all layers but the backbone
             "heads": r"(mrcnn\_.*)|(rpn\_.*)|(fpn\_.*)",
+            # COCO 权重迁移到 RGB-D 时，同时训练新增的深度输入首层
+            "heads+depth": r"(conv1)|(mrcnn\_.*)|(rpn\_.*)|(fpn\_.*)",
             # From a specific Resnet stage and up
             "3+": r"(res3.*)|(bn3.*)|(res4.*)|(bn4.*)|(res5.*)|(bn5.*)|(mrcnn\_.*)|(rpn\_.*)|(fpn\_.*)",
             "4+": r"(res4.*)|(bn4.*)|(res5.*)|(bn5.*)|(mrcnn\_.*)|(rpn\_.*)|(fpn\_.*)",
@@ -2353,13 +2356,14 @@ class MaskRCNN():
         self.set_trainable(layers)
         self.compile(learning_rate, self.config.LEARNING_MOMENTUM)
 
-        # Work-around for Windows: Keras fails on Windows when using
-        # multiprocessing workers. See discussion here:
+        # Windows 默认关闭多进程；调用方可以显式传入 workers 和
+        # use_multiprocessing，以便在服务器上做可控的短跑测试。
         # https://github.com/matterport/Mask_RCNN/issues/13#issuecomment-353124009
-        if os.name is 'nt':
-            workers = 0
-        else:
-            workers = multiprocessing.cpu_count()
+        if workers is None:
+            if os.name == 'nt':
+                workers = 0
+            else:
+                workers = multiprocessing.cpu_count()
 
         self.keras_model.fit_generator(
             train_generator,
@@ -2369,9 +2373,9 @@ class MaskRCNN():
             callbacks=callbacks,
             validation_data=val_generator,
             validation_steps=self.config.VALIDATION_STEPS,
-            max_queue_size=100,
+            max_queue_size=max_queue_size,
             workers=workers,
-            use_multiprocessing=True,
+            use_multiprocessing=use_multiprocessing,
         )
         self.epoch = max(self.epoch, epochs)
 

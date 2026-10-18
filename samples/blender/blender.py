@@ -143,8 +143,10 @@ class BlenderDataset(utils.Dataset):
         info = self.image_info[image_id]
         if info["source"] != self.SOURCE:
             return super(BlenderDataset, self).load_image(image_id)
-        rgb = np.asarray(Image.open(info["path"]).convert("RGB"), dtype=np.uint8)
-        raw_depth = np.asarray(Image.open(info["depth_path"]), dtype=np.uint16)
+        with Image.open(info["path"]) as rgb_file:
+            rgb = np.asarray(rgb_file.convert("RGB"), dtype=np.uint8)
+        with Image.open(info["depth_path"]) as depth_file:
+            raw_depth = np.asarray(depth_file, dtype=np.uint16)
         if raw_depth.shape != rgb.shape[:2]:
             raise ValueError("RGB 与深度图尺寸不一致: {}".format(info["path"]))
         depth_m = raw_depth.astype(np.float32) * info["depth_scale_m"]
