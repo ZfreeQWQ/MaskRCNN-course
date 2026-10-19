@@ -200,6 +200,10 @@ def make_parser():
                         help="叠加图显示阈值；默认 0，保留 smoke checkpoint 的低分预测")
     parser.add_argument("--detection-min-confidence", type=float, default=0.0,
                         help="模型内部最低置信度；默认 0，便于检查完整推理链路")
+    parser.add_argument("--detection-nms-threshold", type=float, default=0.3,
+                        help="最终检测 NMS IoU 阈值；拥挤场景可尝试 0.4/0.5")
+    parser.add_argument("--detection-max-instances", type=int, default=100,
+                        help="每张图最多保留的最终实例数")
     parser.add_argument("--depth-max-m", type=float, default=1.0,
                         help="深度归一化截断上限（米），必须与训练一致")
     return parser
@@ -214,6 +218,10 @@ def main(args=None):
         raise ValueError("--score-threshold 必须在 [0, 1] 范围内")
     if not 0.0 <= args.detection_min_confidence <= 1.0:
         raise ValueError("--detection-min-confidence 必须在 [0, 1] 范围内")
+    if not 0.0 < args.detection_nms_threshold <= 1.0:
+        raise ValueError("--detection-nms-threshold 必须在 (0, 1] 范围内")
+    if args.detection_max_instances < 1:
+        raise ValueError("--detection-max-instances 必须大于 0")
     if args.depth_max_m <= 0:
         raise ValueError("--depth-max-m 必须大于 0")
 
@@ -233,6 +241,8 @@ def main(args=None):
 
     config = BlenderInferenceConfig()
     config.DETECTION_MIN_CONFIDENCE = args.detection_min_confidence
+    config.DETECTION_NMS_THRESHOLD = args.detection_nms_threshold
+    config.DETECTION_MAX_INSTANCES = args.detection_max_instances
     config.display()
     print("验证图像数: {}".format(dataset.num_images))
     print("推理索引: {}".format(indices))
