@@ -1,0 +1,28 @@
+{
+  "time_utc": "2026-10-21T03:52:13.473376+00:00",
+  "old": "/workspace/MaskRCNN-course",
+  "new": "/workspace/Mask2Former-course",
+  "recoverable_archive": "/workspace/.trash/retired-maskrcnn-20261021-5hlhuwlo",
+  "preserved": [
+    "/workspace/blender",
+    "/workspace/blender.zip",
+    "/workspace/TASK.md",
+    "/workspace/test_images.json"
+  ],
+  "moves": [
+    {
+      "source": "/workspace/MaskRCNN-course",
+      "destination": "/workspace/.trash/retired-maskrcnn-20261021-5hlhuwlo/MaskRCNN-course"
+    },
+    {
+      "source": "/workspace/baseline_logs",
+      "destination": "/workspace/.trash/retired-maskrcnn-20261021-5hlhuwlo/baseline_logs"
+    },
+    {
+      "source": "/workspace/baseline_compat_backup_20261019",
+      "destination": "/workspace/.trash/retired-maskrcnn-20261021-5hlhuwlo/baseline_compat_backup_20261019"
+    }
+  ],
+  "mask2former_upstream_commit": "9b0651c6c1d5b3af2e6da0589b719c514ec0d69a",
+  "branch": "wzh-dev"
+}
