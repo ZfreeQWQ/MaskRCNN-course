@@ -1,0 +1,6 @@
+_BASE_: ../blender_rgbd_r50.yaml
+INPUT:
+  IMAGE_SIZE: 1280
+COURSE:
+  NAME: e07_resolution1280
+  TEST_SIZE: 1280

@@ -1,0 +1,4 @@
+_BASE_: ../blender_rgbd_r50.yaml
+COURSE:
+  NAME: e01_small_resample
+  RESAMPLE_SMALL: True

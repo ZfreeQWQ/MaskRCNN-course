@@ -1,0 +1,397 @@
+{
+  "source": "train ONLY; deliberately small-containing diagnostic examples, not AP measurements",
+  "variants": {
+    "e02_small_crop": [
+      {
+        "image_id": 200000001,
+        "instances": 38,
+        "small_instances": 6,
+        "pasted": 0
+      },
+      {
+        "image_id": 200134002,
+        "instances": 20,
+        "small_instances": 2,
+        "pasted": 0
+      },
+      {
+        "image_id": 200263003,
+        "instances": 30,
+        "small_instances": 3,
+        "pasted": 0
+      },
+      {
+        "image_id": 200420006,
+        "instances": 53,
+        "small_instances": 2,
+        "pasted": 0
+      },
+      {
+        "image_id": 200533003,
+        "instances": 40,
+        "small_instances": 6,
+        "pasted": 0
+      },
+      {
+        "image_id": 200666008,
+        "instances": 96,
+        "small_instances": 3,
+        "pasted": 0
+      },
+      {
+        "image_id": 200777006,
+        "instances": 22,
+        "small_instances": 1,
+        "pasted": 0
+      },
+      {
+        "image_id": 200900006,
+        "instances": 41,
+        "small_instances": 1,
+        "pasted": 0
+      },
+      {
+        "image_id": 201035007,
+        "instances": 40,
+        "small_instances": 1,
+        "pasted": 0
+      },
+      {
+        "image_id": 201187006,
+        "instances": 60,
+        "small_instances": 3,
+        "pasted": 0
+      },
+      {
+        "image_id": 201310004,
+        "instances": 43,
+        "small_instances": 11,
+        "pasted": 0
+      },
+      {
+        "image_id": 201424004,
+        "instances": 17,
+        "small_instances": 5,
+        "pasted": 0
+      },
+      {
+        "image_id": 201553002,
+        "instances": 20,
+        "small_instances": 7,
+        "pasted": 0
+      },
+      {
+        "image_id": 201695003,
+        "instances": 38,
+        "small_instances": 7,
+        "pasted": 0
+      },
+      {
+        "image_id": 201844006,
+        "instances": 52,
+        "small_instances": 2,
+        "pasted": 0
+      },
+      {
+        "image_id": 201959004,
+        "instances": 16,
+        "small_instances": 4,
+        "pasted": 0
+      }
+    ],
+    "e03_rgbd_copy_paste": [
+      {
+        "image_id": 200000001,
+        "instances": 38,
+        "small_instances": 6,
+        "pasted": 0
+      },
+      {
+        "image_id": 200134002,
+        "instances": 20,
+        "small_instances": 2,
+        "pasted": 0
+      },
+      {
+        "image_id": 200263003,
+        "instances": 30,
+        "small_instances": 3,
+        "pasted": 0
+      },
+      {
+        "image_id": 200420006,
+        "instances": 59,
+        "small_instances": 2,
+        "pasted": 0
+      },
+      {
+        "image_id": 200533003,
+        "instances": 40,
+        "small_instances": 6,
+        "pasted": 0
+      },
+      {
+        "image_id": 200666008,
+        "instances": 96,
+        "small_instances": 3,
+        "pasted": 0
+      },
+      {
+        "image_id": 200777006,
+        "instances": 22,
+        "small_instances": 1,
+        "pasted": 0
+      },
+      {
+        "image_id": 200900006,
+        "instances": 54,
+        "small_instances": 6,
+        "pasted": 5
+      },
+      {
+        "image_id": 201035007,
+        "instances": 40,
+        "small_instances": 1,
+        "pasted": 0
+      },
+      {
+        "image_id": 201187006,
+        "instances": 67,
+        "small_instances": 3,
+        "pasted": 0
+      },
+      {
+        "image_id": 201310004,
+        "instances": 47,
+        "small_instances": 13,
+        "pasted": 0
+      },
+      {
+        "image_id": 201424004,
+        "instances": 18,
+        "small_instances": 5,
+        "pasted": 0
+      },
+      {
+        "image_id": 201553002,
+        "instances": 20,
+        "small_instances": 7,
+        "pasted": 0
+      },
+      {
+        "image_id": 201695003,
+        "instances": 38,
+        "small_instances": 7,
+        "pasted": 0
+      },
+      {
+        "image_id": 201844006,
+        "instances": 55,
+        "small_instances": 5,
+        "pasted": 3
+      },
+      {
+        "image_id": 201959004,
+        "instances": 16,
+        "small_instances": 4,
+        "pasted": 0
+      }
+    ],
+    "e04_small_loss": [
+      {
+        "image_id": 200000001,
+        "instances": 38,
+        "small_instances": 6,
+        "pasted": 0
+      },
+      {
+        "image_id": 200134002,
+        "instances": 19,
+        "small_instances": 1,
+        "pasted": 0
+      },
+      {
+        "image_id": 200263003,
+        "instances": 30,
+        "small_instances": 3,
+        "pasted": 0
+      },
+      {
+        "image_id": 200420006,
+        "instances": 59,
+        "small_instances": 2,
+        "pasted": 0
+      },
+      {
+        "image_id": 200533003,
+        "instances": 40,
+        "small_instances": 6,
+        "pasted": 0
+      },
+      {
+        "image_id": 200666008,
+        "instances": 96,
+        "small_instances": 3,
+        "pasted": 0
+      },
+      {
+        "image_id": 200777006,
+        "instances": 22,
+        "small_instances": 1,
+        "pasted": 0
+      },
+      {
+        "image_id": 200900006,
+        "instances": 49,
+        "small_instances": 1,
+        "pasted": 0
+      },
+      {
+        "image_id": 201035007,
+        "instances": 38,
+        "small_instances": 1,
+        "pasted": 0
+      },
+      {
+        "image_id": 201187006,
+        "instances": 67,
+        "small_instances": 3,
+        "pasted": 0
+      },
+      {
+        "image_id": 201310004,
+        "instances": 47,
+        "small_instances": 13,
+        "pasted": 0
+      },
+      {
+        "image_id": 201424004,
+        "instances": 18,
+        "small_instances": 5,
+        "pasted": 0
+      },
+      {
+        "image_id": 201553002,
+        "instances": 20,
+        "small_instances": 7,
+        "pasted": 0
+      },
+      {
+        "image_id": 201695003,
+        "instances": 38,
+        "small_instances": 7,
+        "pasted": 0
+      },
+      {
+        "image_id": 201844006,
+        "instances": 52,
+        "small_instances": 2,
+        "pasted": 0
+      },
+      {
+        "image_id": 201959004,
+        "instances": 16,
+        "small_instances": 4,
+        "pasted": 0
+      }
+    ],
+    "e05_foreground_points": [
+      {
+        "image_id": 200000001,
+        "instances": 38,
+        "small_instances": 6,
+        "pasted": 0
+      },
+      {
+        "image_id": 200134002,
+        "instances": 19,
+        "small_instances": 1,
+        "pasted": 0
+      },
+      {
+        "image_id": 200263003,
+        "instances": 30,
+        "small_instances": 3,
+        "pasted": 0
+      },
+      {
+        "image_id": 200420006,
+        "instances": 59,
+        "small_instances": 2,
+        "pasted": 0
+      },
+      {
+        "image_id": 200533003,
+        "instances": 40,
+        "small_instances": 6,
+        "pasted": 0
+      },
+      {
+        "image_id": 200666008,
+        "instances": 96,
+        "small_instances": 3,
+        "pasted": 0
+      },
+      {
+        "image_id": 200777006,
+        "instances": 22,
+        "small_instances": 1,
+        "pasted": 0
+      },
+      {
+        "image_id": 200900006,
+        "instances": 49,
+        "small_instances": 1,
+        "pasted": 0
+      },
+      {
+        "image_id": 201035007,
+        "instances": 38,
+        "small_instances": 1,
+        "pasted": 0
+      },
+      {
+        "image_id": 201187006,
+        "instances": 67,
+        "small_instances": 3,
+        "pasted": 0
+      },
+      {
+        "image_id": 201310004,
+        "instances": 47,
+        "small_instances": 13,
+        "pasted": 0
+      },
+      {
+        "image_id": 201424004,
+        "instances": 18,
+        "small_instances": 5,
+        "pasted": 0
+      },
+      {
+        "image_id": 201553002,
+        "instances": 20,
+        "small_instances": 7,
+        "pasted": 0
+      },
+      {
+        "image_id": 201695003,
+        "instances": 38,
+        "small_instances": 7,
+        "pasted": 0
+      },
+      {
+        "image_id": 201844006,
+        "instances": 52,
+        "small_instances": 2,
+        "pasted": 0
+      },
+      {
+        "image_id": 201959004,
+        "instances": 16,
+        "small_instances": 4,
+        "pasted": 0
+      }
+    ]
+  }
+}

@@ -31,7 +31,8 @@ def main():
     cfg = configuration(args.config)
     model = build_model(cfg).eval()
     DetectionCheckpointer(model).load(args.weights)
-    mapper = RGBDMapper(cfg, training=False)
+    from course.experiments import mapper as build_mapper
+    mapper = build_mapper(cfg, training=False, cache=args.cache)
     records = json.loads((Path(args.cache) / "index.json").read_text())["val"]
     if args.samples:
         assert args.samples > 0
@@ -64,6 +65,9 @@ def main():
             if (n + 1) % 50 == 0:
                 print("EVAL_IMAGE", n + 1, "/", len(records), "PRED", len(detections), flush=True)
     result = dict(architecture="Mask2Former-ResNet50-RGBD", evaluated_subset="val",
+                  experiment=cfg.COURSE.NAME, input_size=cfg.COURSE.TEST_SIZE,
+                  model_parameters=sum(p.numel() for p in model.parameters()),
+                  model_parameter_bytes=sum(p.numel() * p.element_size() for p in model.parameters()),
                   checkpoint=str(Path(args.weights).resolve()), validation_images=len(records),
                   predictions=len(detections), max_instances_per_image=100,
                   mask_size=[1024, 1024], score_scale="0-1", mask_aps_primary=True,

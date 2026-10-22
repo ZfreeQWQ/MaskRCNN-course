@@ -1,0 +1,6 @@
+_BASE_: ../blender_rgbd_r50.yaml
+MODEL:
+  META_ARCHITECTURE: CourseMaskFormer
+COURSE:
+  NAME: e04_small_loss
+  SMALL_LOSS_WEIGHT: 2.0

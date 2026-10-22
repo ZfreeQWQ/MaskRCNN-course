@@ -23,7 +23,17 @@ from course.data import RGBDMapper, register
 class Trainer(OfficialTrainer):
     @classmethod
     def build_train_loader(cls, cfg):
-        return build_detection_train_loader(cfg, mapper=RGBDMapper(cfg, training=True))
+        from course.experiments import mapper
+        sampler = None
+        if cfg.COURSE.RESAMPLE_SMALL:
+            from detectron2.data.samplers import RepeatFactorTrainingSampler
+            payload = json.loads(Path("data_cache/train_small_stats.json").read_text())
+            assert payload["index_sha256"] == hashlib.sha256(Path("data_cache/index.json").read_bytes()).hexdigest()
+            from detectron2.data import DatasetCatalog
+            records = DatasetCatalog.get(cfg.DATASETS.TRAIN[0])
+            assert [r["image_id"] for r in records] == [r["image_id"] for r in payload["records"]]
+            sampler = RepeatFactorTrainingSampler(torch.tensor([r["repeat_factor"] for r in payload["records"]]), seed=cfg.SEED)
+        return build_detection_train_loader(cfg, mapper=mapper(cfg, training=True), sampler=sampler)
 
     def build_hooks(self):
         # Evaluation is explicitly handled by a separate GPU process, not
@@ -47,6 +57,8 @@ def main():
     parser.add_argument("--resume", action="store_true")
     parser.add_argument("--smoke-test", action="store_true")
     args = parser.parse_args()
+    if args.cache != "data_cache":
+        raise ValueError("Versioned suite uses the fixed audited data_cache")
     output = Path(args.output).resolve()
     output.mkdir(parents=True, exist_ok=True)
     if (output / "status.json").exists() and not args.resume:
@@ -62,6 +74,7 @@ def main():
                  train_images=len(index["train"]), val_images=len(index["val"]),
                  validation_results=[], started_unix=time.time(), amp=cfg.SOLVER.AMP.ENABLED,
                  optimizer="AdamW", base_lr=cfg.SOLVER.BASE_LR,
+                 experiment=cfg.COURSE.NAME,
                  train_gpu=os.environ.get("CUDA_VISIBLE_DEVICES"), evaluation_gpu=args.eval_gpu)
 
     def status(**updates):
@@ -84,16 +97,24 @@ def main():
             assert not wrong, "COCO transfer mismatches: " + str(wrong[:10])
             atomic_json(output / "initialization_audit.json", dict(
                 checked_tensors=len(loaded), mismatches=wrong,
-                new_parameters="single-class classifier; class-dependent criterion buffer rebuilt",
+                new_state_keys=sorted(set(actual) - set(loaded)),
                 depth_kernel_initially_zero=bool(torch.count_nonzero(actual["backbone.stem.conv1.weight"][:, 3]) == 0)))
-        sources = {name: hashlib.sha256(Path(name).read_bytes()).hexdigest() for name in
-                   ("train_rgbd.py", "evaluate_rgbd.py", "course/data.py", "configs/blender_rgbd_r50.yaml")}
+        source_paths = sorted(set([Path("train_rgbd.py"), Path("evaluate_rgbd.py"), Path(args.config)] +
+                                  list(Path("course").glob("*.py")) + list(Path("configs/experiments").glob("*.yaml")) +
+                                  [Path("configs/blender_rgbd_r50.yaml")]))
+        sources = {str(name): hashlib.sha256(name.read_bytes()).hexdigest() for name in source_paths}
+        if Path(".source_revision.json").exists():
+            revision = json.loads(Path(".source_revision.json").read_text())
+        else:
+            revision = dict(commit=subprocess.check_output(["git", "rev-parse", "HEAD"], text=True).strip(),
+                            dirty=bool(subprocess.check_output(["git", "status", "--porcelain"], text=True).strip()))
         atomic_json(output / "protocol.json", dict(
             torch=torch.__version__, cuda=torch.version.cuda, config=cfg.dump(), source_sha256=sources,
+            source_revision=revision, experiment=cfg.COURSE.NAME, experiment_settings=dict(cfg.COURSE),
             train_val_never_merged=True, test_used=False,
             weights=json.loads(Path("weights/mask2former_r50_coco_rgbd.json").read_text()),
             final_reporting="final fixed-budget checkpoint on full val; intermediate metrics are monitoring only",
-            augmentation="synchronized horizontal flip + scale(0.5,1.5) + 1024 crop/pad; no Copy-Paste",
+            augmentation="Baseline synchronized transforms plus opt-in COURSE settings recorded above",
             rgbd="4-channel early fusion; RGB COCO kernels preserved, depth kernels zero-initialized"))
 
         class Monitor(hooks.HookBase):
@@ -169,9 +190,13 @@ def main():
                 status(status="smoke_test_passed" if args.smoke_test else "completed",
                        final_metrics=state["validation_results"][-1])
 
-        trainer.register_hooks([Monitor()])
+        monitor = Monitor()
+        trainer.register_hooks([monitor])
         trainer.train()
     except BaseException as error:
+        if "monitor" in locals() and monitor.process is not None and monitor.process.poll() is None:
+            monitor.process.terminate()
+            monitor.process.wait(timeout=30)
         status(status="failed", error=repr(error), traceback=traceback.format_exc())
         raise
 
