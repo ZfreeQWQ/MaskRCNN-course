@@ -43,7 +43,7 @@ def main():
     for name in state["order"]:
         run = suite / name
         if not (run / "status.json").exists():
-            item = dict(name=name, status="pending")
+            item = dict(name=name, status=state.get("jobs", {}).get(name, {}).get("status", "pending"))
         else:
             status = json.loads((run / "status.json").read_text())
             if not (run / "protocol.json").exists() or not (run / "initialization_audit.json").exists():

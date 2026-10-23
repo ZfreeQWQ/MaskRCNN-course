@@ -101,6 +101,17 @@ def main():
             assert json.loads((smoke / "status.json").read_text())["status"] == "smoke_test_passed"
         for name in NAMES:
             run = suite / name
+            control_path = suite / "queue_control.json"
+            if control_path.exists():
+                control = json.loads(control_path.read_text())
+                stop_after = control["stop_after"]
+                assert stop_after in NAMES
+                if NAMES.index(name) > NAMES.index(stop_after):
+                    for deferred in NAMES[NAMES.index(name):]:
+                        state["jobs"].setdefault(deferred, dict(status="deferred_by_user"))
+                    update(status="stopped_by_user", active=None, stop_after=stop_after,
+                           finished_unix=time.time())
+                    return
             result = json.loads((run / "status.json").read_text()) if (run / "status.json").exists() else {}
             if result and result.get("status") != "completed":
                 raise RuntimeError("Existing interrupted experiment needs manual inspection: " + str(run))
