@@ -1,0 +1,619 @@
+{
+  "observed_at": "2026-10-23T10:04:26.249965+08:00",
+  "source_commit": "28b288df6c49e25e489b0950eaf04829913e7864",
+  "suite_status": "running",
+  "baseline": {
+    "metrics": {
+      "architecture": "Mask2Former-ResNet50-RGBD",
+      "evaluated_subset": "val",
+      "checkpoint": "/workspace/Mask2Former-course/runs/baseline_r50_rgbd/model_final.pth",
+      "validation_images": 2584,
+      "predictions": 258400,
+      "max_instances_per_image": 100,
+      "mask_size": [
+        1024,
+        1024
+      ],
+      "score_scale": "0-1",
+      "mask_aps_primary": true,
+      "peak_allocated_gpu_bytes": 2847370752,
+      "inference_seconds_per_image": 0.06433639299834437,
+      "timing_excludes": "disk reads, RLE encoding, COCO aggregation; first 5 images warmed up",
+      "checkpoint_bytes": 528419153,
+      "mask_ap": 0.634357191774692,
+      "mask_ap50": 0.8595655264923653,
+      "mask_ap75": 0.7009566463369155,
+      "mask_aps": 0.2916244868986488,
+      "mask_apm": 0.6627377348254611,
+      "mask_apl": 0.8514475690602586,
+      "total_elapsed_seconds": 1525.157860076055
+    },
+    "checkpoint_sha256": "8d8db6724e90fdbac8237d5bf2ca00dad407289981be7b08d1599f1c0e76e9b2",
+    "checkpoint_bytes": 528419153,
+    "checkpoint_tensors": 558,
+    "model_parameters": 43953090,
+    "upstream_commit": "9b0651c6c1d5b3af2e6da0589b719c514ec0d69a",
+    "tag": "baseline-rgbd-r50-30k-v1",
+    "source_commit": "463528b"
+  },
+  "experiments": [
+    {
+      "name": "e01_small_resample",
+      "status": "completed",
+      "step": 30000,
+      "protocol": {
+        "torch": "2.5.1+cu124",
+        "cuda": "12.4",
+        "config": "COURSE:\n  COPY_PASTE_MAX: 5\n  COPY_PASTE_PROB: 0.0\n  CROP_PROB: 0.0\n  CROP_SIZE: 768\n  DEPTH_GATE: false\n  FOREGROUND_POINT_FRACTION: 0.0\n  NAME: e01_small_resample\n  RESAMPLE_SMALL: true\n  SMALL_AREA: 1024.0\n  SMALL_LOSS_WEIGHT: 1.0\n  TEST_SIZE: 1024\nCUDNN_BENCHMARK: false\nDATALOADER:\n  ASPECT_RATIO_GROUPING: true\n  FILTER_EMPTY_ANNOTATIONS: false\n  NUM_WORKERS: 4\n  REPEAT_SQRT: true\n  REPEAT_THRESHOLD: 0.0\n  SAMPLER_TRAIN: TrainingSampler\nDATASETS:\n  PRECOMPUTED_PROPOSAL_TOPK_TEST: 1000\n  PRECOMPUTED_PROPOSAL_TOPK_TRAIN: 2000\n  PROPOSAL_FILES_TEST: []\n  PROPOSAL_FILES_TRAIN: []\n  TEST:\n  - blender_rgbd_val\n  TRAIN:\n  - blender_rgbd_train\nFLOAT32_PRECISION: ''\nGLOBAL:\n  HACK: 1.0\nINPUT:\n  COLOR_AUG_SSD: false\n  CROP:\n    ENABLED: false\n    SINGLE_CATEGORY_MAX_AREA: 1.0\n    SIZE:\n    - 0.9\n    - 0.9\n    TYPE: relative_range\n  DATASET_MAPPER_NAME: coco_instance_lsj\n  FORMAT: RGB\n  IMAGE_SIZE: 1024\n  MASK_FORMAT: polygon\n  MAX_SCALE: 1.5\n  MAX_SIZE_TEST: 1333\n  MAX_SIZE_TRAIN: 1333\n  MIN_SCALE: 0.5\n  MIN_SIZE_TEST: 800\n  MIN_SIZE_TRAIN:\n  - 800\n  MIN_SIZE_TRAIN_SAMPLING: choice\n  RANDOM_FLIP: horizontal\n  SIZE_DIVISIBILITY: -1\nMODEL:\n  ANCHOR_GENERATOR:\n    ANGLES:\n    - - -90\n      - 0\n      - 90\n    ASPECT_RATIOS:\n    - - 0.5\n      - 1.0\n      - 2.0\n    NAME: DefaultAnchorGenerator\n    OFFSET: 0.0\n    SIZES:\n    - - 32\n      - 64\n      - 128\n      - 256\n      - 512\n  BACKBONE:\n    FREEZE_AT: 0\n    NAME: build_resnet_backbone\n  DEVICE: cuda\n  FPN:\n    FUSE_TYPE: sum\n    IN_FEATURES: []\n    NORM: ''\n    OUT_CHANNELS: 256\n  KEYPOINT_ON: false\n  LOAD_PROPOSALS: false\n  MASK_FORMER:\n    CLASS_WEIGHT: 2.0\n    DEC_LAYERS: 10\n    DEEP_SUPERVISION: true\n    DICE_WEIGHT: 5.0\n    DIM_FEEDFORWARD: 2048\n    DROPOUT: 0.0\n    ENC_LAYERS: 0\n    ENFORCE_INPUT_PROJ: false\n    HIDDEN_DIM: 256\n    IMPORTANCE_SAMPLE_RATIO: 0.75\n    MASK_WEIGHT: 5.0\n    NHEADS: 8\n    NO_OBJECT_WEIGHT: 0.1\n    NUM_OBJECT_QUERIES: 100\n    OVERSAMPLE_RATIO: 3.0\n    PRE_NORM: false\n    SIZE_DIVISIBILITY: 32\n    TEST:\n      INSTANCE_ON: true\n      OBJECT_MASK_THRESHOLD: 0.8\n      OVERLAP_THRESHOLD: 0.8\n      PANOPTIC_ON: false\n      SEMANTIC_ON: false\n      SEM_SEG_POSTPROCESSING_BEFORE_INFERENCE: false\n    TRAIN_NUM_POINTS: 12544\n    TRANSFORMER_DECODER_NAME: MultiScaleMaskedTransformerDecoder\n    TRANSFORMER_IN_FEATURE: multi_scale_pixel_decoder\n  MASK_ON: false\n  META_ARCHITECTURE: MaskFormer\n  PANOPTIC_FPN:\n    COMBINE:\n      ENABLED: true\n      INSTANCES_CONFIDENCE_THRESH: 0.5\n      OVERLAP_THRESH: 0.5\n      STUFF_AREA_LIMIT: 4096\n    INSTANCE_LOSS_WEIGHT: 1.0\n  PIXEL_MEAN:\n  - 123.675\n  - 116.28\n  - 103.53\n  - 32.0\n  PIXEL_STD:\n  - 58.395\n  - 57.12\n  - 57.375\n  - 64.0\n  PROPOSAL_GENERATOR:\n    MIN_SIZE: 0\n    NAME: RPN\n  RESNETS:\n    DEFORM_MODULATED: false\n    DEFORM_NUM_GROUPS: 1\n    DEFORM_ON_PER_STAGE:\n    - false\n    - false\n    - false\n    - false\n    DEPTH: 50\n    NORM: FrozenBN\n    NUM_GROUPS: 1\n    OUT_FEATURES:\n    - res2\n    - res3\n    - res4\n    - res5\n    RES2_OUT_CHANNELS: 256\n    RES4_DILATION: 1\n    RES5_DILATION: 1\n    RES5_MULTI_GRID:\n    - 1\n    - 1\n    - 1\n    STEM_OUT_CHANNELS: 64\n    STEM_TYPE: basic\n    STRIDE_IN_1X1: false\n    WIDTH_PER_GROUP: 64\n  RETINANET:\n    BBOX_REG_LOSS_TYPE: smooth_l1\n    BBOX_REG_WEIGHTS: &id002\n    - 1.0\n    - 1.0\n    - 1.0\n    - 1.0\n    FOCAL_LOSS_ALPHA: 0.25\n    FOCAL_LOSS_GAMMA: 2.0\n    IN_FEATURES:\n    - p3\n    - p4\n    - p5\n    - p6\n    - p7\n    IOU_LABELS:\n    - 0\n    - -1\n    - 1\n    IOU_THRESHOLDS:\n    - 0.4\n    - 0.5\n    NMS_THRESH_TEST: 0.5\n    NORM: ''\n    NUM_CLASSES: 80\n    NUM_CONVS: 4\n    PRIOR_PROB: 0.01\n    SCORE_THRESH_TEST: 0.05\n    SMOOTH_L1_LOSS_BETA: 0.1\n    TOPK_CANDIDATES_TEST: 1000\n  ROI_BOX_CASCADE_HEAD:\n    BBOX_REG_WEIGHTS:\n    - &id001\n      - 10.0\n      - 10.0\n      - 5.0\n      - 5.0\n    - - 20.0\n      - 20.0\n      - 10.0\n      - 10.0\n    - - 30.0\n      - 30.0\n      - 15.0\n      - 15.0\n    IOUS:\n    - 0.5\n    - 0.6\n    - 0.7\n  ROI_BOX_HEAD:\n    BBOX_REG_LOSS_TYPE: smooth_l1\n    BBOX_REG_LOSS_WEIGHT: 1.0\n    BBOX_REG_WEIGHTS: *id001\n    CLS_AGNOSTIC_BBOX_REG: false\n    CONV_DIM: 256\n    FC_DIM: 1024\n    FED_LOSS_FREQ_WEIGHT_POWER: 0.5\n    FED_LOSS_NUM_CLASSES: 50\n    NAME: ''\n    NORM: ''\n    NUM_CONV: 0\n    NUM_FC: 0\n    POOLER_RESOLUTION: 14\n    POOLER_SAMPLING_RATIO: 0\n    POOLER_TYPE: ROIAlignV2\n    SMOOTH_L1_BETA: 0.0\n    TRAIN_ON_PRED_BOXES: false\n    USE_FED_LOSS: false\n    USE_SIGMOID_CE: false\n  ROI_HEADS:\n    BATCH_SIZE_PER_IMAGE: 512\n    IN_FEATURES:\n    - res4\n    IOU_LABELS:\n    - 0\n    - 1\n    IOU_THRESHOLDS:\n    - 0.5\n    NAME: Res5ROIHeads\n    NMS_THRESH_TEST: 0.5\n    NUM_CLASSES: 80\n    POSITIVE_FRACTION: 0.25\n    PROPOSAL_APPEND_GT: true\n    SCORE_THRESH_TEST: 0.05\n  ROI_KEYPOINT_HEAD:\n    CONV_DIMS:\n    - 512\n    - 512\n    - 512\n    - 512\n    - 512\n    - 512\n    - 512\n    - 512\n    LOSS_WEIGHT: 1.0\n    MIN_KEYPOINTS_PER_IMAGE: 1\n    NAME: KRCNNConvDeconvUpsampleHead\n    NORMALIZE_LOSS_BY_VISIBLE_KEYPOINTS: true\n    NUM_KEYPOINTS: 17\n    POOLER_RESOLUTION: 14\n    POOLER_SAMPLING_RATIO: 0\n    POOLER_TYPE: ROIAlignV2\n  ROI_MASK_HEAD:\n    CLS_AGNOSTIC_MASK: false\n    CONV_DIM: 256\n    NAME: MaskRCNNConvUpsampleHead\n    NORM: ''\n    NUM_CONV: 0\n    POOLER_RESOLUTION: 14\n    POOLER_SAMPLING_RATIO: 0\n    POOLER_TYPE: ROIAlignV2\n  RPN:\n    BATCH_SIZE_PER_IMAGE: 256\n    BBOX_REG_LOSS_TYPE: smooth_l1\n    BBOX_REG_LOSS_WEIGHT: 1.0\n    BBOX_REG_WEIGHTS: *id002\n    BOUNDARY_THRESH: -1\n    CONV_DIMS:\n    - -1\n    HEAD_NAME: StandardRPNHead\n    IN_FEATURES:\n    - res4\n    IOU_LABELS:\n    - 0\n    - -1\n    - 1\n    IOU_THRESHOLDS:\n    - 0.3\n    - 0.7\n    LOSS_WEIGHT: 1.0\n    NMS_THRESH: 0.7\n    POSITIVE_FRACTION: 0.5\n    POST_NMS_TOPK_TEST: 1000\n    POST_NMS_TOPK_TRAIN: 2000\n    PRE_NMS_TOPK_TEST: 6000\n    PRE_NMS_TOPK_TRAIN: 12000\n    SMOOTH_L1_BETA: 0.0\n  SEM_SEG_HEAD:\n    ASPP_CHANNELS: 256\n    ASPP_DILATIONS:\n    - 6\n    - 12\n    - 18\n    ASPP_DROPOUT: 0.1\n    COMMON_STRIDE: 4\n    CONVS_DIM: 256\n    DEFORMABLE_TRANSFORMER_ENCODER_IN_FEATURES:\n    - res3\n    - res4\n    - res5\n    DEFORMABLE_TRANSFORMER_ENCODER_N_HEADS: 8\n    DEFORMABLE_TRANSFORMER_ENCODER_N_POINTS: 4\n    IGNORE_VALUE: 255\n    IN_FEATURES:\n    - res2\n    - res3\n    - res4\n    - res5\n    LOSS_TYPE: hard_pixel_mining\n    LOSS_WEIGHT: 1.0\n    MASK_DIM: 256\n    NAME: MaskFormerHead\n    NORM: GN\n    NUM_CLASSES: 1\n    PIXEL_DECODER_NAME: MSDeformAttnPixelDecoder\n    PROJECT_CHANNELS:\n    - 48\n    PROJECT_FEATURES:\n    - res2\n    TRANSFORMER_ENC_LAYERS: 6\n    USE_DEPTHWISE_SEPARABLE_CONV: false\n  SWIN:\n    APE: false\n    ATTN_DROP_RATE: 0.0\n    DEPTHS:\n    - 2\n    - 2\n    - 6\n    - 2\n    DROP_PATH_RATE: 0.3\n    DROP_RATE: 0.0\n    EMBED_DIM: 96\n    MLP_RATIO: 4.0\n    NUM_HEADS:\n    - 3\n    - 6\n    - 12\n    - 24\n    OUT_FEATURES:\n    - res2\n    - res3\n    - res4\n    - res5\n    PATCH_NORM: true\n    PATCH_SIZE: 4\n    PRETRAIN_IMG_SIZE: 224\n    QKV_BIAS: true\n    QK_SCALE: null\n    USE_CHECKPOINT: false\n    WINDOW_SIZE: 7\n  WEIGHTS: weights/mask2former_r50_coco_rgbd.pth\nOUTPUT_DIR: /workspace/Mask2Former-course/runs/ablations_v1/e01_small_resample\nSEED: 42\nSOLVER:\n  AMP:\n    ENABLED: false\n  BACKBONE_MULTIPLIER: 0.1\n  BASE_LR: 0.0001\n  BASE_LR_END: 0.0\n  BIAS_LR_FACTOR: 1.0\n  CHECKPOINT_PERIOD: 1000\n  CLIP_GRADIENTS:\n    CLIP_TYPE: full_model\n    CLIP_VALUE: 0.01\n    ENABLED: true\n    NORM_TYPE: 2.0\n  GAMMA: 0.1\n  IMS_PER_BATCH: 2\n  LR_SCHEDULER_NAME: WarmupMultiStepLR\n  MAX_ITER: 30000\n  MOMENTUM: 0.9\n  NESTEROV: false\n  NUM_DECAYS: 3\n  OPTIMIZER: ADAMW\n  POLY_LR_CONSTANT_ENDING: 0.0\n  POLY_LR_POWER: 0.9\n  REFERENCE_WORLD_SIZE: 0\n  RESCALE_INTERVAL: false\n  STEPS:\n  - 18000\n  - 24000\n  WARMUP_FACTOR: 0.01\n  WARMUP_ITERS: 250\n  WARMUP_METHOD: linear\n  WEIGHT_DECAY: 0.05\n  WEIGHT_DECAY_BIAS: null\n  WEIGHT_DECAY_EMBED: 0.0\n  WEIGHT_DECAY_NORM: 0.0\nTEST:\n  AUG:\n    ENABLED: false\n    FLIP: true\n    MAX_SIZE: 4000\n    MIN_SIZES:\n    - 400\n    - 500\n    - 600\n    - 700\n    - 800\n    - 900\n    - 1000\n    - 1100\n    - 1200\n  DETECTIONS_PER_IMAGE: 100\n  EVAL_PERIOD: 0\n  EXPECTED_RESULTS: []\n  KEYPOINT_OKS_SIGMAS: []\n  PRECISE_BN:\n    ENABLED: false\n    NUM_ITER: 200\nVERSION: 2\nVIS_PERIOD: 0\n",
+        "source_sha256": {
+          "configs/blender_rgbd_r50.yaml": "188ea2eb3faaef1113dde5ec9563b8f1761929cad45f5b4c5e20e252326a91fa",
+          "configs/experiments/e01_small_resample.yaml": "be1a3d102ee735ee535c27fde4beda6785bf2287b7007a86408ef2f29c2c7347",
+          "configs/experiments/e02_small_crop.yaml": "a53ccbd11f16519c8dc29118be262936f25301c63c76cd6225f9b319320872a6",
+          "configs/experiments/e03_rgbd_copy_paste.yaml": "e3cd50817ef725302e7b010474e692ffe4f4e74cba72ca88ff3b2f0798963276",
+          "configs/experiments/e04_small_loss.yaml": "6882424cad1a01d4b97aab46e7691af9bd42711a7f1df900addb3d3df734ca45",
+          "configs/experiments/e05_foreground_points.yaml": "37ec5beb27e0c1f17c0c06b8cc489a522d4cc2423ec5883d960b2a67550fe0f4",
+          "configs/experiments/e06_depth_p2_gate.yaml": "1ef2596f473051cea026829bfbebcbfbce22f259554c2d308639ac5e8f356900",
+          "configs/experiments/e07_resolution1280.yaml": "fe03f92f3cb29961214c44f27d795b188d56c40e3662ca7838dbf7606b841b52",
+          "course/__init__.py": "c456bfcda30efbf9e354d0f0aec49dfbdfdb3b22f436c46ceb3d5d771279195b",
+          "course/augmentation.py": "285fe13099927b948c7676a63b3d4e98bdac11362d101cf7a6a054516786ea4b",
+          "course/common.py": "75926389bb587bf4451d293a32aade6e0fafa43f88f7bf692ef46cc0fd5370de",
+          "course/data.py": "74953b890a0000008741e3095ec9ca66b284b17c8783218d0b5d5729be75a408",
+          "course/experiments.py": "267dfdf26d53aefa96f4a398932cfdb9273bf2e8ff9642736bbca2192bf4afbd",
+          "course/modeling.py": "b48661600a3643ff4a720c83efb2b98075f584ef5e1bcdff97a6544bec1c8b23",
+          "evaluate_rgbd.py": "75db0044ae289dc7726d8761d3f231e47f069fdeeb8b35b342bbd2a53caa2143",
+          "train_rgbd.py": "280fb3847e3dab415184d70d4ee3fd7eab0d54ddf13cc46124d33351c26d15d1"
+        },
+        "source_revision": {
+          "commit": "28b288df6c49e25e489b0950eaf04829913e7864",
+          "dirty": false,
+          "archive_sha256": "cbeb247e742fc9a595068555a1868d9cf1b3f9f8a6b48602a6ac97da8fd48fd3",
+          "immutable_snapshot": true
+        },
+        "experiment": "e01_small_resample",
+        "experiment_settings": {
+          "NAME": "e01_small_resample",
+          "RESAMPLE_SMALL": true,
+          "SMALL_AREA": 1024.0,
+          "CROP_PROB": 0.0,
+          "CROP_SIZE": 768,
+          "COPY_PASTE_PROB": 0.0,
+          "COPY_PASTE_MAX": 5,
+          "SMALL_LOSS_WEIGHT": 1.0,
+          "FOREGROUND_POINT_FRACTION": 0.0,
+          "DEPTH_GATE": false,
+          "TEST_SIZE": 1024
+        },
+        "train_val_never_merged": true,
+        "test_used": false,
+        "weights": {
+          "source_url": "https://dl.fbaipublicfiles.com/maskformer/mask2former/coco/instance/maskformer2_R50_bs16_50ep/model_final_3c8ec9.pkl",
+          "source_sha256": "c18e6551f9c0e951e7ee3a63eb5402b901612e4e141965d4719d13c69a97ec2a",
+          "adapted_sha256": "e9d1737a20dfa89bd86f4c226c2d5ec8bf0cd95c0c0641636893428d48d91e2d",
+          "retained_tensors": 555,
+          "excluded_classifier": [
+            "sem_seg_head.predictor.class_embed.weight",
+            "sem_seg_head.predictor.class_embed.bias"
+          ],
+          "excluded_class_dependent_buffers": [
+            "criterion.empty_weight"
+          ],
+          "format_conversion": "static_query renamed to query_feat; state_dict version metadata retained",
+          "rgbd_initialization": "RGB channels copied exactly; depth-channel kernels zero",
+          "depth_reason": "Initial RGB features equal COCO; depth kernels are trainable"
+        },
+        "final_reporting": "final fixed-budget checkpoint on full val; intermediate metrics are monitoring only",
+        "augmentation": "Baseline synchronized transforms plus opt-in COURSE settings recorded above",
+        "rgbd": "4-channel early fusion; RGB COCO kernels preserved, depth kernels zero-initialized"
+      },
+      "initialization_audit": {
+        "checked_tensors": 555,
+        "mismatches": [],
+        "new_state_keys": [
+          "criterion.empty_weight",
+          "sem_seg_head.predictor.class_embed.bias",
+          "sem_seg_head.predictor.class_embed.weight"
+        ],
+        "depth_kernel_initially_zero": true
+      },
+      "source_hash_audit_passed": true,
+      "metrics": {
+        "architecture": "Mask2Former-ResNet50-RGBD",
+        "evaluated_subset": "val",
+        "experiment": "e01_small_resample",
+        "input_size": 1024,
+        "model_parameters": 43953090,
+        "model_parameter_bytes": 175812360,
+        "checkpoint": "/workspace/Mask2Former-course/runs/ablations_v1/e01_small_resample/model_final.pth",
+        "validation_images": 2584,
+        "predictions": 258400,
+        "max_instances_per_image": 100,
+        "mask_size": [
+          1024,
+          1024
+        ],
+        "score_scale": "0-1",
+        "mask_aps_primary": true,
+        "peak_allocated_gpu_bytes": 2847370752,
+        "inference_seconds_per_image": 0.062152755439058294,
+        "timing_excludes": "disk reads, RLE encoding, COCO aggregation; first 5 images warmed up",
+        "checkpoint_bytes": 528419153,
+        "mask_ap": 0.6349648053048318,
+        "mask_ap50": 0.8602798336772522,
+        "mask_ap75": 0.7009765359025104,
+        "mask_aps": 0.29428992015530636,
+        "mask_apm": 0.6647845977684177,
+        "mask_apl": 0.8504747260800936,
+        "total_elapsed_seconds": 1516.4814611771144
+      },
+      "checkpoint_sha256": "dc48d1805b9512a228692d2b5103f48063f5f232f7513d0d6532ad4358a3ac43",
+      "delta_aps": 0.002665433256657579,
+      "delta_ap": 0.0006076135301398278,
+      "inference_export": {
+        "source_training_checkpoint": "/workspace/Mask2Former-course/runs/ablations_v1/e01_small_resample/model_final.pth",
+        "inference_weights": "/workspace/Mask2Former-course/runs/ablations_v1/e01_small_resample/model_final_inference.pth",
+        "parameters": 43953090,
+        "parameter_bytes": 175812360,
+        "inference_file_bytes": 176456914,
+        "training_file_bytes": 528419153,
+        "sha256": "0a403bc0722bf09e32785cb5cb6fa9f7e1c39cec299d993b24cdc14593511180",
+        "strict_load_passed": true
+      }
+    },
+    {
+      "name": "e02_small_crop",
+      "status": "completed",
+      "step": 30000,
+      "protocol": {
+        "torch": "2.5.1+cu124",
+        "cuda": "12.4",
+        "config": "COURSE:\n  COPY_PASTE_MAX: 5\n  COPY_PASTE_PROB: 0.0\n  CROP_PROB: 0.5\n  CROP_SIZE: 768\n  DEPTH_GATE: false\n  FOREGROUND_POINT_FRACTION: 0.0\n  NAME: e02_small_crop\n  RESAMPLE_SMALL: false\n  SMALL_AREA: 1024.0\n  SMALL_LOSS_WEIGHT: 1.0\n  TEST_SIZE: 1024\nCUDNN_BENCHMARK: false\nDATALOADER:\n  ASPECT_RATIO_GROUPING: true\n  FILTER_EMPTY_ANNOTATIONS: false\n  NUM_WORKERS: 4\n  REPEAT_SQRT: true\n  REPEAT_THRESHOLD: 0.0\n  SAMPLER_TRAIN: TrainingSampler\nDATASETS:\n  PRECOMPUTED_PROPOSAL_TOPK_TEST: 1000\n  PRECOMPUTED_PROPOSAL_TOPK_TRAIN: 2000\n  PROPOSAL_FILES_TEST: []\n  PROPOSAL_FILES_TRAIN: []\n  TEST:\n  - blender_rgbd_val\n  TRAIN:\n  - blender_rgbd_train\nFLOAT32_PRECISION: ''\nGLOBAL:\n  HACK: 1.0\nINPUT:\n  COLOR_AUG_SSD: false\n  CROP:\n    ENABLED: false\n    SINGLE_CATEGORY_MAX_AREA: 1.0\n    SIZE:\n    - 0.9\n    - 0.9\n    TYPE: relative_range\n  DATASET_MAPPER_NAME: coco_instance_lsj\n  FORMAT: RGB\n  IMAGE_SIZE: 1024\n  MASK_FORMAT: polygon\n  MAX_SCALE: 1.5\n  MAX_SIZE_TEST: 1333\n  MAX_SIZE_TRAIN: 1333\n  MIN_SCALE: 0.5\n  MIN_SIZE_TEST: 800\n  MIN_SIZE_TRAIN:\n  - 800\n  MIN_SIZE_TRAIN_SAMPLING: choice\n  RANDOM_FLIP: horizontal\n  SIZE_DIVISIBILITY: -1\nMODEL:\n  ANCHOR_GENERATOR:\n    ANGLES:\n    - - -90\n      - 0\n      - 90\n    ASPECT_RATIOS:\n    - - 0.5\n      - 1.0\n      - 2.0\n    NAME: DefaultAnchorGenerator\n    OFFSET: 0.0\n    SIZES:\n    - - 32\n      - 64\n      - 128\n      - 256\n      - 512\n  BACKBONE:\n    FREEZE_AT: 0\n    NAME: build_resnet_backbone\n  DEVICE: cuda\n  FPN:\n    FUSE_TYPE: sum\n    IN_FEATURES: []\n    NORM: ''\n    OUT_CHANNELS: 256\n  KEYPOINT_ON: false\n  LOAD_PROPOSALS: false\n  MASK_FORMER:\n    CLASS_WEIGHT: 2.0\n    DEC_LAYERS: 10\n    DEEP_SUPERVISION: true\n    DICE_WEIGHT: 5.0\n    DIM_FEEDFORWARD: 2048\n    DROPOUT: 0.0\n    ENC_LAYERS: 0\n    ENFORCE_INPUT_PROJ: false\n    HIDDEN_DIM: 256\n    IMPORTANCE_SAMPLE_RATIO: 0.75\n    MASK_WEIGHT: 5.0\n    NHEADS: 8\n    NO_OBJECT_WEIGHT: 0.1\n    NUM_OBJECT_QUERIES: 100\n    OVERSAMPLE_RATIO: 3.0\n    PRE_NORM: false\n    SIZE_DIVISIBILITY: 32\n    TEST:\n      INSTANCE_ON: true\n      OBJECT_MASK_THRESHOLD: 0.8\n      OVERLAP_THRESHOLD: 0.8\n      PANOPTIC_ON: false\n      SEMANTIC_ON: false\n      SEM_SEG_POSTPROCESSING_BEFORE_INFERENCE: false\n    TRAIN_NUM_POINTS: 12544\n    TRANSFORMER_DECODER_NAME: MultiScaleMaskedTransformerDecoder\n    TRANSFORMER_IN_FEATURE: multi_scale_pixel_decoder\n  MASK_ON: false\n  META_ARCHITECTURE: MaskFormer\n  PANOPTIC_FPN:\n    COMBINE:\n      ENABLED: true\n      INSTANCES_CONFIDENCE_THRESH: 0.5\n      OVERLAP_THRESH: 0.5\n      STUFF_AREA_LIMIT: 4096\n    INSTANCE_LOSS_WEIGHT: 1.0\n  PIXEL_MEAN:\n  - 123.675\n  - 116.28\n  - 103.53\n  - 32.0\n  PIXEL_STD:\n  - 58.395\n  - 57.12\n  - 57.375\n  - 64.0\n  PROPOSAL_GENERATOR:\n    MIN_SIZE: 0\n    NAME: RPN\n  RESNETS:\n    DEFORM_MODULATED: false\n    DEFORM_NUM_GROUPS: 1\n    DEFORM_ON_PER_STAGE:\n    - false\n    - false\n    - false\n    - false\n    DEPTH: 50\n    NORM: FrozenBN\n    NUM_GROUPS: 1\n    OUT_FEATURES:\n    - res2\n    - res3\n    - res4\n    - res5\n    RES2_OUT_CHANNELS: 256\n    RES4_DILATION: 1\n    RES5_DILATION: 1\n    RES5_MULTI_GRID:\n    - 1\n    - 1\n    - 1\n    STEM_OUT_CHANNELS: 64\n    STEM_TYPE: basic\n    STRIDE_IN_1X1: false\n    WIDTH_PER_GROUP: 64\n  RETINANET:\n    BBOX_REG_LOSS_TYPE: smooth_l1\n    BBOX_REG_WEIGHTS: &id002\n    - 1.0\n    - 1.0\n    - 1.0\n    - 1.0\n    FOCAL_LOSS_ALPHA: 0.25\n    FOCAL_LOSS_GAMMA: 2.0\n    IN_FEATURES:\n    - p3\n    - p4\n    - p5\n    - p6\n    - p7\n    IOU_LABELS:\n    - 0\n    - -1\n    - 1\n    IOU_THRESHOLDS:\n    - 0.4\n    - 0.5\n    NMS_THRESH_TEST: 0.5\n    NORM: ''\n    NUM_CLASSES: 80\n    NUM_CONVS: 4\n    PRIOR_PROB: 0.01\n    SCORE_THRESH_TEST: 0.05\n    SMOOTH_L1_LOSS_BETA: 0.1\n    TOPK_CANDIDATES_TEST: 1000\n  ROI_BOX_CASCADE_HEAD:\n    BBOX_REG_WEIGHTS:\n    - &id001\n      - 10.0\n      - 10.0\n      - 5.0\n      - 5.0\n    - - 20.0\n      - 20.0\n      - 10.0\n      - 10.0\n    - - 30.0\n      - 30.0\n      - 15.0\n      - 15.0\n    IOUS:\n    - 0.5\n    - 0.6\n    - 0.7\n  ROI_BOX_HEAD:\n    BBOX_REG_LOSS_TYPE: smooth_l1\n    BBOX_REG_LOSS_WEIGHT: 1.0\n    BBOX_REG_WEIGHTS: *id001\n    CLS_AGNOSTIC_BBOX_REG: false\n    CONV_DIM: 256\n    FC_DIM: 1024\n    FED_LOSS_FREQ_WEIGHT_POWER: 0.5\n    FED_LOSS_NUM_CLASSES: 50\n    NAME: ''\n    NORM: ''\n    NUM_CONV: 0\n    NUM_FC: 0\n    POOLER_RESOLUTION: 14\n    POOLER_SAMPLING_RATIO: 0\n    POOLER_TYPE: ROIAlignV2\n    SMOOTH_L1_BETA: 0.0\n    TRAIN_ON_PRED_BOXES: false\n    USE_FED_LOSS: false\n    USE_SIGMOID_CE: false\n  ROI_HEADS:\n    BATCH_SIZE_PER_IMAGE: 512\n    IN_FEATURES:\n    - res4\n    IOU_LABELS:\n    - 0\n    - 1\n    IOU_THRESHOLDS:\n    - 0.5\n    NAME: Res5ROIHeads\n    NMS_THRESH_TEST: 0.5\n    NUM_CLASSES: 80\n    POSITIVE_FRACTION: 0.25\n    PROPOSAL_APPEND_GT: true\n    SCORE_THRESH_TEST: 0.05\n  ROI_KEYPOINT_HEAD:\n    CONV_DIMS:\n    - 512\n    - 512\n    - 512\n    - 512\n    - 512\n    - 512\n    - 512\n    - 512\n    LOSS_WEIGHT: 1.0\n    MIN_KEYPOINTS_PER_IMAGE: 1\n    NAME: KRCNNConvDeconvUpsampleHead\n    NORMALIZE_LOSS_BY_VISIBLE_KEYPOINTS: true\n    NUM_KEYPOINTS: 17\n    POOLER_RESOLUTION: 14\n    POOLER_SAMPLING_RATIO: 0\n    POOLER_TYPE: ROIAlignV2\n  ROI_MASK_HEAD:\n    CLS_AGNOSTIC_MASK: false\n    CONV_DIM: 256\n    NAME: MaskRCNNConvUpsampleHead\n    NORM: ''\n    NUM_CONV: 0\n    POOLER_RESOLUTION: 14\n    POOLER_SAMPLING_RATIO: 0\n    POOLER_TYPE: ROIAlignV2\n  RPN:\n    BATCH_SIZE_PER_IMAGE: 256\n    BBOX_REG_LOSS_TYPE: smooth_l1\n    BBOX_REG_LOSS_WEIGHT: 1.0\n    BBOX_REG_WEIGHTS: *id002\n    BOUNDARY_THRESH: -1\n    CONV_DIMS:\n    - -1\n    HEAD_NAME: StandardRPNHead\n    IN_FEATURES:\n    - res4\n    IOU_LABELS:\n    - 0\n    - -1\n    - 1\n    IOU_THRESHOLDS:\n    - 0.3\n    - 0.7\n    LOSS_WEIGHT: 1.0\n    NMS_THRESH: 0.7\n    POSITIVE_FRACTION: 0.5\n    POST_NMS_TOPK_TEST: 1000\n    POST_NMS_TOPK_TRAIN: 2000\n    PRE_NMS_TOPK_TEST: 6000\n    PRE_NMS_TOPK_TRAIN: 12000\n    SMOOTH_L1_BETA: 0.0\n  SEM_SEG_HEAD:\n    ASPP_CHANNELS: 256\n    ASPP_DILATIONS:\n    - 6\n    - 12\n    - 18\n    ASPP_DROPOUT: 0.1\n    COMMON_STRIDE: 4\n    CONVS_DIM: 256\n    DEFORMABLE_TRANSFORMER_ENCODER_IN_FEATURES:\n    - res3\n    - res4\n    - res5\n    DEFORMABLE_TRANSFORMER_ENCODER_N_HEADS: 8\n    DEFORMABLE_TRANSFORMER_ENCODER_N_POINTS: 4\n    IGNORE_VALUE: 255\n    IN_FEATURES:\n    - res2\n    - res3\n    - res4\n    - res5\n    LOSS_TYPE: hard_pixel_mining\n    LOSS_WEIGHT: 1.0\n    MASK_DIM: 256\n    NAME: MaskFormerHead\n    NORM: GN\n    NUM_CLASSES: 1\n    PIXEL_DECODER_NAME: MSDeformAttnPixelDecoder\n    PROJECT_CHANNELS:\n    - 48\n    PROJECT_FEATURES:\n    - res2\n    TRANSFORMER_ENC_LAYERS: 6\n    USE_DEPTHWISE_SEPARABLE_CONV: false\n  SWIN:\n    APE: false\n    ATTN_DROP_RATE: 0.0\n    DEPTHS:\n    - 2\n    - 2\n    - 6\n    - 2\n    DROP_PATH_RATE: 0.3\n    DROP_RATE: 0.0\n    EMBED_DIM: 96\n    MLP_RATIO: 4.0\n    NUM_HEADS:\n    - 3\n    - 6\n    - 12\n    - 24\n    OUT_FEATURES:\n    - res2\n    - res3\n    - res4\n    - res5\n    PATCH_NORM: true\n    PATCH_SIZE: 4\n    PRETRAIN_IMG_SIZE: 224\n    QKV_BIAS: true\n    QK_SCALE: null\n    USE_CHECKPOINT: false\n    WINDOW_SIZE: 7\n  WEIGHTS: weights/mask2former_r50_coco_rgbd.pth\nOUTPUT_DIR: /workspace/Mask2Former-course/runs/ablations_v1/e02_small_crop\nSEED: 42\nSOLVER:\n  AMP:\n    ENABLED: false\n  BACKBONE_MULTIPLIER: 0.1\n  BASE_LR: 0.0001\n  BASE_LR_END: 0.0\n  BIAS_LR_FACTOR: 1.0\n  CHECKPOINT_PERIOD: 1000\n  CLIP_GRADIENTS:\n    CLIP_TYPE: full_model\n    CLIP_VALUE: 0.01\n    ENABLED: true\n    NORM_TYPE: 2.0\n  GAMMA: 0.1\n  IMS_PER_BATCH: 2\n  LR_SCHEDULER_NAME: WarmupMultiStepLR\n  MAX_ITER: 30000\n  MOMENTUM: 0.9\n  NESTEROV: false\n  NUM_DECAYS: 3\n  OPTIMIZER: ADAMW\n  POLY_LR_CONSTANT_ENDING: 0.0\n  POLY_LR_POWER: 0.9\n  REFERENCE_WORLD_SIZE: 0\n  RESCALE_INTERVAL: false\n  STEPS:\n  - 18000\n  - 24000\n  WARMUP_FACTOR: 0.01\n  WARMUP_ITERS: 250\n  WARMUP_METHOD: linear\n  WEIGHT_DECAY: 0.05\n  WEIGHT_DECAY_BIAS: null\n  WEIGHT_DECAY_EMBED: 0.0\n  WEIGHT_DECAY_NORM: 0.0\nTEST:\n  AUG:\n    ENABLED: false\n    FLIP: true\n    MAX_SIZE: 4000\n    MIN_SIZES:\n    - 400\n    - 500\n    - 600\n    - 700\n    - 800\n    - 900\n    - 1000\n    - 1100\n    - 1200\n  DETECTIONS_PER_IMAGE: 100\n  EVAL_PERIOD: 0\n  EXPECTED_RESULTS: []\n  KEYPOINT_OKS_SIGMAS: []\n  PRECISE_BN:\n    ENABLED: false\n    NUM_ITER: 200\nVERSION: 2\nVIS_PERIOD: 0\n",
+        "source_sha256": {
+          "configs/blender_rgbd_r50.yaml": "188ea2eb3faaef1113dde5ec9563b8f1761929cad45f5b4c5e20e252326a91fa",
+          "configs/experiments/e01_small_resample.yaml": "be1a3d102ee735ee535c27fde4beda6785bf2287b7007a86408ef2f29c2c7347",
+          "configs/experiments/e02_small_crop.yaml": "a53ccbd11f16519c8dc29118be262936f25301c63c76cd6225f9b319320872a6",
+          "configs/experiments/e03_rgbd_copy_paste.yaml": "e3cd50817ef725302e7b010474e692ffe4f4e74cba72ca88ff3b2f0798963276",
+          "configs/experiments/e04_small_loss.yaml": "6882424cad1a01d4b97aab46e7691af9bd42711a7f1df900addb3d3df734ca45",
+          "configs/experiments/e05_foreground_points.yaml": "37ec5beb27e0c1f17c0c06b8cc489a522d4cc2423ec5883d960b2a67550fe0f4",
+          "configs/experiments/e06_depth_p2_gate.yaml": "1ef2596f473051cea026829bfbebcbfbce22f259554c2d308639ac5e8f356900",
+          "configs/experiments/e07_resolution1280.yaml": "fe03f92f3cb29961214c44f27d795b188d56c40e3662ca7838dbf7606b841b52",
+          "course/__init__.py": "c456bfcda30efbf9e354d0f0aec49dfbdfdb3b22f436c46ceb3d5d771279195b",
+          "course/augmentation.py": "285fe13099927b948c7676a63b3d4e98bdac11362d101cf7a6a054516786ea4b",
+          "course/common.py": "75926389bb587bf4451d293a32aade6e0fafa43f88f7bf692ef46cc0fd5370de",
+          "course/data.py": "74953b890a0000008741e3095ec9ca66b284b17c8783218d0b5d5729be75a408",
+          "course/experiments.py": "267dfdf26d53aefa96f4a398932cfdb9273bf2e8ff9642736bbca2192bf4afbd",
+          "course/modeling.py": "b48661600a3643ff4a720c83efb2b98075f584ef5e1bcdff97a6544bec1c8b23",
+          "evaluate_rgbd.py": "75db0044ae289dc7726d8761d3f231e47f069fdeeb8b35b342bbd2a53caa2143",
+          "train_rgbd.py": "280fb3847e3dab415184d70d4ee3fd7eab0d54ddf13cc46124d33351c26d15d1"
+        },
+        "source_revision": {
+          "commit": "28b288df6c49e25e489b0950eaf04829913e7864",
+          "dirty": false,
+          "archive_sha256": "cbeb247e742fc9a595068555a1868d9cf1b3f9f8a6b48602a6ac97da8fd48fd3",
+          "immutable_snapshot": true
+        },
+        "experiment": "e02_small_crop",
+        "experiment_settings": {
+          "NAME": "e02_small_crop",
+          "RESAMPLE_SMALL": false,
+          "SMALL_AREA": 1024.0,
+          "CROP_PROB": 0.5,
+          "CROP_SIZE": 768,
+          "COPY_PASTE_PROB": 0.0,
+          "COPY_PASTE_MAX": 5,
+          "SMALL_LOSS_WEIGHT": 1.0,
+          "FOREGROUND_POINT_FRACTION": 0.0,
+          "DEPTH_GATE": false,
+          "TEST_SIZE": 1024
+        },
+        "train_val_never_merged": true,
+        "test_used": false,
+        "weights": {
+          "source_url": "https://dl.fbaipublicfiles.com/maskformer/mask2former/coco/instance/maskformer2_R50_bs16_50ep/model_final_3c8ec9.pkl",
+          "source_sha256": "c18e6551f9c0e951e7ee3a63eb5402b901612e4e141965d4719d13c69a97ec2a",
+          "adapted_sha256": "e9d1737a20dfa89bd86f4c226c2d5ec8bf0cd95c0c0641636893428d48d91e2d",
+          "retained_tensors": 555,
+          "excluded_classifier": [
+            "sem_seg_head.predictor.class_embed.weight",
+            "sem_seg_head.predictor.class_embed.bias"
+          ],
+          "excluded_class_dependent_buffers": [
+            "criterion.empty_weight"
+          ],
+          "format_conversion": "static_query renamed to query_feat; state_dict version metadata retained",
+          "rgbd_initialization": "RGB channels copied exactly; depth-channel kernels zero",
+          "depth_reason": "Initial RGB features equal COCO; depth kernels are trainable"
+        },
+        "final_reporting": "final fixed-budget checkpoint on full val; intermediate metrics are monitoring only",
+        "augmentation": "Baseline synchronized transforms plus opt-in COURSE settings recorded above",
+        "rgbd": "4-channel early fusion; RGB COCO kernels preserved, depth kernels zero-initialized"
+      },
+      "initialization_audit": {
+        "checked_tensors": 555,
+        "mismatches": [],
+        "new_state_keys": [
+          "criterion.empty_weight",
+          "sem_seg_head.predictor.class_embed.bias",
+          "sem_seg_head.predictor.class_embed.weight"
+        ],
+        "depth_kernel_initially_zero": true
+      },
+      "source_hash_audit_passed": true,
+      "metrics": {
+        "architecture": "Mask2Former-ResNet50-RGBD",
+        "evaluated_subset": "val",
+        "experiment": "e02_small_crop",
+        "input_size": 1024,
+        "model_parameters": 43953090,
+        "model_parameter_bytes": 175812360,
+        "checkpoint": "/workspace/Mask2Former-course/runs/ablations_v1/e02_small_crop/model_final.pth",
+        "validation_images": 2584,
+        "predictions": 258400,
+        "max_instances_per_image": 100,
+        "mask_size": [
+          1024,
+          1024
+        ],
+        "score_scale": "0-1",
+        "mask_aps_primary": true,
+        "peak_allocated_gpu_bytes": 2847370752,
+        "inference_seconds_per_image": 0.06096304593750064,
+        "timing_excludes": "disk reads, RLE encoding, COCO aggregation; first 5 images warmed up",
+        "checkpoint_bytes": 528419153,
+        "mask_ap": 0.6348621905060845,
+        "mask_ap50": 0.8622369520903757,
+        "mask_ap75": 0.7019758045951341,
+        "mask_aps": 0.2945704935892726,
+        "mask_apm": 0.6647645295918245,
+        "mask_apl": 0.8452899994566385,
+        "total_elapsed_seconds": 1531.181213856209
+      },
+      "checkpoint_sha256": "bed3c5b7e153fc787439ae84471bfdd006b99bd8c88d041163ea14e0faf4b825",
+      "delta_aps": 0.002946006690623837,
+      "delta_ap": 0.0005049987313925364,
+      "inference_export": {
+        "source_training_checkpoint": "/workspace/Mask2Former-course/runs/ablations_v1/e02_small_crop/model_final.pth",
+        "inference_weights": "/workspace/Mask2Former-course/runs/ablations_v1/e02_small_crop/model_final_inference.pth",
+        "parameters": 43953090,
+        "parameter_bytes": 175812360,
+        "inference_file_bytes": 176456914,
+        "training_file_bytes": 528419153,
+        "sha256": "5efbf6876bd81375c582f0076347b99a0fff10308f95cac5f395b36be3d195f8",
+        "strict_load_passed": true
+      }
+    },
+    {
+      "name": "e03_rgbd_copy_paste",
+      "status": "completed",
+      "step": 30000,
+      "protocol": {
+        "torch": "2.5.1+cu124",
+        "cuda": "12.4",
+        "config": "COURSE:\n  COPY_PASTE_MAX: 5\n  COPY_PASTE_PROB: 0.5\n  CROP_PROB: 0.0\n  CROP_SIZE: 768\n  DEPTH_GATE: false\n  FOREGROUND_POINT_FRACTION: 0.0\n  NAME: e03_rgbd_copy_paste\n  RESAMPLE_SMALL: false\n  SMALL_AREA: 1024.0\n  SMALL_LOSS_WEIGHT: 1.0\n  TEST_SIZE: 1024\nCUDNN_BENCHMARK: false\nDATALOADER:\n  ASPECT_RATIO_GROUPING: true\n  FILTER_EMPTY_ANNOTATIONS: false\n  NUM_WORKERS: 4\n  REPEAT_SQRT: true\n  REPEAT_THRESHOLD: 0.0\n  SAMPLER_TRAIN: TrainingSampler\nDATASETS:\n  PRECOMPUTED_PROPOSAL_TOPK_TEST: 1000\n  PRECOMPUTED_PROPOSAL_TOPK_TRAIN: 2000\n  PROPOSAL_FILES_TEST: []\n  PROPOSAL_FILES_TRAIN: []\n  TEST:\n  - blender_rgbd_val\n  TRAIN:\n  - blender_rgbd_train\nFLOAT32_PRECISION: ''\nGLOBAL:\n  HACK: 1.0\nINPUT:\n  COLOR_AUG_SSD: false\n  CROP:\n    ENABLED: false\n    SINGLE_CATEGORY_MAX_AREA: 1.0\n    SIZE:\n    - 0.9\n    - 0.9\n    TYPE: relative_range\n  DATASET_MAPPER_NAME: coco_instance_lsj\n  FORMAT: RGB\n  IMAGE_SIZE: 1024\n  MASK_FORMAT: polygon\n  MAX_SCALE: 1.5\n  MAX_SIZE_TEST: 1333\n  MAX_SIZE_TRAIN: 1333\n  MIN_SCALE: 0.5\n  MIN_SIZE_TEST: 800\n  MIN_SIZE_TRAIN:\n  - 800\n  MIN_SIZE_TRAIN_SAMPLING: choice\n  RANDOM_FLIP: horizontal\n  SIZE_DIVISIBILITY: -1\nMODEL:\n  ANCHOR_GENERATOR:\n    ANGLES:\n    - - -90\n      - 0\n      - 90\n    ASPECT_RATIOS:\n    - - 0.5\n      - 1.0\n      - 2.0\n    NAME: DefaultAnchorGenerator\n    OFFSET: 0.0\n    SIZES:\n    - - 32\n      - 64\n      - 128\n      - 256\n      - 512\n  BACKBONE:\n    FREEZE_AT: 0\n    NAME: build_resnet_backbone\n  DEVICE: cuda\n  FPN:\n    FUSE_TYPE: sum\n    IN_FEATURES: []\n    NORM: ''\n    OUT_CHANNELS: 256\n  KEYPOINT_ON: false\n  LOAD_PROPOSALS: false\n  MASK_FORMER:\n    CLASS_WEIGHT: 2.0\n    DEC_LAYERS: 10\n    DEEP_SUPERVISION: true\n    DICE_WEIGHT: 5.0\n    DIM_FEEDFORWARD: 2048\n    DROPOUT: 0.0\n    ENC_LAYERS: 0\n    ENFORCE_INPUT_PROJ: false\n    HIDDEN_DIM: 256\n    IMPORTANCE_SAMPLE_RATIO: 0.75\n    MASK_WEIGHT: 5.0\n    NHEADS: 8\n    NO_OBJECT_WEIGHT: 0.1\n    NUM_OBJECT_QUERIES: 100\n    OVERSAMPLE_RATIO: 3.0\n    PRE_NORM: false\n    SIZE_DIVISIBILITY: 32\n    TEST:\n      INSTANCE_ON: true\n      OBJECT_MASK_THRESHOLD: 0.8\n      OVERLAP_THRESHOLD: 0.8\n      PANOPTIC_ON: false\n      SEMANTIC_ON: false\n      SEM_SEG_POSTPROCESSING_BEFORE_INFERENCE: false\n    TRAIN_NUM_POINTS: 12544\n    TRANSFORMER_DECODER_NAME: MultiScaleMaskedTransformerDecoder\n    TRANSFORMER_IN_FEATURE: multi_scale_pixel_decoder\n  MASK_ON: false\n  META_ARCHITECTURE: MaskFormer\n  PANOPTIC_FPN:\n    COMBINE:\n      ENABLED: true\n      INSTANCES_CONFIDENCE_THRESH: 0.5\n      OVERLAP_THRESH: 0.5\n      STUFF_AREA_LIMIT: 4096\n    INSTANCE_LOSS_WEIGHT: 1.0\n  PIXEL_MEAN:\n  - 123.675\n  - 116.28\n  - 103.53\n  - 32.0\n  PIXEL_STD:\n  - 58.395\n  - 57.12\n  - 57.375\n  - 64.0\n  PROPOSAL_GENERATOR:\n    MIN_SIZE: 0\n    NAME: RPN\n  RESNETS:\n    DEFORM_MODULATED: false\n    DEFORM_NUM_GROUPS: 1\n    DEFORM_ON_PER_STAGE:\n    - false\n    - false\n    - false\n    - false\n    DEPTH: 50\n    NORM: FrozenBN\n    NUM_GROUPS: 1\n    OUT_FEATURES:\n    - res2\n    - res3\n    - res4\n    - res5\n    RES2_OUT_CHANNELS: 256\n    RES4_DILATION: 1\n    RES5_DILATION: 1\n    RES5_MULTI_GRID:\n    - 1\n    - 1\n    - 1\n    STEM_OUT_CHANNELS: 64\n    STEM_TYPE: basic\n    STRIDE_IN_1X1: false\n    WIDTH_PER_GROUP: 64\n  RETINANET:\n    BBOX_REG_LOSS_TYPE: smooth_l1\n    BBOX_REG_WEIGHTS: &id002\n    - 1.0\n    - 1.0\n    - 1.0\n    - 1.0\n    FOCAL_LOSS_ALPHA: 0.25\n    FOCAL_LOSS_GAMMA: 2.0\n    IN_FEATURES:\n    - p3\n    - p4\n    - p5\n    - p6\n    - p7\n    IOU_LABELS:\n    - 0\n    - -1\n    - 1\n    IOU_THRESHOLDS:\n    - 0.4\n    - 0.5\n    NMS_THRESH_TEST: 0.5\n    NORM: ''\n    NUM_CLASSES: 80\n    NUM_CONVS: 4\n    PRIOR_PROB: 0.01\n    SCORE_THRESH_TEST: 0.05\n    SMOOTH_L1_LOSS_BETA: 0.1\n    TOPK_CANDIDATES_TEST: 1000\n  ROI_BOX_CASCADE_HEAD:\n    BBOX_REG_WEIGHTS:\n    - &id001\n      - 10.0\n      - 10.0\n      - 5.0\n      - 5.0\n    - - 20.0\n      - 20.0\n      - 10.0\n      - 10.0\n    - - 30.0\n      - 30.0\n      - 15.0\n      - 15.0\n    IOUS:\n    - 0.5\n    - 0.6\n    - 0.7\n  ROI_BOX_HEAD:\n    BBOX_REG_LOSS_TYPE: smooth_l1\n    BBOX_REG_LOSS_WEIGHT: 1.0\n    BBOX_REG_WEIGHTS: *id001\n    CLS_AGNOSTIC_BBOX_REG: false\n    CONV_DIM: 256\n    FC_DIM: 1024\n    FED_LOSS_FREQ_WEIGHT_POWER: 0.5\n    FED_LOSS_NUM_CLASSES: 50\n    NAME: ''\n    NORM: ''\n    NUM_CONV: 0\n    NUM_FC: 0\n    POOLER_RESOLUTION: 14\n    POOLER_SAMPLING_RATIO: 0\n    POOLER_TYPE: ROIAlignV2\n    SMOOTH_L1_BETA: 0.0\n    TRAIN_ON_PRED_BOXES: false\n    USE_FED_LOSS: false\n    USE_SIGMOID_CE: false\n  ROI_HEADS:\n    BATCH_SIZE_PER_IMAGE: 512\n    IN_FEATURES:\n    - res4\n    IOU_LABELS:\n    - 0\n    - 1\n    IOU_THRESHOLDS:\n    - 0.5\n    NAME: Res5ROIHeads\n    NMS_THRESH_TEST: 0.5\n    NUM_CLASSES: 80\n    POSITIVE_FRACTION: 0.25\n    PROPOSAL_APPEND_GT: true\n    SCORE_THRESH_TEST: 0.05\n  ROI_KEYPOINT_HEAD:\n    CONV_DIMS:\n    - 512\n    - 512\n    - 512\n    - 512\n    - 512\n    - 512\n    - 512\n    - 512\n    LOSS_WEIGHT: 1.0\n    MIN_KEYPOINTS_PER_IMAGE: 1\n    NAME: KRCNNConvDeconvUpsampleHead\n    NORMALIZE_LOSS_BY_VISIBLE_KEYPOINTS: true\n    NUM_KEYPOINTS: 17\n    POOLER_RESOLUTION: 14\n    POOLER_SAMPLING_RATIO: 0\n    POOLER_TYPE: ROIAlignV2\n  ROI_MASK_HEAD:\n    CLS_AGNOSTIC_MASK: false\n    CONV_DIM: 256\n    NAME: MaskRCNNConvUpsampleHead\n    NORM: ''\n    NUM_CONV: 0\n    POOLER_RESOLUTION: 14\n    POOLER_SAMPLING_RATIO: 0\n    POOLER_TYPE: ROIAlignV2\n  RPN:\n    BATCH_SIZE_PER_IMAGE: 256\n    BBOX_REG_LOSS_TYPE: smooth_l1\n    BBOX_REG_LOSS_WEIGHT: 1.0\n    BBOX_REG_WEIGHTS: *id002\n    BOUNDARY_THRESH: -1\n    CONV_DIMS:\n    - -1\n    HEAD_NAME: StandardRPNHead\n    IN_FEATURES:\n    - res4\n    IOU_LABELS:\n    - 0\n    - -1\n    - 1\n    IOU_THRESHOLDS:\n    - 0.3\n    - 0.7\n    LOSS_WEIGHT: 1.0\n    NMS_THRESH: 0.7\n    POSITIVE_FRACTION: 0.5\n    POST_NMS_TOPK_TEST: 1000\n    POST_NMS_TOPK_TRAIN: 2000\n    PRE_NMS_TOPK_TEST: 6000\n    PRE_NMS_TOPK_TRAIN: 12000\n    SMOOTH_L1_BETA: 0.0\n  SEM_SEG_HEAD:\n    ASPP_CHANNELS: 256\n    ASPP_DILATIONS:\n    - 6\n    - 12\n    - 18\n    ASPP_DROPOUT: 0.1\n    COMMON_STRIDE: 4\n    CONVS_DIM: 256\n    DEFORMABLE_TRANSFORMER_ENCODER_IN_FEATURES:\n    - res3\n    - res4\n    - res5\n    DEFORMABLE_TRANSFORMER_ENCODER_N_HEADS: 8\n    DEFORMABLE_TRANSFORMER_ENCODER_N_POINTS: 4\n    IGNORE_VALUE: 255\n    IN_FEATURES:\n    - res2\n    - res3\n    - res4\n    - res5\n    LOSS_TYPE: hard_pixel_mining\n    LOSS_WEIGHT: 1.0\n    MASK_DIM: 256\n    NAME: MaskFormerHead\n    NORM: GN\n    NUM_CLASSES: 1\n    PIXEL_DECODER_NAME: MSDeformAttnPixelDecoder\n    PROJECT_CHANNELS:\n    - 48\n    PROJECT_FEATURES:\n    - res2\n    TRANSFORMER_ENC_LAYERS: 6\n    USE_DEPTHWISE_SEPARABLE_CONV: false\n  SWIN:\n    APE: false\n    ATTN_DROP_RATE: 0.0\n    DEPTHS:\n    - 2\n    - 2\n    - 6\n    - 2\n    DROP_PATH_RATE: 0.3\n    DROP_RATE: 0.0\n    EMBED_DIM: 96\n    MLP_RATIO: 4.0\n    NUM_HEADS:\n    - 3\n    - 6\n    - 12\n    - 24\n    OUT_FEATURES:\n    - res2\n    - res3\n    - res4\n    - res5\n    PATCH_NORM: true\n    PATCH_SIZE: 4\n    PRETRAIN_IMG_SIZE: 224\n    QKV_BIAS: true\n    QK_SCALE: null\n    USE_CHECKPOINT: false\n    WINDOW_SIZE: 7\n  WEIGHTS: weights/mask2former_r50_coco_rgbd.pth\nOUTPUT_DIR: /workspace/Mask2Former-course/runs/ablations_v1/e03_rgbd_copy_paste\nSEED: 42\nSOLVER:\n  AMP:\n    ENABLED: false\n  BACKBONE_MULTIPLIER: 0.1\n  BASE_LR: 0.0001\n  BASE_LR_END: 0.0\n  BIAS_LR_FACTOR: 1.0\n  CHECKPOINT_PERIOD: 1000\n  CLIP_GRADIENTS:\n    CLIP_TYPE: full_model\n    CLIP_VALUE: 0.01\n    ENABLED: true\n    NORM_TYPE: 2.0\n  GAMMA: 0.1\n  IMS_PER_BATCH: 2\n  LR_SCHEDULER_NAME: WarmupMultiStepLR\n  MAX_ITER: 30000\n  MOMENTUM: 0.9\n  NESTEROV: false\n  NUM_DECAYS: 3\n  OPTIMIZER: ADAMW\n  POLY_LR_CONSTANT_ENDING: 0.0\n  POLY_LR_POWER: 0.9\n  REFERENCE_WORLD_SIZE: 0\n  RESCALE_INTERVAL: false\n  STEPS:\n  - 18000\n  - 24000\n  WARMUP_FACTOR: 0.01\n  WARMUP_ITERS: 250\n  WARMUP_METHOD: linear\n  WEIGHT_DECAY: 0.05\n  WEIGHT_DECAY_BIAS: null\n  WEIGHT_DECAY_EMBED: 0.0\n  WEIGHT_DECAY_NORM: 0.0\nTEST:\n  AUG:\n    ENABLED: false\n    FLIP: true\n    MAX_SIZE: 4000\n    MIN_SIZES:\n    - 400\n    - 500\n    - 600\n    - 700\n    - 800\n    - 900\n    - 1000\n    - 1100\n    - 1200\n  DETECTIONS_PER_IMAGE: 100\n  EVAL_PERIOD: 0\n  EXPECTED_RESULTS: []\n  KEYPOINT_OKS_SIGMAS: []\n  PRECISE_BN:\n    ENABLED: false\n    NUM_ITER: 200\nVERSION: 2\nVIS_PERIOD: 0\n",
+        "source_sha256": {
+          "configs/blender_rgbd_r50.yaml": "188ea2eb3faaef1113dde5ec9563b8f1761929cad45f5b4c5e20e252326a91fa",
+          "configs/experiments/e01_small_resample.yaml": "be1a3d102ee735ee535c27fde4beda6785bf2287b7007a86408ef2f29c2c7347",
+          "configs/experiments/e02_small_crop.yaml": "a53ccbd11f16519c8dc29118be262936f25301c63c76cd6225f9b319320872a6",
+          "configs/experiments/e03_rgbd_copy_paste.yaml": "e3cd50817ef725302e7b010474e692ffe4f4e74cba72ca88ff3b2f0798963276",
+          "configs/experiments/e04_small_loss.yaml": "6882424cad1a01d4b97aab46e7691af9bd42711a7f1df900addb3d3df734ca45",
+          "configs/experiments/e05_foreground_points.yaml": "37ec5beb27e0c1f17c0c06b8cc489a522d4cc2423ec5883d960b2a67550fe0f4",
+          "configs/experiments/e06_depth_p2_gate.yaml": "1ef2596f473051cea026829bfbebcbfbce22f259554c2d308639ac5e8f356900",
+          "configs/experiments/e07_resolution1280.yaml": "fe03f92f3cb29961214c44f27d795b188d56c40e3662ca7838dbf7606b841b52",
+          "course/__init__.py": "c456bfcda30efbf9e354d0f0aec49dfbdfdb3b22f436c46ceb3d5d771279195b",
+          "course/augmentation.py": "285fe13099927b948c7676a63b3d4e98bdac11362d101cf7a6a054516786ea4b",
+          "course/common.py": "75926389bb587bf4451d293a32aade6e0fafa43f88f7bf692ef46cc0fd5370de",
+          "course/data.py": "74953b890a0000008741e3095ec9ca66b284b17c8783218d0b5d5729be75a408",
+          "course/experiments.py": "267dfdf26d53aefa96f4a398932cfdb9273bf2e8ff9642736bbca2192bf4afbd",
+          "course/modeling.py": "b48661600a3643ff4a720c83efb2b98075f584ef5e1bcdff97a6544bec1c8b23",
+          "evaluate_rgbd.py": "75db0044ae289dc7726d8761d3f231e47f069fdeeb8b35b342bbd2a53caa2143",
+          "train_rgbd.py": "280fb3847e3dab415184d70d4ee3fd7eab0d54ddf13cc46124d33351c26d15d1"
+        },
+        "source_revision": {
+          "commit": "28b288df6c49e25e489b0950eaf04829913e7864",
+          "dirty": false,
+          "archive_sha256": "cbeb247e742fc9a595068555a1868d9cf1b3f9f8a6b48602a6ac97da8fd48fd3",
+          "immutable_snapshot": true
+        },
+        "experiment": "e03_rgbd_copy_paste",
+        "experiment_settings": {
+          "NAME": "e03_rgbd_copy_paste",
+          "RESAMPLE_SMALL": false,
+          "SMALL_AREA": 1024.0,
+          "CROP_PROB": 0.0,
+          "CROP_SIZE": 768,
+          "COPY_PASTE_PROB": 0.5,
+          "COPY_PASTE_MAX": 5,
+          "SMALL_LOSS_WEIGHT": 1.0,
+          "FOREGROUND_POINT_FRACTION": 0.0,
+          "DEPTH_GATE": false,
+          "TEST_SIZE": 1024
+        },
+        "train_val_never_merged": true,
+        "test_used": false,
+        "weights": {
+          "source_url": "https://dl.fbaipublicfiles.com/maskformer/mask2former/coco/instance/maskformer2_R50_bs16_50ep/model_final_3c8ec9.pkl",
+          "source_sha256": "c18e6551f9c0e951e7ee3a63eb5402b901612e4e141965d4719d13c69a97ec2a",
+          "adapted_sha256": "e9d1737a20dfa89bd86f4c226c2d5ec8bf0cd95c0c0641636893428d48d91e2d",
+          "retained_tensors": 555,
+          "excluded_classifier": [
+            "sem_seg_head.predictor.class_embed.weight",
+            "sem_seg_head.predictor.class_embed.bias"
+          ],
+          "excluded_class_dependent_buffers": [
+            "criterion.empty_weight"
+          ],
+          "format_conversion": "static_query renamed to query_feat; state_dict version metadata retained",
+          "rgbd_initialization": "RGB channels copied exactly; depth-channel kernels zero",
+          "depth_reason": "Initial RGB features equal COCO; depth kernels are trainable"
+        },
+        "final_reporting": "final fixed-budget checkpoint on full val; intermediate metrics are monitoring only",
+        "augmentation": "Baseline synchronized transforms plus opt-in COURSE settings recorded above",
+        "rgbd": "4-channel early fusion; RGB COCO kernels preserved, depth kernels zero-initialized"
+      },
+      "initialization_audit": {
+        "checked_tensors": 555,
+        "mismatches": [],
+        "new_state_keys": [
+          "criterion.empty_weight",
+          "sem_seg_head.predictor.class_embed.bias",
+          "sem_seg_head.predictor.class_embed.weight"
+        ],
+        "depth_kernel_initially_zero": true
+      },
+      "source_hash_audit_passed": true,
+      "metrics": {
+        "architecture": "Mask2Former-ResNet50-RGBD",
+        "evaluated_subset": "val",
+        "experiment": "e03_rgbd_copy_paste",
+        "input_size": 1024,
+        "model_parameters": 43953090,
+        "model_parameter_bytes": 175812360,
+        "checkpoint": "/workspace/Mask2Former-course/runs/ablations_v1/e03_rgbd_copy_paste/model_final.pth",
+        "validation_images": 2584,
+        "predictions": 258400,
+        "max_instances_per_image": 100,
+        "mask_size": [
+          1024,
+          1024
+        ],
+        "score_scale": "0-1",
+        "mask_aps_primary": true,
+        "peak_allocated_gpu_bytes": 2847370752,
+        "inference_seconds_per_image": 0.06150781770147233,
+        "timing_excludes": "disk reads, RLE encoding, COCO aggregation; first 5 images warmed up",
+        "checkpoint_bytes": 528419153,
+        "mask_ap": 0.6358329765233186,
+        "mask_ap50": 0.8614569794472187,
+        "mask_ap75": 0.7025530959742884,
+        "mask_aps": 0.2925328313041668,
+        "mask_apm": 0.6661619780792888,
+        "mask_apl": 0.8411150708935271,
+        "total_elapsed_seconds": 1747.019834577106
+      },
+      "checkpoint_sha256": "8f9fcbfde26eb7750f52fc34368d1e27487476812e197ea3ac4de046cfd499fe",
+      "delta_aps": 0.0009083444055180134,
+      "delta_ap": 0.0014757847486266407,
+      "inference_export": {
+        "source_training_checkpoint": "/workspace/Mask2Former-course/runs/ablations_v1/e03_rgbd_copy_paste/model_final.pth",
+        "inference_weights": "/workspace/Mask2Former-course/runs/ablations_v1/e03_rgbd_copy_paste/model_final_inference.pth",
+        "parameters": 43953090,
+        "parameter_bytes": 175812360,
+        "inference_file_bytes": 176456914,
+        "training_file_bytes": 528419153,
+        "sha256": "7c89a51a25f07660a4d8a9590325f0ed1a244fb3ba843176777dec6200c7a19b",
+        "strict_load_passed": true
+      }
+    },
+    {
+      "name": "e04_small_loss",
+      "status": "completed",
+      "step": 30000,
+      "protocol": {
+        "torch": "2.5.1+cu124",
+        "cuda": "12.4",
+        "config": "COURSE:\n  COPY_PASTE_MAX: 5\n  COPY_PASTE_PROB: 0.0\n  CROP_PROB: 0.0\n  CROP_SIZE: 768\n  DEPTH_GATE: false\n  FOREGROUND_POINT_FRACTION: 0.0\n  NAME: e04_small_loss\n  RESAMPLE_SMALL: false\n  SMALL_AREA: 1024.0\n  SMALL_LOSS_WEIGHT: 2.0\n  TEST_SIZE: 1024\nCUDNN_BENCHMARK: false\nDATALOADER:\n  ASPECT_RATIO_GROUPING: true\n  FILTER_EMPTY_ANNOTATIONS: false\n  NUM_WORKERS: 4\n  REPEAT_SQRT: true\n  REPEAT_THRESHOLD: 0.0\n  SAMPLER_TRAIN: TrainingSampler\nDATASETS:\n  PRECOMPUTED_PROPOSAL_TOPK_TEST: 1000\n  PRECOMPUTED_PROPOSAL_TOPK_TRAIN: 2000\n  PROPOSAL_FILES_TEST: []\n  PROPOSAL_FILES_TRAIN: []\n  TEST:\n  - blender_rgbd_val\n  TRAIN:\n  - blender_rgbd_train\nFLOAT32_PRECISION: ''\nGLOBAL:\n  HACK: 1.0\nINPUT:\n  COLOR_AUG_SSD: false\n  CROP:\n    ENABLED: false\n    SINGLE_CATEGORY_MAX_AREA: 1.0\n    SIZE:\n    - 0.9\n    - 0.9\n    TYPE: relative_range\n  DATASET_MAPPER_NAME: coco_instance_lsj\n  FORMAT: RGB\n  IMAGE_SIZE: 1024\n  MASK_FORMAT: polygon\n  MAX_SCALE: 1.5\n  MAX_SIZE_TEST: 1333\n  MAX_SIZE_TRAIN: 1333\n  MIN_SCALE: 0.5\n  MIN_SIZE_TEST: 800\n  MIN_SIZE_TRAIN:\n  - 800\n  MIN_SIZE_TRAIN_SAMPLING: choice\n  RANDOM_FLIP: horizontal\n  SIZE_DIVISIBILITY: -1\nMODEL:\n  ANCHOR_GENERATOR:\n    ANGLES:\n    - - -90\n      - 0\n      - 90\n    ASPECT_RATIOS:\n    - - 0.5\n      - 1.0\n      - 2.0\n    NAME: DefaultAnchorGenerator\n    OFFSET: 0.0\n    SIZES:\n    - - 32\n      - 64\n      - 128\n      - 256\n      - 512\n  BACKBONE:\n    FREEZE_AT: 0\n    NAME: build_resnet_backbone\n  DEVICE: cuda\n  FPN:\n    FUSE_TYPE: sum\n    IN_FEATURES: []\n    NORM: ''\n    OUT_CHANNELS: 256\n  KEYPOINT_ON: false\n  LOAD_PROPOSALS: false\n  MASK_FORMER:\n    CLASS_WEIGHT: 2.0\n    DEC_LAYERS: 10\n    DEEP_SUPERVISION: true\n    DICE_WEIGHT: 5.0\n    DIM_FEEDFORWARD: 2048\n    DROPOUT: 0.0\n    ENC_LAYERS: 0\n    ENFORCE_INPUT_PROJ: false\n    HIDDEN_DIM: 256\n    IMPORTANCE_SAMPLE_RATIO: 0.75\n    MASK_WEIGHT: 5.0\n    NHEADS: 8\n    NO_OBJECT_WEIGHT: 0.1\n    NUM_OBJECT_QUERIES: 100\n    OVERSAMPLE_RATIO: 3.0\n    PRE_NORM: false\n    SIZE_DIVISIBILITY: 32\n    TEST:\n      INSTANCE_ON: true\n      OBJECT_MASK_THRESHOLD: 0.8\n      OVERLAP_THRESHOLD: 0.8\n      PANOPTIC_ON: false\n      SEMANTIC_ON: false\n      SEM_SEG_POSTPROCESSING_BEFORE_INFERENCE: false\n    TRAIN_NUM_POINTS: 12544\n    TRANSFORMER_DECODER_NAME: MultiScaleMaskedTransformerDecoder\n    TRANSFORMER_IN_FEATURE: multi_scale_pixel_decoder\n  MASK_ON: false\n  META_ARCHITECTURE: CourseMaskFormer\n  PANOPTIC_FPN:\n    COMBINE:\n      ENABLED: true\n      INSTANCES_CONFIDENCE_THRESH: 0.5\n      OVERLAP_THRESH: 0.5\n      STUFF_AREA_LIMIT: 4096\n    INSTANCE_LOSS_WEIGHT: 1.0\n  PIXEL_MEAN:\n  - 123.675\n  - 116.28\n  - 103.53\n  - 32.0\n  PIXEL_STD:\n  - 58.395\n  - 57.12\n  - 57.375\n  - 64.0\n  PROPOSAL_GENERATOR:\n    MIN_SIZE: 0\n    NAME: RPN\n  RESNETS:\n    DEFORM_MODULATED: false\n    DEFORM_NUM_GROUPS: 1\n    DEFORM_ON_PER_STAGE:\n    - false\n    - false\n    - false\n    - false\n    DEPTH: 50\n    NORM: FrozenBN\n    NUM_GROUPS: 1\n    OUT_FEATURES:\n    - res2\n    - res3\n    - res4\n    - res5\n    RES2_OUT_CHANNELS: 256\n    RES4_DILATION: 1\n    RES5_DILATION: 1\n    RES5_MULTI_GRID:\n    - 1\n    - 1\n    - 1\n    STEM_OUT_CHANNELS: 64\n    STEM_TYPE: basic\n    STRIDE_IN_1X1: false\n    WIDTH_PER_GROUP: 64\n  RETINANET:\n    BBOX_REG_LOSS_TYPE: smooth_l1\n    BBOX_REG_WEIGHTS: &id002\n    - 1.0\n    - 1.0\n    - 1.0\n    - 1.0\n    FOCAL_LOSS_ALPHA: 0.25\n    FOCAL_LOSS_GAMMA: 2.0\n    IN_FEATURES:\n    - p3\n    - p4\n    - p5\n    - p6\n    - p7\n    IOU_LABELS:\n    - 0\n    - -1\n    - 1\n    IOU_THRESHOLDS:\n    - 0.4\n    - 0.5\n    NMS_THRESH_TEST: 0.5\n    NORM: ''\n    NUM_CLASSES: 80\n    NUM_CONVS: 4\n    PRIOR_PROB: 0.01\n    SCORE_THRESH_TEST: 0.05\n    SMOOTH_L1_LOSS_BETA: 0.1\n    TOPK_CANDIDATES_TEST: 1000\n  ROI_BOX_CASCADE_HEAD:\n    BBOX_REG_WEIGHTS:\n    - &id001\n      - 10.0\n      - 10.0\n      - 5.0\n      - 5.0\n    - - 20.0\n      - 20.0\n      - 10.0\n      - 10.0\n    - - 30.0\n      - 30.0\n      - 15.0\n      - 15.0\n    IOUS:\n    - 0.5\n    - 0.6\n    - 0.7\n  ROI_BOX_HEAD:\n    BBOX_REG_LOSS_TYPE: smooth_l1\n    BBOX_REG_LOSS_WEIGHT: 1.0\n    BBOX_REG_WEIGHTS: *id001\n    CLS_AGNOSTIC_BBOX_REG: false\n    CONV_DIM: 256\n    FC_DIM: 1024\n    FED_LOSS_FREQ_WEIGHT_POWER: 0.5\n    FED_LOSS_NUM_CLASSES: 50\n    NAME: ''\n    NORM: ''\n    NUM_CONV: 0\n    NUM_FC: 0\n    POOLER_RESOLUTION: 14\n    POOLER_SAMPLING_RATIO: 0\n    POOLER_TYPE: ROIAlignV2\n    SMOOTH_L1_BETA: 0.0\n    TRAIN_ON_PRED_BOXES: false\n    USE_FED_LOSS: false\n    USE_SIGMOID_CE: false\n  ROI_HEADS:\n    BATCH_SIZE_PER_IMAGE: 512\n    IN_FEATURES:\n    - res4\n    IOU_LABELS:\n    - 0\n    - 1\n    IOU_THRESHOLDS:\n    - 0.5\n    NAME: Res5ROIHeads\n    NMS_THRESH_TEST: 0.5\n    NUM_CLASSES: 80\n    POSITIVE_FRACTION: 0.25\n    PROPOSAL_APPEND_GT: true\n    SCORE_THRESH_TEST: 0.05\n  ROI_KEYPOINT_HEAD:\n    CONV_DIMS:\n    - 512\n    - 512\n    - 512\n    - 512\n    - 512\n    - 512\n    - 512\n    - 512\n    LOSS_WEIGHT: 1.0\n    MIN_KEYPOINTS_PER_IMAGE: 1\n    NAME: KRCNNConvDeconvUpsampleHead\n    NORMALIZE_LOSS_BY_VISIBLE_KEYPOINTS: true\n    NUM_KEYPOINTS: 17\n    POOLER_RESOLUTION: 14\n    POOLER_SAMPLING_RATIO: 0\n    POOLER_TYPE: ROIAlignV2\n  ROI_MASK_HEAD:\n    CLS_AGNOSTIC_MASK: false\n    CONV_DIM: 256\n    NAME: MaskRCNNConvUpsampleHead\n    NORM: ''\n    NUM_CONV: 0\n    POOLER_RESOLUTION: 14\n    POOLER_SAMPLING_RATIO: 0\n    POOLER_TYPE: ROIAlignV2\n  RPN:\n    BATCH_SIZE_PER_IMAGE: 256\n    BBOX_REG_LOSS_TYPE: smooth_l1\n    BBOX_REG_LOSS_WEIGHT: 1.0\n    BBOX_REG_WEIGHTS: *id002\n    BOUNDARY_THRESH: -1\n    CONV_DIMS:\n    - -1\n    HEAD_NAME: StandardRPNHead\n    IN_FEATURES:\n    - res4\n    IOU_LABELS:\n    - 0\n    - -1\n    - 1\n    IOU_THRESHOLDS:\n    - 0.3\n    - 0.7\n    LOSS_WEIGHT: 1.0\n    NMS_THRESH: 0.7\n    POSITIVE_FRACTION: 0.5\n    POST_NMS_TOPK_TEST: 1000\n    POST_NMS_TOPK_TRAIN: 2000\n    PRE_NMS_TOPK_TEST: 6000\n    PRE_NMS_TOPK_TRAIN: 12000\n    SMOOTH_L1_BETA: 0.0\n  SEM_SEG_HEAD:\n    ASPP_CHANNELS: 256\n    ASPP_DILATIONS:\n    - 6\n    - 12\n    - 18\n    ASPP_DROPOUT: 0.1\n    COMMON_STRIDE: 4\n    CONVS_DIM: 256\n    DEFORMABLE_TRANSFORMER_ENCODER_IN_FEATURES:\n    - res3\n    - res4\n    - res5\n    DEFORMABLE_TRANSFORMER_ENCODER_N_HEADS: 8\n    DEFORMABLE_TRANSFORMER_ENCODER_N_POINTS: 4\n    IGNORE_VALUE: 255\n    IN_FEATURES:\n    - res2\n    - res3\n    - res4\n    - res5\n    LOSS_TYPE: hard_pixel_mining\n    LOSS_WEIGHT: 1.0\n    MASK_DIM: 256\n    NAME: MaskFormerHead\n    NORM: GN\n    NUM_CLASSES: 1\n    PIXEL_DECODER_NAME: MSDeformAttnPixelDecoder\n    PROJECT_CHANNELS:\n    - 48\n    PROJECT_FEATURES:\n    - res2\n    TRANSFORMER_ENC_LAYERS: 6\n    USE_DEPTHWISE_SEPARABLE_CONV: false\n  SWIN:\n    APE: false\n    ATTN_DROP_RATE: 0.0\n    DEPTHS:\n    - 2\n    - 2\n    - 6\n    - 2\n    DROP_PATH_RATE: 0.3\n    DROP_RATE: 0.0\n    EMBED_DIM: 96\n    MLP_RATIO: 4.0\n    NUM_HEADS:\n    - 3\n    - 6\n    - 12\n    - 24\n    OUT_FEATURES:\n    - res2\n    - res3\n    - res4\n    - res5\n    PATCH_NORM: true\n    PATCH_SIZE: 4\n    PRETRAIN_IMG_SIZE: 224\n    QKV_BIAS: true\n    QK_SCALE: null\n    USE_CHECKPOINT: false\n    WINDOW_SIZE: 7\n  WEIGHTS: weights/mask2former_r50_coco_rgbd.pth\nOUTPUT_DIR: /workspace/Mask2Former-course/runs/ablations_v1/e04_small_loss\nSEED: 42\nSOLVER:\n  AMP:\n    ENABLED: false\n  BACKBONE_MULTIPLIER: 0.1\n  BASE_LR: 0.0001\n  BASE_LR_END: 0.0\n  BIAS_LR_FACTOR: 1.0\n  CHECKPOINT_PERIOD: 1000\n  CLIP_GRADIENTS:\n    CLIP_TYPE: full_model\n    CLIP_VALUE: 0.01\n    ENABLED: true\n    NORM_TYPE: 2.0\n  GAMMA: 0.1\n  IMS_PER_BATCH: 2\n  LR_SCHEDULER_NAME: WarmupMultiStepLR\n  MAX_ITER: 30000\n  MOMENTUM: 0.9\n  NESTEROV: false\n  NUM_DECAYS: 3\n  OPTIMIZER: ADAMW\n  POLY_LR_CONSTANT_ENDING: 0.0\n  POLY_LR_POWER: 0.9\n  REFERENCE_WORLD_SIZE: 0\n  RESCALE_INTERVAL: false\n  STEPS:\n  - 18000\n  - 24000\n  WARMUP_FACTOR: 0.01\n  WARMUP_ITERS: 250\n  WARMUP_METHOD: linear\n  WEIGHT_DECAY: 0.05\n  WEIGHT_DECAY_BIAS: null\n  WEIGHT_DECAY_EMBED: 0.0\n  WEIGHT_DECAY_NORM: 0.0\nTEST:\n  AUG:\n    ENABLED: false\n    FLIP: true\n    MAX_SIZE: 4000\n    MIN_SIZES:\n    - 400\n    - 500\n    - 600\n    - 700\n    - 800\n    - 900\n    - 1000\n    - 1100\n    - 1200\n  DETECTIONS_PER_IMAGE: 100\n  EVAL_PERIOD: 0\n  EXPECTED_RESULTS: []\n  KEYPOINT_OKS_SIGMAS: []\n  PRECISE_BN:\n    ENABLED: false\n    NUM_ITER: 200\nVERSION: 2\nVIS_PERIOD: 0\n",
+        "source_sha256": {
+          "configs/blender_rgbd_r50.yaml": "188ea2eb3faaef1113dde5ec9563b8f1761929cad45f5b4c5e20e252326a91fa",
+          "configs/experiments/e01_small_resample.yaml": "be1a3d102ee735ee535c27fde4beda6785bf2287b7007a86408ef2f29c2c7347",
+          "configs/experiments/e02_small_crop.yaml": "a53ccbd11f16519c8dc29118be262936f25301c63c76cd6225f9b319320872a6",
+          "configs/experiments/e03_rgbd_copy_paste.yaml": "e3cd50817ef725302e7b010474e692ffe4f4e74cba72ca88ff3b2f0798963276",
+          "configs/experiments/e04_small_loss.yaml": "6882424cad1a01d4b97aab46e7691af9bd42711a7f1df900addb3d3df734ca45",
+          "configs/experiments/e05_foreground_points.yaml": "37ec5beb27e0c1f17c0c06b8cc489a522d4cc2423ec5883d960b2a67550fe0f4",
+          "configs/experiments/e06_depth_p2_gate.yaml": "1ef2596f473051cea026829bfbebcbfbce22f259554c2d308639ac5e8f356900",
+          "configs/experiments/e07_resolution1280.yaml": "fe03f92f3cb29961214c44f27d795b188d56c40e3662ca7838dbf7606b841b52",
+          "course/__init__.py": "c456bfcda30efbf9e354d0f0aec49dfbdfdb3b22f436c46ceb3d5d771279195b",
+          "course/augmentation.py": "285fe13099927b948c7676a63b3d4e98bdac11362d101cf7a6a054516786ea4b",
+          "course/common.py": "75926389bb587bf4451d293a32aade6e0fafa43f88f7bf692ef46cc0fd5370de",
+          "course/data.py": "74953b890a0000008741e3095ec9ca66b284b17c8783218d0b5d5729be75a408",
+          "course/experiments.py": "267dfdf26d53aefa96f4a398932cfdb9273bf2e8ff9642736bbca2192bf4afbd",
+          "course/modeling.py": "b48661600a3643ff4a720c83efb2b98075f584ef5e1bcdff97a6544bec1c8b23",
+          "evaluate_rgbd.py": "75db0044ae289dc7726d8761d3f231e47f069fdeeb8b35b342bbd2a53caa2143",
+          "train_rgbd.py": "280fb3847e3dab415184d70d4ee3fd7eab0d54ddf13cc46124d33351c26d15d1"
+        },
+        "source_revision": {
+          "commit": "28b288df6c49e25e489b0950eaf04829913e7864",
+          "dirty": false,
+          "archive_sha256": "cbeb247e742fc9a595068555a1868d9cf1b3f9f8a6b48602a6ac97da8fd48fd3",
+          "immutable_snapshot": true
+        },
+        "experiment": "e04_small_loss",
+        "experiment_settings": {
+          "NAME": "e04_small_loss",
+          "RESAMPLE_SMALL": false,
+          "SMALL_AREA": 1024.0,
+          "CROP_PROB": 0.0,
+          "CROP_SIZE": 768,
+          "COPY_PASTE_PROB": 0.0,
+          "COPY_PASTE_MAX": 5,
+          "SMALL_LOSS_WEIGHT": 2.0,
+          "FOREGROUND_POINT_FRACTION": 0.0,
+          "DEPTH_GATE": false,
+          "TEST_SIZE": 1024
+        },
+        "train_val_never_merged": true,
+        "test_used": false,
+        "weights": {
+          "source_url": "https://dl.fbaipublicfiles.com/maskformer/mask2former/coco/instance/maskformer2_R50_bs16_50ep/model_final_3c8ec9.pkl",
+          "source_sha256": "c18e6551f9c0e951e7ee3a63eb5402b901612e4e141965d4719d13c69a97ec2a",
+          "adapted_sha256": "e9d1737a20dfa89bd86f4c226c2d5ec8bf0cd95c0c0641636893428d48d91e2d",
+          "retained_tensors": 555,
+          "excluded_classifier": [
+            "sem_seg_head.predictor.class_embed.weight",
+            "sem_seg_head.predictor.class_embed.bias"
+          ],
+          "excluded_class_dependent_buffers": [
+            "criterion.empty_weight"
+          ],
+          "format_conversion": "static_query renamed to query_feat; state_dict version metadata retained",
+          "rgbd_initialization": "RGB channels copied exactly; depth-channel kernels zero",
+          "depth_reason": "Initial RGB features equal COCO; depth kernels are trainable"
+        },
+        "final_reporting": "final fixed-budget checkpoint on full val; intermediate metrics are monitoring only",
+        "augmentation": "Baseline synchronized transforms plus opt-in COURSE settings recorded above",
+        "rgbd": "4-channel early fusion; RGB COCO kernels preserved, depth kernels zero-initialized"
+      },
+      "initialization_audit": {
+        "checked_tensors": 555,
+        "mismatches": [],
+        "new_state_keys": [
+          "criterion.empty_weight",
+          "sem_seg_head.predictor.class_embed.bias",
+          "sem_seg_head.predictor.class_embed.weight"
+        ],
+        "depth_kernel_initially_zero": true
+      },
+      "source_hash_audit_passed": true,
+      "metrics": {
+        "architecture": "Mask2Former-ResNet50-RGBD",
+        "evaluated_subset": "val",
+        "experiment": "e04_small_loss",
+        "input_size": 1024,
+        "model_parameters": 43953090,
+        "model_parameter_bytes": 175812360,
+        "checkpoint": "/workspace/Mask2Former-course/runs/ablations_v1/e04_small_loss/model_final.pth",
+        "validation_images": 2584,
+        "predictions": 258400,
+        "max_instances_per_image": 100,
+        "mask_size": [
+          1024,
+          1024
+        ],
+        "score_scale": "0-1",
+        "mask_aps_primary": true,
+        "peak_allocated_gpu_bytes": 2847370752,
+        "inference_seconds_per_image": 0.05990883117888705,
+        "timing_excludes": "disk reads, RLE encoding, COCO aggregation; first 5 images warmed up",
+        "checkpoint_bytes": 528419153,
+        "mask_ap": 0.629163562125802,
+        "mask_ap50": 0.8590057231442294,
+        "mask_ap75": 0.6955465164918198,
+        "mask_aps": 0.2971929528458348,
+        "mask_apm": 0.6597749169515317,
+        "mask_apl": 0.8192896664876699,
+        "total_elapsed_seconds": 1512.9550895499997
+      },
+      "checkpoint_sha256": "4739bf86d4cc5311a513e99437139096166b546b5449ee4262a6ced19902e410",
+      "delta_aps": 0.005568465947186019,
+      "delta_ap": -0.005193629648889919,
+      "inference_export": {
+        "source_training_checkpoint": "/workspace/Mask2Former-course/runs/ablations_v1/e04_small_loss/model_final.pth",
+        "inference_weights": "/workspace/Mask2Former-course/runs/ablations_v1/e04_small_loss/model_final_inference.pth",
+        "parameters": 43953090,
+        "parameter_bytes": 175812360,
+        "inference_file_bytes": 176456914,
+        "training_file_bytes": 528419153,
+        "sha256": "5e38b44f45763b114c1b7e22200d028eb2bc28181aed4da1ccca546239ad1960",
+        "strict_load_passed": true
+      }
+    },
+    {
+      "name": "e05_foreground_points",
+      "status": "training",
+      "step": 11820,
+      "protocol": {
+        "torch": "2.5.1+cu124",
+        "cuda": "12.4",
+        "config": "COURSE:\n  COPY_PASTE_MAX: 5\n  COPY_PASTE_PROB: 0.0\n  CROP_PROB: 0.0\n  CROP_SIZE: 768\n  DEPTH_GATE: false\n  FOREGROUND_POINT_FRACTION: 0.1\n  NAME: e05_foreground_points\n  RESAMPLE_SMALL: false\n  SMALL_AREA: 1024.0\n  SMALL_LOSS_WEIGHT: 1.0\n  TEST_SIZE: 1024\nCUDNN_BENCHMARK: false\nDATALOADER:\n  ASPECT_RATIO_GROUPING: true\n  FILTER_EMPTY_ANNOTATIONS: false\n  NUM_WORKERS: 4\n  REPEAT_SQRT: true\n  REPEAT_THRESHOLD: 0.0\n  SAMPLER_TRAIN: TrainingSampler\nDATASETS:\n  PRECOMPUTED_PROPOSAL_TOPK_TEST: 1000\n  PRECOMPUTED_PROPOSAL_TOPK_TRAIN: 2000\n  PROPOSAL_FILES_TEST: []\n  PROPOSAL_FILES_TRAIN: []\n  TEST:\n  - blender_rgbd_val\n  TRAIN:\n  - blender_rgbd_train\nFLOAT32_PRECISION: ''\nGLOBAL:\n  HACK: 1.0\nINPUT:\n  COLOR_AUG_SSD: false\n  CROP:\n    ENABLED: false\n    SINGLE_CATEGORY_MAX_AREA: 1.0\n    SIZE:\n    - 0.9\n    - 0.9\n    TYPE: relative_range\n  DATASET_MAPPER_NAME: coco_instance_lsj\n  FORMAT: RGB\n  IMAGE_SIZE: 1024\n  MASK_FORMAT: polygon\n  MAX_SCALE: 1.5\n  MAX_SIZE_TEST: 1333\n  MAX_SIZE_TRAIN: 1333\n  MIN_SCALE: 0.5\n  MIN_SIZE_TEST: 800\n  MIN_SIZE_TRAIN:\n  - 800\n  MIN_SIZE_TRAIN_SAMPLING: choice\n  RANDOM_FLIP: horizontal\n  SIZE_DIVISIBILITY: -1\nMODEL:\n  ANCHOR_GENERATOR:\n    ANGLES:\n    - - -90\n      - 0\n      - 90\n    ASPECT_RATIOS:\n    - - 0.5\n      - 1.0\n      - 2.0\n    NAME: DefaultAnchorGenerator\n    OFFSET: 0.0\n    SIZES:\n    - - 32\n      - 64\n      - 128\n      - 256\n      - 512\n  BACKBONE:\n    FREEZE_AT: 0\n    NAME: build_resnet_backbone\n  DEVICE: cuda\n  FPN:\n    FUSE_TYPE: sum\n    IN_FEATURES: []\n    NORM: ''\n    OUT_CHANNELS: 256\n  KEYPOINT_ON: false\n  LOAD_PROPOSALS: false\n  MASK_FORMER:\n    CLASS_WEIGHT: 2.0\n    DEC_LAYERS: 10\n    DEEP_SUPERVISION: true\n    DICE_WEIGHT: 5.0\n    DIM_FEEDFORWARD: 2048\n    DROPOUT: 0.0\n    ENC_LAYERS: 0\n    ENFORCE_INPUT_PROJ: false\n    HIDDEN_DIM: 256\n    IMPORTANCE_SAMPLE_RATIO: 0.75\n    MASK_WEIGHT: 5.0\n    NHEADS: 8\n    NO_OBJECT_WEIGHT: 0.1\n    NUM_OBJECT_QUERIES: 100\n    OVERSAMPLE_RATIO: 3.0\n    PRE_NORM: false\n    SIZE_DIVISIBILITY: 32\n    TEST:\n      INSTANCE_ON: true\n      OBJECT_MASK_THRESHOLD: 0.8\n      OVERLAP_THRESHOLD: 0.8\n      PANOPTIC_ON: false\n      SEMANTIC_ON: false\n      SEM_SEG_POSTPROCESSING_BEFORE_INFERENCE: false\n    TRAIN_NUM_POINTS: 12544\n    TRANSFORMER_DECODER_NAME: MultiScaleMaskedTransformerDecoder\n    TRANSFORMER_IN_FEATURE: multi_scale_pixel_decoder\n  MASK_ON: false\n  META_ARCHITECTURE: CourseMaskFormer\n  PANOPTIC_FPN:\n    COMBINE:\n      ENABLED: true\n      INSTANCES_CONFIDENCE_THRESH: 0.5\n      OVERLAP_THRESH: 0.5\n      STUFF_AREA_LIMIT: 4096\n    INSTANCE_LOSS_WEIGHT: 1.0\n  PIXEL_MEAN:\n  - 123.675\n  - 116.28\n  - 103.53\n  - 32.0\n  PIXEL_STD:\n  - 58.395\n  - 57.12\n  - 57.375\n  - 64.0\n  PROPOSAL_GENERATOR:\n    MIN_SIZE: 0\n    NAME: RPN\n  RESNETS:\n    DEFORM_MODULATED: false\n    DEFORM_NUM_GROUPS: 1\n    DEFORM_ON_PER_STAGE:\n    - false\n    - false\n    - false\n    - false\n    DEPTH: 50\n    NORM: FrozenBN\n    NUM_GROUPS: 1\n    OUT_FEATURES:\n    - res2\n    - res3\n    - res4\n    - res5\n    RES2_OUT_CHANNELS: 256\n    RES4_DILATION: 1\n    RES5_DILATION: 1\n    RES5_MULTI_GRID:\n    - 1\n    - 1\n    - 1\n    STEM_OUT_CHANNELS: 64\n    STEM_TYPE: basic\n    STRIDE_IN_1X1: false\n    WIDTH_PER_GROUP: 64\n  RETINANET:\n    BBOX_REG_LOSS_TYPE: smooth_l1\n    BBOX_REG_WEIGHTS: &id002\n    - 1.0\n    - 1.0\n    - 1.0\n    - 1.0\n    FOCAL_LOSS_ALPHA: 0.25\n    FOCAL_LOSS_GAMMA: 2.0\n    IN_FEATURES:\n    - p3\n    - p4\n    - p5\n    - p6\n    - p7\n    IOU_LABELS:\n    - 0\n    - -1\n    - 1\n    IOU_THRESHOLDS:\n    - 0.4\n    - 0.5\n    NMS_THRESH_TEST: 0.5\n    NORM: ''\n    NUM_CLASSES: 80\n    NUM_CONVS: 4\n    PRIOR_PROB: 0.01\n    SCORE_THRESH_TEST: 0.05\n    SMOOTH_L1_LOSS_BETA: 0.1\n    TOPK_CANDIDATES_TEST: 1000\n  ROI_BOX_CASCADE_HEAD:\n    BBOX_REG_WEIGHTS:\n    - &id001\n      - 10.0\n      - 10.0\n      - 5.0\n      - 5.0\n    - - 20.0\n      - 20.0\n      - 10.0\n      - 10.0\n    - - 30.0\n      - 30.0\n      - 15.0\n      - 15.0\n    IOUS:\n    - 0.5\n    - 0.6\n    - 0.7\n  ROI_BOX_HEAD:\n    BBOX_REG_LOSS_TYPE: smooth_l1\n    BBOX_REG_LOSS_WEIGHT: 1.0\n    BBOX_REG_WEIGHTS: *id001\n    CLS_AGNOSTIC_BBOX_REG: false\n    CONV_DIM: 256\n    FC_DIM: 1024\n    FED_LOSS_FREQ_WEIGHT_POWER: 0.5\n    FED_LOSS_NUM_CLASSES: 50\n    NAME: ''\n    NORM: ''\n    NUM_CONV: 0\n    NUM_FC: 0\n    POOLER_RESOLUTION: 14\n    POOLER_SAMPLING_RATIO: 0\n    POOLER_TYPE: ROIAlignV2\n    SMOOTH_L1_BETA: 0.0\n    TRAIN_ON_PRED_BOXES: false\n    USE_FED_LOSS: false\n    USE_SIGMOID_CE: false\n  ROI_HEADS:\n    BATCH_SIZE_PER_IMAGE: 512\n    IN_FEATURES:\n    - res4\n    IOU_LABELS:\n    - 0\n    - 1\n    IOU_THRESHOLDS:\n    - 0.5\n    NAME: Res5ROIHeads\n    NMS_THRESH_TEST: 0.5\n    NUM_CLASSES: 80\n    POSITIVE_FRACTION: 0.25\n    PROPOSAL_APPEND_GT: true\n    SCORE_THRESH_TEST: 0.05\n  ROI_KEYPOINT_HEAD:\n    CONV_DIMS:\n    - 512\n    - 512\n    - 512\n    - 512\n    - 512\n    - 512\n    - 512\n    - 512\n    LOSS_WEIGHT: 1.0\n    MIN_KEYPOINTS_PER_IMAGE: 1\n    NAME: KRCNNConvDeconvUpsampleHead\n    NORMALIZE_LOSS_BY_VISIBLE_KEYPOINTS: true\n    NUM_KEYPOINTS: 17\n    POOLER_RESOLUTION: 14\n    POOLER_SAMPLING_RATIO: 0\n    POOLER_TYPE: ROIAlignV2\n  ROI_MASK_HEAD:\n    CLS_AGNOSTIC_MASK: false\n    CONV_DIM: 256\n    NAME: MaskRCNNConvUpsampleHead\n    NORM: ''\n    NUM_CONV: 0\n    POOLER_RESOLUTION: 14\n    POOLER_SAMPLING_RATIO: 0\n    POOLER_TYPE: ROIAlignV2\n  RPN:\n    BATCH_SIZE_PER_IMAGE: 256\n    BBOX_REG_LOSS_TYPE: smooth_l1\n    BBOX_REG_LOSS_WEIGHT: 1.0\n    BBOX_REG_WEIGHTS: *id002\n    BOUNDARY_THRESH: -1\n    CONV_DIMS:\n    - -1\n    HEAD_NAME: StandardRPNHead\n    IN_FEATURES:\n    - res4\n    IOU_LABELS:\n    - 0\n    - -1\n    - 1\n    IOU_THRESHOLDS:\n    - 0.3\n    - 0.7\n    LOSS_WEIGHT: 1.0\n    NMS_THRESH: 0.7\n    POSITIVE_FRACTION: 0.5\n    POST_NMS_TOPK_TEST: 1000\n    POST_NMS_TOPK_TRAIN: 2000\n    PRE_NMS_TOPK_TEST: 6000\n    PRE_NMS_TOPK_TRAIN: 12000\n    SMOOTH_L1_BETA: 0.0\n  SEM_SEG_HEAD:\n    ASPP_CHANNELS: 256\n    ASPP_DILATIONS:\n    - 6\n    - 12\n    - 18\n    ASPP_DROPOUT: 0.1\n    COMMON_STRIDE: 4\n    CONVS_DIM: 256\n    DEFORMABLE_TRANSFORMER_ENCODER_IN_FEATURES:\n    - res3\n    - res4\n    - res5\n    DEFORMABLE_TRANSFORMER_ENCODER_N_HEADS: 8\n    DEFORMABLE_TRANSFORMER_ENCODER_N_POINTS: 4\n    IGNORE_VALUE: 255\n    IN_FEATURES:\n    - res2\n    - res3\n    - res4\n    - res5\n    LOSS_TYPE: hard_pixel_mining\n    LOSS_WEIGHT: 1.0\n    MASK_DIM: 256\n    NAME: MaskFormerHead\n    NORM: GN\n    NUM_CLASSES: 1\n    PIXEL_DECODER_NAME: MSDeformAttnPixelDecoder\n    PROJECT_CHANNELS:\n    - 48\n    PROJECT_FEATURES:\n    - res2\n    TRANSFORMER_ENC_LAYERS: 6\n    USE_DEPTHWISE_SEPARABLE_CONV: false\n  SWIN:\n    APE: false\n    ATTN_DROP_RATE: 0.0\n    DEPTHS:\n    - 2\n    - 2\n    - 6\n    - 2\n    DROP_PATH_RATE: 0.3\n    DROP_RATE: 0.0\n    EMBED_DIM: 96\n    MLP_RATIO: 4.0\n    NUM_HEADS:\n    - 3\n    - 6\n    - 12\n    - 24\n    OUT_FEATURES:\n    - res2\n    - res3\n    - res4\n    - res5\n    PATCH_NORM: true\n    PATCH_SIZE: 4\n    PRETRAIN_IMG_SIZE: 224\n    QKV_BIAS: true\n    QK_SCALE: null\n    USE_CHECKPOINT: false\n    WINDOW_SIZE: 7\n  WEIGHTS: weights/mask2former_r50_coco_rgbd.pth\nOUTPUT_DIR: /workspace/Mask2Former-course/runs/ablations_v1/e05_foreground_points\nSEED: 42\nSOLVER:\n  AMP:\n    ENABLED: false\n  BACKBONE_MULTIPLIER: 0.1\n  BASE_LR: 0.0001\n  BASE_LR_END: 0.0\n  BIAS_LR_FACTOR: 1.0\n  CHECKPOINT_PERIOD: 1000\n  CLIP_GRADIENTS:\n    CLIP_TYPE: full_model\n    CLIP_VALUE: 0.01\n    ENABLED: true\n    NORM_TYPE: 2.0\n  GAMMA: 0.1\n  IMS_PER_BATCH: 2\n  LR_SCHEDULER_NAME: WarmupMultiStepLR\n  MAX_ITER: 30000\n  MOMENTUM: 0.9\n  NESTEROV: false\n  NUM_DECAYS: 3\n  OPTIMIZER: ADAMW\n  POLY_LR_CONSTANT_ENDING: 0.0\n  POLY_LR_POWER: 0.9\n  REFERENCE_WORLD_SIZE: 0\n  RESCALE_INTERVAL: false\n  STEPS:\n  - 18000\n  - 24000\n  WARMUP_FACTOR: 0.01\n  WARMUP_ITERS: 250\n  WARMUP_METHOD: linear\n  WEIGHT_DECAY: 0.05\n  WEIGHT_DECAY_BIAS: null\n  WEIGHT_DECAY_EMBED: 0.0\n  WEIGHT_DECAY_NORM: 0.0\nTEST:\n  AUG:\n    ENABLED: false\n    FLIP: true\n    MAX_SIZE: 4000\n    MIN_SIZES:\n    - 400\n    - 500\n    - 600\n    - 700\n    - 800\n    - 900\n    - 1000\n    - 1100\n    - 1200\n  DETECTIONS_PER_IMAGE: 100\n  EVAL_PERIOD: 0\n  EXPECTED_RESULTS: []\n  KEYPOINT_OKS_SIGMAS: []\n  PRECISE_BN:\n    ENABLED: false\n    NUM_ITER: 200\nVERSION: 2\nVIS_PERIOD: 0\n",
+        "source_sha256": {
+          "configs/blender_rgbd_r50.yaml": "188ea2eb3faaef1113dde5ec9563b8f1761929cad45f5b4c5e20e252326a91fa",
+          "configs/experiments/e01_small_resample.yaml": "be1a3d102ee735ee535c27fde4beda6785bf2287b7007a86408ef2f29c2c7347",
+          "configs/experiments/e02_small_crop.yaml": "a53ccbd11f16519c8dc29118be262936f25301c63c76cd6225f9b319320872a6",
+          "configs/experiments/e03_rgbd_copy_paste.yaml": "e3cd50817ef725302e7b010474e692ffe4f4e74cba72ca88ff3b2f0798963276",
+          "configs/experiments/e04_small_loss.yaml": "6882424cad1a01d4b97aab46e7691af9bd42711a7f1df900addb3d3df734ca45",
+          "configs/experiments/e05_foreground_points.yaml": "37ec5beb27e0c1f17c0c06b8cc489a522d4cc2423ec5883d960b2a67550fe0f4",
+          "configs/experiments/e06_depth_p2_gate.yaml": "1ef2596f473051cea026829bfbebcbfbce22f259554c2d308639ac5e8f356900",
+          "configs/experiments/e07_resolution1280.yaml": "fe03f92f3cb29961214c44f27d795b188d56c40e3662ca7838dbf7606b841b52",
+          "course/__init__.py": "c456bfcda30efbf9e354d0f0aec49dfbdfdb3b22f436c46ceb3d5d771279195b",
+          "course/augmentation.py": "285fe13099927b948c7676a63b3d4e98bdac11362d101cf7a6a054516786ea4b",
+          "course/common.py": "75926389bb587bf4451d293a32aade6e0fafa43f88f7bf692ef46cc0fd5370de",
+          "course/data.py": "74953b890a0000008741e3095ec9ca66b284b17c8783218d0b5d5729be75a408",
+          "course/experiments.py": "267dfdf26d53aefa96f4a398932cfdb9273bf2e8ff9642736bbca2192bf4afbd",
+          "course/modeling.py": "b48661600a3643ff4a720c83efb2b98075f584ef5e1bcdff97a6544bec1c8b23",
+          "evaluate_rgbd.py": "75db0044ae289dc7726d8761d3f231e47f069fdeeb8b35b342bbd2a53caa2143",
+          "train_rgbd.py": "280fb3847e3dab415184d70d4ee3fd7eab0d54ddf13cc46124d33351c26d15d1"
+        },
+        "source_revision": {
+          "commit": "28b288df6c49e25e489b0950eaf04829913e7864",
+          "dirty": false,
+          "archive_sha256": "cbeb247e742fc9a595068555a1868d9cf1b3f9f8a6b48602a6ac97da8fd48fd3",
+          "immutable_snapshot": true
+        },
+        "experiment": "e05_foreground_points",
+        "experiment_settings": {
+          "NAME": "e05_foreground_points",
+          "RESAMPLE_SMALL": false,
+          "SMALL_AREA": 1024.0,
+          "CROP_PROB": 0.0,
+          "CROP_SIZE": 768,
+          "COPY_PASTE_PROB": 0.0,
+          "COPY_PASTE_MAX": 5,
+          "SMALL_LOSS_WEIGHT": 1.0,
+          "FOREGROUND_POINT_FRACTION": 0.1,
+          "DEPTH_GATE": false,
+          "TEST_SIZE": 1024
+        },
+        "train_val_never_merged": true,
+        "test_used": false,
+        "weights": {
+          "source_url": "https://dl.fbaipublicfiles.com/maskformer/mask2former/coco/instance/maskformer2_R50_bs16_50ep/model_final_3c8ec9.pkl",
+          "source_sha256": "c18e6551f9c0e951e7ee3a63eb5402b901612e4e141965d4719d13c69a97ec2a",
+          "adapted_sha256": "e9d1737a20dfa89bd86f4c226c2d5ec8bf0cd95c0c0641636893428d48d91e2d",
+          "retained_tensors": 555,
+          "excluded_classifier": [
+            "sem_seg_head.predictor.class_embed.weight",
+            "sem_seg_head.predictor.class_embed.bias"
+          ],
+          "excluded_class_dependent_buffers": [
+            "criterion.empty_weight"
+          ],
+          "format_conversion": "static_query renamed to query_feat; state_dict version metadata retained",
+          "rgbd_initialization": "RGB channels copied exactly; depth-channel kernels zero",
+          "depth_reason": "Initial RGB features equal COCO; depth kernels are trainable"
+        },
+        "final_reporting": "final fixed-budget checkpoint on full val; intermediate metrics are monitoring only",
+        "augmentation": "Baseline synchronized transforms plus opt-in COURSE settings recorded above",
+        "rgbd": "4-channel early fusion; RGB COCO kernels preserved, depth kernels zero-initialized"
+      },
+      "initialization_audit": {
+        "checked_tensors": 555,
+        "mismatches": [],
+        "new_state_keys": [
+          "criterion.empty_weight",
+          "sem_seg_head.predictor.class_embed.bias",
+          "sem_seg_head.predictor.class_embed.weight"
+        ],
+        "depth_kernel_initially_zero": true
+      },
+      "source_hash_audit_passed": true
+    },
+    {
+      "name": "e06_depth_p2_gate",
+      "status": "pending"
+    },
+    {
+      "name": "e07_resolution1280",
+      "status": "pending"
+    }
+  ],
+  "comparison": "single seed 42; fixed final 30k checkpoints; full val 2584; scores 0-1",
+  "caution": "Small changes are not evidence of cross-seed statistical significance."
+}
