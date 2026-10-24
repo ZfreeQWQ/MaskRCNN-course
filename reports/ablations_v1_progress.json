@@ -1,7 +1,7 @@
 {
-  "observed_at": "2026-10-23T14:06:07.671803+08:00",
+  "observed_at": "2026-10-23T16:31:29.116331+08:00",
   "source_commit": "28b288df6c49e25e489b0950eaf04829913e7864",
-  "suite_status": "running",
+  "suite_status": "stopped_by_user",
   "baseline": {
     "metrics": {
       "architecture": "Mask2Former-ResNet50-RGBD",
@@ -649,8 +649,8 @@
     },
     {
       "name": "e06_depth_p2_gate",
-      "status": "training",
-      "step": 12840,
+      "status": "completed",
+      "step": 30000,
       "protocol": {
         "torch": "2.5.1+cu124",
         "cuda": "12.4",
@@ -731,11 +731,53 @@
         ],
         "depth_kernel_initially_zero": true
       },
-      "source_hash_audit_passed": true
+      "source_hash_audit_passed": true,
+      "metrics": {
+        "architecture": "Mask2Former-ResNet50-RGBD",
+        "evaluated_subset": "val",
+        "experiment": "e06_depth_p2_gate",
+        "input_size": 1024,
+        "model_parameters": 43957778,
+        "model_parameter_bytes": 175831112,
+        "checkpoint": "/workspace/Mask2Former-course/runs/ablations_v1/e06_depth_p2_gate/model_final.pth",
+        "validation_images": 2584,
+        "predictions": 258400,
+        "max_instances_per_image": 100,
+        "mask_size": [
+          1024,
+          1024
+        ],
+        "score_scale": "0-1",
+        "mask_aps_primary": true,
+        "peak_allocated_gpu_bytes": 2847391232,
+        "inference_seconds_per_image": 0.06207813258183894,
+        "timing_excludes": "disk reads, RLE encoding, COCO aggregation; first 5 images warmed up",
+        "checkpoint_bytes": 528483577,
+        "mask_ap": 0.6391882392053008,
+        "mask_ap50": 0.8624496558035158,
+        "mask_ap75": 0.7090250597895221,
+        "mask_aps": 0.29629543995531427,
+        "mask_apm": 0.6662338519530419,
+        "mask_apl": 0.8645843002190321,
+        "total_elapsed_seconds": 1518.9207771259826
+      },
+      "checkpoint_sha256": "7741f108fd639e8158a7ed59a768d15e87b6a95e88165e8754a3e829ef86545e",
+      "delta_aps": 0.004670953056665483,
+      "delta_ap": 0.004831047430608804,
+      "inference_export": {
+        "source_training_checkpoint": "/workspace/Mask2Former-course/runs/ablations_v1/e06_depth_p2_gate/model_final.pth",
+        "inference_weights": "/workspace/Mask2Former-course/runs/ablations_v1/e06_depth_p2_gate/model_final_inference.pth",
+        "parameters": 43957778,
+        "parameter_bytes": 175831112,
+        "inference_file_bytes": 176477914,
+        "training_file_bytes": 528483577,
+        "sha256": "2965f8de5db5ed808c7047686a41ebdb7c53229b9ee47f8be4a930ace3e41e94",
+        "strict_load_passed": true
+      }
     },
     {
       "name": "e07_resolution1280",
-      "status": "pending"
+      "status": "deferred_by_user"
     }
   ],
   "comparison": "single seed 42; fixed final 30k checkpoints; full val 2584; scores 0-1",

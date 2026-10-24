@@ -1,6 +1,6 @@
 # Ablation progress
 
-Observed: 2026-10-23T14:06:07.671803+08:00
+Observed: 2026-10-23T16:31:29.116331+08:00
 
 Immutable training source: `28b288df6c49e25e489b0950eaf04829913e7864`. All scores 0–1.
 
@@ -14,8 +14,8 @@ Only final 30k checkpoints on all 2,584 validation images appear below.
 | e03_rgbd_copy_paste | completed | 0.292533 | +0.000908 | 0.635833 | +0.001476 |
 | e04_small_loss | completed | 0.297193 | +0.005568 | 0.629164 | -0.005194 |
 | e05_foreground_points | completed | 0.192724 | -0.098900 | 0.604466 | -0.029891 |
-| e06_depth_p2_gate | training (12840/30000) | — | — | — | — |
-| e07_resolution1280 | pending (0/30000) | — | — | — | — |
+| e06_depth_p2_gate | completed | 0.296295 | +0.004671 | 0.639188 | +0.004831 |
+| e07_resolution1280 | deferred_by_user (0/30000) | — | — | — | — |
 
 All completed runs passed source-hash, COCO-transfer and split-use audits.
 Training-only changes do not imply faster inference; small timing differences need controlled repeats.
