@@ -22,6 +22,22 @@ from course.data import RGBDMapper, register
 
 class Trainer(OfficialTrainer):
     @classmethod
+    def build_optimizer(cls, cfg, model):
+        optimizer = super().build_optimizer(cfg, model)
+        if cfg.COURSE.V2.GEOMETRY:
+            # New modules are randomly initialized, unlike the COCO backbone.
+            # Preserve official decay/clipping rules, changing only their LR.
+            new_ids = {id(p) for p in model.backbone.geometry_fusion.parameters()}
+            rate = cfg.SOLVER.BASE_LR * cfg.COURSE.V2.NEW_MODULE_LR_MULTIPLIER
+            for group in optimizer.param_groups:
+                if any(id(p) in new_ids for p in group["params"]):
+                    assert all(id(p) in new_ids for p in group["params"])
+                    group["lr"] = rate
+                    if "initial_lr" in group:
+                        group["initial_lr"] = rate
+        return optimizer
+
+    @classmethod
     def build_train_loader(cls, cfg):
         from course.experiments import mapper
         sampler = None
@@ -103,6 +119,10 @@ def main():
                                   list(Path("course").glob("*.py")) + list(Path("configs/experiments").glob("*.yaml")) +
                                   [Path("configs/blender_rgbd_r50.yaml")]))
         sources = {str(name): hashlib.sha256(name.read_bytes()).hexdigest() for name in source_paths}
+        geometry_assets = {}
+        if cfg.COURSE.V2.GEOMETRY:
+            geometry_assets = {name: hashlib.sha256(Path(name).read_bytes()).hexdigest() for name in
+                               ("data_cache/geometry_v2_intrinsics.json", "data_cache/geometry_v2_stats.json")}
         if Path(".source_revision.json").exists():
             revision = json.loads(Path(".source_revision.json").read_text())
         else:
@@ -111,11 +131,24 @@ def main():
         atomic_json(output / "protocol.json", dict(
             torch=torch.__version__, cuda=torch.version.cuda, config=cfg.dump(), source_sha256=sources,
             source_revision=revision, experiment=cfg.COURSE.NAME, experiment_settings=dict(cfg.COURSE),
+            geometry_asset_sha256=geometry_assets,
             train_val_never_merged=True, test_used=False,
             weights=json.loads(Path("weights/mask2former_r50_coco_rgbd.json").read_text()),
             final_reporting="final fixed-budget checkpoint on full val; intermediate metrics are monitoring only",
             augmentation="Baseline synchronized transforms plus opt-in COURSE settings recorded above",
-            rgbd="4-channel early fusion; RGB COCO kernels preserved, depth kernels zero-initialized"))
+            rgbd=("4-channel baseline plus 7 label-free geometry channels and four-scale residual fusion"
+                  if cfg.COURSE.V2.GEOMETRY else
+                  "4-channel early fusion; RGB COCO kernels preserved, depth kernels zero-initialized")))
+
+        if cfg.COURSE.V2.GEOMETRY:
+            names = {id(p): n for n, p in trainer.model.named_parameters()}
+            rates = {names[id(p)]: group["initial_lr"] if "initial_lr" in group else group["lr"]
+                     for group in trainer.optimizer.param_groups for p in group["params"]
+                     if "geometry_fusion" in names[id(p)]}
+            # Scheduler warmup changes current LR; initial_lr retains base rates.
+            assert rates and all(math.isclose(v, cfg.SOLVER.BASE_LR * cfg.COURSE.V2.NEW_MODULE_LR_MULTIPLIER)
+                                 for v in rates.values())
+            atomic_json(output / "new_module_lr_audit.json", rates)
 
         class Monitor(hooks.HookBase):
             def __init__(self):
@@ -123,6 +156,7 @@ def main():
                 self.log_handle = None
                 self.result_path = None
                 self.started = time.monotonic()
+                self.geometry_gradient_seen = dict(encoder=False, gate=False)
 
             def collect(self, wait=False):
                 if self.process is None:
@@ -164,6 +198,21 @@ def main():
                     assert torch.count_nonzero(gradient[:, 3]) > 0, "Depth is disconnected"
                     atomic_json(output / "gradient_audit.json", dict(depth_gradient_finite=True,
                         depth_gradient_nonzero=True, mean_absolute_depth_gradient=float(gradient[:, 3].abs().mean())))
+                if cfg.COURSE.V2.GEOMETRY and (step <= 10 or step == 20 or step % 1000 == 0):
+                    branch = self.trainer.model.backbone.geometry_fusion
+                    gradients = {name: (float(p.grad.detach().abs().mean()) if p.grad is not None else None)
+                                 for name, p in branch.named_parameters()}
+                    assert all(v is None or math.isfinite(v) for v in gradients.values())
+                    self.geometry_gradient_seen["encoder"] |= any(v and v > 0 for n, v in gradients.items() if n.startswith("stages."))
+                    self.geometry_gradient_seen["gate"] |= any(v and v > 0 for n, v in gradients.items() if "gates." in n)
+                    if step == 10:
+                        # An entire batch can randomly drop its depth branch;
+                        # audit the observed window, not one potentially dropped batch.
+                        assert self.geometry_gradient_seen["encoder"], "Geometry encoder disconnected"
+                        assert self.geometry_gradient_seen["gate"], "Geometry gate disconnected"
+                    diagnostics = {n: {k: float(v) for k, v in d.items()} for n, d in branch.last_diagnostics.items()}
+                    atomic_json(output / ("geometry_gradient_step" + str(step) + ".json"),
+                                dict(step=step, mean_absolute_gradients=gradients, features=diagnostics))
                 if step % 20 == 0 or step == 1:
                     status(status="training", step=step, sample_presentations=step * cfg.SOLVER.IMS_PER_BATCH,
                            metrics=metrics, elapsed_seconds=time.monotonic() - self.started)

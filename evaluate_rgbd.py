@@ -42,12 +42,14 @@ def main():
     assert len(ids) == len(set(ids))
     with contextlib.redirect_stdout(io.StringIO()):
         coco = COCO(str(Path(args.cache) / "coco_val.json"))
-    detections, timings = [], []
+    detections, timings, preprocess_timings = [], [], []
     torch.cuda.reset_peak_memory_stats()
     started = time.monotonic()
     with torch.inference_mode():
         for n, record in enumerate(records):
+            preprocessing_started = time.perf_counter()
             image = mapper(record)
+            preprocess_timings.append(time.perf_counter() - preprocessing_started)
             torch.cuda.synchronize()
             tick = time.perf_counter()
             instances = model([image])[0]["instances"]
@@ -73,6 +75,10 @@ def main():
                   mask_size=[1024, 1024], score_scale="0-1", mask_aps_primary=True,
                   peak_allocated_gpu_bytes=torch.cuda.max_memory_allocated(),
                   inference_seconds_per_image=float(np.mean(timings[5:] or timings)),
+                  input_preprocess_seconds_per_image=float(np.mean(preprocess_timings[5:] or preprocess_timings)),
+                  model_plus_input_seconds_per_image=float(np.mean((np.asarray(timings) + np.asarray(preprocess_timings))[5:]
+                                                                  if len(timings) > 5 else
+                                                                  np.asarray(timings) + np.asarray(preprocess_timings))),
                   timing_excludes="disk reads, RLE encoding, COCO aggregation; first 5 images warmed up",
                   checkpoint_bytes=os.path.getsize(args.weights))
     with contextlib.redirect_stdout(io.StringIO()):
