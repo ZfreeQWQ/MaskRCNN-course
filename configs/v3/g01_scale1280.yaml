@@ -1,0 +1,4 @@
+_BASE_: g00_fast_control.yaml
+COURSE:
+  NAME: g01_scale1280
+  TEST_SIZE: 1280

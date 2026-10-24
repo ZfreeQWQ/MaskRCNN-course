@@ -31,25 +31,35 @@ class GeometryROIMapper(RGBDMapper):
             assert self.statistics["geometry_version"] == GEOMETRY_VERSION
             assert self.statistics["accumulation_dtype"] == "float64"
 
+    def read_inputs(self, record):
+        rgb, depth = read_rgbd(record)
+        return rgb, depth, None
+
+    def transform_rgb(self, rgb):
+        aug_input = T.AugInput(rgb)
+        transforms = self.augmentations(aug_input)
+        return aug_input.image, transforms
+
     def __call__(self, record):
         started = time.perf_counter()
         result = copy.deepcopy(record)
-        rgb, depth = read_rgbd(record)
+        rgb, depth, metric = self.read_inputs(record)
+        read_finished = time.perf_counter()
         geometry = None
         if self.geometry:
             camera = self.cameras["cameras"][str(record["image_id"])]
             assert camera["split"] == record["split"]
-            raw = np.asarray(Image.open(record["depth_path"]), dtype=np.uint16)
-            metric = raw.astype(np.float32) * record["depth_scale_m"]
-            metric[raw == record["depth_invalid_code"]] = 0
+            if metric is None:
+                raw = np.asarray(Image.open(record["depth_path"]), dtype=np.uint16)
+                metric = raw.astype(np.float32) * record["depth_scale_m"]
+                metric[raw == record["depth_invalid_code"]] = 0
             geometry, result["geometry_audit"] = encode_geometry(metric, camera["K"], record["image_id"])
             # XYZ normals remain in the original camera coordinate frame.
             # Geometry is computed with original K first, then spatially warped
             # with masks/depth. RGB pixels and geometric vectors stay aligned.
             geometry = standardize_geometry(geometry, self.statistics["mean"], self.statistics["std"])
-        aug_input = T.AugInput(rgb)
-        transforms = self.augmentations(aug_input)
-        rgb = aug_input.image
+        geometry_finished = time.perf_counter()
+        rgb, transforms = self.transform_rgb(rgb)
         depth = transforms.apply_segmentation(depth)
         parts = [rgb.astype(np.float32), depth[..., None]]
         if geometry is not None:
@@ -74,4 +84,7 @@ class GeometryROIMapper(RGBDMapper):
             instances.gt_original_area = torch.from_numpy(original_area[keep].copy())
             result["instances"] = instances
         result["mapper_seconds"] = time.perf_counter() - started
+        result["preprocess_profile"] = dict(read_seconds=read_finished-started,
+                                             geometry_seconds=geometry_finished-read_finished,
+                                             transform_seconds=result["mapper_seconds"]-(geometry_finished-started))
         return result

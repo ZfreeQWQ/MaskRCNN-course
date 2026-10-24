@@ -24,13 +24,20 @@ def main():
     parser.add_argument("--weights", required=True)
     parser.add_argument("--samples", type=int, default=0)
     parser.add_argument("--output", required=True)
+    parser.add_argument("--diagnostics", action="store_true")
+    parser.add_argument("--strict-load", action="store_true")
     args = parser.parse_args()
     torch.set_num_threads(4)
     from detectron2.modeling import build_model
     from detectron2.checkpoint import DetectionCheckpointer
     cfg = configuration(args.config)
     model = build_model(cfg).eval()
-    DetectionCheckpointer(model).load(args.weights)
+    if args.strict_load:
+        state = torch.load(args.weights, map_location="cpu", weights_only=False)["model"]
+        model.load_state_dict(state, strict=True)
+        del state
+    else:
+        DetectionCheckpointer(model).load(args.weights)
     from course.experiments import mapper as build_mapper
     mapper = build_mapper(cfg, training=False, cache=args.cache)
     records = json.loads((Path(args.cache) / "index.json").read_text())["val"]
@@ -43,13 +50,17 @@ def main():
     with contextlib.redirect_stdout(io.StringIO()):
         coco = COCO(str(Path(args.cache) / "coco_val.json"))
     detections, timings, preprocess_timings = [], [], []
+    profiles = []
     torch.cuda.reset_peak_memory_stats()
     started = time.monotonic()
     with torch.inference_mode():
         for n, record in enumerate(records):
             preprocessing_started = time.perf_counter()
             image = mapper(record)
+            assert tuple(image["image"].shape[-2:]) == (cfg.COURSE.TEST_SIZE, cfg.COURSE.TEST_SIZE), "Reported test size must match actual input"
             preprocess_timings.append(time.perf_counter() - preprocessing_started)
+            if "preprocess_profile" in image:
+                profiles.append(image["preprocess_profile"])
             torch.cuda.synchronize()
             tick = time.perf_counter()
             instances = model([image])[0]["instances"]
@@ -81,6 +92,8 @@ def main():
                                                                   np.asarray(timings) + np.asarray(preprocess_timings))),
                   timing_excludes="disk reads, RLE encoding, COCO aggregation; first 5 images warmed up",
                   checkpoint_bytes=os.path.getsize(args.weights))
+    if profiles:
+        result["input_profile_seconds"] = {k: float(np.mean([p[k] for p in profiles[5:] or profiles])) for k in profiles[0]}
     with contextlib.redirect_stdout(io.StringIO()):
         if detections:
             prediction = coco.loadRes(detections)
@@ -90,11 +103,16 @@ def main():
             evaluator.accumulate()
             evaluator.summarize()
             stats = evaluator.stats
+            from course.diagnostics_v3 import coco_small_metrics
+            result.update(coco_small_metrics(evaluator))
         else:
             stats = np.zeros(12)
     result.update(mask_ap=float(stats[0]), mask_ap50=float(stats[1]), mask_ap75=float(stats[2]),
                   mask_aps=float(stats[3]), mask_apm=float(stats[4]), mask_apl=float(stats[5]),
                   total_elapsed_seconds=time.monotonic() - started)
+    if args.diagnostics:
+        from course.diagnostics_v3 import diagnose_small
+        result["small_diagnostics"] = diagnose_small(coco, detections, ids)
     Path(args.output).parent.mkdir(parents=True, exist_ok=True)
     atomic_json(args.output, result)
     print("METRICS", json.dumps(result), flush=True)

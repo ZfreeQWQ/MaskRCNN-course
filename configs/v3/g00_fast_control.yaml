@@ -1,0 +1,5 @@
+_BASE_: ../v2/d01_geometry_multiscale.yaml
+COURSE:
+  NAME: g00_fast_control
+  V3:
+    ENABLED: True

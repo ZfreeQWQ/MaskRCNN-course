@@ -24,6 +24,10 @@ def add_experiment_config(cfg):
     cfg.COURSE.V2.ROI_MATCH_WEIGHT = 0.0
     cfg.COURSE.V2.ROI_LOSS_FRACTION = 0.0
     cfg.COURSE.V2.AREA_WEIGHT = False
+    cfg.COURSE.V3 = CN()
+    cfg.COURSE.V3.ENABLED = False
+    cfg.COURSE.V3.REFINE = False
+    cfg.COURSE.V3.REFINE_CHANNELS = 32
     # Import registers opt-in classes, without modifying upstream implementations.
     from course import modeling  # noqa: F401
     from course import modeling_v2  # noqa: F401
@@ -31,6 +35,10 @@ def add_experiment_config(cfg):
 
 def mapper(cfg, training, cache="data_cache"):
     from course.data import RGBDMapper
+    if cfg.COURSE.V3.ENABLED:
+        assert cfg.COURSE.V2.ENABLED and cfg.COURSE.V2.GEOMETRY
+        from course.data_v3 import FastGeometryMapper
+        return FastGeometryMapper(cfg, training, cache)
     if cfg.COURSE.V2.ENABLED:
         from course.data_v2 import GeometryROIMapper
         return GeometryROIMapper(cfg, training, cache)
