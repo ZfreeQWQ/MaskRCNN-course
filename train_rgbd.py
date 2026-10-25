@@ -213,6 +213,14 @@ def main():
                     diagnostics = {n: {k: float(v) for k, v in d.items()} for n, d in branch.last_diagnostics.items()}
                     atomic_json(output / ("geometry_gradient_step" + str(step) + ".json"),
                                 dict(step=step, mean_absolute_gradients=gradients, features=diagnostics))
+                if cfg.COURSE.V3.REFINE and (step <= 10 or step == 20 or step % 1000 == 0):
+                    refiner = self.trainer.model.sem_seg_head.refiner
+                    gradients = {n: float(p.grad.detach().abs().mean()) if p.grad is not None else None
+                                 for n, p in refiner.named_parameters()}
+                    assert all(v is None or math.isfinite(v) for v in gradients.values())
+                    if step == 10:
+                        assert any(v and v > 0 for n, v in gradients.items() if n.startswith("geometry.")), "Detail branch disconnected"
+                    atomic_json(output / ("detail_gradient_step" + str(step) + ".json"), dict(step=step, gradients=gradients))
                 if step % 20 == 0 or step == 1:
                     status(status="training", step=step, sample_presentations=step * cfg.SOLVER.IMS_PER_BATCH,
                            metrics=metrics, elapsed_seconds=time.monotonic() - self.started)

@@ -1,0 +1,13 @@
+_BASE_: g00_fast_control.yaml
+MODEL:
+  META_ARCHITECTURE: DetailMaskFormer
+  BACKBONE:
+    NAME: build_detail_geometry_backbone
+  SEM_SEG_HEAD:
+    NAME: GeometryRefinementHead
+  MASK_FORMER:
+    TRANSFORMER_DECODER_NAME: FinalEmbeddingDecoder
+COURSE:
+  NAME: g02_geometry_detail
+  V3:
+    REFINE: True

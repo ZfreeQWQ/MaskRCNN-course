@@ -27,6 +27,17 @@ def main():
     parser.add_argument("--diagnostics", action="store_true")
     parser.add_argument("--strict-load", action="store_true")
     args = parser.parse_args()
+    # All V3 evaluators share a physical-GPU lock. A queued periodic evaluator
+    # waits before model allocation, so scale evaluation and training monitors
+    # cannot contaminate each other's latency measurements or exhaust memory.
+    import fcntl
+    import hashlib
+    gpu_identity = os.environ.get("CUDA_VISIBLE_DEVICES", "default")
+    lock_name = "evaluation_gpu_" + hashlib.sha256(gpu_identity.encode()).hexdigest()[:12] + ".lock"
+    gpu_lock = (Path(args.cache).resolve() / lock_name).open("a")
+    print("EVAL_GPU_LOCK_WAIT", gpu_identity, flush=True)
+    fcntl.flock(gpu_lock, fcntl.LOCK_EX)
+    print("EVAL_GPU_LOCK_ACQUIRED", gpu_identity, flush=True)
     torch.set_num_threads(4)
     from detectron2.modeling import build_model
     from detectron2.checkpoint import DetectionCheckpointer

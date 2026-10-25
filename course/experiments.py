@@ -31,6 +31,7 @@ def add_experiment_config(cfg):
     # Import registers opt-in classes, without modifying upstream implementations.
     from course import modeling  # noqa: F401
     from course import modeling_v2  # noqa: F401
+    from course import refinement_v3  # noqa: F401
 
 
 def mapper(cfg, training, cache="data_cache"):
