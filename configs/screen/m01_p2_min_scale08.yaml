@@ -1,0 +1,5 @@
+_BASE_: j01_p2_queries.yaml
+INPUT:
+  MIN_SCALE: 0.8
+COURSE:
+  NAME: m01_p2_min_scale08

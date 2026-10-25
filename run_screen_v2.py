@@ -14,6 +14,7 @@ import traceback
 import zipfile
 import yaml
 from course.common import atomic_json,configuration
+from course.screen_protocol import compare_protocol
 
 
 def main():
@@ -22,6 +23,8 @@ def main():
     parser.add_argument('--candidates',nargs=2,default=['j01_p2_queries','j02_geometry_queries'])
     parser.add_argument('--gpu-audit',default='runs/screen_v2_gpu_audit.json')
     parser.add_argument('--smoke-prefix',default='screen_v2_smoke_r2_')
+    parser.add_argument('--control-dir',default='runs/screen_v1/i00_control')
+    parser.add_argument('--allowed-change',nargs='*',default=[])
     args=parser.parse_args()
     assert len(set(args.candidates))==2, 'Two distinct candidates required'
     assert '/' not in args.suite and '\\' not in args.suite and args.suite.startswith('screen_')
@@ -34,7 +37,8 @@ def main():
     assert not subprocess.check_output(['git','status','--porcelain'],cwd=root,text=True).strip()
     gpu_memory=subprocess.check_output(['nvidia-smi','--query-gpu=memory.used','--format=csv,noheader,nounits'],text=True)
     assert len(gpu_memory.splitlines())>=2 and all(int(v.strip())<256 for v in gpu_memory.splitlines()[:2]), 'GPUs occupied; never stop unrelated jobs'
-    reference_dir=root/'runs/screen_v1/i00_control'
+    reference_dir=(root/args.control_dir).resolve()
+    assert reference_dir.is_relative_to(root/'runs'), 'Control must be a local audited run'
     reference=json.loads((reference_dir/'status.json').read_text())
     assert reference['status']=='completed' and reference['step']==3000
     reference_protocol=json.loads((reference_dir/'protocol.json').read_text())
@@ -52,14 +56,7 @@ def main():
           for i,n in enumerate(args.candidates)}
     for job in jobs.values():
         cfg=yaml.safe_load(configuration(job['config']).dump())
-        for section in ('INPUT','SOLVER','DATALOADER','DATASETS','TEST','SEED'):
-            assert cfg[section]==reference_config[section],section
-        for section,ignore in (('MASK_FORMER',{'TRANSFORMER_DECODER_NAME'}),('SEM_SEG_HEAD',{'NAME'}),('BACKBONE',{'NAME'})):
-            a={k:v for k,v in cfg['MODEL'][section].items() if k not in ignore}
-            b={k:v for k,v in reference_config['MODEL'][section].items() if k not in ignore}
-            assert a==b,section
-        for section in ('V2','V3','V4','SCREEN'):
-            assert cfg['COURSE'][section]==reference_config['COURSE'][section],section
+        job['declared_training_differences']=compare_protocol(cfg,reference_config,args.allowed_change)
     audit=json.loads((root/args.gpu_audit).read_text())
     assert audit['status']=='passed' and len(audit['comparisons'])==4
     assert {row['config'] for row in audit['comparisons']}==set(args.candidates), 'Wrong candidate GPU audit'
@@ -83,7 +80,9 @@ def main():
                started_unix=time.time(),panel_sha256=panel_sha,weights_sha256=weights_sha,
                matched_control=str(reference_dir),control_metrics=reference_scores,
                control_status_sha256=hashlib.sha256((reference_dir/'status.json').read_bytes()).hexdigest(),
-               control_reuse='Same trained633 tensors, RNG, input, losses, optimizer shared rates, data/geometry hashes, +3000 budget; zero-residual parity CPU/GPU',
+               control_reuse='Same trained633 tensors, shared model initialization, optimizer/update budget, data/geometry hashes and panel; explicit training-factor exceptions recorded per job; CPU/GPU initial parity',
+               allowed_training_changes=args.allowed_change,
+               rng_caveat='Same seed and sampler; scale changes can change retained GT counts, and point-budget changes alter sampling and CUDA RNG consumption/compute. Identical GPU random streams or wall time are NOT claimed',
                policy='Two +3000-step opt-in candidates; fixed200 at0/1000/2000/3000; no full val/test; heartbeat reviews and continues',
                gpu_parity=audit,test_used=False,confirmation_used=False)
     processes,logs={},[]

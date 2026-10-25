@@ -1,0 +1,6 @@
+_BASE_: j01_p2_queries.yaml
+MODEL:
+  MASK_FORMER:
+    TRAIN_NUM_POINTS: 32768
+COURSE:
+  NAME: m02_p2_points32768
