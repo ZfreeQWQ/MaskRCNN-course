@@ -1,0 +1,6 @@
+_BASE_: ../v3/g02_geometry_detail.yaml
+COURSE:
+  NAME: h02_detail1280
+  TEST_SIZE: 1280
+  V4:
+    ENABLED: True

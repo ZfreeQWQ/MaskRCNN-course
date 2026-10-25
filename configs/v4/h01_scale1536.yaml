@@ -1,0 +1,4 @@
+_BASE_: h00_fast1280.yaml
+COURSE:
+  NAME: h01_scale1536
+  TEST_SIZE: 1536

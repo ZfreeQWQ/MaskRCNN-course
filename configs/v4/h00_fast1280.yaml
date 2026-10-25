@@ -1,0 +1,5 @@
+_BASE_: ../v3/g01_scale1280.yaml
+COURSE:
+  NAME: h00_fast1280
+  V4:
+    ENABLED: True

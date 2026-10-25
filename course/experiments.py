@@ -28,6 +28,8 @@ def add_experiment_config(cfg):
     cfg.COURSE.V3.ENABLED = False
     cfg.COURSE.V3.REFINE = False
     cfg.COURSE.V3.REFINE_CHANNELS = 32
+    cfg.COURSE.V4 = CN()
+    cfg.COURSE.V4.ENABLED = False
     # Import registers opt-in classes, without modifying upstream implementations.
     from course import modeling  # noqa: F401
     from course import modeling_v2  # noqa: F401
@@ -36,6 +38,10 @@ def add_experiment_config(cfg):
 
 def mapper(cfg, training, cache="data_cache"):
     from course.data import RGBDMapper
+    if cfg.COURSE.V4.ENABLED:
+        assert cfg.COURSE.V3.ENABLED and cfg.COURSE.V2.GEOMETRY
+        from course.data_v4 import CompactGeometryMapper
+        return CompactGeometryMapper(cfg, training, cache)
     if cfg.COURSE.V3.ENABLED:
         assert cfg.COURSE.V2.ENABLED and cfg.COURSE.V2.GEOMETRY
         from course.data_v3 import FastGeometryMapper
