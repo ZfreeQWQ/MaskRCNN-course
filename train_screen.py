@@ -29,6 +29,13 @@ class ScreenTrainer(Trainer):
                 if any(id(p) in ids for p in group["params"]):
                     assert all(id(p) in ids for p in group["params"])
                     group["lr"] = cfg.SOLVER.BASE_LR * cfg.COURSE.QUERY.LR_MULTIPLIER
+        local = getattr(model.sem_seg_head, "local_geometry", None)
+        if local is not None:
+            ids = {id(p) for p in local.parameters()}
+            for group in optimizer.param_groups:
+                if any(id(p) in ids for p in group["params"]):
+                    assert all(id(p) in ids for p in group["params"])
+                    group["lr"] = cfg.SOLVER.BASE_LR * cfg.COURSE.LOCAL.LR_MULTIPLIER
         return optimizer
 
 
@@ -76,9 +83,10 @@ def main():
         # LR scheduler, iteration and data sampler identically at the task model.
         loaded = torch.load(args.weights, map_location="cpu", weights_only=False)["model"]
         missing, unexpected = trainer.model.load_state_dict(loaded, strict=False)
-        expected_new = {k for k in trainer.model.state_dict() if k.startswith("sem_seg_head.predictor.query_initializer.")}
+        expected_new = {k for k in trainer.model.state_dict() if k.startswith(("sem_seg_head.predictor.query_initializer.",
+                                                                            "sem_seg_head.local_geometry."))}
         assert set(missing) == expected_new and not unexpected, (missing, unexpected)
-        assert bool(expected_new) == (cfg.COURSE.QUERY.MODE != "off")
+        assert bool(expected_new) == (cfg.COURSE.QUERY.MODE != "off" or cfg.COURSE.LOCAL.MODE != "off")
         actual = trainer.model.state_dict()
         mismatches = [k for k, v in loaded.items() if not torch.equal(v, actual[k].detach().cpu())]
         assert not mismatches
@@ -98,6 +106,7 @@ def main():
             optimizer="fresh AdamW; matching official grouping, backbone multiplier and geometry LR",
             comparison="matched control and candidate from identical task weights, budget, seed, sampler, augmentations and losses",
             query_settings=dict(cfg.COURSE.QUERY),
+            local_geometry_settings=dict(cfg.COURSE.LOCAL),
             train_val_never_merged=True, test_used=False, automatic_full_validation=False,
             validation="fixed 200-image scene-stratified screen; not a full-val or convergence claim",
             geometry_assets={str(p): hashlib.sha256(p.read_bytes()).hexdigest() for p in
@@ -105,6 +114,7 @@ def main():
 
         class ScreenMonitor(hooks.HookBase):
             query_inner_gradient_seen = False
+            local_inner_gradient_seen = False
             def evaluate(self, weights, step):
                 label = f"screen_step{step}"
                 result_path = output / (label + ".json")
@@ -147,6 +157,15 @@ def main():
                         assert self.query_inner_gradient_seen, "P2 query pooling is disconnected"
                     atomic_json(output / f"query_gradient_step{step}.json", dict(step=step, gradients=gradients,
                         diagnostics={k:float(v) for k,v in initializer.last_diagnostics.items()}))
+                local = getattr(self.trainer.model.sem_seg_head, "local_geometry", None)
+                if local is not None and (step <= 10 or step % 1000 == 0):
+                    gradients = {n:float(p.grad.detach().abs().mean()) if p.grad is not None else None
+                                 for n,p in local.named_parameters()}
+                    assert all(v is None or math.isfinite(v) for v in gradients.values())
+                    self.local_inner_gradient_seen |= any(v and v>0 for n,v in gradients.items() if n.startswith("features."))
+                    if step==10: assert self.local_inner_gradient_seen,"Local geometry is disconnected"
+                    atomic_json(output/f"local_gradient_step{step}.json",dict(step=step,gradients=gradients,
+                        diagnostics={k:float(v) for k,v in local.last_diagnostics.items()}))
                 if step == 1 or step % 20 == 0 or step == args.max_iter:
                     update(status="training", step=step, metrics=metrics)
                     print("SCREEN_TRAIN_STEP", step, json.dumps(metrics), flush=True)

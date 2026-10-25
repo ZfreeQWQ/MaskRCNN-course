@@ -1,5 +1,6 @@
 """Two image-conditioned query candidates against the frozen matched V1 control."""
 import fcntl
+import argparse
 import hashlib
 import io
 import json
@@ -16,8 +17,16 @@ from course.common import atomic_json,configuration
 
 
 def main():
+    parser=argparse.ArgumentParser()
+    parser.add_argument('--suite',default='screen_v2')
+    parser.add_argument('--candidates',nargs=2,default=['j01_p2_queries','j02_geometry_queries'])
+    parser.add_argument('--gpu-audit',default='runs/screen_v2_gpu_audit.json')
+    parser.add_argument('--smoke-prefix',default='screen_v2_smoke_r2_')
+    args=parser.parse_args()
+    assert len(set(args.candidates))==2, 'Two distinct candidates required'
+    assert '/' not in args.suite and '\\' not in args.suite and args.suite.startswith('screen_')
     root=Path(__file__).resolve().parent
-    suite=root/'runs/screen_v2'
+    suite=root/'runs'/args.suite
     suite.mkdir(parents=True,exist_ok=True)
     lock=(suite/'queue.lock').open('a')
     fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
@@ -40,7 +49,7 @@ def main():
     weights_sha=hashlib.sha256(weights.read_bytes()).hexdigest()
     assert weights_sha==reference_protocol['weights_sha256']
     jobs={n:dict(gpu=str(i),config=f'configs/screen/{n}.yaml',status='pending')
-          for i,n in enumerate(('j01_p2_queries','j02_geometry_queries'))}
+          for i,n in enumerate(args.candidates)}
     for job in jobs.values():
         cfg=yaml.safe_load(configuration(job['config']).dump())
         for section in ('INPUT','SOLVER','DATALOADER','DATASETS','TEST','SEED'):
@@ -51,12 +60,14 @@ def main():
             assert a==b,section
         for section in ('V2','V3','V4','SCREEN'):
             assert cfg['COURSE'][section]==reference_config['COURSE'][section],section
-    audit=json.loads((root/'runs/screen_v2_gpu_audit.json').read_text())
+    audit=json.loads((root/args.gpu_audit).read_text())
     assert audit['status']=='passed' and len(audit['comparisons'])==4
+    assert {row['config'] for row in audit['comparisons']}==set(args.candidates), 'Wrong candidate GPU audit'
     for name in jobs:
-        smoke=json.loads((root/f'runs/screen_v2_smoke_r2_{name}/status.json').read_text())
+        smoke=json.loads((root/f'runs/{args.smoke_prefix}{name}/status.json').read_text())
         assert smoke['status']=='smoke_test_passed' and smoke['step']==10
-        assert (root/f'runs/screen_v2_smoke_r2_{name}/query_gradient_step10.json').is_file()
+        smoke_dir=root/f'runs/{args.smoke_prefix}{name}'
+        assert any((smoke_dir/n).is_file() for n in ('query_gradient_step10.json','local_gradient_step10.json'))
     revision=subprocess.check_output(['git','rev-parse','HEAD'],cwd=root,text=True).strip()
     archive=subprocess.check_output(['git','archive','--format=zip',revision],cwd=root)
     source=suite/'source';source.mkdir()
@@ -73,7 +84,7 @@ def main():
                matched_control=str(reference_dir),control_metrics=reference_scores,
                control_status_sha256=hashlib.sha256((reference_dir/'status.json').read_bytes()).hexdigest(),
                control_reuse='Same trained633 tensors, RNG, input, losses, optimizer shared rates, data/geometry hashes, +3000 budget; zero-residual parity CPU/GPU',
-               policy='Two +3000-step query candidates; fixed200 at0/1000/2000/3000; no full val/test; heartbeat reviews and continues',
+               policy='Two +3000-step opt-in candidates; fixed200 at0/1000/2000/3000; no full val/test; heartbeat reviews and continues',
                gpu_parity=audit,test_used=False,confirmation_used=False)
     processes,logs={},[]
 

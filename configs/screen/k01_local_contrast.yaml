@@ -1,0 +1,10 @@
+_BASE_: i00_control.yaml
+MODEL:
+  BACKBONE:
+    NAME: build_query_geometry_backbone
+  SEM_SEG_HEAD:
+    NAME: LocalGeometryHead
+COURSE:
+  NAME: k01_local_contrast
+  LOCAL:
+    MODE: contrast

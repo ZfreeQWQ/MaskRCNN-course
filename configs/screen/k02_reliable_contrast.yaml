@@ -1,0 +1,5 @@
+_BASE_: k01_local_contrast.yaml
+COURSE:
+  NAME: k02_reliable_contrast
+  LOCAL:
+    MODE: reliable
