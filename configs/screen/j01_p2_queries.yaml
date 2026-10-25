@@ -1,0 +1,10 @@
+_BASE_: i00_control.yaml
+MODEL:
+  SEM_SEG_HEAD:
+    NAME: SeededMaskFormerHead
+  MASK_FORMER:
+    TRANSFORMER_DECODER_NAME: SeededQueryDecoder
+COURSE:
+  NAME: j01_p2_queries
+  QUERY:
+    MODE: p2

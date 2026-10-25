@@ -44,6 +44,7 @@ class GeometryFusion(nn.Module):
                                                      nn.ReLU(), nn.Conv2d(32, rgb, 1)))
             cin = depth_channels
         self.last_diagnostics = {}
+        self.last_keep = None  # detached mask for opt-in branches; no RNG/output change
         self.enabled = True  # explicit residual-off diagnostic; not a learned tensor
 
     def forward(self, features, geometry):
@@ -53,6 +54,7 @@ class GeometryFusion(nn.Module):
         batch = x.shape[0]
         keep = ((torch.rand(batch, 1, 1, 1, device=x.device) >= self.dropout).to(x)
                 if self.training and self.dropout else x.new_ones(batch, 1, 1, 1))
+        self.last_keep = keep.detach()
         audit = {}
         for i, name in enumerate(("res2", "res3", "res4", "res5")):
             x = self.stages[i](x)

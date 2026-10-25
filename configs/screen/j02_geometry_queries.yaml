@@ -1,0 +1,8 @@
+_BASE_: j01_p2_queries.yaml
+MODEL:
+  BACKBONE:
+    NAME: build_query_geometry_backbone
+COURSE:
+  NAME: j02_geometry_queries
+  QUERY:
+    MODE: p2_geometry

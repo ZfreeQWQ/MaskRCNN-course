@@ -3,6 +3,18 @@ import os
 from pathlib import Path
 
 
+def cpu_state_dict(model):
+    """Preserve PyTorch module versions used by upstream load migrations.
+
+    A plain dict comprehension silently drops OrderedDict._metadata and makes
+    MaskFormerHead treat a current checkpoint as its historical v1 format.
+    """
+    state = model.state_dict()
+    for key, value in state.items():
+        state[key] = value.detach().cpu()
+    return state
+
+
 def atomic_json(path, value):
     path = Path(path)
     path.parent.mkdir(parents=True, exist_ok=True)
