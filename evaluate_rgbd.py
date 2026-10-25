@@ -23,6 +23,7 @@ def main():
     parser.add_argument("--cache", default="data_cache")
     parser.add_argument("--weights", required=True)
     parser.add_argument("--samples", type=int, default=0)
+    parser.add_argument("--image-ids", help="Fixed validation-only panel JSON; mutually exclusive with --samples")
     parser.add_argument("--output", required=True)
     parser.add_argument("--diagnostics", action="store_true")
     parser.add_argument("--strict-load", action="store_true")
@@ -52,6 +53,13 @@ def main():
     from course.experiments import mapper as build_mapper
     mapper = build_mapper(cfg, training=False, cache=args.cache)
     records = json.loads((Path(args.cache) / "index.json").read_text())["val"]
+    panel_sha256 = None
+    if args.image_ids:
+        if args.samples:
+            raise ValueError("Use --image-ids OR --samples, not both")
+        from course.screen_data import load_panel
+        records = load_panel(args.image_ids, records)
+        panel_sha256 = hashlib.sha256(Path(args.image_ids).read_bytes()).hexdigest()
     if args.samples:
         assert args.samples > 0
         indices = np.unique(np.linspace(0, len(records) - 1, min(args.samples, len(records)), dtype=int))
@@ -103,6 +111,8 @@ def main():
                                                                   np.asarray(timings) + np.asarray(preprocess_timings))),
                   timing_excludes="disk reads, RLE encoding, COCO aggregation; first 5 images warmed up",
                   checkpoint_bytes=os.path.getsize(args.weights))
+    result.update(validation_image_ids=ids, panel_sha256=panel_sha256,
+                  evaluation_scope="fixed_screen_not_full_val" if args.image_ids else "full_val" if not args.samples else "sampled_val")
     if profiles:
         result["input_profile_seconds"] = {k: float(np.mean([p[k] for p in profiles[5:] or profiles])) for k in profiles[0]}
     with contextlib.redirect_stdout(io.StringIO()):

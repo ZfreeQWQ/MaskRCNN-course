@@ -1,0 +1,7 @@
+_BASE_: i00_control.yaml
+COURSE:
+  NAME: i01_early_dilate
+  SCREEN:
+    ATTENTION_MODE: dilate
+    EARLY_LAYERS: 2
+    DILATION_KERNEL: 3

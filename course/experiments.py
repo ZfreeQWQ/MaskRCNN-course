@@ -30,10 +30,15 @@ def add_experiment_config(cfg):
     cfg.COURSE.V3.REFINE_CHANNELS = 32
     cfg.COURSE.V4 = CN()
     cfg.COURSE.V4.ENABLED = False
+    cfg.COURSE.SCREEN = CN()
+    cfg.COURSE.SCREEN.ATTENTION_MODE = "off"
+    cfg.COURSE.SCREEN.EARLY_LAYERS = 2
+    cfg.COURSE.SCREEN.DILATION_KERNEL = 3
     # Import registers opt-in classes, without modifying upstream implementations.
     from course import modeling  # noqa: F401
     from course import modeling_v2  # noqa: F401
     from course import refinement_v3  # noqa: F401
+    from course import attention_screen  # noqa: F401
 
 
 def mapper(cfg, training, cache="data_cache"):
