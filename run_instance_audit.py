@@ -14,7 +14,7 @@ from course.common import atomic_json
 
 def main():
     root = Path(__file__).resolve().parent
-    target = root/"runs/instance_audit_v1"
+    target = root/"runs/instance_audit_v1_r2"
     assert not target.exists(), "Never overwrite/repeat an existing audit"
     assert not subprocess.check_output(["git", "status", "--porcelain"], cwd=root, text=True).strip()
     memory = subprocess.check_output(["nvidia-smi", "--id=0", "--query-gpu=memory.used", "--format=csv,noheader,nounits"], text=True)

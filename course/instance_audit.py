@@ -17,7 +17,12 @@ def evaluate(coco, predictions, ids):
     if not predictions:
         return dict(mask_aps=0., mask_aps50=0., mask_aps75=0., mask_ars=0.), None
     with contextlib.redirect_stdout(io.StringIO()):
-        evaluator = COCOeval(coco, coco.loadRes(copy.deepcopy(predictions)), "segm")
+        # COCO.loadRes mutates its input with ndarray bbox/area/id fields. A
+        # repeated load then takes the bbox branch and some versions raise on
+        # ndarray == []. Rebuild the original segmentation-only schema.
+        clean = [{k: copy.deepcopy(p[k]) for k in ("image_id", "category_id", "score", "segmentation")}
+                 for p in predictions]
+        evaluator = COCOeval(coco, coco.loadRes(clean), "segm")
         evaluator.params.imgIds = list(ids)
         evaluator.evaluate(); evaluator.accumulate(); evaluator.summarize()
     return dict(mask_aps=float(evaluator.stats[3]), **coco_small_metrics(evaluator)), evaluator

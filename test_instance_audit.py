@@ -46,10 +46,35 @@ class InstanceAuditTests(unittest.TestCase):
         self.assertEqual(result["groups"]["all_small"]["counts_best_iou"]["0.5"], 0)
         self.assertEqual(result["groups"]["all_small"]["instances"], 2)
 
+    def test_oracle_overlap_must_not_be_reported_as_one_to_one_recall(self):
+        coco, a, b = self.data()
+        pred = [dict(image_id=1, category_id=1, score=.9, segmentation=rle(a+b))]
+        result = audit_instances(coco, pred, [1])
+        self.assertEqual(result["groups"]["all_small"]["counts_best_iou"]["0.5"], 2)
+        self.assertEqual(result["coco_one_to_one_small_matches"]["0.5"]["matched_gt"], 1)
+
+    def test_merge_like_requires_multi_gt_coverage_and_low_iou(self):
+        coco, a, b = self.data()
+        merged = a+b
+        merged[13:16, :] = 1
+        pred = [dict(image_id=1, category_id=1, score=.9, segmentation=rle(merged))]
+        result = audit_instances(coco, pred, [1])
+        self.assertEqual(result["per_image"][0]["merge_like_score_ge01"], 1)
+        self.assertEqual(result["groups"]["all_small"]["counts_best_iou"]["0.5"], 0)
+
     def test_reject_nonpanel_predictions(self):
         coco, a, _ = self.data()
         with self.assertRaises(AssertionError):
             audit_instances(coco, [dict(image_id=2, category_id=1, score=1, segmentation=rle(a))], [1])
+
+    def test_records_previously_mutated_by_coco_loadres(self):
+        coco, a, b = self.data()
+        pred = [dict(image_id=1, category_id=1, score=.9, segmentation=rle(m)) for m in (a, b)]
+        coco.loadRes(pred)
+        self.assertIsInstance(pred[0]["bbox"], np.ndarray)
+        result = audit_instances(coco, pred, [1])
+        self.assertAlmostEqual(result["baseline"]["mask_aps"], 1.)
+        self.assertEqual(result["coco_one_to_one_small_matches"]["0.75"]["matched_gt"], 2)
 
 
 if __name__ == "__main__":

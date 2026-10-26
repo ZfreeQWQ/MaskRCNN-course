@@ -123,6 +123,11 @@ def main():
                   evaluation_scope="fixed_screen_not_full_val" if args.image_ids else "full_val" if not args.samples else "sampled_val")
     if profiles:
         result["input_profile_seconds"] = {k: float(np.mean([p[k] for p in profiles[5:] or profiles])) for k in profiles[0]}
+    # Persist before COCO mutates records and before any optional analysis: a
+    # failed downstream diagnostic must not require repeating model inference.
+    if args.predictions_output:
+        atomic_json(args.predictions_output, dict(image_ids=ids, panel_sha256=panel_sha256,
+                    checkpoint=result["checkpoint"], predictions=detections))
     with contextlib.redirect_stdout(io.StringIO()):
         if detections:
             prediction = coco.loadRes(detections)
@@ -145,9 +150,6 @@ def main():
     if args.instance_audit:
         from course.instance_audit import audit_instances
         result["instance_audit"] = audit_instances(coco, detections, ids)
-    if args.predictions_output:
-        atomic_json(args.predictions_output, dict(image_ids=ids, panel_sha256=panel_sha256,
-                    checkpoint=result["checkpoint"], predictions=detections))
     Path(args.output).parent.mkdir(parents=True, exist_ok=True)
     atomic_json(args.output, result)
     print("METRICS", json.dumps(result), flush=True)
