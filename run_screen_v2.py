@@ -1,4 +1,4 @@
-"""Two image-conditioned query candidates against the frozen matched V1 control."""
+"""Two explicitly declared candidates against an audited same-budget control."""
 import fcntl
 import argparse
 import hashlib
@@ -65,6 +65,10 @@ def main():
         assert smoke['status']=='smoke_test_passed' and smoke['step']==10
         smoke_dir=root/f'runs/{args.smoke_prefix}{name}'
         assert any((smoke_dir/n).is_file() for n in ('query_gradient_step10.json','local_gradient_step10.json'))
+        coverage=configuration(jobs[name]['config']).COURSE.COVERAGE
+        if coverage.MATCH_POINTS or coverage.LOSS_POINTS:
+            evidence=json.loads((smoke_dir/'coverage_step10.json').read_text())
+            assert evidence['positive_coverage_seen'], 'Small-instance sampling was never exercised in smoke'
     revision=subprocess.check_output(['git','rev-parse','HEAD'],cwd=root,text=True).strip()
     archive=subprocess.check_output(['git','archive','--format=zip',revision],cwd=root)
     source=suite/'source';source.mkdir()
@@ -82,7 +86,7 @@ def main():
                control_status_sha256=hashlib.sha256((reference_dir/'status.json').read_bytes()).hexdigest(),
                control_reuse='Same trained633 tensors, shared model initialization, optimizer/update budget, data/geometry hashes and panel; explicit training-factor exceptions recorded per job; CPU/GPU initial parity',
                allowed_training_changes=args.allowed_change,
-               rng_caveat='Same seed and sampler; scale changes can change retained GT counts, and point-budget changes alter sampling and CUDA RNG consumption/compute. Identical GPU random streams or wall time are NOT claimed',
+               rng_caveat='Same seed/sampler; scale or point-budget changes can alter RNG consumption. Coverage floors use deterministic anchors and keep full original point draws; unit tests check RNG parity. Identical later optimization trajectories or wall time are NOT claimed',
                policy='Two +3000-step opt-in candidates; fixed200 at0/1000/2000/3000; no full val/test; heartbeat reviews and continues',
                gpu_parity=audit,test_used=False,confirmation_used=False)
     processes,logs={},[]

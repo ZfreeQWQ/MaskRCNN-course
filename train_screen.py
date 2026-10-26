@@ -104,9 +104,10 @@ def main():
             weights_sha256=initial_sha, panel_sha256=panel_sha, seed=cfg.SEED,
             task_steps_before=30000, task_steps_added=args.max_iter,
             optimizer="fresh AdamW; matching official grouping, backbone multiplier and geometry LR",
-            comparison="matched control and candidate from identical task weights, budget, seed, sampler, augmentations and losses",
+            comparison="same task weights/budget/seed; controller guards shared settings and records explicit training-factor exceptions",
             query_settings=dict(cfg.COURSE.QUERY),
             local_geometry_settings=dict(cfg.COURSE.LOCAL),
+            coverage_settings=dict(cfg.COURSE.COVERAGE),
             train_val_never_merged=True, test_used=False, automatic_full_validation=False,
             validation="fixed 200-image scene-stratified screen; not a full-val or convergence claim",
             geometry_assets={str(p): hashlib.sha256(p.read_bytes()).hexdigest() for p in
@@ -115,6 +116,7 @@ def main():
         class ScreenMonitor(hooks.HookBase):
             query_inner_gradient_seen = False
             local_inner_gradient_seen = False
+            positive_coverage_seen = False
             def evaluate(self, weights, step):
                 label = f"screen_step{step}"
                 result_path = output / (label + ".json")
@@ -166,6 +168,17 @@ def main():
                     if step==10: assert self.local_inner_gradient_seen,"Local geometry is disconnected"
                     atomic_json(output/f"local_gradient_step{step}.json",dict(step=step,gradients=gradients,
                         diagnostics={k:float(v) for k,v in local.last_diagnostics.items()}))
+                criterion=self.trainer.model.criterion
+                if hasattr(criterion,"last_diagnostics"):
+                    matching=getattr(criterion.matcher,"last_diagnostics",{})
+                    loss=criterion.last_diagnostics
+                    self.positive_coverage_seen |= bool(matching.get("replaced_points_across_images",0) or
+                                                        loss.get("replaced_points_across_matches",0))
+                    if step <= 10 or step % 1000 == 0:
+                        atomic_json(output/f"coverage_step{step}.json",dict(matcher=matching,loss=loss,
+                            positive_coverage_seen=self.positive_coverage_seen))
+                    if step == 10 and (cfg.COURSE.COVERAGE.MATCH_POINTS or cfg.COURSE.COVERAGE.LOSS_POINTS):
+                        assert self.positive_coverage_seen,"Coverage floor never used a real small training instance"
                 if step == 1 or step % 20 == 0 or step == args.max_iter:
                     update(status="training", step=step, metrics=metrics)
                     print("SCREEN_TRAIN_STEP", step, json.dumps(metrics), flush=True)

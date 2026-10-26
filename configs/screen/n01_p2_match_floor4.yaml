@@ -1,0 +1,7 @@
+_BASE_: j01_p2_queries.yaml
+MODEL:
+  META_ARCHITECTURE: CoverageMaskFormer
+COURSE:
+  NAME: n01_p2_match_floor4
+  COVERAGE:
+    MATCH_POINTS: 4
