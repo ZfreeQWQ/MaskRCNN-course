@@ -30,3 +30,18 @@ Promotion gate remains final same-scale APs delta>=.01 and>=2 positive trained
 checkpoints, then independent unused-scene and second matched-seed replication
 with delta>=.01. Practical reproducibility, not statistical significance. A score
 above the old1024 .47059 alone is NOT evidence of a training improvement.
+
+## Preflight passed, source90a04d8
+
+113 CPU regressions passed. Actual train tensors on two supplied train records
+are11x1024x1024 vs11x1280x1280, with the same retained38/40 targets and6/7
+originally-small flags. Geometry statistics and original area labels unchanged.
+Four actual1280 GPU comparisons exactly match initial masks/scores/classes/
+boxes; model parameter count unchanged46,072,854. The real1280 ten-update smoke
+passed with finite/nonzero inner P2 gradients and strict final checkpoint
+evaluation/reload, without OOM. All643 initialized model tensors and module
+version metadata exactly match the old trained1024 control's initial checkpoint.
+Smoke scores are execution checks, not selection evidence. Smoke used0 data
+workers, so its2.03s/update dominated by1.42s data time is NOT formal throughput.
+Artifacts: runs/screen_v8_preflight.json, runs/screen_v8_data_audit.json,
+runs/screen_v8_gpu_audit.json and runs/screen_v8_smoke_q01_p2_train1280/.
