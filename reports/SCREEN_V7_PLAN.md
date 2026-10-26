@@ -37,6 +37,17 @@ Gate before outcomes: final APs gain>=.01,>=2 positive trained checkpoints,
 and gain>=.01 repeated on unused-scene confirmation and a second matched seed.
 This is a practical effect-size/reproducibility gate, not statistical significance.
 
-Preflight status at source sync:108 CPU regression tests PASSED. This is still
-an unvalidated optimization candidate: GPU initial-equivalence and real10-step
-training smoke must pass before formal V7 starts. No APs benefit is claimed.
+Preflight completed on c2f0ead source (model code unchanged from32cf927):
+-108 CPU regression tests PASSED.
+-4 real-image GPU comparisons (two images x two candidates) exactly match
+  original masks/scores/classes/boxes. Both candidates have46,072,854 parameters,
+  identical to retained P2; neither adds inference parameters.
+-Both10-update train-only smokes PASSED, including finite/nonzero interior P2
+  gradients and strict final checkpoint evaluation/reload. At update10 the batch
+  had35 retained targets and3 originally-small instances; binary weights1..2,
+  continuous weights1..1.26729393, normalized all-target means1.08571434 /
+  1.01330614. Reweighting therefore exercised real small training GT.
+-Artifacts: runs/screen_v7_gpu_audit.json, runs/screen_v7_preflight/status.json,
+  runs/screen_v7_smoke_{candidate}/instance_weight_step10.json.
+Smoke uses2 fixed val images as execution checks only; scores are not selection
+evidence. No candidate APs improvement is claimed before formal screening.
