@@ -63,12 +63,76 @@ def validate_prediction(prediction, decode=False):
             raise ValueError("Expected compressed COCO RLE on1024x1024 canvas")
         encoded = dict(size=rle["size"], counts=rle["counts"].encode("ascii"))
         area = int(mask_utils.area(encoded))
-        if not 0 <= area <= 1024**2:
+        if area == 0:
+            raise ValueError("Empty instance masks are not allowed; use [] for no detections")
+        if not 0 < area <= 1024**2:
             raise ValueError("Invalid mask area")
         if decode:
             mask = mask_utils.decode(encoded)
             if mask.shape != (1024, 1024) or int(mask.sum()) != area:
                 raise ValueError("RLE roundtrip failed")
+
+
+def remove_empty_instances(prediction):
+    """Format repair only: keep every nonempty instance unchanged and in order."""
+    if not isinstance(prediction, list) or len(prediction) > 100:
+        raise ValueError("Expected at most100 instances")
+    kept = []
+    for item in prediction:
+        rle = item["segmentation"]
+        if rle["size"] != [1024, 1024] or not isinstance(rle["counts"], str):
+            raise ValueError("Expected compressed1024-square COCO RLE")
+        area = int(mask_utils.area(dict(size=rle["size"], counts=rle["counts"].encode("ascii"))))
+        if area:
+            kept.append(item)
+    validate_prediction(kept)
+    return kept, len(prediction) - len(kept)
+
+
+def repair_empty_masks(source, metadata, output):
+    """Repair the existing frozen predictions without model inference or tuning."""
+    csv.field_size_limit(64 * 1024 * 1024)
+    output = Path(output)
+    temporary = output.with_suffix(".tmp.csv")
+    if output.exists() or temporary.exists():
+        raise FileExistsError("Never overwrite an earlier submission")
+    expected = [str(im["id"]) for im in json.loads(Path(metadata).read_text())["images"]]
+    if len(expected) != len(set(expected)):
+        raise ValueError("Duplicate metadata IDs")
+    rows = {}
+    removed = instances = empty_rows = changed_rows = 0
+    minimum, maximum = 100, 0
+    with Path(source).open(newline="", encoding="utf-8") as stream:
+        reader = csv.DictReader(stream)
+        if reader.fieldnames != ["image_id", "PredictionString"]:
+            raise ValueError("Wrong CSV columns")
+        for row in reader:
+            key = row["image_id"]
+            if key in rows or key not in expected or None in row:
+                raise ValueError("Unexpected, duplicate ID or malformed CSV")
+            original = json.loads(row["PredictionString"])
+            kept, count = remove_empty_instances(original)
+            validate_prediction(kept, decode=len(rows) % 100 == 0)
+            removed += count
+            changed_rows += bool(count)
+            instances += len(kept)
+            empty_rows += not kept
+            minimum, maximum = min(minimum, len(kept)), max(maximum, len(kept))
+            rows[key] = json.dumps(kept, separators=(",", ":"), allow_nan=False)
+    if set(rows) != set(expected):
+        raise ValueError("Missing test rows")
+    output.parent.mkdir(parents=True, exist_ok=True)
+    with temporary.open("x", newline="", encoding="utf-8") as stream:
+        writer = csv.writer(stream)
+        writer.writerow(["image_id", "PredictionString"])
+        writer.writerows((key, rows[key]) for key in expected)
+    temporary.rename(output)
+    return dict(rows=len(rows), retained_instances=instances, removed_empty_masks=removed,
+                images_with_removed_masks=changed_rows, empty_prediction_rows=empty_rows,
+                min_instances_per_image=minimum, max_instances_per_image=maximum,
+                every_retained_rle_area_positive=True, decoded_every_100th_image=True,
+                image_ids_exact_metadata_order=True, nonempty_instances_unchanged=True,
+                new_inference=False, score_threshold_changed=False)
 
 
 def merge_shards(shards, metadata, output):

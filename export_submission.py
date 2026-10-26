@@ -76,6 +76,10 @@ def main():
                 assert int(instances.pred_classes[j]) == 0
                 if float(instances.scores[j]) < args.score_threshold:
                     continue
+                # Top100 queries can include all-background masks, often score0.
+                # Kaggle forbids empty instances; an empty image uses JSON[].
+                if not bool(instances.pred_masks[j].any()):
+                    continue
                 rle = mask_utils.encode(np.asfortranarray(instances.pred_masks[j].numpy().astype(np.uint8)))
                 rle["counts"] = rle["counts"].decode("ascii")
                 predictions.append(dict(category_id=1, score=float(instances.scores[j]), segmentation=rle))
