@@ -73,6 +73,10 @@ def main():
         if point.MODE!='off':
             evidence=json.loads((smoke_dir/'point_gradient_step10.json').read_text())
             assert any(v and v>0 for n,v in evidence['gradients'].items() if n.startswith('rgb.'))
+        cfg=configuration(jobs[name]['config'])
+        if cfg.COURSE.SMALL_LOSS_WEIGHT!=1 or cfg.COURSE.V2.AREA_WEIGHT:
+            evidence=json.loads((smoke_dir/'instance_weight_step10.json').read_text())
+            assert evidence['reweighting_seen'], 'Loss weighting was never exercised on a real small train instance'
     revision=subprocess.check_output(['git','rev-parse','HEAD'],cwd=root,text=True).strip()
     archive=subprocess.check_output(['git','archive','--format=zip',revision],cwd=root)
     source=suite/'source';source.mkdir()

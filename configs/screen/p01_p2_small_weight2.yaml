@@ -1,0 +1,6 @@
+_BASE_: j01_p2_queries.yaml
+MODEL:
+  META_ARCHITECTURE: CourseMaskFormer
+COURSE:
+  NAME: p01_p2_small_weight2
+  SMALL_LOSS_WEIGHT: 2.0

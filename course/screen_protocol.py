@@ -4,7 +4,7 @@ from copy import deepcopy
 
 ALLOWED_TRAINING_CHANGES = {"INPUT.MIN_SCALE", "MODEL.MASK_FORMER.TRAIN_NUM_POINTS",
                           "MODEL.META_ARCHITECTURE", "COURSE.COVERAGE.MATCH_POINTS",
-                          "COURSE.COVERAGE.LOSS_POINTS"}
+                          "COURSE.COVERAGE.LOSS_POINTS", "COURSE.SMALL_LOSS_WEIGHT", "COURSE.V2.AREA_WEIGHT"}
 
 
 def flatten(mapping, prefix=""):

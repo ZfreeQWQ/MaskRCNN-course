@@ -126,6 +126,7 @@ def main():
             local_inner_gradient_seen = False
             positive_coverage_seen = False
             point_inner_gradient_seen = False
+            instance_weight_seen = False
             def evaluate(self, weights, step):
                 label = f"screen_step{step}"
                 result_path = output / (label + ".json")
@@ -187,6 +188,13 @@ def main():
                     atomic_json(output/f"point_gradient_step{step}.json",dict(step=step,gradients=gradients,
                         diagnostics={k:float(v) for k,v in point.last_diagnostics.items()}))
                 criterion=self.trainer.model.criterion
+                if hasattr(criterion,"last_weight_diagnostics") and (step<=10 or step%1000==0):
+                    values={k:float(v) for k,v in criterion.last_weight_diagnostics.items()}
+                    self.instance_weight_seen |= values["reweighted_targets"]>0 and values["max_matched_weight"]>1
+                    atomic_json(output/f"instance_weight_step{step}.json",dict(values=values,
+                        reweighting_seen=self.instance_weight_seen,original_points_and_matching=True))
+                if step==10 and (cfg.COURSE.SMALL_LOSS_WEIGHT!=1 or cfg.COURSE.V2.AREA_WEIGHT):
+                    assert self.instance_weight_seen,"No small training target was reweighted in smoke"
                 if hasattr(criterion,"last_diagnostics"):
                     matching=getattr(criterion.matcher,"last_diagnostics",{})
                     loss=criterion.last_diagnostics

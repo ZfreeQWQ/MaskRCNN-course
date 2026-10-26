@@ -41,6 +41,11 @@ class SmallInstanceCriterion(SetCriterion):
         all_small = torch.cat([t["small"] for t in targets])
         mean_weight = 1 + (self.small_weight - 1) * all_small.float().mean() if len(all_small) else 1
         denominator = num_masks * mean_weight
+        if self.small_weight != 1:
+            self.last_weight_diagnostics = dict(reweighted_targets=all_small.detach().sum(),
+                matched_targets=weights.new_tensor(len(weights)), matched_small=small.detach().sum(),
+                min_matched_weight=weights.detach().min(), max_matched_weight=weights.detach().max(),
+                mean_all_target_weight=torch.as_tensor(mean_weight).detach())
         return {"loss_mask": (bce * weights).sum() / denominator,
                 "loss_dice": (dice * weights).sum() / denominator}
 

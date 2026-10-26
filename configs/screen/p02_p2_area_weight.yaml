@@ -1,0 +1,7 @@
+_BASE_: j01_p2_queries.yaml
+MODEL:
+  META_ARCHITECTURE: ROIMaskFormer
+COURSE:
+  NAME: p02_p2_area_weight
+  V2:
+    AREA_WEIGHT: true

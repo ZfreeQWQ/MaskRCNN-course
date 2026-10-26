@@ -274,6 +274,11 @@ class ROICriterion(SetCriterion):
                                for t in targets]
                 weights = torch.cat([w[j] for w, (_, j) in zip(all_weights, indices)])
                 mean_weight = torch.cat(all_weights).mean()
+                self.last_weight_diagnostics = dict(reweighted_targets=(torch.cat(all_weights).detach() > 1).sum(),
+                    matched_targets=weights.new_tensor(len(weights)),
+                    matched_small=(weights.detach() > 1).sum(),
+                    min_matched_weight=weights.detach().min(), max_matched_weight=weights.detach().max(),
+                    mean_all_target_weight=mean_weight.detach())
             denominator = num_masks * mean_weight
             result = {"loss_mask": (bce * weights).sum() / denominator,
                       "loss_dice": (dice * weights).sum() / denominator}
