@@ -45,3 +45,20 @@ CSV SHA recorded under runs/submission_d01_1280_v1.
 
 Uploading is a separate final step. Do not claim submitted or a test score
 until Kaggle confirms the actual submission/result.
+
+## Export result and upload blocker
+
+Frozen source c20db7e6504f361f74e1a64dbd962abac1c615c7 completed both1056-image
+shards and merge checks. Final CSV has2112 rows,211200 instances,max100/image,
+68,782,875 bytes. SHA256:
+d1e1803e6bc4c58128ccd393262fa219b7506110b3394778820cc7b95ddb64a3.
+Local downloaded copy has the exact same size/SHA, under the chat workspace
+outputs/kaggle_d01_1280_v1/submission.csv.
+
+Browser is signed in to Kaggle as MagicGiraffe; description entered, but
+filechooser.setFiles was rejected because the ChatGPT Edge extension lacks
+Allow access to file URLs. No file was uploaded and Submit was NOT clicked.
+No Kaggle score exists. Do not retry automatically or change extension access
+without the user's action-time permission. User can upload this existing CSV
+manually, or enable the permission before asking to continue. Do not regenerate
+test predictions or launch training to solve this browser-only blocker.
