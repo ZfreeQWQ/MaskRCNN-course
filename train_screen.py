@@ -55,6 +55,8 @@ def main():
     parser.add_argument("--max-iter", type=int, default=3000)
     parser.add_argument("--eval-period", type=int, default=1000)
     parser.add_argument("--smoke-test", action="store_true")
+    parser.add_argument("--training-size", type=int, choices=(1024,1280), default=1024,
+                        help="Explicit opt-in for the separately controlled resolution screen")
     args = parser.parse_args()
     assert args.max_iter > 0 and args.eval_period > 0
     output = Path(args.output).resolve()
@@ -71,7 +73,7 @@ def main():
                  "SOLVER.MAX_ITER", str(args.max_iter), "SOLVER.CHECKPOINT_PERIOD", str(args.eval_period),
                  "DATALOADER.NUM_WORKERS", "0" if args.smoke_test else "4"]
     cfg = configuration(args.config, overrides)
-    assert cfg.COURSE.TEST_SIZE == cfg.INPUT.IMAGE_SIZE == 1024
+    assert cfg.COURSE.TEST_SIZE == cfg.INPUT.IMAGE_SIZE == args.training_size
     assert cfg.SOLVER.IMS_PER_BATCH == 2 and not cfg.SOLVER.AMP.ENABLED
     default_setup(cfg, args)
     state = dict(status="initializing", step=0, additional_steps=args.max_iter,

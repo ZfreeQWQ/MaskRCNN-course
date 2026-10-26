@@ -1,0 +1,4 @@
+_BASE_: j01_p2_queries.yaml
+COURSE:
+  NAME: q00_p2_eval1280
+  TEST_SIZE: 1280

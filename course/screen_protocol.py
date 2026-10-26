@@ -4,7 +4,8 @@ from copy import deepcopy
 
 ALLOWED_TRAINING_CHANGES = {"INPUT.MIN_SCALE", "MODEL.MASK_FORMER.TRAIN_NUM_POINTS",
                           "MODEL.META_ARCHITECTURE", "COURSE.COVERAGE.MATCH_POINTS",
-                          "COURSE.COVERAGE.LOSS_POINTS", "COURSE.SMALL_LOSS_WEIGHT", "COURSE.V2.AREA_WEIGHT"}
+                          "COURSE.COVERAGE.LOSS_POINTS", "COURSE.SMALL_LOSS_WEIGHT", "COURSE.V2.AREA_WEIGHT",
+                          "INPUT.IMAGE_SIZE", "COURSE.TEST_SIZE"}
 
 
 def flatten(mapping, prefix=""):
@@ -19,7 +20,7 @@ def flatten(mapping, prefix=""):
 def compare_protocol(candidate,reference,allowed=()):
     allowed=set(allowed)
     if not allowed <= ALLOWED_TRAINING_CHANGES:
-        raise ValueError("Cannot relax data split, seed, optimizer, LR, resolution or other protocol checks")
+        raise ValueError("Cannot relax data split, seed, optimizer, LR or other undeclared protocol checks")
     ignored_model={"MODEL.WEIGHTS","MODEL.BACKBONE.NAME","MODEL.SEM_SEG_HEAD.NAME",
                    "MODEL.MASK_FORMER.TRANSFORMER_DECODER_NAME"}
     selected=[]
