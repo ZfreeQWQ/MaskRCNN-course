@@ -1,14 +1,21 @@
 # User-authorized next submission after this optimization screen
 
-Request 2026-10-26: finish the current optimization round, then produce a new
-submission.csv. Do not indefinitely defer export by starting further screens.
+LATEST instruction 2026-10-26: continue optimization, and run test ONLY after
+a meaningful reproducible improvement. This supersedes the earlier instruction
+to export immediately after V7. No new test inference/CSV for a failed screen,
+a midpoint peak, or simply falling back to the unchanged P2 model.
 
-1. Complete the next normalized-small-loss screen V7, compare fixed final3000
-   against retained matched P2 control. Reject mid-run-only gains.
-2. If no consistent benefit, retain existing P2 j01. If benefit repeats across
-   trained checkpoints, use a predeclared unused-scene small confirmation
-   against P2, never re-use the old P2 confirmation as untouched holdout.
-3. Before export, compare selected P2 candidate and retained d01 submission
+1. Complete normalized-small-loss V7; compare fixed final3000 against retained
+   matched P2 control. Reject midpoint-only gains. Continue evidence-guided
+   optimization if it fails; no automatic export after the round.
+2. Practical promotion gate declared BEFORE V7 results: final frozen-screen APs
+   gain >=.01 (one absolute AP point), with at least2 positive trained checkpoints;
+   confirm >=.01 on predeclared unused scenes against P2, then repeat a matched
+   comparison with a different training seed and gain>=.01. These are pragmatic
+   reproducibility checks, NOT a claim of statistical significance. Same starting
+   weights/budget/augmentation/seed within each pair. Never re-use the old P2
+   confirmation as untouched holdout, or change the gate after seeing results.
+3. Only AFTER that gate passes, before export compare selected P2 candidate and retained d01 submission
    recipe on the SAME frozen200 panel and SAME fixed1280 inference size. Record
    different training budgets and don't attribute extra-training gains purely
    to architecture. No automatic full-val or inference-scale sweep.

@@ -1,4 +1,4 @@
-# V7: normalized small-mask supervision, then next submission
+# V7: normalized small-mask supervision; test held behind promotion gate
 
 Motivation: INSTANCE_BOTTLENECK_AUDIT.md. High-IoU coverage, not primarily query
 capacity, is the measured bottleneck. Old RGB-D e04 x2 gave a modest positive
@@ -30,8 +30,12 @@ loss/gradient tests and real10-update smokes with actual small reweighting.
 Inference checkpoint export preserves OrderedDict._metadata.
 
 Select final fixed budget, not a midpoint peak. If neither direction has
-consistent gain retain j01. Finish this screen before the requested new CSV;
-then follow NEXT_SUBMISSION_PLAN.md rather than indefinitely start more rounds.
+consistent gain retain j01 and continue targeted optimization, WITHOUT test.
+The user's newer instruction supersedes immediate post-round export: only
+meaningful reproducible improvement may trigger test, per NEXT_SUBMISSION_PLAN.md.
+Gate before outcomes: final APs gain>=.01,>=2 positive trained checkpoints,
+and gain>=.01 repeated on unused-scene confirmation and a second matched seed.
+This is a practical effect-size/reproducibility gate, not statistical significance.
 
 Preflight status at source sync:108 CPU regression tests PASSED. This is still
 an unvalidated optimization candidate: GPU initial-equivalence and real10-step
