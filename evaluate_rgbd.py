@@ -27,7 +27,15 @@ def main():
     parser.add_argument("--output", required=True)
     parser.add_argument("--diagnostics", action="store_true")
     parser.add_argument("--strict-load", action="store_true")
+    parser.add_argument("--instance-audit", action="store_true", help="Detailed error audit on a fixed validation panel only")
+    parser.add_argument("--predictions-output", help="Optional new JSON artifact containing unchanged predictions")
     args = parser.parse_args()
+    if args.instance_audit and not args.image_ids:
+        raise ValueError("Instance audit requires a fixed validation panel, never automatic full val")
+    if args.predictions_output and Path(args.predictions_output).exists():
+        raise FileExistsError("Never overwrite saved predictions")
+    if args.instance_audit and Path(args.output).exists():
+        raise FileExistsError("Never overwrite an instance audit")
     # All V3 evaluators share a physical-GPU lock. A queued periodic evaluator
     # waits before model allocation, so scale evaluation and training monitors
     # cannot contaminate each other's latency measurements or exhaust memory.
@@ -109,7 +117,7 @@ def main():
                   model_plus_input_seconds_per_image=float(np.mean((np.asarray(timings) + np.asarray(preprocess_timings))[5:]
                                                                   if len(timings) > 5 else
                                                                   np.asarray(timings) + np.asarray(preprocess_timings))),
-                  timing_excludes="disk reads, RLE encoding, COCO aggregation; first 5 images warmed up",
+                  timing_excludes="RLE encoding, COCO aggregation; model-only excludes disk/input, model-plus-input includes disk; first 5 images warmed up",
                   checkpoint_bytes=os.path.getsize(args.weights))
     result.update(validation_image_ids=ids, panel_sha256=panel_sha256,
                   evaluation_scope="fixed_screen_not_full_val" if args.image_ids else "full_val" if not args.samples else "sampled_val")
@@ -134,6 +142,12 @@ def main():
     if args.diagnostics:
         from course.diagnostics_v3 import diagnose_small
         result["small_diagnostics"] = diagnose_small(coco, detections, ids)
+    if args.instance_audit:
+        from course.instance_audit import audit_instances
+        result["instance_audit"] = audit_instances(coco, detections, ids)
+    if args.predictions_output:
+        atomic_json(args.predictions_output, dict(image_ids=ids, panel_sha256=panel_sha256,
+                    checkpoint=result["checkpoint"], predictions=detections))
     Path(args.output).parent.mkdir(parents=True, exist_ok=True)
     atomic_json(args.output, result)
     print("METRICS", json.dumps(result), flush=True)
