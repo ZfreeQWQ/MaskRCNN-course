@@ -48,6 +48,14 @@ def add_experiment_config(cfg):
     cfg.COURSE.COVERAGE.MATCH_POINTS = 0
     cfg.COURSE.COVERAGE.LOSS_POINTS = 0
     cfg.COURSE.COVERAGE.MAX_MATCH_REPLACEMENTS = 256
+    cfg.COURSE.POINT = CN()
+    cfg.COURSE.POINT.MODE = "off"
+    cfg.COURSE.POINT.CHANNELS = 16
+    cfg.COURSE.POINT.HIDDEN = 64
+    cfg.COURSE.POINT.INFERENCE_POINTS = 2048
+    cfg.COURSE.POINT.QUERY_CHUNK = 16
+    cfg.COURSE.POINT.GAIN = 1.0
+    cfg.COURSE.POINT.LR_MULTIPLIER = 10.0
     # Import registers opt-in classes, without modifying upstream implementations.
     from course import modeling  # noqa: F401
     from course import modeling_v2  # noqa: F401
@@ -56,6 +64,7 @@ def add_experiment_config(cfg):
     from course import query_screen  # noqa: F401
     from course import local_geometry  # noqa: F401
     from course import coverage_screen  # noqa: F401
+    from course import point_screen  # noqa: F401
 
 
 def mapper(cfg, training, cache="data_cache"):

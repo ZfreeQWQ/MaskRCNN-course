@@ -69,6 +69,10 @@ def main():
         if coverage.MATCH_POINTS or coverage.LOSS_POINTS:
             evidence=json.loads((smoke_dir/'coverage_step10.json').read_text())
             assert evidence['positive_coverage_seen'], 'Small-instance sampling was never exercised in smoke'
+        point=configuration(jobs[name]['config']).COURSE.POINT
+        if point.MODE!='off':
+            evidence=json.loads((smoke_dir/'point_gradient_step10.json').read_text())
+            assert any(v and v>0 for n,v in evidence['gradients'].items() if n.startswith('rgb.'))
     revision=subprocess.check_output(['git','rev-parse','HEAD'],cwd=root,text=True).strip()
     archive=subprocess.check_output(['git','archive','--format=zip',revision],cwd=root)
     source=suite/'source';source.mkdir()

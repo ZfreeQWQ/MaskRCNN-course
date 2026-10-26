@@ -30,7 +30,7 @@ def compare_protocol(candidate,reference,allowed=()):
         values={k:v for k,v in values.items() if k not in ignored_model}
         # Query/local architecture settings are opt-in modules tested separately
         # by strict transfer, RNG and GPU parity. All data/loss opt-ins stay fixed.
-        course={k:v for k,v in config["COURSE"].items() if k not in ("NAME","QUERY","LOCAL")}
+        course={k:v for k,v in config["COURSE"].items() if k not in ("NAME","QUERY","LOCAL","POINT")}
         # Old immutable protocols predate this opt-in; absence means disabled.
         course.setdefault("COVERAGE",dict(MATCH_POINTS=0,LOSS_POINTS=0,MAX_MATCH_REPLACEMENTS=256))
         values.update(flatten(course,"COURSE."))

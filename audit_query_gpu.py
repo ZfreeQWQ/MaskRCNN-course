@@ -24,7 +24,7 @@ def main():
         model=build_model(cfg).eval()
         missing,unexpected=model.load_state_dict(loaded,strict=False)
         assert not unexpected and all(k.startswith(("sem_seg_head.predictor.query_initializer.",
-                                                   "sem_seg_head.local_geometry.")) for k in missing)
+                                                   "sem_seg_head.local_geometry.","sem_seg_head.point_refiner.")) for k in missing)
         models.append(model)
     records=json.loads((root/'data_cache/index.json').read_text())["val"]
     records=[records[0],records[len(records)//2]]

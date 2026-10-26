@@ -1,0 +1,13 @@
+_BASE_: j01_p2_queries.yaml
+MODEL:
+  META_ARCHITECTURE: PointMaskFormer
+  BACKBONE:
+    NAME: build_point_geometry_backbone
+  SEM_SEG_HEAD:
+    NAME: PointRefinementHead
+  MASK_FORMER:
+    TRANSFORMER_DECODER_NAME: PointEmbeddingDecoder
+COURSE:
+  NAME: o01_p2_point_rgbd
+  POINT:
+    MODE: rgbd

@@ -1,0 +1,5 @@
+_BASE_: o01_p2_point_rgbd.yaml
+COURSE:
+  NAME: o02_p2_point_geometry
+  POINT:
+    MODE: rgbd_geometry

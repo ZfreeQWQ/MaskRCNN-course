@@ -36,6 +36,13 @@ class ScreenTrainer(Trainer):
                 if any(id(p) in ids for p in group["params"]):
                     assert all(id(p) in ids for p in group["params"])
                     group["lr"] = cfg.SOLVER.BASE_LR * cfg.COURSE.LOCAL.LR_MULTIPLIER
+        point=getattr(model.sem_seg_head,"point_refiner",None)
+        if point is not None:
+            ids={id(p) for p in point.parameters()}
+            for group in optimizer.param_groups:
+                if any(id(p) in ids for p in group["params"]):
+                    assert all(id(p) in ids for p in group["params"])
+                    group["lr"]=cfg.SOLVER.BASE_LR*cfg.COURSE.POINT.LR_MULTIPLIER
         return optimizer
 
 
@@ -84,9 +91,9 @@ def main():
         loaded = torch.load(args.weights, map_location="cpu", weights_only=False)["model"]
         missing, unexpected = trainer.model.load_state_dict(loaded, strict=False)
         expected_new = {k for k in trainer.model.state_dict() if k.startswith(("sem_seg_head.predictor.query_initializer.",
-                                                                            "sem_seg_head.local_geometry."))}
+                                                                            "sem_seg_head.local_geometry.","sem_seg_head.point_refiner."))}
         assert set(missing) == expected_new and not unexpected, (missing, unexpected)
-        assert bool(expected_new) == (cfg.COURSE.QUERY.MODE != "off" or cfg.COURSE.LOCAL.MODE != "off")
+        assert bool(expected_new) == (cfg.COURSE.QUERY.MODE != "off" or cfg.COURSE.LOCAL.MODE != "off" or cfg.COURSE.POINT.MODE!="off")
         actual = trainer.model.state_dict()
         mismatches = [k for k, v in loaded.items() if not torch.equal(v, actual[k].detach().cpu())]
         assert not mismatches
@@ -108,6 +115,7 @@ def main():
             query_settings=dict(cfg.COURSE.QUERY),
             local_geometry_settings=dict(cfg.COURSE.LOCAL),
             coverage_settings=dict(cfg.COURSE.COVERAGE),
+            point_settings=dict(cfg.COURSE.POINT),
             train_val_never_merged=True, test_used=False, automatic_full_validation=False,
             validation="fixed 200-image scene-stratified screen; not a full-val or convergence claim",
             geometry_assets={str(p): hashlib.sha256(p.read_bytes()).hexdigest() for p in
@@ -117,6 +125,7 @@ def main():
             query_inner_gradient_seen = False
             local_inner_gradient_seen = False
             positive_coverage_seen = False
+            point_inner_gradient_seen = False
             def evaluate(self, weights, step):
                 label = f"screen_step{step}"
                 result_path = output / (label + ".json")
@@ -168,6 +177,15 @@ def main():
                     if step==10: assert self.local_inner_gradient_seen,"Local geometry is disconnected"
                     atomic_json(output/f"local_gradient_step{step}.json",dict(step=step,gradients=gradients,
                         diagnostics={k:float(v) for k,v in local.last_diagnostics.items()}))
+                point=getattr(self.trainer.model.sem_seg_head,"point_refiner",None)
+                if point is not None and (step<=10 or step%1000==0):
+                    gradients={n:float(p.grad.detach().abs().mean()) if p.grad is not None else None
+                               for n,p in point.named_parameters()}
+                    assert all(v is None or math.isfinite(v) for v in gradients.values())
+                    self.point_inner_gradient_seen |= any(v and v>0 for n,v in gradients.items() if n.startswith("rgb."))
+                    if step==10:assert self.point_inner_gradient_seen,"Point fine features are disconnected"
+                    atomic_json(output/f"point_gradient_step{step}.json",dict(step=step,gradients=gradients,
+                        diagnostics={k:float(v) for k,v in point.last_diagnostics.items()}))
                 criterion=self.trainer.model.criterion
                 if hasattr(criterion,"last_diagnostics"):
                     matching=getattr(criterion.matcher,"last_diagnostics",{})
