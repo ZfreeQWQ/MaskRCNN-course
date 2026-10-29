@@ -1,0 +1,29 @@
+{
+  "status": "passed",
+  "images": 2112,
+  "parity_images": 8,
+  "model": {
+    "calls": {
+      "eval": 19080,
+      "train": 0
+    },
+    "weights_unchanged": true,
+    "state_before": {
+      "m2f": "1fc53e8a0ac9e90f4e0464b900bfdbbe27a1ac36f86002208c3db01eea217863",
+      "correction": "82e7e23efff8142c1a3a287210bf39d2d9f4f923e86cf271f22e4cce7d7d0e9c",
+      "old_verifier": "b1a3a733dd6b898d1e2a48cd6ff10c7a120ab3de698a26d6792e0d5499ace8a8"
+    },
+    "state_after": {
+      "m2f": "1fc53e8a0ac9e90f4e0464b900bfdbbe27a1ac36f86002208c3db01eea217863",
+      "correction": "82e7e23efff8142c1a3a287210bf39d2d9f4f923e86cf271f22e4cce7d7d0e9c",
+      "old_verifier": "b1a3a733dd6b898d1e2a48cd6ff10c7a120ab3de698a26d6792e0d5499ace8a8"
+    },
+    "active_parameters": 46527188,
+    "model_state_bytes": 186321680
+  },
+  "peak_allocated_mib": 3534.01611328125,
+  "mean_complete_pipeline_ms": 4939.080305449986,
+  "labels_read": false,
+  "new_AP_runs": 0,
+  "unix": 1793206122.2638576
+}

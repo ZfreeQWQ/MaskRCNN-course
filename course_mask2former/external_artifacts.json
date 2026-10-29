@@ -1,0 +1,43 @@
+{
+  "scope": "References only; no checkpoint, raw data or CSV binaries included",
+  "original_project_root": "/mnt/nfs/fenghaibin/AI_Class",
+  "artifacts": [
+    {
+      "role": "G_30k",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/formal/runs/geometry_long/iter_30000.pth",
+      "sha256": "a8f71442c289957744f1758e32670a1503c336625458d10201b0558ba3aa286f",
+      "included": false
+    },
+    {
+      "role": "mask_refiner",
+      "original_project_path": "outputs/course_m2f_supervision_correct_20261020_v1/refiner_3000.pth",
+      "sha256": "cc9531891e9a59303cc866c3e1d3ef36f80012180f3155c74bba64f00cf257d8",
+      "included": false
+    },
+    {
+      "role": "tiny_verifier",
+      "original_project_path": "outputs/course_m2f_tiny_hflip_20261021_v1/verifier_2000.pth",
+      "sha256": "8e5e87770706e4a3a8b6c645b8c51ee545c285f9c01e99fbdd8343c18700fedb",
+      "included": false
+    },
+    {
+      "role": "COCO_training_initialization",
+      "original_project_path": "checkpoints/mask2former_r50_8xb2-lsj-50e_coco_20220506_191028-41b088b6.pth",
+      "sha256": "41b088b62838c986004f94bab2870395b669ec6bd11b6590369b838b0de06879",
+      "included": false
+    }
+  ],
+  "submission": {
+    "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/submission.csv",
+    "sha256": "066b8098b1f8b9e6448d7117e69fe56abd1e7e99bf85b8e3fc635ebbbcf04342",
+    "bytes": 87946334,
+    "images": 2112,
+    "included": false,
+    "automatic_upload": false
+  },
+  "other_requirements": [
+    "Authorized RGB-depth dataset and safe per-image camera K",
+    "MMDetection source commit 44ebd17b145c2372c4b700bfb9cb20dbd28ab64a",
+    "Historical full audit replay also needs original accepted reports, configurations and caches referenced by frozen workers; distributed separately."
+  ]
+}

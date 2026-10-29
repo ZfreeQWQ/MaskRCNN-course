@@ -1,0 +1,16 @@
+# Include small historical evidence directories named runs; exclude binary assets.
+!evidence/**
+__pycache__/
+*.pyc
+*.pyo
+*.pth
+*.pt
+*.onnx
+*.safetensors
+*.csv
+*.zip
+*.tar
+*.gz
+*.log
+.env
+.env.*

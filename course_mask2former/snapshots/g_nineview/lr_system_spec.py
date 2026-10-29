@@ -1,0 +1,36 @@
+"""Frozen authorized LR integration on gpu7; no training."""
+START=1793030792
+CPU_END=1793034392
+GPU_END=1793048792
+END=1793052392
+GPU_MAX=14400
+NAME='course_m2f_lr_system_20261027_v1'
+OWNER='d9ffbe76a8214a18856974d4f083913e'
+HOST='gpu7'
+HOSTNAME='m6-3-a800'
+GPU=0
+UUID='GPU-3c522036-79d8-7200-09b3-a394915e62df'
+PROJECT_LOCK='.course_directions_gpu0.lock'
+UUID_LOCK='.course_gpu7_'+UUID+'.lock'
+PRIVATE_OBSERVED_LOCK='/tmp/sparsekg_sm80_gpu_benchmark.lock'
+PRIOR='outputs/course_m2f_system_acceptance_20261026_v1/arms/B_into_A'
+LR='outputs/course_m2f_lr_20261026_v1'
+WEIGHT=LR+'/formal/runs/lr3e5_long/iter_30000.pth'
+WEIGHT_SHA='b3a2e8e4420ff397e331d31e1ff58bcaae0ceddfb33794a09872ad27c09ccbb3'
+OLD_WEIGHT='outputs/course_m2f_abc_20261025_v1/arms/B/formal/runs/tiny_matching_long/iter_30000.pth'
+OLD_WEIGHT_SHA='33e7c1667184d7325c1c404dc17ec3e7c3041d568976e571af3a1ee7153301e4'
+REF_REPORT_SHA='b920baca26f7c7bf7757eb8e3a3a11e2526f9d1aaddac946ad515adf366d230e'
+REF_EXACT_SHA='31a42dcafde904a8aab00b5972913a94a45eb7f0a3c307acdd27e25add8b20a0'
+PRIOR_REPORT_SHA='2f82ba3c3488f04641f9a4faf68a1f5821c52231ec12c4abc6b639a55f288df9'
+PRIOR_CACHE_SHA='850cdce2517eba2273112b5e5cc2676efdd2d0dc378ea6c4145a4549c6e6d0c8'
+ORIGINAL_IMAGE_MANIFEST='sha256:eb5bed0d49efd109b91d5365131cc7f25391b8695347086d2e3dd12953d7702c'
+IMAGE='sha256:eff8b304fe898a9509ee7b6df88b17446519ec29c85d007c6f6ac709787e8140'
+NEW=('lr_system_spec.py','lr_system_worker.py','lr_system_launcher.py','test_lr_system.py')
+REF_CACHE_SHA='530cd814e3dfe97c6fa2b67a4d38de69cf054b4c7f99634f9913d6cd833579a8'
+
+ARM="LR_recovery3"
+PREVIOUS="outputs/"+NAME+"/arms/LR_recovery2"
+PREVIOUS_OWNER="663c3138b25f443ebbcf49191733c3ad"
+PRIOR_GPU_SECONDS=106.54298067092896
+PRIOR_PARTIAL_EVALS=52  # 1 failed single +33 accepted single/timing +9 failed old-system +9 bounded diagnostic; no fullval/AP.
+OPENBLAS_CORETYPE="Prescott"

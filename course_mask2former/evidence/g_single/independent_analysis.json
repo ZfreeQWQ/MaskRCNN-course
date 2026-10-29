@@ -1,0 +1,257 @@
+{
+  "status": "passed",
+  "at_beijing": "2026-10-27T22:29:58+08:00",
+  "kind": "read_existing_accepted_reports_no_new_AP_or_inference",
+  "metrics_points": {
+    "AP": 81.27246287757447,
+    "AP50": 92.78956081073021,
+    "AP75": 85.72220700149865,
+    "APs": 55.747878643015184,
+    "APm": 82.98850067114587,
+    "APl": 95.79967463675685
+  },
+  "baseline_points": {
+    "AP": 75.08460415006107,
+    "AP50": 90.27969754012479,
+    "AP75": 81.27317337823429,
+    "APs": 45.03649817971514,
+    "APm": 76.6470502059355,
+    "APl": 95.23188840846683
+  },
+  "delta_points": {
+    "AP": 6.187858727513396,
+    "AP50": 2.509863270605428,
+    "AP75": 4.449033623264354,
+    "APs": 10.71138046330004,
+    "APm": 6.341450465210374,
+    "APl": 0.5677862282900237
+  },
+  "area_counts": {
+    ".5": {
+      "tiny_1_16": {
+        "GT": 347,
+        "baseline": 48,
+        "new": 87,
+        "rescued": 47,
+        "lost": 8
+      },
+      "tiny_17_64": {
+        "GT": 518,
+        "baseline": 205,
+        "new": 309,
+        "rescued": 114,
+        "lost": 10
+      },
+      "small_65_256": {
+        "GT": 1320,
+        "baseline": 859,
+        "new": 1039,
+        "rescued": 216,
+        "lost": 36
+      },
+      "small_257_1024": {
+        "GT": 8814,
+        "baseline": 7462,
+        "new": 7813,
+        "rescued": 745,
+        "lost": 394
+      },
+      "all_small": {
+        "GT": 10999,
+        "baseline": 8574,
+        "new": 9248,
+        "rescued": 1122,
+        "lost": 448
+      }
+    },
+    ".75": {
+      "tiny_1_16": {
+        "GT": 347,
+        "baseline": 12,
+        "new": 43,
+        "rescued": 34,
+        "lost": 3
+      },
+      "tiny_17_64": {
+        "GT": 518,
+        "baseline": 72,
+        "new": 184,
+        "rescued": 117,
+        "lost": 5
+      },
+      "small_65_256": {
+        "GT": 1320,
+        "baseline": 490,
+        "new": 734,
+        "rescued": 272,
+        "lost": 28
+      },
+      "small_257_1024": {
+        "GT": 8814,
+        "baseline": 5549,
+        "new": 6528,
+        "rescued": 1342,
+        "lost": 363
+      },
+      "all_small": {
+        "GT": 10999,
+        "baseline": 6123,
+        "new": 7489,
+        "rescued": 1765,
+        "lost": 399
+      }
+    }
+  },
+  "FP": {
+    "baseline": {
+      "FP_all": 190303,
+      "small_FP_all": 116930,
+      "FP_score_ge_0.3": 16319,
+      "small_FP_ge_0.3": 8201,
+      "small_FP_ge_0.9": 1529,
+      "small_FP_large_GT_containment_ge_0.8": 31151,
+      "ordinary_duplicate_FP": 52796
+    },
+    "pilot": {
+      "FP_all": 188950,
+      "small_FP_all": 111631,
+      "FP_score_ge_0.3": 14729,
+      "small_FP_ge_0.3": 7983,
+      "small_FP_ge_0.9": 1579,
+      "small_FP_large_GT_containment_ge_0.8": 40945,
+      "ordinary_duplicate_FP": 62131
+    }
+  },
+  "cases": {
+    "201960001": {
+      "0.5": {
+        "rescued": 1,
+        "lost": 1,
+        "old_FP": 19,
+        "new_FP": 32
+      },
+      "0.75": {
+        "rescued": 0,
+        "lost": 1,
+        "old_FP": 19,
+        "new_FP": 33
+      }
+    },
+    "201961001": {
+      "0.5": {
+        "rescued": 5,
+        "lost": 1,
+        "old_FP": 16,
+        "new_FP": 17
+      },
+      "0.75": {
+        "rescued": 7,
+        "lost": 1,
+        "old_FP": 18,
+        "new_FP": 17
+      }
+    },
+    "201962001": {
+      "0.5": {
+        "rescued": 2,
+        "lost": 4,
+        "old_FP": 14,
+        "new_FP": 19
+      },
+      "0.75": {
+        "rescued": 3,
+        "lost": 5,
+        "old_FP": 18,
+        "new_FP": 23
+      }
+    },
+    "201963001": {
+      "0.5": {
+        "rescued": 0,
+        "lost": 0,
+        "old_FP": 29,
+        "new_FP": 41
+      },
+      "0.75": {
+        "rescued": 2,
+        "lost": 0,
+        "old_FP": 31,
+        "new_FP": 41
+      }
+    },
+    "201964001": {
+      "0.5": {
+        "rescued": 4,
+        "lost": 4,
+        "old_FP": 17,
+        "new_FP": 20
+      },
+      "0.75": {
+        "rescued": 6,
+        "lost": 5,
+        "old_FP": 19,
+        "new_FP": 21
+      }
+    },
+    "201965001": {
+      "0.5": {
+        "rescued": 9,
+        "lost": 3,
+        "old_FP": 23,
+        "new_FP": 15
+      },
+      "0.75": {
+        "rescued": 9,
+        "lost": 3,
+        "old_FP": 24,
+        "new_FP": 16
+      }
+    },
+    "201966001": {
+      "0.5": {
+        "rescued": 0,
+        "lost": 0,
+        "old_FP": 27,
+        "new_FP": 35
+      },
+      "0.75": {
+        "rescued": 0,
+        "lost": 0,
+        "old_FP": 28,
+        "new_FP": 36
+      }
+    },
+    "201967001": {
+      "0.5": {
+        "rescued": 3,
+        "lost": 4,
+        "old_FP": 18,
+        "new_FP": 18
+      },
+      "0.75": {
+        "rescued": 6,
+        "lost": 4,
+        "old_FP": 21,
+        "new_FP": 18
+      }
+    }
+  },
+  "cost": {
+    "baseline_ms": 375.3722792986082,
+    "G_ms": 648.6512341507478,
+    "increase_percent": 72.80211404069786,
+    "memory_delta_mib": 135.4501953125,
+    "formal_wall_seconds_including6val": 33706.96898255299,
+    "inclusive_GPU_seconds": 36403.51335096359
+  },
+  "single_positive": true,
+  "single_host_acceptance_sha256": "b32d03bd9e72a243bc7ce316a58ae93cfaae3222f01cb61719ca7b9f709ed9c2",
+  "system_started": false,
+  "limitations": [
+    "Fixed8 examples are not representative estimates; both rescues and losses retained",
+    "One-to-one matching counts and FP proxies are not AP or causal attribution",
+    "Single-image sequential5warm20 timing does not establish a stable throughput effect across all images",
+    "Single seed and repeatedly used development val; no Kaggle score inference",
+    "Do not add single-scale gains to nine-view metrics"
+  ]
+}

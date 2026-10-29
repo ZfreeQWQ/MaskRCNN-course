@@ -1,0 +1,262 @@
+{
+  "status": "passed",
+  "args": {
+    "mode": "train",
+    "workspace": "/workspace",
+    "data_root": "/workspace/data/course_blender_20261013/prepared",
+    "output": "/workspace/outputs/course_m2f_G_20261027_recovery2/formal/runs/geometry_long",
+    "checkpoint": "/workspace/checkpoints/mask2former_r50_8xb2-lsj-50e_coco_20220506_191028-41b088b6.pth",
+    "iters": 30000,
+    "batch_size": 2,
+    "image_size": 1024,
+    "workers": 2,
+    "seed": 20261013,
+    "val_interval": 5000,
+    "foreground_quota": 64,
+    "lr": 3e-05,
+    "small_area_threshold": 1024.0,
+    "small_crop_prob": 0.5,
+    "small_loss_max_weight": 2.0,
+    "boundary_loss_weight": 0.1,
+    "branch_lr_mult": 10.0,
+    "depth_fusion": false,
+    "small_object_crop": false,
+    "small_object_loss": false,
+    "boundary_loss": false,
+    "multiscale_depth": true,
+    "reliability_gate": true,
+    "rgb_control": false,
+    "foreground_points": false,
+    "schedule": "decay",
+    "depth_max": 10.0,
+    "functional_smoke": false,
+    "keep_checkpoints": 6,
+    "course_foreground_points": false,
+    "course_large_scale_jitter": false,
+    "course_small_boundary": false,
+    "course_detail": false,
+    "course_depth_reliability": false,
+    "course_copy_paste": true,
+    "course_high_resolution": false,
+    "trained_checkpoint": false
+  },
+  "train_annotations_sha256": "1f72e6564579f9257ab1ef54044207eccaeb452affd33f05b19a6ef00105e882",
+  "val_annotations_sha256": "71612ebf1d548eb85e146e97de4d211578d2f87d5273f9b0f5e2d48b1af2ea2d",
+  "source_checkpoint_sha256": "41b088b62838c986004f94bab2870395b669ec6bd11b6590369b838b0de06879",
+  "implementation_sha256": {
+    "train_course_directions.py": "4285ea1bb63a02b58bd29753b95fab27ecf96e36afed8ae57157c3f957e53f05",
+    "run_course_experiment.py": "6c906de4f2c471c493d55d7fd8e6f1ba0773e69861cff3b4d70224d483dfb516",
+    "run_nyu_v2.py": "b3c5f45ad0f6020810cfb3a7f18f6665a352424267da1d9433f1e9c101bebdb1",
+    "run_nyu_experiment.py": "cf909d1cdf45bf1d874caff45a364636ea486fff7393c51cc2eaee899188cdb4",
+    "run_coco_experiment.py": "53e6ad9bae96d94b8cac4cf5b33d4b9c07ea1758891c7ad2162185dff85db43b",
+    "nyu_v4_plan.py": "cd33d50367201b3d26e756aa560cc5990650c473145d3795dba55aa43519e8a6",
+    "rgbd/__init__.py": "5d62e89d95beec4446ae7a8be01e7e37f17f878c1baafb2331fc0fbc0b835fdd",
+    "rgbd/advanced_model.py": "fbab581711793bdc2ed317cbddb2ba370393c2fb0dcf4c9cf849d7aeaa679d3d",
+    "rgbd/course_channel.py": "56b16a8565787de2d006895784a74dff60f2f7a0dc559ec86fe7bc0fbe2f0827",
+    "rgbd/course_copy_paste.py": "6bdddff93f238bb69892eafef29f998930664cc3c4dee70b1b82272dbb7b9515",
+    "rgbd/course_data.py": "b9b5b4c0ebf357cd13717a7ef91058f586ff08ca837a198ef9790997695148c0",
+    "rgbd/course_feature_models.py": "749049ba0836b81e4e30fd16a9b6135744021bb8228a01c8386336248da7e5fd",
+    "rgbd/course_geometry_data.py": "b96ac527d0c5f7c467a47204c28c5f6daf9788fb71ca942fc5de93f67887c113",
+    "rgbd/course_geometry_model.py": "f441e24992dc9ff54a900f24f06684f5ab0c2fb8f5a6b3aa335e50553567cceb",
+    "rgbd/course_head.py": "a18f00f448e4b20c5fc466d777fd5bce8a5974f6510e814e144eca6047f692b6",
+    "rgbd/course_pilot.py": "95993b84c4597935542daad2922febd64ebc73ac078319344441665c79bb82b9",
+    "rgbd/course_pointnoise.py": "9bfc1e990043699ee6eb45f9f3f86951b819d759be3696423205a8085b6851d1",
+    "rgbd/course_tiny_matching.py": "36f92376237f2c4b97197b31cd02f4b229475d52c3210068525a5de69e9cb8e7",
+    "rgbd/data.py": "e2208a7e726a84a471f4edcb61f6114fcf83ba4be03aa105b69895f0c1ffa054",
+    "rgbd/foreground_head.py": "3f0de7e1f8cc221674a68510ff447916267b5c2fa47d286ae4fd230e690cbb73",
+    "rgbd/matching_head.py": "2c7a7bbc69731282053a56035d4a606bebcd74b6793b52bf7c8b512a27c5aec1",
+    "rgbd/metric.py": "867bb5fa763a7568ecdb2641b387c7c8529a084da4b4782ad20de062b1604e9a",
+    "rgbd/model.py": "180f3f0eff3e140220d0db693ac936b77530b2b11d4544b22a2c5a2f89bea00b",
+    "rgbd/multiscale.py": "54b7752c24fe01bbc1a9a01092216de6fc71bbd5b06da5c13d28f5f979ee950b",
+    "rgbd/small_boundary_head.py": "42d43dac3ebc83d50621c6c4c2000acca51b18617937888e9ce1be98e0520d58",
+    "rgbd/void_head.py": "58fa7b144940eb4bb1bd6595440fec487f6d9e4064dcddb0d8a5384be98ec7c8",
+    "optimizations/__init__.py": "d9cb52c525c68cfd1ddcaf42b64e39ad832764061454719a5580a7c37ce42dba",
+    "optimizations/configure.py": "d5ddfee1bf6e9cab1e1979ac84dc8f44bccfdd668c44f1870f91e2dad0e30600",
+    "optimizations/small_object_crop.py": "875dab77c258bda4c07a7f2bedb4a7059b9ece487d52418fcb1cadc5ededad6c",
+    "optimizations/weighted_boundary_head.py": "b239c8b17658db46929dfdc3fd25757675eae2c0c54027a058eb7e7b75ad8c73"
+  },
+  "class_initialization": "mean of 80 foreground COCO rows; preserve no-object",
+  "protocol": "component-official-train-val-standard-coco-mask-maxdets100",
+  "test_inputs_used": false,
+  "test_annotations_used": false,
+  "training_images": 14432,
+  "validation_images": 2584,
+  "effective_train_size": 1024,
+  "effective_eval_size": 1024,
+  "config_checks": {
+    "status": "passed",
+    "geometry_only": true,
+    "pilot_only": true,
+    "baseline_report_sha256": "22f96a98697ecb7871c8690f40d4c755170e68d6ace3c7899eeeed30f5bac8b3",
+    "compared_keys": [
+      "model",
+      "train_cfg",
+      "optim_wrapper",
+      "param_scheduler",
+      "randomness",
+      "train_dataloader",
+      "val_dataloader",
+      "val_evaluator",
+      "auto_scale_lr",
+      "env_cfg"
+    ],
+    "cpu_actual_binding": "98d893d9f539874567243ccf255645cbd65ba1416eaa85887c9e739a88661359"
+  },
+  "mmdetection_commit": "44ebd17b145c2372c4b700bfb9cb20dbd28ab64a",
+  "note": "Single seed, fixed final 30k primary; no early stopping, test access or automatic tuning. High-resolution training compares to archived 1024-trained/1536-evaluated control; not equal-compute.",
+  "parameters": 46383480,
+  "active_parameters": 46383474,
+  "state_tensor_bytes": 185746824,
+  "classifier_changed": true,
+  "depth_adapter_changed": false,
+  "spatial_projection_changed": true,
+  "spatial_encoder_changed": true,
+  "spatial_gate_changed": true,
+  "detail_adapter_changed": false,
+  "finite_checks": {
+    "model": true,
+    "optimizer": true,
+    "loss": true,
+    "grad": true
+  },
+  "finite_train_iterations": 30000,
+  "validation_coverage": [
+    {
+      "iteration": 5000,
+      "completed_images": 2584,
+      "unique_images": 2584
+    },
+    {
+      "iteration": 10000,
+      "completed_images": 2584,
+      "unique_images": 2584
+    },
+    {
+      "iteration": 15000,
+      "completed_images": 2584,
+      "unique_images": 2584
+    },
+    {
+      "iteration": 20000,
+      "completed_images": 2584,
+      "unique_images": 2584
+    },
+    {
+      "iteration": 25000,
+      "completed_images": 2584,
+      "unique_images": 2584
+    },
+    {
+      "iteration": 30000,
+      "completed_images": 2584,
+      "unique_images": 2584
+    }
+  ],
+  "direction_activity": {
+    "iteration": 30000,
+    "finite_train_iterations": 30000,
+    "feature": {},
+    "copy_paste": {
+      "calls": 60000,
+      "probability_skipped": 30022,
+      "donor_attempts": 166034,
+      "eligible_objects": 166004,
+      "invalid_depth_objects": 0,
+      "placement_attempts": 798435,
+      "depth_rejected_placements": 714454,
+      "pasted_instances": 83981,
+      "removed_instances": 8,
+      "cap_skipped": 0
+    }
+  },
+  "metrics": {
+    "course/component_precision": 0.801,
+    "course/segm_mAP": 0.801,
+    "course/segm_mAP_50": 0.932,
+    "course/segm_mAP_75": 0.857,
+    "course/segm_mAP_s": 0.482,
+    "course/segm_mAP_m": 0.826,
+    "course/segm_mAP_l": 0.967
+  },
+  "learning_curve": [
+    {
+      "iteration": 5000,
+      "metrics": {
+        "course/component_precision": 0.721,
+        "course/segm_mAP": 0.721,
+        "course/segm_mAP_50": 0.898,
+        "course/segm_mAP_75": 0.781,
+        "course/segm_mAP_s": 0.351,
+        "course/segm_mAP_m": 0.745,
+        "course/segm_mAP_l": 0.945
+      }
+    },
+    {
+      "iteration": 10000,
+      "metrics": {
+        "course/component_precision": 0.757,
+        "course/segm_mAP": 0.757,
+        "course/segm_mAP_50": 0.91,
+        "course/segm_mAP_75": 0.816,
+        "course/segm_mAP_s": 0.415,
+        "course/segm_mAP_m": 0.781,
+        "course/segm_mAP_l": 0.954
+      }
+    },
+    {
+      "iteration": 15000,
+      "metrics": {
+        "course/component_precision": 0.769,
+        "course/segm_mAP": 0.769,
+        "course/segm_mAP_50": 0.912,
+        "course/segm_mAP_75": 0.824,
+        "course/segm_mAP_s": 0.435,
+        "course/segm_mAP_m": 0.795,
+        "course/segm_mAP_l": 0.951
+      }
+    },
+    {
+      "iteration": 20000,
+      "metrics": {
+        "course/component_precision": 0.797,
+        "course/segm_mAP": 0.797,
+        "course/segm_mAP_50": 0.932,
+        "course/segm_mAP_75": 0.85,
+        "course/segm_mAP_s": 0.472,
+        "course/segm_mAP_m": 0.821,
+        "course/segm_mAP_l": 0.968
+      }
+    },
+    {
+      "iteration": 25000,
+      "metrics": {
+        "course/component_precision": 0.798,
+        "course/segm_mAP": 0.798,
+        "course/segm_mAP_50": 0.931,
+        "course/segm_mAP_75": 0.855,
+        "course/segm_mAP_s": 0.477,
+        "course/segm_mAP_m": 0.824,
+        "course/segm_mAP_l": 0.966
+      }
+    },
+    {
+      "iteration": 30000,
+      "metrics": {
+        "course/component_precision": 0.801,
+        "course/segm_mAP": 0.801,
+        "course/segm_mAP_50": 0.932,
+        "course/segm_mAP_75": 0.857,
+        "course/segm_mAP_s": 0.482,
+        "course/segm_mAP_m": 0.826,
+        "course/segm_mAP_l": 0.967
+      }
+    }
+  ],
+  "final_iteration": 30000,
+  "final_optimizer_steps": [
+    30000
+  ],
+  "checkpoint": "/workspace/outputs/course_m2f_G_20261027_recovery2/formal/runs/geometry_long/iter_30000.pth",
+  "checkpoint_sha256": "a8f71442c289957744f1758e32670a1503c336625458d10201b0558ba3aa286f",
+  "seconds_including_evaluation": 33706.96898255299
+}

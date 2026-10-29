@@ -1,0 +1,172 @@
+{
+  "status": "passed",
+  "checkpoint_only": false,
+  "training_updates": 0,
+  "full_val_evaluations": 1,
+  "images": 2584,
+  "comparison": {
+    "status": "passed",
+    "metrics": {
+      "AP": 0.8097254447607437,
+      "AP50": 0.9258582659602802,
+      "AP75": 0.8504690293248669,
+      "APs": 0.556503314255308,
+      "APm": 0.8245093099993066,
+      "APl": 0.9576490597357791
+    },
+    "baseline": {
+      "AP": 0.8147484176255596,
+      "AP50": 0.9279545955670836,
+      "AP75": 0.8579665255489779,
+      "APs": 0.5668493022152318,
+      "APm": 0.8298771188089239,
+      "APl": 0.9579967910007523
+    },
+    "delta_points": {
+      "AP": -0.50229728648159,
+      "AP50": -0.20963296068033932,
+      "AP75": -0.7497496224111,
+      "APs": -1.0345987959923808,
+      "APm": -0.5367808809617292,
+      "APl": -0.03477312649732278
+    },
+    "positive_retained": false,
+    "single_seed_development": true,
+    "baseline_AP_runs": 0,
+    "new_AP_runs": 1,
+    "reference_best_unchanged": true
+  },
+  "timing": {
+    "baseline": {
+      "warmup": 5,
+      "repeats": 20,
+      "mean_ms": 4658.058597845957,
+      "milliseconds": [
+        4602.3140320321545,
+        4672.820850042626,
+        4608.3521449472755,
+        4609.7455190028995,
+        4711.926838965155,
+        4652.798070921563,
+        4634.528034948744,
+        4618.784788995981,
+        4591.176235000603,
+        4625.89362997096,
+        4660.276632988825,
+        4655.335040995851,
+        4653.668074985035,
+        4822.240015026182,
+        4654.732626047917,
+        4726.7370379995555,
+        4604.963954072446,
+        4608.048052061349,
+        4810.833722935058,
+        4635.996654978953
+      ],
+      "peak_allocated_mib": 3534.01611328125,
+      "peak_reserved_mib": 5014.0,
+      "image_id": 201960001,
+      "scope": "Complete accepted nine-view RGB-D IO through final JSON; excludes model load/output writes/hash/parity comparison"
+    },
+    "A": {
+      "warmup": 5,
+      "repeats": 20,
+      "mean_ms": 4435.628849850036,
+      "milliseconds": [
+        4444.213359965943,
+        4486.1093000508845,
+        4337.430394953117,
+        4346.153436927125,
+        4353.119733044878,
+        4414.42984691821,
+        4495.958479004912,
+        4361.918412032537,
+        4422.815279103816,
+        4467.50272391364,
+        4408.244693069719,
+        4568.094072048552,
+        4453.896624967456,
+        4431.383921066299,
+        4313.200308009982,
+        4435.603879974224,
+        4497.28237290401,
+        4500.357125070877,
+        4433.5395629750565,
+        4541.323470999487
+      ],
+      "peak_allocated_mib": 3534.37060546875,
+      "peak_reserved_mib": 5020.0,
+      "image_id": 201960001,
+      "scope": "Complete accepted nine-view RGB-D IO through final JSON; excludes model load/output writes/hash/parity comparison"
+    }
+  },
+  "gpu": {
+    "status": "passed",
+    "models": {
+      "baseline": {
+        "calls": {
+          "eval": 297,
+          "train": 0
+        },
+        "weights_unchanged": true,
+        "state_before": {
+          "m2f": "1fc53e8a0ac9e90f4e0464b900bfdbbe27a1ac36f86002208c3db01eea217863",
+          "correction": "82e7e23efff8142c1a3a287210bf39d2d9f4f923e86cf271f22e4cce7d7d0e9c",
+          "old_verifier": "b1a3a733dd6b898d1e2a48cd6ff10c7a120ab3de698a26d6792e0d5499ace8a8"
+        },
+        "state_after": {
+          "m2f": "1fc53e8a0ac9e90f4e0464b900bfdbbe27a1ac36f86002208c3db01eea217863",
+          "correction": "82e7e23efff8142c1a3a287210bf39d2d9f4f923e86cf271f22e4cce7d7d0e9c",
+          "old_verifier": "b1a3a733dd6b898d1e2a48cd6ff10c7a120ab3de698a26d6792e0d5499ace8a8"
+        },
+        "active_parameters": 46527188,
+        "model_state_bytes": 186321680
+      },
+      "A": {
+        "calls": {
+          "eval": 23553,
+          "train": 0
+        },
+        "weights_unchanged": true,
+        "state_before": {
+          "m2f": "89511cd8022fc6fc1893e98e27e3da32fbff7c6d7932204031ae7598236abfdc",
+          "correction": "82e7e23efff8142c1a3a287210bf39d2d9f4f923e86cf271f22e4cce7d7d0e9c",
+          "old_verifier": "b1a3a733dd6b898d1e2a48cd6ff10c7a120ab3de698a26d6792e0d5499ace8a8"
+        },
+        "state_after": {
+          "m2f": "89511cd8022fc6fc1893e98e27e3da32fbff7c6d7932204031ae7598236abfdc",
+          "correction": "82e7e23efff8142c1a3a287210bf39d2d9f4f923e86cf271f22e4cce7d7d0e9c",
+          "old_verifier": "b1a3a733dd6b898d1e2a48cd6ff10c7a120ab3de698a26d6792e0d5499ace8a8"
+        },
+        "active_parameters": 46554196,
+        "model_state_bytes": 186429712
+      }
+    },
+    "new_evals": 23553,
+    "baseline_evals": 297,
+    "model_training": 0,
+    "unix": 1793226441.2421355
+  },
+  "gpu_lease": {
+    "total_seconds": 13370.089503765106,
+    "leases": [
+      {
+        "start": 1793213075.3683908,
+        "finish": 1793226445.4578946,
+        "seconds": 13370.089503765106,
+        "gpu": 0,
+        "original_lock_released": true
+      }
+    ],
+    "original_lock_released": true
+  },
+  "start_unix": 1793175007,
+  "finish_unix": 1793226620.8635786,
+  "deadline": 1793283007,
+  "CNN_paused": true,
+  "geometry_adapter": true,
+  "primary": "G9view56.68493022",
+  "single_APs": 55.027741580002,
+  "query_adapter": true,
+  "geometry_training_runs": 1
+}

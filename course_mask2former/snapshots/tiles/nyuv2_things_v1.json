@@ -1,0 +1,14 @@
+{
+  "description": "NYUv2 indoor-8 public development taxonomy v1: human-fixed indoor countable COCO-overlap classes, selected by semantic suitability, not holdout frequency or performance. This is NOT an official NYUv2 instance benchmark or the course dataset.",
+  "selection_policy": "Fixed before development training. Exclude ambiguous table versus dining-table mapping. Preserve exact original NYUv2 spellings; sofa maps to synonymous COCO couch. Never adapt this whitelist to official-test statistics or results.",
+  "categories": [
+    {"id": 1, "name": "book", "coco80_class_index": 73, "coco_name": "book"},
+    {"id": 2, "name": "bottle", "coco80_class_index": 39, "coco_name": "bottle"},
+    {"id": 5, "name": "chair", "coco80_class_index": 56, "coco_name": "chair"},
+    {"id": 22, "name": "bowl", "coco80_class_index": 45, "coco_name": "bowl"},
+    {"id": 35, "name": "cup", "coco80_class_index": 41, "coco_name": "cup"},
+    {"id": 78, "name": "vase", "coco80_class_index": 75, "coco_name": "vase"},
+    {"id": 83, "name": "sofa", "coco80_class_index": 57, "coco_name": "couch"},
+    {"id": 157, "name": "bed", "coco80_class_index": 59, "coco_name": "bed"}
+  ]
+}

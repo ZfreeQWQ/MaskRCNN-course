@@ -1,0 +1,283 @@
+{
+  "status": "passed",
+  "analyzed_at": "2026-10-28T16:06:36+08:00",
+  "source": "existing accepted terminal artifacts only; no new inference/AP",
+  "metrics_points": {
+    "AP": 81.47484176255595,
+    "AP50": 92.79545955670837,
+    "AP75": 85.79665255489779,
+    "APs": 56.684930221523175,
+    "APm": 82.98771188089239,
+    "APl": 95.79967910007522
+  },
+  "delta_vs_LR_system_points": {
+    "AP": 5.937880023405895,
+    "AP50": 2.4878658411466303,
+    "AP75": 4.258220538958946,
+    "APs": 8.98079815657406,
+    "APm": 6.341242550075343,
+    "APl": 0.5677906916084052
+  },
+  "delta_vs_G_single_points": {
+    "APs": 0.9370515785079903,
+    "AP": 0.20237888498148493,
+    "AP75": 0.07444555339914416
+  },
+  "matching": {
+    ".5": {
+      "tiny_1_16": {
+        "GT": 347,
+        "baseline": 73,
+        "new": 100,
+        "rescued": 38,
+        "lost": 11
+      },
+      "tiny_17_64": {
+        "GT": 518,
+        "baseline": 268,
+        "new": 342,
+        "rescued": 88,
+        "lost": 14
+      },
+      "small_65_256": {
+        "GT": 1320,
+        "baseline": 930,
+        "new": 1068,
+        "rescued": 171,
+        "lost": 33
+      },
+      "small_257_1024": {
+        "GT": 8814,
+        "baseline": 7482,
+        "new": 7820,
+        "rescued": 741,
+        "lost": 403
+      },
+      "all_small": {
+        "GT": 10999,
+        "baseline": 8753,
+        "new": 9330,
+        "rescued": 1038,
+        "lost": 461
+      }
+    },
+    ".75": {
+      "tiny_1_16": {
+        "GT": 347,
+        "baseline": 37,
+        "new": 56,
+        "rescued": 27,
+        "lost": 8
+      },
+      "tiny_17_64": {
+        "GT": 518,
+        "baseline": 156,
+        "new": 228,
+        "rescued": 91,
+        "lost": 19
+      },
+      "small_65_256": {
+        "GT": 1320,
+        "baseline": 622,
+        "new": 813,
+        "rescued": 234,
+        "lost": 43
+      },
+      "small_257_1024": {
+        "GT": 8814,
+        "baseline": 5730,
+        "new": 6572,
+        "rescued": 1289,
+        "lost": 447
+      },
+      "all_small": {
+        "GT": 10999,
+        "baseline": 6545,
+        "new": 7669,
+        "rescued": 1641,
+        "lost": 517
+      }
+    }
+  },
+  "FP": {
+    "baseline": {
+      "FP_all": 190123,
+      "small_FP_all": 116752,
+      "FP_score_ge_0.3": 17191,
+      "small_FP_ge_0.3": 9073,
+      "small_FP_ge_0.9": 1531,
+      "small_FP_large_GT_containment_ge_0.8": 34271,
+      "ordinary_duplicate_FP": 53092
+    },
+    "A": {
+      "FP_all": 188869,
+      "small_FP_all": 111580,
+      "FP_score_ge_0.3": 15744,
+      "small_FP_ge_0.3": 8994,
+      "small_FP_ge_0.9": 1609,
+      "small_FP_large_GT_containment_ge_0.8": 43673,
+      "ordinary_duplicate_FP": 62312
+    }
+  },
+  "FP_delta": {
+    "FP_all": -1254,
+    "small_FP_all": -5172,
+    "FP_score_ge_0.3": -1447,
+    "small_FP_ge_0.3": -79,
+    "small_FP_ge_0.9": 78,
+    "small_FP_large_GT_containment_ge_0.8": 9402,
+    "ordinary_duplicate_FP": 9220
+  },
+  "replacement_audit_summary": {
+    "accepted": 9130,
+    "same_GT_improved": 4739,
+    "same_GT_degraded": 4310,
+    "crossed_below_0.5": 31,
+    "crossed_above_0.5": 65
+  },
+  "positive_examples": [
+    {
+      "image_id": 201960001,
+      "decision": {
+        "index": 33,
+        "new_index": 40,
+        "pair_iou": 0.9808342728297632,
+        "changed": true,
+        "predicted_delta": 0.0013004522387607602,
+        "accepted": true,
+        "output_index": 31
+      },
+      "GT_id": 20196000100041,
+      "GT_area": 858,
+      "old_iou": 0.9715909090909091,
+      "new_iou": 0.9727582292849035
+    },
+    {
+      "image_id": 201961001,
+      "decision": {
+        "index": 45,
+        "new_index": 314,
+        "pair_iou": 0.944,
+        "changed": true,
+        "predicted_delta": 0.0015230928837467132,
+        "accepted": true,
+        "output_index": 65
+      },
+      "GT_id": 20196100100063,
+      "GT_area": 629,
+      "old_iou": 0.8537313432835821,
+      "new_iou": 0.8679817905918058
+    },
+    {
+      "image_id": 201961001,
+      "decision": {
+        "index": 55,
+        "new_index": 342,
+        "pair_iou": 0.847682119205298,
+        "changed": true,
+        "predicted_delta": 0.006118053800405561,
+        "accepted": true,
+        "output_index": 75
+      },
+      "GT_id": 20196100100067,
+      "GT_area": 138,
+      "old_iou": 0.8456375838926175,
+      "new_iou": 0.9444444444444444
+    },
+    {
+      "image_id": 201961001,
+      "decision": {
+        "index": 85,
+        "new_index": 9,
+        "pair_iou": 0.919047619047619,
+        "changed": true,
+        "predicted_delta": 0.002900727273819718,
+        "accepted": true,
+        "output_index": 76
+      },
+      "GT_id": 20196100100032,
+      "GT_area": 577,
+      "old_iou": 0.9226973684210527,
+      "new_iou": 0.9227053140096618
+    }
+  ],
+  "negative_examples": [
+    {
+      "image_id": 201960001,
+      "decision": {
+        "index": 19,
+        "new_index": 343,
+        "pair_iou": 0.9446366782006921,
+        "changed": true,
+        "predicted_delta": 0.002756944552419063,
+        "accepted": true,
+        "output_index": 42
+      },
+      "GT_id": 20196000100019,
+      "GT_area": 301,
+      "old_iou": 0.9240924092409241,
+      "new_iou": 0.8925081433224755
+    },
+    {
+      "image_id": 201961001,
+      "decision": {
+        "index": 48,
+        "new_index": 168,
+        "pair_iou": 0.9730113636363636,
+        "changed": true,
+        "predicted_delta": 0.000831928267885708,
+        "accepted": true,
+        "output_index": 52
+      },
+      "GT_id": 20196100100049,
+      "GT_area": 683,
+      "old_iou": 0.9728571428571429,
+      "new_iou": 0.9713055954088953
+    },
+    {
+      "image_id": 201961001,
+      "decision": {
+        "index": 79,
+        "new_index": 13,
+        "pair_iou": 0.9526952695269527,
+        "changed": true,
+        "predicted_delta": 0.00041884637603090656,
+        "accepted": true,
+        "output_index": 59
+      },
+      "GT_id": 20196100100085,
+      "GT_area": 867,
+      "old_iou": 0.9574468085106383,
+      "new_iou": 0.9501661129568106
+    },
+    {
+      "image_id": 201961001,
+      "decision": {
+        "index": 54,
+        "new_index": 203,
+        "pair_iou": 0.9695740365111561,
+        "changed": true,
+        "predicted_delta": 0.004048396913613108,
+        "accepted": true,
+        "output_index": 71
+      },
+      "GT_id": 20196100100040,
+      "GT_area": 479,
+      "old_iou": 0.9979123173277662,
+      "new_iou": 0.9716024340770791
+    }
+  ],
+  "limitations": [
+    "Repeated development val, single seed; no independent generalization or Kaggle score claim",
+    "Matching rescue/loss counts are not AP",
+    "Large-GT containment is a fragment proxy, not a confirmed semantic error",
+    "Top100 displacement cause was not established by this audit",
+    "Paired 5warm20 on one image is not stable production throughput"
+  ],
+  "retained_model": "G_30k_nineview",
+  "retention_reason": "Highest exact APs among accepted LR and G single/nineview; selected before test inputs",
+  "report_sha256": "1196c60a92bad34c5ec6039be210ba476104a41c2d6c5de5e7b8588f861a3506",
+  "cache_sha256": "77f8009465f073cd97400211291bb7eda9489dff0ec4a60ed31ac9feb5368608",
+  "total_G_GPU_seconds": 49620.15883827209,
+  "system_GPU_seconds_including_failed": 13216.645487308502
+}

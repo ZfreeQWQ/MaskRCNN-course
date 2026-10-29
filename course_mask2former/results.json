@@ -1,0 +1,46 @@
+{
+  "scope": "Same development val, 2584 images; points on 0-100 scale; not Kaggle scores",
+  "metrics": {
+    "g_single": {
+      "AP": 81.27246287757447,
+      "AP50": 92.78956081073021,
+      "AP75": 85.72220700149865,
+      "APs": 55.747878643015184,
+      "APm": 82.98850067114587,
+      "APl": 95.79967463675685
+    },
+    "g_nineview": {
+      "AP": 81.47484176255595,
+      "AP50": 92.79545955670837,
+      "AP75": 85.79665255489779,
+      "APs": 56.684930221523175,
+      "APm": 82.98771188089239,
+      "APl": 95.79967910007522
+    },
+    "gq_single": {
+      "AP": 80.77558347057531,
+      "AP50": 92.56058364183205,
+      "AP75": 85.0249323335427,
+      "APs": 55.027741580002,
+      "APm": 82.45116112161315,
+      "APl": 95.76490597357791
+    },
+    "gq_nineview": {
+      "AP": 80.97254447607438,
+      "AP50": 92.58582659602801,
+      "AP75": 85.04690293248669,
+      "APs": 55.650331425530794,
+      "APm": 82.45093099993066,
+      "APl": 95.76490597357791
+    }
+  },
+  "best": "g_nineview",
+  "g_vs_lr_single_APs": 10.711380463300046,
+  "g_nineview_vs_lr_nineview_APs": 8.980798156574053,
+  "g_nineview_vs_g_single_APs": 0.9370515785079903,
+  "gq_vs_g_single_APs": -0.7201370630131834,
+  "gq_vs_g_nineview_APs": -1.0345987959923804,
+  "GSwin": "Resource interruption at last persistent13300; 10k APs42.5 vs G41.5; no final result; recovery and nine-view canceled",
+  "CNN": "stopped",
+  "current_experiment_queue": "closed"
+}

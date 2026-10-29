@@ -1,0 +1,8 @@
+{
+  "status": "passed",
+  "report_sha256": "1196c60a92bad34c5ec6039be210ba476104a41c2d6c5de5e7b8588f861a3506",
+  "comparison_sha256": "05c476aa0025af79d1e56ef4e0a0d3276478025c91f0cd2c943a86ec63bd987c",
+  "source_bound": true,
+  "GPU_seconds": 13208.333822965622,
+  "unix": 1793125669.6985688
+}

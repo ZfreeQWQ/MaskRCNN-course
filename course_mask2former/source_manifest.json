@@ -1,0 +1,3244 @@
+{
+  "schema": "boo_frozen_source_handoff_v1",
+  "source": "Accepted G and G nine-view plus accepted CSV production snapshots; read-only transfer",
+  "groups": {
+    "g_train": "outputs/course_m2f_G_20261027_recovery2/source",
+    "lr_train": "outputs/course_m2f_lr_20261026_v1/source",
+    "tiles": "outputs/course_m2f_tiles_20261019_v1/source",
+    "geometry_runtime": "outputs/course_m2f_geometry_20261020_v1/source",
+    "g_nineview": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source",
+    "submission": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source"
+  },
+  "files": [
+    {
+      "path": "snapshots/g_train/abc_b_launcher.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/abc_b_launcher.py",
+      "sha256": "27cd5bb897fb8bdf71bd3b01d954861af122d891c400ac91cd73cd28b51bd399",
+      "bytes": 5912
+    },
+    {
+      "path": "snapshots/g_train/abc_b_spec.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/abc_b_spec.py",
+      "sha256": "6bec545e6db5dd994d613ccb280e920bf4c8d79877f06dc9f6013f1f5c876afd",
+      "bytes": 1920
+    },
+    {
+      "path": "snapshots/g_train/abc_b_worker.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/abc_b_worker.py",
+      "sha256": "c2f6545a1d24dfeefa1306a35d97a647d6d5e8b1c4641dfb2e7ad1b110c9464d",
+      "bytes": 9481
+    },
+    {
+      "path": "snapshots/g_train/analyze_course_baseline.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/analyze_course_baseline.py",
+      "sha256": "e2b7e08169020d64938cf4f353ad27bbb2082917f0c3f5fcdde7fa6c09738a42",
+      "bytes": 11726
+    },
+    {
+      "path": "snapshots/g_train/audit_environment.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/audit_environment.py",
+      "sha256": "6ed3d3a49a2d1b1d70ec70df9a54578540d2d8e58e7423df7f70c642e1089f15",
+      "bytes": 2252
+    },
+    {
+      "path": "snapshots/g_train/benchmark_nyu_inference.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/benchmark_nyu_inference.py",
+      "sha256": "fb3c3f521112c8afc4b2505b9acc1042ca5973f27068cc9f6630b5047ea59817",
+      "bytes": 12048
+    },
+    {
+      "path": "snapshots/g_train/compare_course_diagnostics.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/compare_course_diagnostics.py",
+      "sha256": "0f738bdfcbee7da6e946ce06a8db3986cde67f049d919e58bf133b289dafb7ae",
+      "bytes": 3026
+    },
+    {
+      "path": "snapshots/g_train/course_batch_predict.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/course_batch_predict.py",
+      "sha256": "cab127156d250fc9c4e30713ad90f827112c8b1465dddf1e8a9de73b988e8d96",
+      "bytes": 14276
+    },
+    {
+      "path": "snapshots/g_train/course_checkpoint.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/course_checkpoint.py",
+      "sha256": "204d128fcadf299ac34b572daf3d067d3ae20b586effb53592ca66a05255bb8f",
+      "bytes": 1139
+    },
+    {
+      "path": "snapshots/g_train/course_demo.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/course_demo.py",
+      "sha256": "6fa11d54ef826b4194dd80b729595906ece72388672b78360e0a194d13f6acde",
+      "bytes": 13408
+    },
+    {
+      "path": "snapshots/g_train/course_directions_diagnostics.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/course_directions_diagnostics.py",
+      "sha256": "0a1840f84857f47e0f9673557fc8bb73ff088622e5a9fabb1be1b54e5ae25bf4",
+      "bytes": 15376
+    },
+    {
+      "path": "snapshots/g_train/course_resolution_probe.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/course_resolution_probe.py",
+      "sha256": "d584d6a27991ff95ab893e7c3d7923fb08f92608da675fe2b9203118d6324715",
+      "bytes": 15235
+    },
+    {
+      "path": "snapshots/g_train/download_nyuv2_ranges.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/download_nyuv2_ranges.py",
+      "sha256": "c686c5d26a867e0e6084d5b450eda72cd84b26291d38022211e3ca663afbec5d",
+      "bytes": 26600
+    },
+    {
+      "path": "snapshots/g_train/export_nyu_development.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/export_nyu_development.py",
+      "sha256": "f6fca557f8044cae4e6a2fc423d6ae32a05a879ff2bfcaed9458a4de3abf65d0",
+      "bytes": 20180
+    },
+    {
+      "path": "snapshots/g_train/geometry_cpu.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/geometry_cpu.py",
+      "sha256": "bdf0289923705df4febe8a8403d3b985c3f65f1ce318154249c2f8fc11c6c781",
+      "bytes": 7543
+    },
+    {
+      "path": "snapshots/g_train/geometry_launcher.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/geometry_launcher.py",
+      "sha256": "da791dbe94cd3c813fcc77c037246652e3621a771ac7dd6f07e6ac494033c9cc",
+      "bytes": 9293
+    },
+    {
+      "path": "snapshots/g_train/geometry_signal.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/geometry_signal.py",
+      "sha256": "bfdfe618dc2d22ae797ceb6220fd2113269b9b0181a1006224661db19311b3ff",
+      "bytes": 3914
+    },
+    {
+      "path": "snapshots/g_train/geometry_spec.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/geometry_spec.py",
+      "sha256": "1420a88e500a8d550af3f69b74e226439f2eaefd7965f908f00803fc9bcfe6d4",
+      "bytes": 2338
+    },
+    {
+      "path": "snapshots/g_train/geometry_worker.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/geometry_worker.py",
+      "sha256": "b5aa104f2f2e5ea7576e36ba00d65c1e4fd6fd8bc9137b24c43c16f3e22324ad",
+      "bytes": 10953
+    },
+    {
+      "path": "snapshots/g_train/launch_lr.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/launch_lr.py",
+      "sha256": "9a7d0b957af87cd141321f56a3d2be2a97aa23a4baff5f2194cc869051d608ed",
+      "bytes": 3932
+    },
+    {
+      "path": "snapshots/g_train/launch_m2f_channel.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/launch_m2f_channel.py",
+      "sha256": "36281d9585bd2b2303fd97cd22018a10d670ef3b3356a7af08d91daba0fd2e72",
+      "bytes": 12550
+    },
+    {
+      "path": "snapshots/g_train/launch_m2f_final.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/launch_m2f_final.py",
+      "sha256": "7d026f4c821d47fa31ce9cc7ce010c5e92bc9216f0fe876ed488a7b9149ccb09",
+      "bytes": 16023
+    },
+    {
+      "path": "snapshots/g_train/launch_m2f_pointnoise.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/launch_m2f_pointnoise.py",
+      "sha256": "da18920fc0fc227b264d4f06909fe0ac4285af6db86a40c41383d808e58d91dd",
+      "bytes": 13400
+    },
+    {
+      "path": "snapshots/g_train/launch_nyu_sweep.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/launch_nyu_sweep.py",
+      "sha256": "d33a9c8c2bacc75b1b69903a3dbc1b93ea076fdfd0982c98e52e193229225889",
+      "bytes": 20822
+    },
+    {
+      "path": "snapshots/g_train/launch_nyu_v2.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/launch_nyu_v2.py",
+      "sha256": "9d015b0ac416546da9c9498b51d653e0ac204494dcf8fd52fe352e758ca6e843",
+      "bytes": 2097
+    },
+    {
+      "path": "snapshots/g_train/launch_nyu_v3.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/launch_nyu_v3.py",
+      "sha256": "e2b84a92fe4a73e061a1c4e2c7e0addaa12d1d24802660926d30ca945bceeb2b",
+      "bytes": 2616
+    },
+    {
+      "path": "snapshots/g_train/launch_nyu_v4.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/launch_nyu_v4.py",
+      "sha256": "4f5edd3cfca322b31e8e8111602671e3c6807e6b1a557d29fba619bf53344d43",
+      "bytes": 2450
+    },
+    {
+      "path": "snapshots/g_train/lr_contract.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/lr_contract.py",
+      "sha256": "f3ea3afd039f6cb82959bf8c4e6b392fd2c576267308c1044511b7e01246ba59",
+      "bytes": 1024
+    },
+    {
+      "path": "snapshots/g_train/lr_spec.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/lr_spec.py",
+      "sha256": "5298aeb76059bf78ced7f2b904aea19b23a805c2593589cb2d886fe238d6cf0e",
+      "bytes": 1895
+    },
+    {
+      "path": "snapshots/g_train/lr_worker.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/lr_worker.py",
+      "sha256": "ec75d8d9851a57ff5afd6f3f1cdbb9aff78c154b41bf5750f0cb34710b4a9895",
+      "bytes": 7782
+    },
+    {
+      "path": "snapshots/g_train/m2f_channel_spec.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/m2f_channel_spec.py",
+      "sha256": "8e05133150e582f6885827c8ff2e6759f85812d3dfd1fcc4cffed0610e4e4063",
+      "bytes": 1408
+    },
+    {
+      "path": "snapshots/g_train/m2f_channel_worker.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/m2f_channel_worker.py",
+      "sha256": "58f9073358dc1229ed3e5be6af1f682e50ea26d14e1fe949fe2df27a085aa7d6",
+      "bytes": 16049
+    },
+    {
+      "path": "snapshots/g_train/m2f_final_spec.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/m2f_final_spec.py",
+      "sha256": "098bb5ea8f1b5dd4123c204b377e66104dfc340e505ce317f001da506df325ba",
+      "bytes": 2094
+    },
+    {
+      "path": "snapshots/g_train/m2f_final_worker.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/m2f_final_worker.py",
+      "sha256": "c634201446b1bb9760e1f5aa6ad87ed858e99dc35f625706bff0d4c386eba410",
+      "bytes": 21418
+    },
+    {
+      "path": "snapshots/g_train/m2f_local_decoder.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/m2f_local_decoder.py",
+      "sha256": "30f833911d8237e1bd3e22511eb09e335d15e197569891da1803fa63fa5069cd",
+      "bytes": 5428
+    },
+    {
+      "path": "snapshots/g_train/m2f_pointnoise_spec.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/m2f_pointnoise_spec.py",
+      "sha256": "3ea5e0b4329d57fc83e43fcbd47be2454b0470d7b55785338179680c8101d3f1",
+      "bytes": 1918
+    },
+    {
+      "path": "snapshots/g_train/m2f_pointnoise_worker.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/m2f_pointnoise_worker.py",
+      "sha256": "3c46380f1fda43fdead0b946acaed8c804e6123e5ba75a021cf99a5dcbea529a",
+      "bytes": 7240
+    },
+    {
+      "path": "snapshots/g_train/nyu_v2_plan.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/nyu_v2_plan.py",
+      "sha256": "5be60852cf6767698d5f479a5fdcfbe510b0c724adfb97db341126c1c8e34243",
+      "bytes": 2098
+    },
+    {
+      "path": "snapshots/g_train/nyu_v3_plan.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/nyu_v3_plan.py",
+      "sha256": "78dd07a11e4c8bf5c7c806554c745ea1d24ced9c10e752ae48fe62442bd1e568",
+      "bytes": 1483
+    },
+    {
+      "path": "snapshots/g_train/nyu_v4_plan.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/nyu_v4_plan.py",
+      "sha256": "cd33d50367201b3d26e756aa560cc5990650c473145d3795dba55aa43519e8a6",
+      "bytes": 2185
+    },
+    {
+      "path": "snapshots/g_train/nyuv2_things_v1.json",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/nyuv2_things_v1.json",
+      "sha256": "1c064958e5454d364e411b5734a908ea03a00b5f1d8e2bd5cfa05bd69b628abd",
+      "bytes": 1177
+    },
+    {
+      "path": "snapshots/g_train/optimizations/__init__.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/optimizations/__init__.py",
+      "sha256": "d9cb52c525c68cfd1ddcaf42b64e39ad832764061454719a5580a7c37ce42dba",
+      "bytes": 164
+    },
+    {
+      "path": "snapshots/g_train/optimizations/configure.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/optimizations/configure.py",
+      "sha256": "d5ddfee1bf6e9cab1e1979ac84dc8f44bccfdd668c44f1870f91e2dad0e30600",
+      "bytes": 1343
+    },
+    {
+      "path": "snapshots/g_train/optimizations/small_object_crop.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/optimizations/small_object_crop.py",
+      "sha256": "875dab77c258bda4c07a7f2bedb4a7059b9ece487d52418fcb1cadc5ededad6c",
+      "bytes": 7964
+    },
+    {
+      "path": "snapshots/g_train/optimizations/weighted_boundary_head.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/optimizations/weighted_boundary_head.py",
+      "sha256": "b239c8b17658db46929dfdc3fd25757675eae2c0c54027a058eb7e7b75ad8c73",
+      "bytes": 11510
+    },
+    {
+      "path": "snapshots/g_train/prepare_coco_subset.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/prepare_coco_subset.py",
+      "sha256": "4d885fa7f92f2e4882b18a4d684a7a4f3e219b9a58c79fb2a7bdd3f78356dcee",
+      "bytes": 27816
+    },
+    {
+      "path": "snapshots/g_train/prepare_nyuv2.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/prepare_nyuv2.py",
+      "sha256": "7d9ac4a871f137253fa0f5f359c3f7da61ea4b3139b32dde189d0f34caa1640e",
+      "bytes": 28126
+    },
+    {
+      "path": "snapshots/g_train/prepare_smoke.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/prepare_smoke.py",
+      "sha256": "98c91a15098cc5119eda0d86b40d104c2ae85e4d15cb06e06a908ac7705ce002",
+      "bytes": 2478
+    },
+    {
+      "path": "snapshots/g_train/rgbd/__init__.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/rgbd/__init__.py",
+      "sha256": "5d62e89d95beec4446ae7a8be01e7e37f17f878c1baafb2331fc0fbc0b835fdd",
+      "bytes": 230
+    },
+    {
+      "path": "snapshots/g_train/rgbd/advanced_model.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/rgbd/advanced_model.py",
+      "sha256": "fbab581711793bdc2ed317cbddb2ba370393c2fb0dcf4c9cf849d7aeaa679d3d",
+      "bytes": 3965
+    },
+    {
+      "path": "snapshots/g_train/rgbd/course_channel.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/rgbd/course_channel.py",
+      "sha256": "56b16a8565787de2d006895784a74dff60f2f7a0dc559ec86fe7bc0fbe2f0827",
+      "bytes": 3004
+    },
+    {
+      "path": "snapshots/g_train/rgbd/course_copy_paste.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/rgbd/course_copy_paste.py",
+      "sha256": "6bdddff93f238bb69892eafef29f998930664cc3c4dee70b1b82272dbb7b9515",
+      "bytes": 15665
+    },
+    {
+      "path": "snapshots/g_train/rgbd/course_data.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/rgbd/course_data.py",
+      "sha256": "b9b5b4c0ebf357cd13717a7ef91058f586ff08ca837a198ef9790997695148c0",
+      "bytes": 2139
+    },
+    {
+      "path": "snapshots/g_train/rgbd/course_feature_models.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/rgbd/course_feature_models.py",
+      "sha256": "749049ba0836b81e4e30fd16a9b6135744021bb8228a01c8386336248da7e5fd",
+      "bytes": 11702
+    },
+    {
+      "path": "snapshots/g_train/rgbd/course_geometry_data.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/rgbd/course_geometry_data.py",
+      "sha256": "b96ac527d0c5f7c467a47204c28c5f6daf9788fb71ca942fc5de93f67887c113",
+      "bytes": 5849
+    },
+    {
+      "path": "snapshots/g_train/rgbd/course_geometry_model.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/rgbd/course_geometry_model.py",
+      "sha256": "f441e24992dc9ff54a900f24f06684f5ab0c2fb8f5a6b3aa335e50553567cceb",
+      "bytes": 3405
+    },
+    {
+      "path": "snapshots/g_train/rgbd/course_head.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/rgbd/course_head.py",
+      "sha256": "a18f00f448e4b20c5fc466d777fd5bce8a5974f6510e814e144eca6047f692b6",
+      "bytes": 3647
+    },
+    {
+      "path": "snapshots/g_train/rgbd/course_pilot.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/rgbd/course_pilot.py",
+      "sha256": "95993b84c4597935542daad2922febd64ebc73ac078319344441665c79bb82b9",
+      "bytes": 2915
+    },
+    {
+      "path": "snapshots/g_train/rgbd/course_pointnoise.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/rgbd/course_pointnoise.py",
+      "sha256": "9bfc1e990043699ee6eb45f9f3f86951b819d759be3696423205a8085b6851d1",
+      "bytes": 6904
+    },
+    {
+      "path": "snapshots/g_train/rgbd/course_tiny_matching.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/rgbd/course_tiny_matching.py",
+      "sha256": "36f92376237f2c4b97197b31cd02f4b229475d52c3210068525a5de69e9cb8e7",
+      "bytes": 4234
+    },
+    {
+      "path": "snapshots/g_train/rgbd/data.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/rgbd/data.py",
+      "sha256": "e2208a7e726a84a471f4edcb61f6114fcf83ba4be03aa105b69895f0c1ffa054",
+      "bytes": 7859
+    },
+    {
+      "path": "snapshots/g_train/rgbd/foreground_head.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/rgbd/foreground_head.py",
+      "sha256": "3f0de7e1f8cc221674a68510ff447916267b5c2fa47d286ae4fd230e690cbb73",
+      "bytes": 3202
+    },
+    {
+      "path": "snapshots/g_train/rgbd/matching_head.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/rgbd/matching_head.py",
+      "sha256": "2c7a7bbc69731282053a56035d4a606bebcd74b6793b52bf7c8b512a27c5aec1",
+      "bytes": 3366
+    },
+    {
+      "path": "snapshots/g_train/rgbd/metric.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/rgbd/metric.py",
+      "sha256": "867bb5fa763a7568ecdb2641b387c7c8529a084da4b4782ad20de062b1604e9a",
+      "bytes": 8429
+    },
+    {
+      "path": "snapshots/g_train/rgbd/model.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/rgbd/model.py",
+      "sha256": "180f3f0eff3e140220d0db693ac936b77530b2b11d4544b22a2c5a2f89bea00b",
+      "bytes": 5412
+    },
+    {
+      "path": "snapshots/g_train/rgbd/multiscale.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/rgbd/multiscale.py",
+      "sha256": "54b7752c24fe01bbc1a9a01092216de6fc71bbd5b06da5c13d28f5f979ee950b",
+      "bytes": 5247
+    },
+    {
+      "path": "snapshots/g_train/rgbd/small_boundary_head.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/rgbd/small_boundary_head.py",
+      "sha256": "42d43dac3ebc83d50621c6c4c2000acca51b18617937888e9ce1be98e0520d58",
+      "bytes": 4913
+    },
+    {
+      "path": "snapshots/g_train/rgbd/void_head.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/rgbd/void_head.py",
+      "sha256": "58fa7b144940eb4bb1bd6595440fec487f6d9e4064dcddb0d8a5384be98ec7c8",
+      "bytes": 14494
+    },
+    {
+      "path": "snapshots/g_train/run_coco_experiment.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/run_coco_experiment.py",
+      "sha256": "53e6ad9bae96d94b8cac4cf5b33d4b9c07ea1758891c7ad2162185dff85db43b",
+      "bytes": 15931
+    },
+    {
+      "path": "snapshots/g_train/run_course_directions.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/run_course_directions.py",
+      "sha256": "68851ad33dae008639ce6abd7b8e3c5686ba99ff5eeda5d768f24dee3a8a04be",
+      "bytes": 38500
+    },
+    {
+      "path": "snapshots/g_train/run_course_experiment.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/run_course_experiment.py",
+      "sha256": "6c906de4f2c471c493d55d7fd8e6f1ba0773e69861cff3b4d70224d483dfb516",
+      "bytes": 13257
+    },
+    {
+      "path": "snapshots/g_train/run_course_resolution.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/run_course_resolution.py",
+      "sha256": "eb869f2d6cecd4bea4f52ec9a19dd0ed8baf59c7c0793071d2d416a0d13065d7",
+      "bytes": 7061
+    },
+    {
+      "path": "snapshots/g_train/run_course_workflow.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/run_course_workflow.py",
+      "sha256": "2f7f854f20baca9b8b65d1aeae4c5d9bd69a061d5e894152ecb67e96ee528223",
+      "bytes": 16435
+    },
+    {
+      "path": "snapshots/g_train/run_nyu_experiment.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/run_nyu_experiment.py",
+      "sha256": "cf909d1cdf45bf1d874caff45a364636ea486fff7393c51cc2eaee899188cdb4",
+      "bytes": 16766
+    },
+    {
+      "path": "snapshots/g_train/run_nyu_v2.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/run_nyu_v2.py",
+      "sha256": "b3c5f45ad0f6020810cfb3a7f18f6665a352424267da1d9433f1e9c101bebdb1",
+      "bytes": 12940
+    },
+    {
+      "path": "snapshots/g_train/run_nyu_v3.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/run_nyu_v3.py",
+      "sha256": "3413ff85b46088b6a333244610e5a0c0db5a18607a58d22454ee76f7f4ec0b53",
+      "bytes": 2874
+    },
+    {
+      "path": "snapshots/g_train/run_nyu_v3_all.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/run_nyu_v3_all.py",
+      "sha256": "844b03835587b5fb51252c0e198c7012d8da1a4e612fc821282450bda8c7daa4",
+      "bytes": 9044
+    },
+    {
+      "path": "snapshots/g_train/run_nyu_v4.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/run_nyu_v4.py",
+      "sha256": "1edf553a17b3c085258b98645507ba220a8d50ea9381c6cf39e4bfcf8719dc57",
+      "bytes": 4041
+    },
+    {
+      "path": "snapshots/g_train/smoke_course_cpu.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/smoke_course_cpu.py",
+      "sha256": "6641726cff838d05fea8db09ae86ae252ac8ac7372648e31d18717a18d88bec3",
+      "bytes": 2287
+    },
+    {
+      "path": "snapshots/g_train/smoke_model.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/smoke_model.py",
+      "sha256": "dd37fac1be5f7ba1bacb8fd0d7041f4edd1d40e635f3f2c341e036a587a0f737",
+      "bytes": 7065
+    },
+    {
+      "path": "snapshots/g_train/smoke_nyu_v3_cpu.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/smoke_nyu_v3_cpu.py",
+      "sha256": "8e59cb9de16efecdc6c0ed9c87c036046a558ec81918518412796021dadf961f",
+      "bytes": 6222
+    },
+    {
+      "path": "snapshots/g_train/smoke_nyu_v4_cpu.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/smoke_nyu_v4_cpu.py",
+      "sha256": "70f9109694421ab1c56b3e1e97e8206a06b78917ea22e6dad5c0448a663fdb73",
+      "bytes": 3162
+    },
+    {
+      "path": "snapshots/g_train/smoke_optimizations.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/smoke_optimizations.py",
+      "sha256": "e47af1c35647ed4936df6905d7f3bcf71be79da576f53f954606a4e8242df06f",
+      "bytes": 2698
+    },
+    {
+      "path": "snapshots/g_train/summarize_ablation.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/summarize_ablation.py",
+      "sha256": "3fb045bb2f582230ddef2a8b409c4735e01b0a7c6f809423780d05f52fbb6070",
+      "bytes": 3619
+    },
+    {
+      "path": "snapshots/g_train/summarize_nyu_experiment.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/summarize_nyu_experiment.py",
+      "sha256": "382d6d3625a2131f4bd6b0cd27e148422d44bf25d3d605f36a26cfb48909d6ae",
+      "bytes": 20041
+    },
+    {
+      "path": "snapshots/g_train/summarize_nyu_sweep.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/summarize_nyu_sweep.py",
+      "sha256": "775e79ee6f2383707a9c4c129de31940928d06244ed45207a7664b05c8d85ff3",
+      "bytes": 21005
+    },
+    {
+      "path": "snapshots/g_train/summarize_nyu_v2.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/summarize_nyu_v2.py",
+      "sha256": "8b9118f12654b9999b742b95c3c28b9b94438fa8e35f967240a333665cbd2f99",
+      "bytes": 9828
+    },
+    {
+      "path": "snapshots/g_train/summarize_nyu_v3.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/summarize_nyu_v3.py",
+      "sha256": "d4f3dd29e6411381affd4a1a9e7e36fdc1569bfde7552add01304094b230544a",
+      "bytes": 4310
+    },
+    {
+      "path": "snapshots/g_train/summarize_nyu_v4.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/summarize_nyu_v4.py",
+      "sha256": "6b01a349d1cecdf0974993adf00bf550b260e98134d1c2aae8fd62dc5dcc9c95",
+      "bytes": 3082
+    },
+    {
+      "path": "snapshots/g_train/summarize_public_experiment.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/summarize_public_experiment.py",
+      "sha256": "eee2d803aac3dd7dc614c585373441a49b97473641c248dfe08a93379bc8bd13",
+      "bytes": 3277
+    },
+    {
+      "path": "snapshots/g_train/tests/test_abc_b.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/tests/test_abc_b.py",
+      "sha256": "41bf3b82f66b4ffeb3a2e1269d5a83e6c3e7b01c608f049a1185f56797c4239d",
+      "bytes": 3181
+    },
+    {
+      "path": "snapshots/g_train/tests/test_course_batch_predict.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/tests/test_course_batch_predict.py",
+      "sha256": "7ca9dfd182064b378ccb28bb3272aeb433da125ab2cbce5b859de15ff0084fc4",
+      "bytes": 5070
+    },
+    {
+      "path": "snapshots/g_train/tests/test_course_budget.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/tests/test_course_budget.py",
+      "sha256": "5d0bda3fba343227440e23e87f45182e5ead87af46ba3b94b7eeaf1b4bdb5444",
+      "bytes": 4073
+    },
+    {
+      "path": "snapshots/g_train/tests/test_course_checkpoint.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/tests/test_course_checkpoint.py",
+      "sha256": "4276490c65853bbb7144a5225150d6d287168bd782348c8d6ad720b92e13bb0c",
+      "bytes": 2139
+    },
+    {
+      "path": "snapshots/g_train/tests/test_course_copy_paste.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/tests/test_course_copy_paste.py",
+      "sha256": "c2a74acaeed74650ac74c8d303b098675344dd510a9c562370e396049855bf84",
+      "bytes": 18065
+    },
+    {
+      "path": "snapshots/g_train/tests/test_course_demo.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/tests/test_course_demo.py",
+      "sha256": "10a93f44b3762399d43e9bc6f7d8fe57bb59d4650167908f136b93346ac5ba5e",
+      "bytes": 2751
+    },
+    {
+      "path": "snapshots/g_train/tests/test_course_directions_diagnostics.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/tests/test_course_directions_diagnostics.py",
+      "sha256": "c639f158ef0ecf7558ceda15cb00bcade489c986e4aca082e514c718cda350b7",
+      "bytes": 11814
+    },
+    {
+      "path": "snapshots/g_train/tests/test_course_directions_training.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/tests/test_course_directions_training.py",
+      "sha256": "776da7da9b11bedfd22f0e07194b640e2bb61a07bf4aa8ff6a54a4aa31dc20ae",
+      "bytes": 7331
+    },
+    {
+      "path": "snapshots/g_train/tests/test_course_directions_workflow.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/tests/test_course_directions_workflow.py",
+      "sha256": "48b11aa014a8a0547c2cae0b1206583f0f5f7ee5faef2a4090e59a7c396777ef",
+      "bytes": 21080
+    },
+    {
+      "path": "snapshots/g_train/tests/test_course_feature_models.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/tests/test_course_feature_models.py",
+      "sha256": "c2bcdce4a5c48d6d08c0b58f73c7d79bcf71ab39690f54b0108d0bec4c2604fa",
+      "bytes": 13733
+    },
+    {
+      "path": "snapshots/g_train/tests/test_course_head.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/tests/test_course_head.py",
+      "sha256": "4ddda1941ab52e55d14b3eaa960fb81c58d1d74b44cf48feba46d26b0c3d2ead",
+      "bytes": 3512
+    },
+    {
+      "path": "snapshots/g_train/tests/test_course_resolution.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/tests/test_course_resolution.py",
+      "sha256": "6bfa1556268d52760c5cc1d29e5fb8332426e425ac3667054f5f7fe3f7b520fa",
+      "bytes": 3784
+    },
+    {
+      "path": "snapshots/g_train/tests/test_course_scale.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/tests/test_course_scale.py",
+      "sha256": "54fdb1b49dea4142eaf2468c4b153f65ce9a4c95038dd79dc6583f6c45c8f135",
+      "bytes": 2844
+    },
+    {
+      "path": "snapshots/g_train/tests/test_course_small_boundary.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/tests/test_course_small_boundary.py",
+      "sha256": "0bac87c9f78440720d2d74dc99c1d0e6cc165caf698e3401ad3c7488c06de2f4",
+      "bytes": 9178
+    },
+    {
+      "path": "snapshots/g_train/tests/test_geometry.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/tests/test_geometry.py",
+      "sha256": "e81e5e551781bdf5209a5ab10a72f5aff83841eb79aed213c2b9113c2c37a570",
+      "bytes": 3389
+    },
+    {
+      "path": "snapshots/g_train/tests/test_lr.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/tests/test_lr.py",
+      "sha256": "eade42582e8c21a7b467d6e4a171f87e708e1feb36ce2d78729135d533ed9f84",
+      "bytes": 1475
+    },
+    {
+      "path": "snapshots/g_train/tests/test_m2f_channel.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/tests/test_m2f_channel.py",
+      "sha256": "a91e20bebc12c4ba53ff65dc7b48fd69f76c7315c7ce6e3764e7eb0a5411efa9",
+      "bytes": 4944
+    },
+    {
+      "path": "snapshots/g_train/tests/test_m2f_final.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/tests/test_m2f_final.py",
+      "sha256": "e2c66f9492a902a9c7d8927d912250ef3e95ce46e8a3224d872b4fcdd7ebf057",
+      "bytes": 6655
+    },
+    {
+      "path": "snapshots/g_train/tests/test_m2f_pointnoise.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/tests/test_m2f_pointnoise.py",
+      "sha256": "3518121443991574bcca44866c75f9b8a84aabfe5c824284cb5793614276099c",
+      "bytes": 7110
+    },
+    {
+      "path": "snapshots/g_train/tests/test_nyu_development.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/tests/test_nyu_development.py",
+      "sha256": "0e6c3500c383459362ad97f1fa3cecc4dc493e7fa7f7313c298f714404cf75a1",
+      "bytes": 12838
+    },
+    {
+      "path": "snapshots/g_train/tests/test_nyu_runner.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/tests/test_nyu_runner.py",
+      "sha256": "6a75f51b3e50c0f2bade918bf4993c095a5dd429bbc42d5ce521713d4801db10",
+      "bytes": 20619
+    },
+    {
+      "path": "snapshots/g_train/tests/test_nyu_sweep_launcher.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/tests/test_nyu_sweep_launcher.py",
+      "sha256": "382b6a8298aaef781feaca57a69e3e8099213913f6ad0b14309b0f2bc8655dfb",
+      "bytes": 23024
+    },
+    {
+      "path": "snapshots/g_train/tests/test_nyu_sweep_summary.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/tests/test_nyu_sweep_summary.py",
+      "sha256": "250fb9524fb37467b3ebc9b7b57b0beedfa0d4678914a2e95df93ecc1eebfa33",
+      "bytes": 9870
+    },
+    {
+      "path": "snapshots/g_train/tests/test_nyu_v2.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/tests/test_nyu_v2.py",
+      "sha256": "f7e95b2127fb57cb7a76604fae2bea2945dad3eb0b263bf4002552076f8418cd",
+      "bytes": 10034
+    },
+    {
+      "path": "snapshots/g_train/tests/test_nyu_v2_summary.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/tests/test_nyu_v2_summary.py",
+      "sha256": "9b019263eb8f11fb019ef241c4ddf5a412b329c4ed62cfc574efaf7c7c54238b",
+      "bytes": 4869
+    },
+    {
+      "path": "snapshots/g_train/tests/test_nyu_v3.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/tests/test_nyu_v3.py",
+      "sha256": "e186b39ccf832e794c7f654f7c238e7096b045429afc7c7a30c8055883d0ecaf",
+      "bytes": 10816
+    },
+    {
+      "path": "snapshots/g_train/tests/test_nyu_v3_workflow.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/tests/test_nyu_v3_workflow.py",
+      "sha256": "2bf16ce576acfa7900d476063f7b0d4b1e911a948034f9d3f1c6fea52a0edc4a",
+      "bytes": 8661
+    },
+    {
+      "path": "snapshots/g_train/tests/test_nyu_v4.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/tests/test_nyu_v4.py",
+      "sha256": "e4c57d252ca8b2804ecfb7974aeae61eccb180f787caf2fc49c289b23e2be97c",
+      "bytes": 4163
+    },
+    {
+      "path": "snapshots/g_train/tests/test_optimization_config.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/tests/test_optimization_config.py",
+      "sha256": "a124165dc867073e563c34259664c387904eb640f9b6dc06deb76876087f19e4",
+      "bytes": 2251
+    },
+    {
+      "path": "snapshots/g_train/tests/test_prepare_coco_subset.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/tests/test_prepare_coco_subset.py",
+      "sha256": "7ba94aaf9c80d4cf5feff8837b8d1eb5342f93e137c4453b7815fe30c87881db",
+      "bytes": 11568
+    },
+    {
+      "path": "snapshots/g_train/tests/test_resume_recipe.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/tests/test_resume_recipe.py",
+      "sha256": "16bc7a236da1698f78eb04f4ed62e6c8037bc020b3809091227cafb8efa41022",
+      "bytes": 2022
+    },
+    {
+      "path": "snapshots/g_train/tests/test_rgbd_pipeline.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/tests/test_rgbd_pipeline.py",
+      "sha256": "aa5c682f76a4e76ea611248de8af7e98c69cbaec97fd32ed2ba69001d11bf36e",
+      "bytes": 17148
+    },
+    {
+      "path": "snapshots/g_train/tests/test_small_object_crop.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/tests/test_small_object_crop.py",
+      "sha256": "f11227e6ff496a02e6c6d3cf6fe71f4e65cc991e9cd9c7bbea9292f3a789c791",
+      "bytes": 11102
+    },
+    {
+      "path": "snapshots/g_train/tests/test_summarize_nyu_experiment.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/tests/test_summarize_nyu_experiment.py",
+      "sha256": "0cf6b28587a5bf9194431bc87bc54130d78c6addee04e7eec87f63c780fecd73",
+      "bytes": 11239
+    },
+    {
+      "path": "snapshots/g_train/tests/test_void_head.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/tests/test_void_head.py",
+      "sha256": "0ddae3b5d7bc5b7fe15f5e2878069b7b478bb9cb543589203d8c005bfb3c0b8e",
+      "bytes": 9213
+    },
+    {
+      "path": "snapshots/g_train/tests/test_void_metric.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/tests/test_void_metric.py",
+      "sha256": "6f9b2318c00847dd599d0639426b6ecc9271beddf5e9ac8b1d84c4846bf80c90",
+      "bytes": 6984
+    },
+    {
+      "path": "snapshots/g_train/tests/test_weighted_boundary_head.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/tests/test_weighted_boundary_head.py",
+      "sha256": "5d4f8dfe0100df5541623a548131a5160bd0aa1a304ec7207475d3544d57f4fe",
+      "bytes": 12531
+    },
+    {
+      "path": "snapshots/g_train/train_course_directions.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/train_course_directions.py",
+      "sha256": "4285ea1bb63a02b58bd29753b95fab27ecf96e36afed8ae57157c3f957e53f05",
+      "bytes": 20940
+    },
+    {
+      "path": "snapshots/g_train/verify_course_delivery.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/verify_course_delivery.py",
+      "sha256": "2189b6d9990d79fa7e0e1d070441e272452965366124de6a679e1f308e50f5ea",
+      "bytes": 2970
+    },
+    {
+      "path": "snapshots/g_train/verify_env.py",
+      "original_project_path": "outputs/course_m2f_G_20261027_recovery2/source/verify_env.py",
+      "sha256": "3ba9d2c76054f07b5e177cff1b785dfad0204d4d798e749d8e735620ce351d98",
+      "bytes": 1580
+    },
+    {
+      "path": "snapshots/submission/abc_a_launcher.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/abc_a_launcher.py",
+      "sha256": "178e3e05f729470394b35a48c0acc1f1cdbf967609c50fd146c4cc5859d870f2",
+      "bytes": 11529
+    },
+    {
+      "path": "snapshots/submission/abc_a_recovery.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/abc_a_recovery.py",
+      "sha256": "08b660e26083684452c9c3cf476f102ac0eb273016e1361395780ab9431cb252",
+      "bytes": 2016
+    },
+    {
+      "path": "snapshots/submission/abc_a_recovery_launcher.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/abc_a_recovery_launcher.py",
+      "sha256": "94a62529e7d9967ab7b41e624d9724bed0cceaee3fb325e5ce65a4eb1036a13d",
+      "bytes": 3643
+    },
+    {
+      "path": "snapshots/submission/abc_a_worker.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/abc_a_worker.py",
+      "sha256": "fc95cec6be6094867f902467c5644d03e643b4adae6b961484940d6944d657ca",
+      "bytes": 15530
+    },
+    {
+      "path": "snapshots/submission/abc_spec.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/abc_spec.py",
+      "sha256": "b8501c71a762e7d523819c78ff2b2d63218426887602426b79f4e98cc17d8454",
+      "bytes": 933
+    },
+    {
+      "path": "snapshots/submission/accepted_error_analysis.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/accepted_error_analysis.py",
+      "sha256": "7e4e24a69344bf62ef486a51148eea3a933e2caaf6ad782e2f1b0bebbdde32a5",
+      "bytes": 3881
+    },
+    {
+      "path": "snapshots/submission/g_submit_codec.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/g_submit_codec.py",
+      "sha256": "a24b48fc9da89ce737661a3a63840656d518d97ddee6efa27bafcf37d20520ae",
+      "bytes": 3697
+    },
+    {
+      "path": "snapshots/submission/g_submit_launcher.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/g_submit_launcher.py",
+      "sha256": "1c0626faef73b5e5ed080ee2fbc9fa72f1bb73a04aa2f28bbb177b82bb8e09f0",
+      "bytes": 6478
+    },
+    {
+      "path": "snapshots/submission/g_submit_spec.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/g_submit_spec.py",
+      "sha256": "aba96374ead618266835ba09b20266588ac36cf00ce6ea1db03211a8a6e2aeb0",
+      "bytes": 1369
+    },
+    {
+      "path": "snapshots/submission/g_submit_worker.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/g_submit_worker.py",
+      "sha256": "b23108374cafea8801f8f402c293ae63da48d651fb8615123aae98b2941efac1",
+      "bytes": 10207
+    },
+    {
+      "path": "snapshots/submission/g_system_launcher.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/g_system_launcher.py",
+      "sha256": "e11c1d0fdc2845f0748583c5799da4fb11828c8436d5e731d6ccd7e6b1c83292",
+      "bytes": 9010
+    },
+    {
+      "path": "snapshots/submission/g_system_spec.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/g_system_spec.py",
+      "sha256": "6aa3d38ab02fb6f10e12fd1e262982d5278b77f1783761b30bc953f7cd634e2e",
+      "bytes": 1345
+    },
+    {
+      "path": "snapshots/submission/g_system_worker.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/g_system_worker.py",
+      "sha256": "32ee684ed8a5d0061b74f01f3a37e6229655cfcebf2ce3a259b65f6f5958f787",
+      "bytes": 8636
+    },
+    {
+      "path": "snapshots/submission/lr_system_launcher.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/lr_system_launcher.py",
+      "sha256": "e9a6184c71815de34f09b5586606ca91cfb789bca395b8d0c7e20b730f9002d6",
+      "bytes": 8903
+    },
+    {
+      "path": "snapshots/submission/lr_system_spec.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/lr_system_spec.py",
+      "sha256": "56678e5420695e8b45638998b164be1f59700076c62fbb7d6cf5766c06418432",
+      "bytes": 1871
+    },
+    {
+      "path": "snapshots/submission/lr_system_worker.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/lr_system_worker.py",
+      "sha256": "7b8d7488cb40037c0721fa47f89c9c23448492fa38d7047872f77d50e7333337",
+      "bytes": 14114
+    },
+    {
+      "path": "snapshots/submission/runtime/continue_m2f_fine512_fullval.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/runtime/continue_m2f_fine512_fullval.py",
+      "sha256": "f23235192cca0253917e04d5526e246efdc1d5baad33912457dc906ed4886a86",
+      "bytes": 11184
+    },
+    {
+      "path": "snapshots/submission/runtime/launch_m2f_boundary_refine.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/runtime/launch_m2f_boundary_refine.py",
+      "sha256": "ef0d7e522ac74d8c55d63cf066f94851e291e88607e60102b66b5726c15dfee6",
+      "bytes": 8059
+    },
+    {
+      "path": "snapshots/submission/runtime/launch_m2f_candidate_reuse.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/runtime/launch_m2f_candidate_reuse.py",
+      "sha256": "6e1de3c8d37998b5531f44c1022b309aecaea88e189e6c10d6e82ce316682a5a",
+      "bytes": 740
+    },
+    {
+      "path": "snapshots/submission/runtime/launch_m2f_fine512.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/runtime/launch_m2f_fine512.py",
+      "sha256": "8070bef763af28b969f170a7c58c4e91ac0ceadc35a0c4d3cb3b02516614d03e",
+      "bytes": 7242
+    },
+    {
+      "path": "snapshots/submission/runtime/launch_m2f_fine512_adapt.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/runtime/launch_m2f_fine512_adapt.py",
+      "sha256": "66464f7ae54200a1f62877ca7d0e48d14ecd3e9a5b1999f737d236ee8531bfc2",
+      "bytes": 7878
+    },
+    {
+      "path": "snapshots/submission/runtime/launch_m2f_fine512_adapt_recovery.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/runtime/launch_m2f_fine512_adapt_recovery.py",
+      "sha256": "98e5c4e594260754be054fda797d46615c74ee8f48e0f0f09aeee8f4e49c6420",
+      "bytes": 7096
+    },
+    {
+      "path": "snapshots/submission/runtime/launch_m2f_fine512_continuation.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/runtime/launch_m2f_fine512_continuation.py",
+      "sha256": "febb91ab8ae4c9df5baa227be9caf283949e61718a7085142e63f05d73e18bb5",
+      "bytes": 1170
+    },
+    {
+      "path": "snapshots/submission/runtime/launch_m2f_fine512_fullval.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/runtime/launch_m2f_fine512_fullval.py",
+      "sha256": "989dab4761f698987f7787bf96e9caa14fbf3595c4da21fdec3959dc65debd5a",
+      "bytes": 6310
+    },
+    {
+      "path": "snapshots/submission/runtime/launch_m2f_fine512_geometry.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/runtime/launch_m2f_fine512_geometry.py",
+      "sha256": "1c64860c87edb7b3456f0c85782a2e48caa86f6f0c661283e66bc56ec8c1e49a",
+      "bytes": 6854
+    },
+    {
+      "path": "snapshots/submission/runtime/launch_m2f_fine512_quality.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/runtime/launch_m2f_fine512_quality.py",
+      "sha256": "7c140c72a1125a1ad72f5650f2024020c4e6c229d5208b02668b6e9f4fd2554c",
+      "bytes": 6132
+    },
+    {
+      "path": "snapshots/submission/runtime/launch_m2f_fine512_quality_fullval.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/runtime/launch_m2f_fine512_quality_fullval.py",
+      "sha256": "c938f764e2506ba31305576decd31f63caaf3c583ca34467741f92f3fae93060",
+      "bytes": 5976
+    },
+    {
+      "path": "snapshots/submission/runtime/launch_m2f_quality_runtime.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/runtime/launch_m2f_quality_runtime.py",
+      "sha256": "b2ceb0bcdfadc48c49dbdf50791e03de68115b148a99323b2965150515074a93",
+      "bytes": 2147
+    },
+    {
+      "path": "snapshots/submission/runtime/launch_m2f_quality_runtime_recovery.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/runtime/launch_m2f_quality_runtime_recovery.py",
+      "sha256": "20a8904c6061aee5ebd5ebe4135d904bb8399161e9df46e91fedc3740e170b78",
+      "bytes": 2202
+    },
+    {
+      "path": "snapshots/submission/runtime/launch_m2f_quality_select.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/runtime/launch_m2f_quality_select.py",
+      "sha256": "0b2ee9d8c481a91fe48eca6ba89e1dec9110355b9e8d7e19dddd13757e7aa775",
+      "bytes": 6922
+    },
+    {
+      "path": "snapshots/submission/runtime/launch_m2f_rle_passthrough.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/runtime/launch_m2f_rle_passthrough.py",
+      "sha256": "cfbc0d227a030b9c0413e61d1ec5ad597d441ea07a61b6b4d40b2af021e60e7c",
+      "bytes": 5503
+    },
+    {
+      "path": "snapshots/submission/runtime/launch_m2f_supervision_correct.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/runtime/launch_m2f_supervision_correct.py",
+      "sha256": "6d6753f4062a533f0533656cb089c620820a7897595b3ad16af1a588b36f81e2",
+      "bytes": 7352
+    },
+    {
+      "path": "snapshots/submission/runtime/launch_m2f_tiny_hflip.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/runtime/launch_m2f_tiny_hflip.py",
+      "sha256": "45445da2738433f39a1c9c6ec9ddb0dc41631ffb4e379a9053d592918f078929",
+      "bytes": 7748
+    },
+    {
+      "path": "snapshots/submission/runtime/launch_m2f_tiny_positive.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/runtime/launch_m2f_tiny_positive.py",
+      "sha256": "21582cc765aa90171e2c44a427f3a21a05550a7cfae643ec54f7bb85a6853d91",
+      "bytes": 7484
+    },
+    {
+      "path": "snapshots/submission/runtime/launch_m2f_tiny_scene.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/runtime/launch_m2f_tiny_scene.py",
+      "sha256": "537d2be579e77f563e7387db2c829fed237968f68805915364a02eb726129aa0",
+      "bytes": 8278
+    },
+    {
+      "path": "snapshots/submission/runtime/launch_m2f_tiny_stride4.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/runtime/launch_m2f_tiny_stride4.py",
+      "sha256": "49d8ad11e4cb028bad0b5fb3b7918c047cd2bb1dd6f3df59bcda0477e71c2eff",
+      "bytes": 7963
+    },
+    {
+      "path": "snapshots/submission/runtime/launch_m2f_tiny_verify.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/runtime/launch_m2f_tiny_verify.py",
+      "sha256": "569ec907192ea538982e5d1b05af3d32ff66166782d5d91c86eaeea78041fa28",
+      "bytes": 7446
+    },
+    {
+      "path": "snapshots/submission/runtime/m2f_absolute_quality.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/runtime/m2f_absolute_quality.py",
+      "sha256": "64f2fd023bcd4a9623fddc910fe4cc8a272a65a98213d62e9b50f307b1e972bc",
+      "bytes": 4387
+    },
+    {
+      "path": "snapshots/submission/runtime/m2f_balanced_quality.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/runtime/m2f_balanced_quality.py",
+      "sha256": "571c94bb03f8b8230a38632b7c0368515130f42b2410a71f5cd5e8dfa7a259c2",
+      "bytes": 2377
+    },
+    {
+      "path": "snapshots/submission/runtime/m2f_boundary_refiner.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/runtime/m2f_boundary_refiner.py",
+      "sha256": "4f32a7391f70558d49509fcb06670f35819176965cca3e5176655197981c0c13",
+      "bytes": 6247
+    },
+    {
+      "path": "snapshots/submission/runtime/m2f_candidate_reuse.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/runtime/m2f_candidate_reuse.py",
+      "sha256": "72236d3485cdd48304615c4fac8b255784e5c95d2de96a6701c72819bfbe10a0",
+      "bytes": 17671
+    },
+    {
+      "path": "snapshots/submission/runtime/m2f_fine512_geometry.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/runtime/m2f_fine512_geometry.py",
+      "sha256": "f3501f14727b109718dc3904e0f9fefa151fbd71981baf789f18445c67a19389",
+      "bytes": 2686
+    },
+    {
+      "path": "snapshots/submission/runtime/m2f_fine512_quality.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/runtime/m2f_fine512_quality.py",
+      "sha256": "0dc23bd238429838b1aa4010baa7f8c31bd3d26086777ce0e36a57325ab49418",
+      "bytes": 3844
+    },
+    {
+      "path": "snapshots/submission/runtime/m2f_geometry_compact_check.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/runtime/m2f_geometry_compact_check.py",
+      "sha256": "c62663c5038647406eb4bba5a2d51ffe81d57ac48eaf0531071e111b79b16863",
+      "bytes": 15197
+    },
+    {
+      "path": "snapshots/submission/runtime/m2f_multi_choice.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/runtime/m2f_multi_choice.py",
+      "sha256": "9e7581bd71556039972971cb043fc651e07098f2066dc3f5b231e874f1001ba1",
+      "bytes": 6801
+    },
+    {
+      "path": "snapshots/submission/runtime/m2f_quality_selector.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/runtime/m2f_quality_selector.py",
+      "sha256": "126bcf0ad5d89b44686ca444f273aa54bad7efa753d173c61fb26fac8fb5dec2",
+      "bytes": 7765
+    },
+    {
+      "path": "snapshots/submission/runtime/m2f_rle_passthrough.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/runtime/m2f_rle_passthrough.py",
+      "sha256": "c2bd3b8109c8d6ffc0f37e3c0c8ac862ea794306f8c61f43209e1aaa4b36c5ce",
+      "bytes": 16085
+    },
+    {
+      "path": "snapshots/submission/runtime/m2f_tiny_positive_helpers.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/runtime/m2f_tiny_positive_helpers.py",
+      "sha256": "b72b39a78e0d4c84f3843558cdbc5b7876c785eba553eaf83463364c7da5ee60",
+      "bytes": 14999
+    },
+    {
+      "path": "snapshots/submission/runtime/m2f_tiny_verifier.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/runtime/m2f_tiny_verifier.py",
+      "sha256": "3d49a39c79c220eedd7aac45668ad1e3a209badb77728562a3947d9f6d435846",
+      "bytes": 4520
+    },
+    {
+      "path": "snapshots/submission/runtime/recover_m2f_fine512_adapt.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/runtime/recover_m2f_fine512_adapt.py",
+      "sha256": "c86a0c293e8712e1a5e3afdcf8784bc577df9e2b14802e7498682797c2c5ded8",
+      "bytes": 4495
+    },
+    {
+      "path": "snapshots/submission/runtime/recover_m2f_quality_analysis.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/runtime/recover_m2f_quality_analysis.py",
+      "sha256": "f0f3bdac669c2838350b88fb40b62a88262a4c1ffb11738c40dc52a2a230011c",
+      "bytes": 5147
+    },
+    {
+      "path": "snapshots/submission/runtime/recover_m2f_quality_runtime.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/runtime/recover_m2f_quality_runtime.py",
+      "sha256": "cf712ba08a4a925c74fee23345778c9e9707412a7a3a0376cf752e4d2994c769",
+      "bytes": 2868
+    },
+    {
+      "path": "snapshots/submission/runtime/run_m2f_absolute_quality.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/runtime/run_m2f_absolute_quality.py",
+      "sha256": "5bf43d56cd2270c4ed21080388315aa11f4de19002d66705070607a9d796ae0b",
+      "bytes": 18424
+    },
+    {
+      "path": "snapshots/submission/runtime/run_m2f_balanced_quality.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/runtime/run_m2f_balanced_quality.py",
+      "sha256": "eaedbccacc2bbe4b65dbf2ce700859aeabf4b1eb109e14327bdb40de91837e22",
+      "bytes": 15271
+    },
+    {
+      "path": "snapshots/submission/runtime/run_m2f_boundary_refine.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/runtime/run_m2f_boundary_refine.py",
+      "sha256": "e5c7677d3ff66aea6656c68af34942c879f162d00e63e834c6a831d55938d45f",
+      "bytes": 28990
+    },
+    {
+      "path": "snapshots/submission/runtime/run_m2f_fine512.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/runtime/run_m2f_fine512.py",
+      "sha256": "2fd385772fc7aa36a0c01791cc0b77a989f46094d9c72ca960a2f59b8a1bf48c",
+      "bytes": 21827
+    },
+    {
+      "path": "snapshots/submission/runtime/run_m2f_fine512_adapt.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/runtime/run_m2f_fine512_adapt.py",
+      "sha256": "f84c415f124214358adce24055c2731849e4810b5301248ff18da848b0c0ca22",
+      "bytes": 20537
+    },
+    {
+      "path": "snapshots/submission/runtime/run_m2f_fine512_fullval.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/runtime/run_m2f_fine512_fullval.py",
+      "sha256": "5b69a53f6bc5a3b0dd2b6903ae9ae6579dff7f9713aa6715a0bed0abdb30b52c",
+      "bytes": 17249
+    },
+    {
+      "path": "snapshots/submission/runtime/run_m2f_fine512_geometry.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/runtime/run_m2f_fine512_geometry.py",
+      "sha256": "cadfa7c55139d404594950b83f79acc5022760e11cddfd6c3dff0d12c64af703",
+      "bytes": 13320
+    },
+    {
+      "path": "snapshots/submission/runtime/run_m2f_fine512_quality.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/runtime/run_m2f_fine512_quality.py",
+      "sha256": "efef30fce70ad8f6a5a0abf11f8a7bb82d1fc1488c8d86122af24186640b95e9",
+      "bytes": 14180
+    },
+    {
+      "path": "snapshots/submission/runtime/run_m2f_fine512_quality_fullval.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/runtime/run_m2f_fine512_quality_fullval.py",
+      "sha256": "9b1ba8cf4769a400ebd73d89d8ab0fc2b3c58ae235857484c112ec3ca0584529",
+      "bytes": 9364
+    },
+    {
+      "path": "snapshots/submission/runtime/run_m2f_multi_choice.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/runtime/run_m2f_multi_choice.py",
+      "sha256": "d9eb8827c488319ab3ae353bbd6ae3d87e91c256d6abf32ced4f163135a7d7c2",
+      "bytes": 16753
+    },
+    {
+      "path": "snapshots/submission/runtime/run_m2f_quality_runtime.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/runtime/run_m2f_quality_runtime.py",
+      "sha256": "aa000aab2c9a9a6840d923dc86c624c115985845168cb56eabbd706114a6703f",
+      "bytes": 11980
+    },
+    {
+      "path": "snapshots/submission/runtime/run_m2f_quality_select.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/runtime/run_m2f_quality_select.py",
+      "sha256": "a703f5ffd85c19d5276ed2e9716fd17ff9b0004dd8204913079cf7fc9be4c9d6",
+      "bytes": 26662
+    },
+    {
+      "path": "snapshots/submission/runtime/run_m2f_supervision_correct.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/runtime/run_m2f_supervision_correct.py",
+      "sha256": "690ed74cb7d7ae3d5afa5deb4dcc757f2dec8d3403db6ff010576fedf09b4ec7",
+      "bytes": 15890
+    },
+    {
+      "path": "snapshots/submission/runtime/run_m2f_tiny_hflip.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/runtime/run_m2f_tiny_hflip.py",
+      "sha256": "44960b00930730f91adaa893e565e6200b6c082d27ad0f8e6e8f9e184f86f76e",
+      "bytes": 16850
+    },
+    {
+      "path": "snapshots/submission/runtime/run_m2f_tiny_positive.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/runtime/run_m2f_tiny_positive.py",
+      "sha256": "03705282852410312349608d7b36583f99121d6dd8f49e9b8504238a9792e1a5",
+      "bytes": 21170
+    },
+    {
+      "path": "snapshots/submission/runtime/run_m2f_tiny_scene.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/runtime/run_m2f_tiny_scene.py",
+      "sha256": "343e1427ddec30211853c7d4b41ab7fe016cad3f57f2b178c3fa532f667f0f48",
+      "bytes": 26748
+    },
+    {
+      "path": "snapshots/submission/runtime/run_m2f_tiny_stride4.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/runtime/run_m2f_tiny_stride4.py",
+      "sha256": "10c0f9a546181f52aa46cfaec10cd8f19aefcae8cf930c37ebb990997dda5810",
+      "bytes": 18005
+    },
+    {
+      "path": "snapshots/submission/runtime/run_m2f_tiny_verify.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/runtime/run_m2f_tiny_verify.py",
+      "sha256": "bbb2db81d854735e4e727e8013c66eab8e0cac34186ec5295242557ac406bc60",
+      "bytes": 29525
+    },
+    {
+      "path": "snapshots/submission/runtime/test_m2f_absolute_quality.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/runtime/test_m2f_absolute_quality.py",
+      "sha256": "6bcbd471f8ddf3919b4ca470320c61928936fe3dc47887bb941cf588c84d0e20",
+      "bytes": 2639
+    },
+    {
+      "path": "snapshots/submission/runtime/test_m2f_balanced_quality.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/runtime/test_m2f_balanced_quality.py",
+      "sha256": "18ca4f72218a654547652deef5e8e523ffc5fb00107af1f55874d489d8bf451c",
+      "bytes": 2301
+    },
+    {
+      "path": "snapshots/submission/runtime/test_m2f_boundary_refiner.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/runtime/test_m2f_boundary_refiner.py",
+      "sha256": "54a81645ca7bb736634f5d9bb74a039eaf565e38faa6dd65f49ed3c6dd1d62b4",
+      "bytes": 4137
+    },
+    {
+      "path": "snapshots/submission/runtime/test_m2f_candidate_reuse_contract.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/runtime/test_m2f_candidate_reuse_contract.py",
+      "sha256": "47467d82eca0630e2cedb724f587e1359a156341d6b5188bf41a83b47a3061ff",
+      "bytes": 2750
+    },
+    {
+      "path": "snapshots/submission/runtime/test_m2f_fine512_geometry.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/runtime/test_m2f_fine512_geometry.py",
+      "sha256": "e87d51c4d8db72e5a8b652e79a0d7f2c1030bb0bd8ab492ae46ec06de1dba509",
+      "bytes": 3507
+    },
+    {
+      "path": "snapshots/submission/runtime/test_m2f_fine512_quality.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/runtime/test_m2f_fine512_quality.py",
+      "sha256": "aa93ae4466d5c57de335f201a42209f3a5bc61d0620ddb982e597c7b092ec703",
+      "bytes": 3845
+    },
+    {
+      "path": "snapshots/submission/runtime/test_m2f_fine512_quality_fullval.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/runtime/test_m2f_fine512_quality_fullval.py",
+      "sha256": "d7a79d0e78b1ba962c72a839cbac1f089e9a40cb380b4eaa01f6d61494f27c15",
+      "bytes": 1394
+    },
+    {
+      "path": "snapshots/submission/runtime/test_m2f_multi_choice.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/runtime/test_m2f_multi_choice.py",
+      "sha256": "ff12669533c25328e0f4e6098ebe4043da9313eccc65efdd05e64fba31129041",
+      "bytes": 3484
+    },
+    {
+      "path": "snapshots/submission/runtime/test_m2f_quality_analysis_recovery.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/runtime/test_m2f_quality_analysis_recovery.py",
+      "sha256": "e6ba83fdc8a5c274dd2d769784ae45cfeb25eccf87c9aae149b34bc1c1f00290",
+      "bytes": 1282
+    },
+    {
+      "path": "snapshots/submission/runtime/test_m2f_quality_runtime.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/runtime/test_m2f_quality_runtime.py",
+      "sha256": "03dc919b0dc753f1dfe1aca3c57e0234fbdceb394f7d69dacd5e39bde3cd8008",
+      "bytes": 2120
+    },
+    {
+      "path": "snapshots/submission/runtime/test_m2f_quality_selector.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/runtime/test_m2f_quality_selector.py",
+      "sha256": "61ede409fc2e507df5536523e5962bdcca0c6c90f58e265332bbc2ecd8467cf6",
+      "bytes": 6669
+    },
+    {
+      "path": "snapshots/submission/runtime/test_m2f_supervision_correct.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/runtime/test_m2f_supervision_correct.py",
+      "sha256": "7c13a27463ed197fa74cd74b4345217540e9451c35057384e9b1e87cb0ab3614",
+      "bytes": 1588
+    },
+    {
+      "path": "snapshots/submission/runtime/test_m2f_tiny_verifier.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/runtime/test_m2f_tiny_verifier.py",
+      "sha256": "9b086ec563dd70672b7dd9212d86a2729ec88dc05d0c38feab37e264e554dc0a",
+      "bytes": 2597
+    },
+    {
+      "path": "snapshots/submission/system_launcher.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/system_launcher.py",
+      "sha256": "ce43877f2a7f65adc8f48243ffda994c363f597aa1d9b3460aa68d26d3e81be1",
+      "bytes": 4220
+    },
+    {
+      "path": "snapshots/submission/system_spec.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/system_spec.py",
+      "sha256": "5332640debd5546a8f146cab55a164a009c5314b4fa5406cc759629ebc2a7be3",
+      "bytes": 1244
+    },
+    {
+      "path": "snapshots/submission/system_worker.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/system_worker.py",
+      "sha256": "24c94820132f34473926e8e0687abb059df126f15924990d8b81c87fd9aed7c7",
+      "bytes": 7382
+    },
+    {
+      "path": "snapshots/submission/test_abc_a.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/test_abc_a.py",
+      "sha256": "bb84fc45d50179ea164283440f409ebb70fb777aa6dacd74f3283598decafcf3",
+      "bytes": 1778
+    },
+    {
+      "path": "snapshots/submission/test_g_submit.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/test_g_submit.py",
+      "sha256": "bb3a25fe7bb667ad3330e01514ae957c1aba5f05d68041ec0da3ac0bcf49babd",
+      "bytes": 2906
+    },
+    {
+      "path": "snapshots/submission/test_g_system.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/test_g_system.py",
+      "sha256": "f88e9872b96e11c480279c5c36ee06b093eb064905ed97e970988f78e5112db1",
+      "bytes": 3279
+    },
+    {
+      "path": "snapshots/submission/test_lr_system.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/test_lr_system.py",
+      "sha256": "26804732ef5b1a56c742495408889d8102bb4df30c74f99bee68ce6a9aa923d2",
+      "bytes": 3318
+    },
+    {
+      "path": "snapshots/submission/test_system.py",
+      "original_project_path": "outputs/course_m2f_G_submission_gpu8_20261028_v1/arms/test/source/test_system.py",
+      "sha256": "10a6432830922700770d155f430b85d1198316d7496e5c0dfc9fb71906dd6729",
+      "bytes": 2519
+    },
+    {
+      "path": "snapshots/g_nineview/abc_a_launcher.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/abc_a_launcher.py",
+      "sha256": "178e3e05f729470394b35a48c0acc1f1cdbf967609c50fd146c4cc5859d870f2",
+      "bytes": 11529
+    },
+    {
+      "path": "snapshots/g_nineview/abc_a_recovery.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/abc_a_recovery.py",
+      "sha256": "08b660e26083684452c9c3cf476f102ac0eb273016e1361395780ab9431cb252",
+      "bytes": 2016
+    },
+    {
+      "path": "snapshots/g_nineview/abc_a_recovery_launcher.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/abc_a_recovery_launcher.py",
+      "sha256": "94a62529e7d9967ab7b41e624d9724bed0cceaee3fb325e5ce65a4eb1036a13d",
+      "bytes": 3643
+    },
+    {
+      "path": "snapshots/g_nineview/abc_a_worker.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/abc_a_worker.py",
+      "sha256": "fc95cec6be6094867f902467c5644d03e643b4adae6b961484940d6944d657ca",
+      "bytes": 15530
+    },
+    {
+      "path": "snapshots/g_nineview/abc_spec.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/abc_spec.py",
+      "sha256": "b8501c71a762e7d523819c78ff2b2d63218426887602426b79f4e98cc17d8454",
+      "bytes": 933
+    },
+    {
+      "path": "snapshots/g_nineview/accepted_error_analysis.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/accepted_error_analysis.py",
+      "sha256": "7e4e24a69344bf62ef486a51148eea3a933e2caaf6ad782e2f1b0bebbdde32a5",
+      "bytes": 3881
+    },
+    {
+      "path": "snapshots/g_nineview/g_system_launcher.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/g_system_launcher.py",
+      "sha256": "e11c1d0fdc2845f0748583c5799da4fb11828c8436d5e731d6ccd7e6b1c83292",
+      "bytes": 9010
+    },
+    {
+      "path": "snapshots/g_nineview/g_system_spec.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/g_system_spec.py",
+      "sha256": "6aa3d38ab02fb6f10e12fd1e262982d5278b77f1783761b30bc953f7cd634e2e",
+      "bytes": 1345
+    },
+    {
+      "path": "snapshots/g_nineview/g_system_worker.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/g_system_worker.py",
+      "sha256": "32ee684ed8a5d0061b74f01f3a37e6229655cfcebf2ce3a259b65f6f5958f787",
+      "bytes": 8636
+    },
+    {
+      "path": "snapshots/g_nineview/lr_system_launcher.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/lr_system_launcher.py",
+      "sha256": "e9a6184c71815de34f09b5586606ca91cfb789bca395b8d0c7e20b730f9002d6",
+      "bytes": 8903
+    },
+    {
+      "path": "snapshots/g_nineview/lr_system_spec.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/lr_system_spec.py",
+      "sha256": "56678e5420695e8b45638998b164be1f59700076c62fbb7d6cf5766c06418432",
+      "bytes": 1871
+    },
+    {
+      "path": "snapshots/g_nineview/lr_system_worker.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/lr_system_worker.py",
+      "sha256": "7b8d7488cb40037c0721fa47f89c9c23448492fa38d7047872f77d50e7333337",
+      "bytes": 14114
+    },
+    {
+      "path": "snapshots/g_nineview/runtime/continue_m2f_fine512_fullval.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/runtime/continue_m2f_fine512_fullval.py",
+      "sha256": "f23235192cca0253917e04d5526e246efdc1d5baad33912457dc906ed4886a86",
+      "bytes": 11184
+    },
+    {
+      "path": "snapshots/g_nineview/runtime/launch_m2f_boundary_refine.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/runtime/launch_m2f_boundary_refine.py",
+      "sha256": "ef0d7e522ac74d8c55d63cf066f94851e291e88607e60102b66b5726c15dfee6",
+      "bytes": 8059
+    },
+    {
+      "path": "snapshots/g_nineview/runtime/launch_m2f_candidate_reuse.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/runtime/launch_m2f_candidate_reuse.py",
+      "sha256": "6e1de3c8d37998b5531f44c1022b309aecaea88e189e6c10d6e82ce316682a5a",
+      "bytes": 740
+    },
+    {
+      "path": "snapshots/g_nineview/runtime/launch_m2f_fine512.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/runtime/launch_m2f_fine512.py",
+      "sha256": "8070bef763af28b969f170a7c58c4e91ac0ceadc35a0c4d3cb3b02516614d03e",
+      "bytes": 7242
+    },
+    {
+      "path": "snapshots/g_nineview/runtime/launch_m2f_fine512_adapt.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/runtime/launch_m2f_fine512_adapt.py",
+      "sha256": "66464f7ae54200a1f62877ca7d0e48d14ecd3e9a5b1999f737d236ee8531bfc2",
+      "bytes": 7878
+    },
+    {
+      "path": "snapshots/g_nineview/runtime/launch_m2f_fine512_adapt_recovery.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/runtime/launch_m2f_fine512_adapt_recovery.py",
+      "sha256": "98e5c4e594260754be054fda797d46615c74ee8f48e0f0f09aeee8f4e49c6420",
+      "bytes": 7096
+    },
+    {
+      "path": "snapshots/g_nineview/runtime/launch_m2f_fine512_continuation.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/runtime/launch_m2f_fine512_continuation.py",
+      "sha256": "febb91ab8ae4c9df5baa227be9caf283949e61718a7085142e63f05d73e18bb5",
+      "bytes": 1170
+    },
+    {
+      "path": "snapshots/g_nineview/runtime/launch_m2f_fine512_fullval.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/runtime/launch_m2f_fine512_fullval.py",
+      "sha256": "989dab4761f698987f7787bf96e9caa14fbf3595c4da21fdec3959dc65debd5a",
+      "bytes": 6310
+    },
+    {
+      "path": "snapshots/g_nineview/runtime/launch_m2f_fine512_geometry.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/runtime/launch_m2f_fine512_geometry.py",
+      "sha256": "1c64860c87edb7b3456f0c85782a2e48caa86f6f0c661283e66bc56ec8c1e49a",
+      "bytes": 6854
+    },
+    {
+      "path": "snapshots/g_nineview/runtime/launch_m2f_fine512_quality.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/runtime/launch_m2f_fine512_quality.py",
+      "sha256": "7c140c72a1125a1ad72f5650f2024020c4e6c229d5208b02668b6e9f4fd2554c",
+      "bytes": 6132
+    },
+    {
+      "path": "snapshots/g_nineview/runtime/launch_m2f_fine512_quality_fullval.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/runtime/launch_m2f_fine512_quality_fullval.py",
+      "sha256": "c938f764e2506ba31305576decd31f63caaf3c583ca34467741f92f3fae93060",
+      "bytes": 5976
+    },
+    {
+      "path": "snapshots/g_nineview/runtime/launch_m2f_quality_runtime.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/runtime/launch_m2f_quality_runtime.py",
+      "sha256": "b2ceb0bcdfadc48c49dbdf50791e03de68115b148a99323b2965150515074a93",
+      "bytes": 2147
+    },
+    {
+      "path": "snapshots/g_nineview/runtime/launch_m2f_quality_runtime_recovery.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/runtime/launch_m2f_quality_runtime_recovery.py",
+      "sha256": "20a8904c6061aee5ebd5ebe4135d904bb8399161e9df46e91fedc3740e170b78",
+      "bytes": 2202
+    },
+    {
+      "path": "snapshots/g_nineview/runtime/launch_m2f_quality_select.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/runtime/launch_m2f_quality_select.py",
+      "sha256": "0b2ee9d8c481a91fe48eca6ba89e1dec9110355b9e8d7e19dddd13757e7aa775",
+      "bytes": 6922
+    },
+    {
+      "path": "snapshots/g_nineview/runtime/launch_m2f_rle_passthrough.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/runtime/launch_m2f_rle_passthrough.py",
+      "sha256": "cfbc0d227a030b9c0413e61d1ec5ad597d441ea07a61b6b4d40b2af021e60e7c",
+      "bytes": 5503
+    },
+    {
+      "path": "snapshots/g_nineview/runtime/launch_m2f_supervision_correct.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/runtime/launch_m2f_supervision_correct.py",
+      "sha256": "6d6753f4062a533f0533656cb089c620820a7897595b3ad16af1a588b36f81e2",
+      "bytes": 7352
+    },
+    {
+      "path": "snapshots/g_nineview/runtime/launch_m2f_tiny_hflip.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/runtime/launch_m2f_tiny_hflip.py",
+      "sha256": "45445da2738433f39a1c9c6ec9ddb0dc41631ffb4e379a9053d592918f078929",
+      "bytes": 7748
+    },
+    {
+      "path": "snapshots/g_nineview/runtime/launch_m2f_tiny_positive.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/runtime/launch_m2f_tiny_positive.py",
+      "sha256": "21582cc765aa90171e2c44a427f3a21a05550a7cfae643ec54f7bb85a6853d91",
+      "bytes": 7484
+    },
+    {
+      "path": "snapshots/g_nineview/runtime/launch_m2f_tiny_scene.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/runtime/launch_m2f_tiny_scene.py",
+      "sha256": "537d2be579e77f563e7387db2c829fed237968f68805915364a02eb726129aa0",
+      "bytes": 8278
+    },
+    {
+      "path": "snapshots/g_nineview/runtime/launch_m2f_tiny_stride4.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/runtime/launch_m2f_tiny_stride4.py",
+      "sha256": "49d8ad11e4cb028bad0b5fb3b7918c047cd2bb1dd6f3df59bcda0477e71c2eff",
+      "bytes": 7963
+    },
+    {
+      "path": "snapshots/g_nineview/runtime/launch_m2f_tiny_verify.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/runtime/launch_m2f_tiny_verify.py",
+      "sha256": "569ec907192ea538982e5d1b05af3d32ff66166782d5d91c86eaeea78041fa28",
+      "bytes": 7446
+    },
+    {
+      "path": "snapshots/g_nineview/runtime/m2f_absolute_quality.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/runtime/m2f_absolute_quality.py",
+      "sha256": "64f2fd023bcd4a9623fddc910fe4cc8a272a65a98213d62e9b50f307b1e972bc",
+      "bytes": 4387
+    },
+    {
+      "path": "snapshots/g_nineview/runtime/m2f_balanced_quality.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/runtime/m2f_balanced_quality.py",
+      "sha256": "571c94bb03f8b8230a38632b7c0368515130f42b2410a71f5cd5e8dfa7a259c2",
+      "bytes": 2377
+    },
+    {
+      "path": "snapshots/g_nineview/runtime/m2f_boundary_refiner.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/runtime/m2f_boundary_refiner.py",
+      "sha256": "4f32a7391f70558d49509fcb06670f35819176965cca3e5176655197981c0c13",
+      "bytes": 6247
+    },
+    {
+      "path": "snapshots/g_nineview/runtime/m2f_candidate_reuse.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/runtime/m2f_candidate_reuse.py",
+      "sha256": "72236d3485cdd48304615c4fac8b255784e5c95d2de96a6701c72819bfbe10a0",
+      "bytes": 17671
+    },
+    {
+      "path": "snapshots/g_nineview/runtime/m2f_fine512_geometry.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/runtime/m2f_fine512_geometry.py",
+      "sha256": "f3501f14727b109718dc3904e0f9fefa151fbd71981baf789f18445c67a19389",
+      "bytes": 2686
+    },
+    {
+      "path": "snapshots/g_nineview/runtime/m2f_fine512_quality.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/runtime/m2f_fine512_quality.py",
+      "sha256": "0dc23bd238429838b1aa4010baa7f8c31bd3d26086777ce0e36a57325ab49418",
+      "bytes": 3844
+    },
+    {
+      "path": "snapshots/g_nineview/runtime/m2f_geometry_compact_check.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/runtime/m2f_geometry_compact_check.py",
+      "sha256": "c62663c5038647406eb4bba5a2d51ffe81d57ac48eaf0531071e111b79b16863",
+      "bytes": 15197
+    },
+    {
+      "path": "snapshots/g_nineview/runtime/m2f_multi_choice.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/runtime/m2f_multi_choice.py",
+      "sha256": "9e7581bd71556039972971cb043fc651e07098f2066dc3f5b231e874f1001ba1",
+      "bytes": 6801
+    },
+    {
+      "path": "snapshots/g_nineview/runtime/m2f_quality_selector.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/runtime/m2f_quality_selector.py",
+      "sha256": "126bcf0ad5d89b44686ca444f273aa54bad7efa753d173c61fb26fac8fb5dec2",
+      "bytes": 7765
+    },
+    {
+      "path": "snapshots/g_nineview/runtime/m2f_rle_passthrough.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/runtime/m2f_rle_passthrough.py",
+      "sha256": "c2bd3b8109c8d6ffc0f37e3c0c8ac862ea794306f8c61f43209e1aaa4b36c5ce",
+      "bytes": 16085
+    },
+    {
+      "path": "snapshots/g_nineview/runtime/m2f_tiny_positive_helpers.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/runtime/m2f_tiny_positive_helpers.py",
+      "sha256": "b72b39a78e0d4c84f3843558cdbc5b7876c785eba553eaf83463364c7da5ee60",
+      "bytes": 14999
+    },
+    {
+      "path": "snapshots/g_nineview/runtime/m2f_tiny_verifier.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/runtime/m2f_tiny_verifier.py",
+      "sha256": "3d49a39c79c220eedd7aac45668ad1e3a209badb77728562a3947d9f6d435846",
+      "bytes": 4520
+    },
+    {
+      "path": "snapshots/g_nineview/runtime/recover_m2f_fine512_adapt.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/runtime/recover_m2f_fine512_adapt.py",
+      "sha256": "c86a0c293e8712e1a5e3afdcf8784bc577df9e2b14802e7498682797c2c5ded8",
+      "bytes": 4495
+    },
+    {
+      "path": "snapshots/g_nineview/runtime/recover_m2f_quality_analysis.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/runtime/recover_m2f_quality_analysis.py",
+      "sha256": "f0f3bdac669c2838350b88fb40b62a88262a4c1ffb11738c40dc52a2a230011c",
+      "bytes": 5147
+    },
+    {
+      "path": "snapshots/g_nineview/runtime/recover_m2f_quality_runtime.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/runtime/recover_m2f_quality_runtime.py",
+      "sha256": "cf712ba08a4a925c74fee23345778c9e9707412a7a3a0376cf752e4d2994c769",
+      "bytes": 2868
+    },
+    {
+      "path": "snapshots/g_nineview/runtime/run_m2f_absolute_quality.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/runtime/run_m2f_absolute_quality.py",
+      "sha256": "5bf43d56cd2270c4ed21080388315aa11f4de19002d66705070607a9d796ae0b",
+      "bytes": 18424
+    },
+    {
+      "path": "snapshots/g_nineview/runtime/run_m2f_balanced_quality.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/runtime/run_m2f_balanced_quality.py",
+      "sha256": "eaedbccacc2bbe4b65dbf2ce700859aeabf4b1eb109e14327bdb40de91837e22",
+      "bytes": 15271
+    },
+    {
+      "path": "snapshots/g_nineview/runtime/run_m2f_boundary_refine.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/runtime/run_m2f_boundary_refine.py",
+      "sha256": "e5c7677d3ff66aea6656c68af34942c879f162d00e63e834c6a831d55938d45f",
+      "bytes": 28990
+    },
+    {
+      "path": "snapshots/g_nineview/runtime/run_m2f_fine512.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/runtime/run_m2f_fine512.py",
+      "sha256": "2fd385772fc7aa36a0c01791cc0b77a989f46094d9c72ca960a2f59b8a1bf48c",
+      "bytes": 21827
+    },
+    {
+      "path": "snapshots/g_nineview/runtime/run_m2f_fine512_adapt.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/runtime/run_m2f_fine512_adapt.py",
+      "sha256": "f84c415f124214358adce24055c2731849e4810b5301248ff18da848b0c0ca22",
+      "bytes": 20537
+    },
+    {
+      "path": "snapshots/g_nineview/runtime/run_m2f_fine512_fullval.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/runtime/run_m2f_fine512_fullval.py",
+      "sha256": "5b69a53f6bc5a3b0dd2b6903ae9ae6579dff7f9713aa6715a0bed0abdb30b52c",
+      "bytes": 17249
+    },
+    {
+      "path": "snapshots/g_nineview/runtime/run_m2f_fine512_geometry.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/runtime/run_m2f_fine512_geometry.py",
+      "sha256": "cadfa7c55139d404594950b83f79acc5022760e11cddfd6c3dff0d12c64af703",
+      "bytes": 13320
+    },
+    {
+      "path": "snapshots/g_nineview/runtime/run_m2f_fine512_quality.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/runtime/run_m2f_fine512_quality.py",
+      "sha256": "efef30fce70ad8f6a5a0abf11f8a7bb82d1fc1488c8d86122af24186640b95e9",
+      "bytes": 14180
+    },
+    {
+      "path": "snapshots/g_nineview/runtime/run_m2f_fine512_quality_fullval.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/runtime/run_m2f_fine512_quality_fullval.py",
+      "sha256": "9b1ba8cf4769a400ebd73d89d8ab0fc2b3c58ae235857484c112ec3ca0584529",
+      "bytes": 9364
+    },
+    {
+      "path": "snapshots/g_nineview/runtime/run_m2f_multi_choice.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/runtime/run_m2f_multi_choice.py",
+      "sha256": "d9eb8827c488319ab3ae353bbd6ae3d87e91c256d6abf32ced4f163135a7d7c2",
+      "bytes": 16753
+    },
+    {
+      "path": "snapshots/g_nineview/runtime/run_m2f_quality_runtime.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/runtime/run_m2f_quality_runtime.py",
+      "sha256": "aa000aab2c9a9a6840d923dc86c624c115985845168cb56eabbd706114a6703f",
+      "bytes": 11980
+    },
+    {
+      "path": "snapshots/g_nineview/runtime/run_m2f_quality_select.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/runtime/run_m2f_quality_select.py",
+      "sha256": "a703f5ffd85c19d5276ed2e9716fd17ff9b0004dd8204913079cf7fc9be4c9d6",
+      "bytes": 26662
+    },
+    {
+      "path": "snapshots/g_nineview/runtime/run_m2f_supervision_correct.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/runtime/run_m2f_supervision_correct.py",
+      "sha256": "690ed74cb7d7ae3d5afa5deb4dcc757f2dec8d3403db6ff010576fedf09b4ec7",
+      "bytes": 15890
+    },
+    {
+      "path": "snapshots/g_nineview/runtime/run_m2f_tiny_hflip.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/runtime/run_m2f_tiny_hflip.py",
+      "sha256": "44960b00930730f91adaa893e565e6200b6c082d27ad0f8e6e8f9e184f86f76e",
+      "bytes": 16850
+    },
+    {
+      "path": "snapshots/g_nineview/runtime/run_m2f_tiny_positive.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/runtime/run_m2f_tiny_positive.py",
+      "sha256": "03705282852410312349608d7b36583f99121d6dd8f49e9b8504238a9792e1a5",
+      "bytes": 21170
+    },
+    {
+      "path": "snapshots/g_nineview/runtime/run_m2f_tiny_scene.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/runtime/run_m2f_tiny_scene.py",
+      "sha256": "343e1427ddec30211853c7d4b41ab7fe016cad3f57f2b178c3fa532f667f0f48",
+      "bytes": 26748
+    },
+    {
+      "path": "snapshots/g_nineview/runtime/run_m2f_tiny_stride4.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/runtime/run_m2f_tiny_stride4.py",
+      "sha256": "10c0f9a546181f52aa46cfaec10cd8f19aefcae8cf930c37ebb990997dda5810",
+      "bytes": 18005
+    },
+    {
+      "path": "snapshots/g_nineview/runtime/run_m2f_tiny_verify.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/runtime/run_m2f_tiny_verify.py",
+      "sha256": "bbb2db81d854735e4e727e8013c66eab8e0cac34186ec5295242557ac406bc60",
+      "bytes": 29525
+    },
+    {
+      "path": "snapshots/g_nineview/runtime/test_m2f_absolute_quality.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/runtime/test_m2f_absolute_quality.py",
+      "sha256": "6bcbd471f8ddf3919b4ca470320c61928936fe3dc47887bb941cf588c84d0e20",
+      "bytes": 2639
+    },
+    {
+      "path": "snapshots/g_nineview/runtime/test_m2f_balanced_quality.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/runtime/test_m2f_balanced_quality.py",
+      "sha256": "18ca4f72218a654547652deef5e8e523ffc5fb00107af1f55874d489d8bf451c",
+      "bytes": 2301
+    },
+    {
+      "path": "snapshots/g_nineview/runtime/test_m2f_boundary_refiner.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/runtime/test_m2f_boundary_refiner.py",
+      "sha256": "54a81645ca7bb736634f5d9bb74a039eaf565e38faa6dd65f49ed3c6dd1d62b4",
+      "bytes": 4137
+    },
+    {
+      "path": "snapshots/g_nineview/runtime/test_m2f_candidate_reuse_contract.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/runtime/test_m2f_candidate_reuse_contract.py",
+      "sha256": "47467d82eca0630e2cedb724f587e1359a156341d6b5188bf41a83b47a3061ff",
+      "bytes": 2750
+    },
+    {
+      "path": "snapshots/g_nineview/runtime/test_m2f_fine512_geometry.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/runtime/test_m2f_fine512_geometry.py",
+      "sha256": "e87d51c4d8db72e5a8b652e79a0d7f2c1030bb0bd8ab492ae46ec06de1dba509",
+      "bytes": 3507
+    },
+    {
+      "path": "snapshots/g_nineview/runtime/test_m2f_fine512_quality.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/runtime/test_m2f_fine512_quality.py",
+      "sha256": "aa93ae4466d5c57de335f201a42209f3a5bc61d0620ddb982e597c7b092ec703",
+      "bytes": 3845
+    },
+    {
+      "path": "snapshots/g_nineview/runtime/test_m2f_fine512_quality_fullval.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/runtime/test_m2f_fine512_quality_fullval.py",
+      "sha256": "d7a79d0e78b1ba962c72a839cbac1f089e9a40cb380b4eaa01f6d61494f27c15",
+      "bytes": 1394
+    },
+    {
+      "path": "snapshots/g_nineview/runtime/test_m2f_multi_choice.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/runtime/test_m2f_multi_choice.py",
+      "sha256": "ff12669533c25328e0f4e6098ebe4043da9313eccc65efdd05e64fba31129041",
+      "bytes": 3484
+    },
+    {
+      "path": "snapshots/g_nineview/runtime/test_m2f_quality_analysis_recovery.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/runtime/test_m2f_quality_analysis_recovery.py",
+      "sha256": "e6ba83fdc8a5c274dd2d769784ae45cfeb25eccf87c9aae149b34bc1c1f00290",
+      "bytes": 1282
+    },
+    {
+      "path": "snapshots/g_nineview/runtime/test_m2f_quality_runtime.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/runtime/test_m2f_quality_runtime.py",
+      "sha256": "03dc919b0dc753f1dfe1aca3c57e0234fbdceb394f7d69dacd5e39bde3cd8008",
+      "bytes": 2120
+    },
+    {
+      "path": "snapshots/g_nineview/runtime/test_m2f_quality_selector.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/runtime/test_m2f_quality_selector.py",
+      "sha256": "61ede409fc2e507df5536523e5962bdcca0c6c90f58e265332bbc2ecd8467cf6",
+      "bytes": 6669
+    },
+    {
+      "path": "snapshots/g_nineview/runtime/test_m2f_supervision_correct.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/runtime/test_m2f_supervision_correct.py",
+      "sha256": "7c13a27463ed197fa74cd74b4345217540e9451c35057384e9b1e87cb0ab3614",
+      "bytes": 1588
+    },
+    {
+      "path": "snapshots/g_nineview/runtime/test_m2f_tiny_verifier.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/runtime/test_m2f_tiny_verifier.py",
+      "sha256": "9b086ec563dd70672b7dd9212d86a2729ec88dc05d0c38feab37e264e554dc0a",
+      "bytes": 2597
+    },
+    {
+      "path": "snapshots/g_nineview/system_launcher.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/system_launcher.py",
+      "sha256": "ce43877f2a7f65adc8f48243ffda994c363f597aa1d9b3460aa68d26d3e81be1",
+      "bytes": 4220
+    },
+    {
+      "path": "snapshots/g_nineview/system_spec.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/system_spec.py",
+      "sha256": "5332640debd5546a8f146cab55a164a009c5314b4fa5406cc759629ebc2a7be3",
+      "bytes": 1244
+    },
+    {
+      "path": "snapshots/g_nineview/system_worker.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/system_worker.py",
+      "sha256": "24c94820132f34473926e8e0687abb059df126f15924990d8b81c87fd9aed7c7",
+      "bytes": 7382
+    },
+    {
+      "path": "snapshots/g_nineview/test_abc_a.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/test_abc_a.py",
+      "sha256": "bb84fc45d50179ea164283440f409ebb70fb777aa6dacd74f3283598decafcf3",
+      "bytes": 1778
+    },
+    {
+      "path": "snapshots/g_nineview/test_g_system.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/test_g_system.py",
+      "sha256": "f88e9872b96e11c480279c5c36ee06b093eb064905ed97e970988f78e5112db1",
+      "bytes": 3279
+    },
+    {
+      "path": "snapshots/g_nineview/test_lr_system.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/test_lr_system.py",
+      "sha256": "26804732ef5b1a56c742495408889d8102bb4df30c74f99bee68ce6a9aa923d2",
+      "bytes": 3318
+    },
+    {
+      "path": "snapshots/g_nineview/test_system.py",
+      "original_project_path": "outputs/course_m2f_G_system_20261027_recovery2/arms/G/source/test_system.py",
+      "sha256": "10a6432830922700770d155f430b85d1198316d7496e5c0dfc9fb71906dd6729",
+      "bytes": 2519
+    },
+    {
+      "path": "snapshots/geometry_runtime/launch_m2f_cached_geometry.py",
+      "original_project_path": "outputs/course_m2f_geometry_20261020_v1/source/launch_m2f_cached_geometry.py",
+      "sha256": "4630ee6c1b4fe3b0c7a8054af3c1cd917aa00c9b87d8e5ce158f9b360f12cd98",
+      "bytes": 4296
+    },
+    {
+      "path": "snapshots/geometry_runtime/m2f_cached_geometry_refine.py",
+      "original_project_path": "outputs/course_m2f_geometry_20261020_v1/source/m2f_cached_geometry_refine.py",
+      "sha256": "224fe64c9778849b22a10312fcd30a535139cf96ad6ff2365a8732330cdd2842",
+      "bytes": 16049
+    },
+    {
+      "path": "snapshots/geometry_runtime/m2f_cached_rank_audit.py",
+      "original_project_path": "outputs/course_m2f_geometry_20261020_v1/source/m2f_cached_rank_audit.py",
+      "sha256": "a6dd1001946627423b9f665de6e9c96d89107ab733249afd678c8d52b51dd815",
+      "bytes": 18350
+    },
+    {
+      "path": "snapshots/lr_train/abc_b_launcher.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/abc_b_launcher.py",
+      "sha256": "27cd5bb897fb8bdf71bd3b01d954861af122d891c400ac91cd73cd28b51bd399",
+      "bytes": 5912
+    },
+    {
+      "path": "snapshots/lr_train/abc_b_spec.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/abc_b_spec.py",
+      "sha256": "6bec545e6db5dd994d613ccb280e920bf4c8d79877f06dc9f6013f1f5c876afd",
+      "bytes": 1920
+    },
+    {
+      "path": "snapshots/lr_train/abc_b_worker.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/abc_b_worker.py",
+      "sha256": "c2f6545a1d24dfeefa1306a35d97a647d6d5e8b1c4641dfb2e7ad1b110c9464d",
+      "bytes": 9481
+    },
+    {
+      "path": "snapshots/lr_train/analyze_course_baseline.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/analyze_course_baseline.py",
+      "sha256": "e2b7e08169020d64938cf4f353ad27bbb2082917f0c3f5fcdde7fa6c09738a42",
+      "bytes": 11726
+    },
+    {
+      "path": "snapshots/lr_train/audit_environment.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/audit_environment.py",
+      "sha256": "6ed3d3a49a2d1b1d70ec70df9a54578540d2d8e58e7423df7f70c642e1089f15",
+      "bytes": 2252
+    },
+    {
+      "path": "snapshots/lr_train/benchmark_nyu_inference.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/benchmark_nyu_inference.py",
+      "sha256": "fb3c3f521112c8afc4b2505b9acc1042ca5973f27068cc9f6630b5047ea59817",
+      "bytes": 12048
+    },
+    {
+      "path": "snapshots/lr_train/compare_course_diagnostics.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/compare_course_diagnostics.py",
+      "sha256": "0f738bdfcbee7da6e946ce06a8db3986cde67f049d919e58bf133b289dafb7ae",
+      "bytes": 3026
+    },
+    {
+      "path": "snapshots/lr_train/course_batch_predict.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/course_batch_predict.py",
+      "sha256": "cab127156d250fc9c4e30713ad90f827112c8b1465dddf1e8a9de73b988e8d96",
+      "bytes": 14276
+    },
+    {
+      "path": "snapshots/lr_train/course_checkpoint.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/course_checkpoint.py",
+      "sha256": "204d128fcadf299ac34b572daf3d067d3ae20b586effb53592ca66a05255bb8f",
+      "bytes": 1139
+    },
+    {
+      "path": "snapshots/lr_train/course_demo.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/course_demo.py",
+      "sha256": "6fa11d54ef826b4194dd80b729595906ece72388672b78360e0a194d13f6acde",
+      "bytes": 13408
+    },
+    {
+      "path": "snapshots/lr_train/course_directions_diagnostics.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/course_directions_diagnostics.py",
+      "sha256": "0a1840f84857f47e0f9673557fc8bb73ff088622e5a9fabb1be1b54e5ae25bf4",
+      "bytes": 15376
+    },
+    {
+      "path": "snapshots/lr_train/course_resolution_probe.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/course_resolution_probe.py",
+      "sha256": "d584d6a27991ff95ab893e7c3d7923fb08f92608da675fe2b9203118d6324715",
+      "bytes": 15235
+    },
+    {
+      "path": "snapshots/lr_train/download_nyuv2_ranges.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/download_nyuv2_ranges.py",
+      "sha256": "c686c5d26a867e0e6084d5b450eda72cd84b26291d38022211e3ca663afbec5d",
+      "bytes": 26600
+    },
+    {
+      "path": "snapshots/lr_train/export_nyu_development.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/export_nyu_development.py",
+      "sha256": "f6fca557f8044cae4e6a2fc423d6ae32a05a879ff2bfcaed9458a4de3abf65d0",
+      "bytes": 20180
+    },
+    {
+      "path": "snapshots/lr_train/launch_lr.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/launch_lr.py",
+      "sha256": "9a7d0b957af87cd141321f56a3d2be2a97aa23a4baff5f2194cc869051d608ed",
+      "bytes": 3932
+    },
+    {
+      "path": "snapshots/lr_train/launch_m2f_channel.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/launch_m2f_channel.py",
+      "sha256": "36281d9585bd2b2303fd97cd22018a10d670ef3b3356a7af08d91daba0fd2e72",
+      "bytes": 12550
+    },
+    {
+      "path": "snapshots/lr_train/launch_m2f_final.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/launch_m2f_final.py",
+      "sha256": "7d026f4c821d47fa31ce9cc7ce010c5e92bc9216f0fe876ed488a7b9149ccb09",
+      "bytes": 16023
+    },
+    {
+      "path": "snapshots/lr_train/launch_m2f_pointnoise.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/launch_m2f_pointnoise.py",
+      "sha256": "da18920fc0fc227b264d4f06909fe0ac4285af6db86a40c41383d808e58d91dd",
+      "bytes": 13400
+    },
+    {
+      "path": "snapshots/lr_train/launch_nyu_sweep.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/launch_nyu_sweep.py",
+      "sha256": "d33a9c8c2bacc75b1b69903a3dbc1b93ea076fdfd0982c98e52e193229225889",
+      "bytes": 20822
+    },
+    {
+      "path": "snapshots/lr_train/launch_nyu_v2.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/launch_nyu_v2.py",
+      "sha256": "9d015b0ac416546da9c9498b51d653e0ac204494dcf8fd52fe352e758ca6e843",
+      "bytes": 2097
+    },
+    {
+      "path": "snapshots/lr_train/launch_nyu_v3.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/launch_nyu_v3.py",
+      "sha256": "e2b84a92fe4a73e061a1c4e2c7e0addaa12d1d24802660926d30ca945bceeb2b",
+      "bytes": 2616
+    },
+    {
+      "path": "snapshots/lr_train/launch_nyu_v4.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/launch_nyu_v4.py",
+      "sha256": "4f5edd3cfca322b31e8e8111602671e3c6807e6b1a557d29fba619bf53344d43",
+      "bytes": 2450
+    },
+    {
+      "path": "snapshots/lr_train/lr_contract.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/lr_contract.py",
+      "sha256": "f3ea3afd039f6cb82959bf8c4e6b392fd2c576267308c1044511b7e01246ba59",
+      "bytes": 1024
+    },
+    {
+      "path": "snapshots/lr_train/lr_spec.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/lr_spec.py",
+      "sha256": "5298aeb76059bf78ced7f2b904aea19b23a805c2593589cb2d886fe238d6cf0e",
+      "bytes": 1895
+    },
+    {
+      "path": "snapshots/lr_train/lr_worker.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/lr_worker.py",
+      "sha256": "ec75d8d9851a57ff5afd6f3f1cdbb9aff78c154b41bf5750f0cb34710b4a9895",
+      "bytes": 7782
+    },
+    {
+      "path": "snapshots/lr_train/m2f_channel_spec.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/m2f_channel_spec.py",
+      "sha256": "8e05133150e582f6885827c8ff2e6759f85812d3dfd1fcc4cffed0610e4e4063",
+      "bytes": 1408
+    },
+    {
+      "path": "snapshots/lr_train/m2f_channel_worker.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/m2f_channel_worker.py",
+      "sha256": "58f9073358dc1229ed3e5be6af1f682e50ea26d14e1fe949fe2df27a085aa7d6",
+      "bytes": 16049
+    },
+    {
+      "path": "snapshots/lr_train/m2f_final_spec.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/m2f_final_spec.py",
+      "sha256": "098bb5ea8f1b5dd4123c204b377e66104dfc340e505ce317f001da506df325ba",
+      "bytes": 2094
+    },
+    {
+      "path": "snapshots/lr_train/m2f_final_worker.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/m2f_final_worker.py",
+      "sha256": "c634201446b1bb9760e1f5aa6ad87ed858e99dc35f625706bff0d4c386eba410",
+      "bytes": 21418
+    },
+    {
+      "path": "snapshots/lr_train/m2f_local_decoder.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/m2f_local_decoder.py",
+      "sha256": "30f833911d8237e1bd3e22511eb09e335d15e197569891da1803fa63fa5069cd",
+      "bytes": 5428
+    },
+    {
+      "path": "snapshots/lr_train/m2f_pointnoise_spec.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/m2f_pointnoise_spec.py",
+      "sha256": "3ea5e0b4329d57fc83e43fcbd47be2454b0470d7b55785338179680c8101d3f1",
+      "bytes": 1918
+    },
+    {
+      "path": "snapshots/lr_train/m2f_pointnoise_worker.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/m2f_pointnoise_worker.py",
+      "sha256": "3c46380f1fda43fdead0b946acaed8c804e6123e5ba75a021cf99a5dcbea529a",
+      "bytes": 7240
+    },
+    {
+      "path": "snapshots/lr_train/nyu_v2_plan.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/nyu_v2_plan.py",
+      "sha256": "5be60852cf6767698d5f479a5fdcfbe510b0c724adfb97db341126c1c8e34243",
+      "bytes": 2098
+    },
+    {
+      "path": "snapshots/lr_train/nyu_v3_plan.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/nyu_v3_plan.py",
+      "sha256": "78dd07a11e4c8bf5c7c806554c745ea1d24ced9c10e752ae48fe62442bd1e568",
+      "bytes": 1483
+    },
+    {
+      "path": "snapshots/lr_train/nyu_v4_plan.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/nyu_v4_plan.py",
+      "sha256": "cd33d50367201b3d26e756aa560cc5990650c473145d3795dba55aa43519e8a6",
+      "bytes": 2185
+    },
+    {
+      "path": "snapshots/lr_train/nyuv2_things_v1.json",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/nyuv2_things_v1.json",
+      "sha256": "1c064958e5454d364e411b5734a908ea03a00b5f1d8e2bd5cfa05bd69b628abd",
+      "bytes": 1177
+    },
+    {
+      "path": "snapshots/lr_train/optimizations/__init__.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/optimizations/__init__.py",
+      "sha256": "d9cb52c525c68cfd1ddcaf42b64e39ad832764061454719a5580a7c37ce42dba",
+      "bytes": 164
+    },
+    {
+      "path": "snapshots/lr_train/optimizations/configure.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/optimizations/configure.py",
+      "sha256": "d5ddfee1bf6e9cab1e1979ac84dc8f44bccfdd668c44f1870f91e2dad0e30600",
+      "bytes": 1343
+    },
+    {
+      "path": "snapshots/lr_train/optimizations/small_object_crop.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/optimizations/small_object_crop.py",
+      "sha256": "875dab77c258bda4c07a7f2bedb4a7059b9ece487d52418fcb1cadc5ededad6c",
+      "bytes": 7964
+    },
+    {
+      "path": "snapshots/lr_train/optimizations/weighted_boundary_head.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/optimizations/weighted_boundary_head.py",
+      "sha256": "b239c8b17658db46929dfdc3fd25757675eae2c0c54027a058eb7e7b75ad8c73",
+      "bytes": 11510
+    },
+    {
+      "path": "snapshots/lr_train/prepare_coco_subset.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/prepare_coco_subset.py",
+      "sha256": "4d885fa7f92f2e4882b18a4d684a7a4f3e219b9a58c79fb2a7bdd3f78356dcee",
+      "bytes": 27816
+    },
+    {
+      "path": "snapshots/lr_train/prepare_nyuv2.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/prepare_nyuv2.py",
+      "sha256": "7d9ac4a871f137253fa0f5f359c3f7da61ea4b3139b32dde189d0f34caa1640e",
+      "bytes": 28126
+    },
+    {
+      "path": "snapshots/lr_train/prepare_smoke.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/prepare_smoke.py",
+      "sha256": "98c91a15098cc5119eda0d86b40d104c2ae85e4d15cb06e06a908ac7705ce002",
+      "bytes": 2478
+    },
+    {
+      "path": "snapshots/lr_train/rgbd/__init__.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/rgbd/__init__.py",
+      "sha256": "5d62e89d95beec4446ae7a8be01e7e37f17f878c1baafb2331fc0fbc0b835fdd",
+      "bytes": 230
+    },
+    {
+      "path": "snapshots/lr_train/rgbd/advanced_model.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/rgbd/advanced_model.py",
+      "sha256": "fbab581711793bdc2ed317cbddb2ba370393c2fb0dcf4c9cf849d7aeaa679d3d",
+      "bytes": 3965
+    },
+    {
+      "path": "snapshots/lr_train/rgbd/course_channel.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/rgbd/course_channel.py",
+      "sha256": "56b16a8565787de2d006895784a74dff60f2f7a0dc559ec86fe7bc0fbe2f0827",
+      "bytes": 3004
+    },
+    {
+      "path": "snapshots/lr_train/rgbd/course_copy_paste.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/rgbd/course_copy_paste.py",
+      "sha256": "6bdddff93f238bb69892eafef29f998930664cc3c4dee70b1b82272dbb7b9515",
+      "bytes": 15665
+    },
+    {
+      "path": "snapshots/lr_train/rgbd/course_data.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/rgbd/course_data.py",
+      "sha256": "b9b5b4c0ebf357cd13717a7ef91058f586ff08ca837a198ef9790997695148c0",
+      "bytes": 2139
+    },
+    {
+      "path": "snapshots/lr_train/rgbd/course_feature_models.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/rgbd/course_feature_models.py",
+      "sha256": "749049ba0836b81e4e30fd16a9b6135744021bb8228a01c8386336248da7e5fd",
+      "bytes": 11702
+    },
+    {
+      "path": "snapshots/lr_train/rgbd/course_head.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/rgbd/course_head.py",
+      "sha256": "a18f00f448e4b20c5fc466d777fd5bce8a5974f6510e814e144eca6047f692b6",
+      "bytes": 3647
+    },
+    {
+      "path": "snapshots/lr_train/rgbd/course_pilot.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/rgbd/course_pilot.py",
+      "sha256": "95993b84c4597935542daad2922febd64ebc73ac078319344441665c79bb82b9",
+      "bytes": 2915
+    },
+    {
+      "path": "snapshots/lr_train/rgbd/course_pointnoise.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/rgbd/course_pointnoise.py",
+      "sha256": "9bfc1e990043699ee6eb45f9f3f86951b819d759be3696423205a8085b6851d1",
+      "bytes": 6904
+    },
+    {
+      "path": "snapshots/lr_train/rgbd/course_tiny_matching.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/rgbd/course_tiny_matching.py",
+      "sha256": "36f92376237f2c4b97197b31cd02f4b229475d52c3210068525a5de69e9cb8e7",
+      "bytes": 4234
+    },
+    {
+      "path": "snapshots/lr_train/rgbd/data.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/rgbd/data.py",
+      "sha256": "e2208a7e726a84a471f4edcb61f6114fcf83ba4be03aa105b69895f0c1ffa054",
+      "bytes": 7859
+    },
+    {
+      "path": "snapshots/lr_train/rgbd/foreground_head.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/rgbd/foreground_head.py",
+      "sha256": "3f0de7e1f8cc221674a68510ff447916267b5c2fa47d286ae4fd230e690cbb73",
+      "bytes": 3202
+    },
+    {
+      "path": "snapshots/lr_train/rgbd/matching_head.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/rgbd/matching_head.py",
+      "sha256": "2c7a7bbc69731282053a56035d4a606bebcd74b6793b52bf7c8b512a27c5aec1",
+      "bytes": 3366
+    },
+    {
+      "path": "snapshots/lr_train/rgbd/metric.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/rgbd/metric.py",
+      "sha256": "867bb5fa763a7568ecdb2641b387c7c8529a084da4b4782ad20de062b1604e9a",
+      "bytes": 8429
+    },
+    {
+      "path": "snapshots/lr_train/rgbd/model.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/rgbd/model.py",
+      "sha256": "180f3f0eff3e140220d0db693ac936b77530b2b11d4544b22a2c5a2f89bea00b",
+      "bytes": 5412
+    },
+    {
+      "path": "snapshots/lr_train/rgbd/multiscale.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/rgbd/multiscale.py",
+      "sha256": "54b7752c24fe01bbc1a9a01092216de6fc71bbd5b06da5c13d28f5f979ee950b",
+      "bytes": 5247
+    },
+    {
+      "path": "snapshots/lr_train/rgbd/small_boundary_head.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/rgbd/small_boundary_head.py",
+      "sha256": "42d43dac3ebc83d50621c6c4c2000acca51b18617937888e9ce1be98e0520d58",
+      "bytes": 4913
+    },
+    {
+      "path": "snapshots/lr_train/rgbd/void_head.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/rgbd/void_head.py",
+      "sha256": "58fa7b144940eb4bb1bd6595440fec487f6d9e4064dcddb0d8a5384be98ec7c8",
+      "bytes": 14494
+    },
+    {
+      "path": "snapshots/lr_train/run_coco_experiment.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/run_coco_experiment.py",
+      "sha256": "53e6ad9bae96d94b8cac4cf5b33d4b9c07ea1758891c7ad2162185dff85db43b",
+      "bytes": 15931
+    },
+    {
+      "path": "snapshots/lr_train/run_course_directions.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/run_course_directions.py",
+      "sha256": "68851ad33dae008639ce6abd7b8e3c5686ba99ff5eeda5d768f24dee3a8a04be",
+      "bytes": 38500
+    },
+    {
+      "path": "snapshots/lr_train/run_course_experiment.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/run_course_experiment.py",
+      "sha256": "6c906de4f2c471c493d55d7fd8e6f1ba0773e69861cff3b4d70224d483dfb516",
+      "bytes": 13257
+    },
+    {
+      "path": "snapshots/lr_train/run_course_resolution.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/run_course_resolution.py",
+      "sha256": "eb869f2d6cecd4bea4f52ec9a19dd0ed8baf59c7c0793071d2d416a0d13065d7",
+      "bytes": 7061
+    },
+    {
+      "path": "snapshots/lr_train/run_course_workflow.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/run_course_workflow.py",
+      "sha256": "2f7f854f20baca9b8b65d1aeae4c5d9bd69a061d5e894152ecb67e96ee528223",
+      "bytes": 16435
+    },
+    {
+      "path": "snapshots/lr_train/run_nyu_experiment.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/run_nyu_experiment.py",
+      "sha256": "cf909d1cdf45bf1d874caff45a364636ea486fff7393c51cc2eaee899188cdb4",
+      "bytes": 16766
+    },
+    {
+      "path": "snapshots/lr_train/run_nyu_v2.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/run_nyu_v2.py",
+      "sha256": "b3c5f45ad0f6020810cfb3a7f18f6665a352424267da1d9433f1e9c101bebdb1",
+      "bytes": 12940
+    },
+    {
+      "path": "snapshots/lr_train/run_nyu_v3.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/run_nyu_v3.py",
+      "sha256": "3413ff85b46088b6a333244610e5a0c0db5a18607a58d22454ee76f7f4ec0b53",
+      "bytes": 2874
+    },
+    {
+      "path": "snapshots/lr_train/run_nyu_v3_all.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/run_nyu_v3_all.py",
+      "sha256": "844b03835587b5fb51252c0e198c7012d8da1a4e612fc821282450bda8c7daa4",
+      "bytes": 9044
+    },
+    {
+      "path": "snapshots/lr_train/run_nyu_v4.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/run_nyu_v4.py",
+      "sha256": "1edf553a17b3c085258b98645507ba220a8d50ea9381c6cf39e4bfcf8719dc57",
+      "bytes": 4041
+    },
+    {
+      "path": "snapshots/lr_train/smoke_course_cpu.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/smoke_course_cpu.py",
+      "sha256": "6641726cff838d05fea8db09ae86ae252ac8ac7372648e31d18717a18d88bec3",
+      "bytes": 2287
+    },
+    {
+      "path": "snapshots/lr_train/smoke_model.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/smoke_model.py",
+      "sha256": "dd37fac1be5f7ba1bacb8fd0d7041f4edd1d40e635f3f2c341e036a587a0f737",
+      "bytes": 7065
+    },
+    {
+      "path": "snapshots/lr_train/smoke_nyu_v3_cpu.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/smoke_nyu_v3_cpu.py",
+      "sha256": "8e59cb9de16efecdc6c0ed9c87c036046a558ec81918518412796021dadf961f",
+      "bytes": 6222
+    },
+    {
+      "path": "snapshots/lr_train/smoke_nyu_v4_cpu.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/smoke_nyu_v4_cpu.py",
+      "sha256": "70f9109694421ab1c56b3e1e97e8206a06b78917ea22e6dad5c0448a663fdb73",
+      "bytes": 3162
+    },
+    {
+      "path": "snapshots/lr_train/smoke_optimizations.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/smoke_optimizations.py",
+      "sha256": "e47af1c35647ed4936df6905d7f3bcf71be79da576f53f954606a4e8242df06f",
+      "bytes": 2698
+    },
+    {
+      "path": "snapshots/lr_train/summarize_ablation.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/summarize_ablation.py",
+      "sha256": "3fb045bb2f582230ddef2a8b409c4735e01b0a7c6f809423780d05f52fbb6070",
+      "bytes": 3619
+    },
+    {
+      "path": "snapshots/lr_train/summarize_nyu_experiment.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/summarize_nyu_experiment.py",
+      "sha256": "382d6d3625a2131f4bd6b0cd27e148422d44bf25d3d605f36a26cfb48909d6ae",
+      "bytes": 20041
+    },
+    {
+      "path": "snapshots/lr_train/summarize_nyu_sweep.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/summarize_nyu_sweep.py",
+      "sha256": "775e79ee6f2383707a9c4c129de31940928d06244ed45207a7664b05c8d85ff3",
+      "bytes": 21005
+    },
+    {
+      "path": "snapshots/lr_train/summarize_nyu_v2.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/summarize_nyu_v2.py",
+      "sha256": "8b9118f12654b9999b742b95c3c28b9b94438fa8e35f967240a333665cbd2f99",
+      "bytes": 9828
+    },
+    {
+      "path": "snapshots/lr_train/summarize_nyu_v3.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/summarize_nyu_v3.py",
+      "sha256": "d4f3dd29e6411381affd4a1a9e7e36fdc1569bfde7552add01304094b230544a",
+      "bytes": 4310
+    },
+    {
+      "path": "snapshots/lr_train/summarize_nyu_v4.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/summarize_nyu_v4.py",
+      "sha256": "6b01a349d1cecdf0974993adf00bf550b260e98134d1c2aae8fd62dc5dcc9c95",
+      "bytes": 3082
+    },
+    {
+      "path": "snapshots/lr_train/summarize_public_experiment.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/summarize_public_experiment.py",
+      "sha256": "eee2d803aac3dd7dc614c585373441a49b97473641c248dfe08a93379bc8bd13",
+      "bytes": 3277
+    },
+    {
+      "path": "snapshots/lr_train/tests/test_abc_b.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/tests/test_abc_b.py",
+      "sha256": "41bf3b82f66b4ffeb3a2e1269d5a83e6c3e7b01c608f049a1185f56797c4239d",
+      "bytes": 3181
+    },
+    {
+      "path": "snapshots/lr_train/tests/test_course_batch_predict.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/tests/test_course_batch_predict.py",
+      "sha256": "7ca9dfd182064b378ccb28bb3272aeb433da125ab2cbce5b859de15ff0084fc4",
+      "bytes": 5070
+    },
+    {
+      "path": "snapshots/lr_train/tests/test_course_budget.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/tests/test_course_budget.py",
+      "sha256": "5d0bda3fba343227440e23e87f45182e5ead87af46ba3b94b7eeaf1b4bdb5444",
+      "bytes": 4073
+    },
+    {
+      "path": "snapshots/lr_train/tests/test_course_checkpoint.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/tests/test_course_checkpoint.py",
+      "sha256": "4276490c65853bbb7144a5225150d6d287168bd782348c8d6ad720b92e13bb0c",
+      "bytes": 2139
+    },
+    {
+      "path": "snapshots/lr_train/tests/test_course_copy_paste.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/tests/test_course_copy_paste.py",
+      "sha256": "c2a74acaeed74650ac74c8d303b098675344dd510a9c562370e396049855bf84",
+      "bytes": 18065
+    },
+    {
+      "path": "snapshots/lr_train/tests/test_course_demo.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/tests/test_course_demo.py",
+      "sha256": "10a93f44b3762399d43e9bc6f7d8fe57bb59d4650167908f136b93346ac5ba5e",
+      "bytes": 2751
+    },
+    {
+      "path": "snapshots/lr_train/tests/test_course_directions_diagnostics.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/tests/test_course_directions_diagnostics.py",
+      "sha256": "c639f158ef0ecf7558ceda15cb00bcade489c986e4aca082e514c718cda350b7",
+      "bytes": 11814
+    },
+    {
+      "path": "snapshots/lr_train/tests/test_course_directions_training.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/tests/test_course_directions_training.py",
+      "sha256": "776da7da9b11bedfd22f0e07194b640e2bb61a07bf4aa8ff6a54a4aa31dc20ae",
+      "bytes": 7331
+    },
+    {
+      "path": "snapshots/lr_train/tests/test_course_directions_workflow.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/tests/test_course_directions_workflow.py",
+      "sha256": "48b11aa014a8a0547c2cae0b1206583f0f5f7ee5faef2a4090e59a7c396777ef",
+      "bytes": 21080
+    },
+    {
+      "path": "snapshots/lr_train/tests/test_course_feature_models.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/tests/test_course_feature_models.py",
+      "sha256": "c2bcdce4a5c48d6d08c0b58f73c7d79bcf71ab39690f54b0108d0bec4c2604fa",
+      "bytes": 13733
+    },
+    {
+      "path": "snapshots/lr_train/tests/test_course_head.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/tests/test_course_head.py",
+      "sha256": "4ddda1941ab52e55d14b3eaa960fb81c58d1d74b44cf48feba46d26b0c3d2ead",
+      "bytes": 3512
+    },
+    {
+      "path": "snapshots/lr_train/tests/test_course_resolution.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/tests/test_course_resolution.py",
+      "sha256": "6bfa1556268d52760c5cc1d29e5fb8332426e425ac3667054f5f7fe3f7b520fa",
+      "bytes": 3784
+    },
+    {
+      "path": "snapshots/lr_train/tests/test_course_scale.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/tests/test_course_scale.py",
+      "sha256": "54fdb1b49dea4142eaf2468c4b153f65ce9a4c95038dd79dc6583f6c45c8f135",
+      "bytes": 2844
+    },
+    {
+      "path": "snapshots/lr_train/tests/test_course_small_boundary.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/tests/test_course_small_boundary.py",
+      "sha256": "0bac87c9f78440720d2d74dc99c1d0e6cc165caf698e3401ad3c7488c06de2f4",
+      "bytes": 9178
+    },
+    {
+      "path": "snapshots/lr_train/tests/test_lr.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/tests/test_lr.py",
+      "sha256": "eade42582e8c21a7b467d6e4a171f87e708e1feb36ce2d78729135d533ed9f84",
+      "bytes": 1475
+    },
+    {
+      "path": "snapshots/lr_train/tests/test_m2f_channel.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/tests/test_m2f_channel.py",
+      "sha256": "a91e20bebc12c4ba53ff65dc7b48fd69f76c7315c7ce6e3764e7eb0a5411efa9",
+      "bytes": 4944
+    },
+    {
+      "path": "snapshots/lr_train/tests/test_m2f_final.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/tests/test_m2f_final.py",
+      "sha256": "e2c66f9492a902a9c7d8927d912250ef3e95ce46e8a3224d872b4fcdd7ebf057",
+      "bytes": 6655
+    },
+    {
+      "path": "snapshots/lr_train/tests/test_m2f_pointnoise.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/tests/test_m2f_pointnoise.py",
+      "sha256": "3518121443991574bcca44866c75f9b8a84aabfe5c824284cb5793614276099c",
+      "bytes": 7110
+    },
+    {
+      "path": "snapshots/lr_train/tests/test_nyu_development.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/tests/test_nyu_development.py",
+      "sha256": "0e6c3500c383459362ad97f1fa3cecc4dc493e7fa7f7313c298f714404cf75a1",
+      "bytes": 12838
+    },
+    {
+      "path": "snapshots/lr_train/tests/test_nyu_runner.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/tests/test_nyu_runner.py",
+      "sha256": "6a75f51b3e50c0f2bade918bf4993c095a5dd429bbc42d5ce521713d4801db10",
+      "bytes": 20619
+    },
+    {
+      "path": "snapshots/lr_train/tests/test_nyu_sweep_launcher.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/tests/test_nyu_sweep_launcher.py",
+      "sha256": "382b6a8298aaef781feaca57a69e3e8099213913f6ad0b14309b0f2bc8655dfb",
+      "bytes": 23024
+    },
+    {
+      "path": "snapshots/lr_train/tests/test_nyu_sweep_summary.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/tests/test_nyu_sweep_summary.py",
+      "sha256": "250fb9524fb37467b3ebc9b7b57b0beedfa0d4678914a2e95df93ecc1eebfa33",
+      "bytes": 9870
+    },
+    {
+      "path": "snapshots/lr_train/tests/test_nyu_v2.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/tests/test_nyu_v2.py",
+      "sha256": "f7e95b2127fb57cb7a76604fae2bea2945dad3eb0b263bf4002552076f8418cd",
+      "bytes": 10034
+    },
+    {
+      "path": "snapshots/lr_train/tests/test_nyu_v2_summary.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/tests/test_nyu_v2_summary.py",
+      "sha256": "9b019263eb8f11fb019ef241c4ddf5a412b329c4ed62cfc574efaf7c7c54238b",
+      "bytes": 4869
+    },
+    {
+      "path": "snapshots/lr_train/tests/test_nyu_v3.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/tests/test_nyu_v3.py",
+      "sha256": "e186b39ccf832e794c7f654f7c238e7096b045429afc7c7a30c8055883d0ecaf",
+      "bytes": 10816
+    },
+    {
+      "path": "snapshots/lr_train/tests/test_nyu_v3_workflow.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/tests/test_nyu_v3_workflow.py",
+      "sha256": "2bf16ce576acfa7900d476063f7b0d4b1e911a948034f9d3f1c6fea52a0edc4a",
+      "bytes": 8661
+    },
+    {
+      "path": "snapshots/lr_train/tests/test_nyu_v4.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/tests/test_nyu_v4.py",
+      "sha256": "e4c57d252ca8b2804ecfb7974aeae61eccb180f787caf2fc49c289b23e2be97c",
+      "bytes": 4163
+    },
+    {
+      "path": "snapshots/lr_train/tests/test_optimization_config.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/tests/test_optimization_config.py",
+      "sha256": "a124165dc867073e563c34259664c387904eb640f9b6dc06deb76876087f19e4",
+      "bytes": 2251
+    },
+    {
+      "path": "snapshots/lr_train/tests/test_prepare_coco_subset.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/tests/test_prepare_coco_subset.py",
+      "sha256": "7ba94aaf9c80d4cf5feff8837b8d1eb5342f93e137c4453b7815fe30c87881db",
+      "bytes": 11568
+    },
+    {
+      "path": "snapshots/lr_train/tests/test_resume_recipe.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/tests/test_resume_recipe.py",
+      "sha256": "16bc7a236da1698f78eb04f4ed62e6c8037bc020b3809091227cafb8efa41022",
+      "bytes": 2022
+    },
+    {
+      "path": "snapshots/lr_train/tests/test_rgbd_pipeline.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/tests/test_rgbd_pipeline.py",
+      "sha256": "aa5c682f76a4e76ea611248de8af7e98c69cbaec97fd32ed2ba69001d11bf36e",
+      "bytes": 17148
+    },
+    {
+      "path": "snapshots/lr_train/tests/test_small_object_crop.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/tests/test_small_object_crop.py",
+      "sha256": "f11227e6ff496a02e6c6d3cf6fe71f4e65cc991e9cd9c7bbea9292f3a789c791",
+      "bytes": 11102
+    },
+    {
+      "path": "snapshots/lr_train/tests/test_summarize_nyu_experiment.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/tests/test_summarize_nyu_experiment.py",
+      "sha256": "0cf6b28587a5bf9194431bc87bc54130d78c6addee04e7eec87f63c780fecd73",
+      "bytes": 11239
+    },
+    {
+      "path": "snapshots/lr_train/tests/test_void_head.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/tests/test_void_head.py",
+      "sha256": "0ddae3b5d7bc5b7fe15f5e2878069b7b478bb9cb543589203d8c005bfb3c0b8e",
+      "bytes": 9213
+    },
+    {
+      "path": "snapshots/lr_train/tests/test_void_metric.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/tests/test_void_metric.py",
+      "sha256": "6f9b2318c00847dd599d0639426b6ecc9271beddf5e9ac8b1d84c4846bf80c90",
+      "bytes": 6984
+    },
+    {
+      "path": "snapshots/lr_train/tests/test_weighted_boundary_head.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/tests/test_weighted_boundary_head.py",
+      "sha256": "5d4f8dfe0100df5541623a548131a5160bd0aa1a304ec7207475d3544d57f4fe",
+      "bytes": 12531
+    },
+    {
+      "path": "snapshots/lr_train/train_course_directions.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/train_course_directions.py",
+      "sha256": "4285ea1bb63a02b58bd29753b95fab27ecf96e36afed8ae57157c3f957e53f05",
+      "bytes": 20940
+    },
+    {
+      "path": "snapshots/lr_train/verify_course_delivery.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/verify_course_delivery.py",
+      "sha256": "2189b6d9990d79fa7e0e1d070441e272452965366124de6a679e1f308e50f5ea",
+      "bytes": 2970
+    },
+    {
+      "path": "snapshots/lr_train/verify_env.py",
+      "original_project_path": "outputs/course_m2f_lr_20261026_v1/source/verify_env.py",
+      "sha256": "3ba9d2c76054f07b5e177cff1b785dfad0204d4d798e749d8e735620ce351d98",
+      "bytes": 1580
+    },
+    {
+      "path": "snapshots/tiles/analyze_course_baseline.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/analyze_course_baseline.py",
+      "sha256": "e2b7e08169020d64938cf4f353ad27bbb2082917f0c3f5fcdde7fa6c09738a42",
+      "bytes": 11726
+    },
+    {
+      "path": "snapshots/tiles/audit_environment.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/audit_environment.py",
+      "sha256": "6ed3d3a49a2d1b1d70ec70df9a54578540d2d8e58e7423df7f70c642e1089f15",
+      "bytes": 2252
+    },
+    {
+      "path": "snapshots/tiles/benchmark_nyu_inference.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/benchmark_nyu_inference.py",
+      "sha256": "fb3c3f521112c8afc4b2505b9acc1042ca5973f27068cc9f6630b5047ea59817",
+      "bytes": 12048
+    },
+    {
+      "path": "snapshots/tiles/compare_course_diagnostics.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/compare_course_diagnostics.py",
+      "sha256": "0f738bdfcbee7da6e946ce06a8db3986cde67f049d919e58bf133b289dafb7ae",
+      "bytes": 3026
+    },
+    {
+      "path": "snapshots/tiles/course_batch_predict.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/course_batch_predict.py",
+      "sha256": "cab127156d250fc9c4e30713ad90f827112c8b1465dddf1e8a9de73b988e8d96",
+      "bytes": 14276
+    },
+    {
+      "path": "snapshots/tiles/course_checkpoint.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/course_checkpoint.py",
+      "sha256": "204d128fcadf299ac34b572daf3d067d3ae20b586effb53592ca66a05255bb8f",
+      "bytes": 1139
+    },
+    {
+      "path": "snapshots/tiles/course_demo.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/course_demo.py",
+      "sha256": "6fa11d54ef826b4194dd80b729595906ece72388672b78360e0a194d13f6acde",
+      "bytes": 13408
+    },
+    {
+      "path": "snapshots/tiles/course_directions_diagnostics.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/course_directions_diagnostics.py",
+      "sha256": "0a1840f84857f47e0f9673557fc8bb73ff088622e5a9fabb1be1b54e5ae25bf4",
+      "bytes": 15376
+    },
+    {
+      "path": "snapshots/tiles/course_resolution_probe.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/course_resolution_probe.py",
+      "sha256": "d584d6a27991ff95ab893e7c3d7923fb08f92608da675fe2b9203118d6324715",
+      "bytes": 15235
+    },
+    {
+      "path": "snapshots/tiles/download_nyuv2_ranges.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/download_nyuv2_ranges.py",
+      "sha256": "c686c5d26a867e0e6084d5b450eda72cd84b26291d38022211e3ca663afbec5d",
+      "bytes": 26600
+    },
+    {
+      "path": "snapshots/tiles/export_nyu_development.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/export_nyu_development.py",
+      "sha256": "f6fca557f8044cae4e6a2fc423d6ae32a05a879ff2bfcaed9458a4de3abf65d0",
+      "bytes": 20180
+    },
+    {
+      "path": "snapshots/tiles/launch_nyu_sweep.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/launch_nyu_sweep.py",
+      "sha256": "d33a9c8c2bacc75b1b69903a3dbc1b93ea076fdfd0982c98e52e193229225889",
+      "bytes": 20822
+    },
+    {
+      "path": "snapshots/tiles/launch_nyu_v2.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/launch_nyu_v2.py",
+      "sha256": "9d015b0ac416546da9c9498b51d653e0ac204494dcf8fd52fe352e758ca6e843",
+      "bytes": 2097
+    },
+    {
+      "path": "snapshots/tiles/launch_nyu_v3.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/launch_nyu_v3.py",
+      "sha256": "e2b84a92fe4a73e061a1c4e2c7e0addaa12d1d24802660926d30ca945bceeb2b",
+      "bytes": 2616
+    },
+    {
+      "path": "snapshots/tiles/launch_nyu_v4.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/launch_nyu_v4.py",
+      "sha256": "4f5edd3cfca322b31e8e8111602671e3c6807e6b1a557d29fba619bf53344d43",
+      "bytes": 2450
+    },
+    {
+      "path": "snapshots/tiles/m2f_cpdetail.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/m2f_cpdetail.py",
+      "sha256": "9636174b539b487c1f892318e72971009717e050de7816eb8d39f97dc4f3ddd8",
+      "bytes": 4699
+    },
+    {
+      "path": "snapshots/tiles/m2f_decoder_probe.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/m2f_decoder_probe.py",
+      "sha256": "7e58c617362de20b1409d117ce34e40d85677e74c5c3e34580ecb52bb6b3d885",
+      "bytes": 21380
+    },
+    {
+      "path": "snapshots/tiles/m2f_tiles.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/m2f_tiles.py",
+      "sha256": "66427a0f5c9ca8bed2bc79ed03d443d3fd0db9df26fa5b33d7d4aeda1393f2f3",
+      "bytes": 20099
+    },
+    {
+      "path": "snapshots/tiles/nyu_v2_plan.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/nyu_v2_plan.py",
+      "sha256": "5be60852cf6767698d5f479a5fdcfbe510b0c724adfb97db341126c1c8e34243",
+      "bytes": 2098
+    },
+    {
+      "path": "snapshots/tiles/nyu_v3_plan.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/nyu_v3_plan.py",
+      "sha256": "78dd07a11e4c8bf5c7c806554c745ea1d24ced9c10e752ae48fe62442bd1e568",
+      "bytes": 1483
+    },
+    {
+      "path": "snapshots/tiles/nyu_v4_plan.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/nyu_v4_plan.py",
+      "sha256": "cd33d50367201b3d26e756aa560cc5990650c473145d3795dba55aa43519e8a6",
+      "bytes": 2185
+    },
+    {
+      "path": "snapshots/tiles/nyuv2_things_v1.json",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/nyuv2_things_v1.json",
+      "sha256": "1c064958e5454d364e411b5734a908ea03a00b5f1d8e2bd5cfa05bd69b628abd",
+      "bytes": 1177
+    },
+    {
+      "path": "snapshots/tiles/optimizations/__init__.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/optimizations/__init__.py",
+      "sha256": "d9cb52c525c68cfd1ddcaf42b64e39ad832764061454719a5580a7c37ce42dba",
+      "bytes": 164
+    },
+    {
+      "path": "snapshots/tiles/optimizations/configure.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/optimizations/configure.py",
+      "sha256": "d5ddfee1bf6e9cab1e1979ac84dc8f44bccfdd668c44f1870f91e2dad0e30600",
+      "bytes": 1343
+    },
+    {
+      "path": "snapshots/tiles/optimizations/small_object_crop.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/optimizations/small_object_crop.py",
+      "sha256": "875dab77c258bda4c07a7f2bedb4a7059b9ece487d52418fcb1cadc5ededad6c",
+      "bytes": 7964
+    },
+    {
+      "path": "snapshots/tiles/optimizations/weighted_boundary_head.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/optimizations/weighted_boundary_head.py",
+      "sha256": "b239c8b17658db46929dfdc3fd25757675eae2c0c54027a058eb7e7b75ad8c73",
+      "bytes": 11510
+    },
+    {
+      "path": "snapshots/tiles/prepare_coco_subset.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/prepare_coco_subset.py",
+      "sha256": "4d885fa7f92f2e4882b18a4d684a7a4f3e219b9a58c79fb2a7bdd3f78356dcee",
+      "bytes": 27816
+    },
+    {
+      "path": "snapshots/tiles/prepare_nyuv2.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/prepare_nyuv2.py",
+      "sha256": "7d9ac4a871f137253fa0f5f359c3f7da61ea4b3139b32dde189d0f34caa1640e",
+      "bytes": 28126
+    },
+    {
+      "path": "snapshots/tiles/prepare_smoke.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/prepare_smoke.py",
+      "sha256": "98c91a15098cc5119eda0d86b40d104c2ae85e4d15cb06e06a908ac7705ce002",
+      "bytes": 2478
+    },
+    {
+      "path": "snapshots/tiles/rgbd/__init__.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/rgbd/__init__.py",
+      "sha256": "5d62e89d95beec4446ae7a8be01e7e37f17f878c1baafb2331fc0fbc0b835fdd",
+      "bytes": 230
+    },
+    {
+      "path": "snapshots/tiles/rgbd/advanced_model.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/rgbd/advanced_model.py",
+      "sha256": "fbab581711793bdc2ed317cbddb2ba370393c2fb0dcf4c9cf849d7aeaa679d3d",
+      "bytes": 3965
+    },
+    {
+      "path": "snapshots/tiles/rgbd/course_copy_paste.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/rgbd/course_copy_paste.py",
+      "sha256": "6bdddff93f238bb69892eafef29f998930664cc3c4dee70b1b82272dbb7b9515",
+      "bytes": 15665
+    },
+    {
+      "path": "snapshots/tiles/rgbd/course_data.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/rgbd/course_data.py",
+      "sha256": "b9b5b4c0ebf357cd13717a7ef91058f586ff08ca837a198ef9790997695148c0",
+      "bytes": 2139
+    },
+    {
+      "path": "snapshots/tiles/rgbd/course_feature_models.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/rgbd/course_feature_models.py",
+      "sha256": "749049ba0836b81e4e30fd16a9b6135744021bb8228a01c8386336248da7e5fd",
+      "bytes": 11702
+    },
+    {
+      "path": "snapshots/tiles/rgbd/course_head.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/rgbd/course_head.py",
+      "sha256": "a18f00f448e4b20c5fc466d777fd5bce8a5974f6510e814e144eca6047f692b6",
+      "bytes": 3647
+    },
+    {
+      "path": "snapshots/tiles/rgbd/data.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/rgbd/data.py",
+      "sha256": "e2208a7e726a84a471f4edcb61f6114fcf83ba4be03aa105b69895f0c1ffa054",
+      "bytes": 7859
+    },
+    {
+      "path": "snapshots/tiles/rgbd/foreground_head.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/rgbd/foreground_head.py",
+      "sha256": "3f0de7e1f8cc221674a68510ff447916267b5c2fa47d286ae4fd230e690cbb73",
+      "bytes": 3202
+    },
+    {
+      "path": "snapshots/tiles/rgbd/matching_head.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/rgbd/matching_head.py",
+      "sha256": "2c7a7bbc69731282053a56035d4a606bebcd74b6793b52bf7c8b512a27c5aec1",
+      "bytes": 3366
+    },
+    {
+      "path": "snapshots/tiles/rgbd/metric.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/rgbd/metric.py",
+      "sha256": "867bb5fa763a7568ecdb2641b387c7c8529a084da4b4782ad20de062b1604e9a",
+      "bytes": 8429
+    },
+    {
+      "path": "snapshots/tiles/rgbd/model.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/rgbd/model.py",
+      "sha256": "180f3f0eff3e140220d0db693ac936b77530b2b11d4544b22a2c5a2f89bea00b",
+      "bytes": 5412
+    },
+    {
+      "path": "snapshots/tiles/rgbd/multiscale.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/rgbd/multiscale.py",
+      "sha256": "54b7752c24fe01bbc1a9a01092216de6fc71bbd5b06da5c13d28f5f979ee950b",
+      "bytes": 5247
+    },
+    {
+      "path": "snapshots/tiles/rgbd/small_boundary_head.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/rgbd/small_boundary_head.py",
+      "sha256": "42d43dac3ebc83d50621c6c4c2000acca51b18617937888e9ce1be98e0520d58",
+      "bytes": 4913
+    },
+    {
+      "path": "snapshots/tiles/rgbd/void_head.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/rgbd/void_head.py",
+      "sha256": "58fa7b144940eb4bb1bd6595440fec487f6d9e4064dcddb0d8a5384be98ec7c8",
+      "bytes": 14494
+    },
+    {
+      "path": "snapshots/tiles/run_coco_experiment.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/run_coco_experiment.py",
+      "sha256": "53e6ad9bae96d94b8cac4cf5b33d4b9c07ea1758891c7ad2162185dff85db43b",
+      "bytes": 15931
+    },
+    {
+      "path": "snapshots/tiles/run_course_directions.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/run_course_directions.py",
+      "sha256": "68851ad33dae008639ce6abd7b8e3c5686ba99ff5eeda5d768f24dee3a8a04be",
+      "bytes": 38500
+    },
+    {
+      "path": "snapshots/tiles/run_course_experiment.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/run_course_experiment.py",
+      "sha256": "6c906de4f2c471c493d55d7fd8e6f1ba0773e69861cff3b4d70224d483dfb516",
+      "bytes": 13257
+    },
+    {
+      "path": "snapshots/tiles/run_course_resolution.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/run_course_resolution.py",
+      "sha256": "eb869f2d6cecd4bea4f52ec9a19dd0ed8baf59c7c0793071d2d416a0d13065d7",
+      "bytes": 7061
+    },
+    {
+      "path": "snapshots/tiles/run_course_workflow.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/run_course_workflow.py",
+      "sha256": "2f7f854f20baca9b8b65d1aeae4c5d9bd69a061d5e894152ecb67e96ee528223",
+      "bytes": 16435
+    },
+    {
+      "path": "snapshots/tiles/run_m2f_cpdetail.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/run_m2f_cpdetail.py",
+      "sha256": "64d6140154ce3b1fc78c0dbca8ef64cf9c8bea6ae4a4a855b1e41052c841d760",
+      "bytes": 11535
+    },
+    {
+      "path": "snapshots/tiles/run_m2f_decoder.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/run_m2f_decoder.py",
+      "sha256": "66df817fbefa683d8cd97ffa0af00a4d2b90c3b3aad9493a45861ceee4a1c714",
+      "bytes": 11509
+    },
+    {
+      "path": "snapshots/tiles/run_m2f_tiles.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/run_m2f_tiles.py",
+      "sha256": "589f00542b71e039b6ab21f73da355b9ac2893133b2182a931dd9672d5eba656",
+      "bytes": 11354
+    },
+    {
+      "path": "snapshots/tiles/run_m2f_tiles_renewal.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/run_m2f_tiles_renewal.py",
+      "sha256": "98caee390f642a59ff7bd53543e4d9f0903d21c271dc69ef47e4f2965d28f1c3",
+      "bytes": 5541
+    },
+    {
+      "path": "snapshots/tiles/run_nyu_experiment.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/run_nyu_experiment.py",
+      "sha256": "cf909d1cdf45bf1d874caff45a364636ea486fff7393c51cc2eaee899188cdb4",
+      "bytes": 16766
+    },
+    {
+      "path": "snapshots/tiles/run_nyu_v2.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/run_nyu_v2.py",
+      "sha256": "b3c5f45ad0f6020810cfb3a7f18f6665a352424267da1d9433f1e9c101bebdb1",
+      "bytes": 12940
+    },
+    {
+      "path": "snapshots/tiles/run_nyu_v3.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/run_nyu_v3.py",
+      "sha256": "3413ff85b46088b6a333244610e5a0c0db5a18607a58d22454ee76f7f4ec0b53",
+      "bytes": 2874
+    },
+    {
+      "path": "snapshots/tiles/run_nyu_v3_all.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/run_nyu_v3_all.py",
+      "sha256": "844b03835587b5fb51252c0e198c7012d8da1a4e612fc821282450bda8c7daa4",
+      "bytes": 9044
+    },
+    {
+      "path": "snapshots/tiles/run_nyu_v4.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/run_nyu_v4.py",
+      "sha256": "1edf553a17b3c085258b98645507ba220a8d50ea9381c6cf39e4bfcf8719dc57",
+      "bytes": 4041
+    },
+    {
+      "path": "snapshots/tiles/smoke_course_cpu.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/smoke_course_cpu.py",
+      "sha256": "6641726cff838d05fea8db09ae86ae252ac8ac7372648e31d18717a18d88bec3",
+      "bytes": 2287
+    },
+    {
+      "path": "snapshots/tiles/smoke_model.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/smoke_model.py",
+      "sha256": "dd37fac1be5f7ba1bacb8fd0d7041f4edd1d40e635f3f2c341e036a587a0f737",
+      "bytes": 7065
+    },
+    {
+      "path": "snapshots/tiles/smoke_nyu_v3_cpu.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/smoke_nyu_v3_cpu.py",
+      "sha256": "8e59cb9de16efecdc6c0ed9c87c036046a558ec81918518412796021dadf961f",
+      "bytes": 6222
+    },
+    {
+      "path": "snapshots/tiles/smoke_nyu_v4_cpu.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/smoke_nyu_v4_cpu.py",
+      "sha256": "70f9109694421ab1c56b3e1e97e8206a06b78917ea22e6dad5c0448a663fdb73",
+      "bytes": 3162
+    },
+    {
+      "path": "snapshots/tiles/smoke_optimizations.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/smoke_optimizations.py",
+      "sha256": "e47af1c35647ed4936df6905d7f3bcf71be79da576f53f954606a4e8242df06f",
+      "bytes": 2698
+    },
+    {
+      "path": "snapshots/tiles/summarize_ablation.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/summarize_ablation.py",
+      "sha256": "3fb045bb2f582230ddef2a8b409c4735e01b0a7c6f809423780d05f52fbb6070",
+      "bytes": 3619
+    },
+    {
+      "path": "snapshots/tiles/summarize_nyu_experiment.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/summarize_nyu_experiment.py",
+      "sha256": "382d6d3625a2131f4bd6b0cd27e148422d44bf25d3d605f36a26cfb48909d6ae",
+      "bytes": 20041
+    },
+    {
+      "path": "snapshots/tiles/summarize_nyu_sweep.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/summarize_nyu_sweep.py",
+      "sha256": "775e79ee6f2383707a9c4c129de31940928d06244ed45207a7664b05c8d85ff3",
+      "bytes": 21005
+    },
+    {
+      "path": "snapshots/tiles/summarize_nyu_v2.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/summarize_nyu_v2.py",
+      "sha256": "8b9118f12654b9999b742b95c3c28b9b94438fa8e35f967240a333665cbd2f99",
+      "bytes": 9828
+    },
+    {
+      "path": "snapshots/tiles/summarize_nyu_v3.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/summarize_nyu_v3.py",
+      "sha256": "d4f3dd29e6411381affd4a1a9e7e36fdc1569bfde7552add01304094b230544a",
+      "bytes": 4310
+    },
+    {
+      "path": "snapshots/tiles/summarize_nyu_v4.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/summarize_nyu_v4.py",
+      "sha256": "6b01a349d1cecdf0974993adf00bf550b260e98134d1c2aae8fd62dc5dcc9c95",
+      "bytes": 3082
+    },
+    {
+      "path": "snapshots/tiles/summarize_public_experiment.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/summarize_public_experiment.py",
+      "sha256": "eee2d803aac3dd7dc614c585373441a49b97473641c248dfe08a93379bc8bd13",
+      "bytes": 3277
+    },
+    {
+      "path": "snapshots/tiles/tests/test_course_batch_predict.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/tests/test_course_batch_predict.py",
+      "sha256": "7ca9dfd182064b378ccb28bb3272aeb433da125ab2cbce5b859de15ff0084fc4",
+      "bytes": 5070
+    },
+    {
+      "path": "snapshots/tiles/tests/test_course_budget.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/tests/test_course_budget.py",
+      "sha256": "5d0bda3fba343227440e23e87f45182e5ead87af46ba3b94b7eeaf1b4bdb5444",
+      "bytes": 4073
+    },
+    {
+      "path": "snapshots/tiles/tests/test_course_checkpoint.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/tests/test_course_checkpoint.py",
+      "sha256": "4276490c65853bbb7144a5225150d6d287168bd782348c8d6ad720b92e13bb0c",
+      "bytes": 2139
+    },
+    {
+      "path": "snapshots/tiles/tests/test_course_copy_paste.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/tests/test_course_copy_paste.py",
+      "sha256": "c2a74acaeed74650ac74c8d303b098675344dd510a9c562370e396049855bf84",
+      "bytes": 18065
+    },
+    {
+      "path": "snapshots/tiles/tests/test_course_demo.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/tests/test_course_demo.py",
+      "sha256": "10a93f44b3762399d43e9bc6f7d8fe57bb59d4650167908f136b93346ac5ba5e",
+      "bytes": 2751
+    },
+    {
+      "path": "snapshots/tiles/tests/test_course_directions_diagnostics.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/tests/test_course_directions_diagnostics.py",
+      "sha256": "c639f158ef0ecf7558ceda15cb00bcade489c986e4aca082e514c718cda350b7",
+      "bytes": 11814
+    },
+    {
+      "path": "snapshots/tiles/tests/test_course_directions_training.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/tests/test_course_directions_training.py",
+      "sha256": "776da7da9b11bedfd22f0e07194b640e2bb61a07bf4aa8ff6a54a4aa31dc20ae",
+      "bytes": 7331
+    },
+    {
+      "path": "snapshots/tiles/tests/test_course_directions_workflow.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/tests/test_course_directions_workflow.py",
+      "sha256": "48b11aa014a8a0547c2cae0b1206583f0f5f7ee5faef2a4090e59a7c396777ef",
+      "bytes": 21080
+    },
+    {
+      "path": "snapshots/tiles/tests/test_course_feature_models.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/tests/test_course_feature_models.py",
+      "sha256": "c2bcdce4a5c48d6d08c0b58f73c7d79bcf71ab39690f54b0108d0bec4c2604fa",
+      "bytes": 13733
+    },
+    {
+      "path": "snapshots/tiles/tests/test_course_head.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/tests/test_course_head.py",
+      "sha256": "4ddda1941ab52e55d14b3eaa960fb81c58d1d74b44cf48feba46d26b0c3d2ead",
+      "bytes": 3512
+    },
+    {
+      "path": "snapshots/tiles/tests/test_course_resolution.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/tests/test_course_resolution.py",
+      "sha256": "6bfa1556268d52760c5cc1d29e5fb8332426e425ac3667054f5f7fe3f7b520fa",
+      "bytes": 3784
+    },
+    {
+      "path": "snapshots/tiles/tests/test_course_scale.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/tests/test_course_scale.py",
+      "sha256": "54fdb1b49dea4142eaf2468c4b153f65ce9a4c95038dd79dc6583f6c45c8f135",
+      "bytes": 2844
+    },
+    {
+      "path": "snapshots/tiles/tests/test_course_small_boundary.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/tests/test_course_small_boundary.py",
+      "sha256": "0bac87c9f78440720d2d74dc99c1d0e6cc165caf698e3401ad3c7488c06de2f4",
+      "bytes": 9178
+    },
+    {
+      "path": "snapshots/tiles/tests/test_m2f_cpdetail.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/tests/test_m2f_cpdetail.py",
+      "sha256": "e2db5c91d44dfd7dbe05108794cf0c68fcd44a228a1f45c97ba497d0671c232d",
+      "bytes": 2491
+    },
+    {
+      "path": "snapshots/tiles/tests/test_m2f_decoder.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/tests/test_m2f_decoder.py",
+      "sha256": "11d6df00cbe01d0149d81d0e447eef12bdf8a7152801c159fb94b6b5d4cd625f",
+      "bytes": 7156
+    },
+    {
+      "path": "snapshots/tiles/tests/test_m2f_tiles.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/tests/test_m2f_tiles.py",
+      "sha256": "4f40752c9ef5600045a8e2d1da18fc14459694d6ba7fd5b226aef196c914264d",
+      "bytes": 9109
+    },
+    {
+      "path": "snapshots/tiles/tests/test_nyu_development.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/tests/test_nyu_development.py",
+      "sha256": "0e6c3500c383459362ad97f1fa3cecc4dc493e7fa7f7313c298f714404cf75a1",
+      "bytes": 12838
+    },
+    {
+      "path": "snapshots/tiles/tests/test_nyu_runner.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/tests/test_nyu_runner.py",
+      "sha256": "6a75f51b3e50c0f2bade918bf4993c095a5dd429bbc42d5ce521713d4801db10",
+      "bytes": 20619
+    },
+    {
+      "path": "snapshots/tiles/tests/test_nyu_sweep_launcher.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/tests/test_nyu_sweep_launcher.py",
+      "sha256": "382b6a8298aaef781feaca57a69e3e8099213913f6ad0b14309b0f2bc8655dfb",
+      "bytes": 23024
+    },
+    {
+      "path": "snapshots/tiles/tests/test_nyu_sweep_summary.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/tests/test_nyu_sweep_summary.py",
+      "sha256": "250fb9524fb37467b3ebc9b7b57b0beedfa0d4678914a2e95df93ecc1eebfa33",
+      "bytes": 9870
+    },
+    {
+      "path": "snapshots/tiles/tests/test_nyu_v2.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/tests/test_nyu_v2.py",
+      "sha256": "f7e95b2127fb57cb7a76604fae2bea2945dad3eb0b263bf4002552076f8418cd",
+      "bytes": 10034
+    },
+    {
+      "path": "snapshots/tiles/tests/test_nyu_v2_summary.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/tests/test_nyu_v2_summary.py",
+      "sha256": "9b019263eb8f11fb019ef241c4ddf5a412b329c4ed62cfc574efaf7c7c54238b",
+      "bytes": 4869
+    },
+    {
+      "path": "snapshots/tiles/tests/test_nyu_v3.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/tests/test_nyu_v3.py",
+      "sha256": "e186b39ccf832e794c7f654f7c238e7096b045429afc7c7a30c8055883d0ecaf",
+      "bytes": 10816
+    },
+    {
+      "path": "snapshots/tiles/tests/test_nyu_v3_workflow.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/tests/test_nyu_v3_workflow.py",
+      "sha256": "2bf16ce576acfa7900d476063f7b0d4b1e911a948034f9d3f1c6fea52a0edc4a",
+      "bytes": 8661
+    },
+    {
+      "path": "snapshots/tiles/tests/test_nyu_v4.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/tests/test_nyu_v4.py",
+      "sha256": "e4c57d252ca8b2804ecfb7974aeae61eccb180f787caf2fc49c289b23e2be97c",
+      "bytes": 4163
+    },
+    {
+      "path": "snapshots/tiles/tests/test_optimization_config.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/tests/test_optimization_config.py",
+      "sha256": "a124165dc867073e563c34259664c387904eb640f9b6dc06deb76876087f19e4",
+      "bytes": 2251
+    },
+    {
+      "path": "snapshots/tiles/tests/test_prepare_coco_subset.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/tests/test_prepare_coco_subset.py",
+      "sha256": "7ba94aaf9c80d4cf5feff8837b8d1eb5342f93e137c4453b7815fe30c87881db",
+      "bytes": 11568
+    },
+    {
+      "path": "snapshots/tiles/tests/test_resume_recipe.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/tests/test_resume_recipe.py",
+      "sha256": "16bc7a236da1698f78eb04f4ed62e6c8037bc020b3809091227cafb8efa41022",
+      "bytes": 2022
+    },
+    {
+      "path": "snapshots/tiles/tests/test_rgbd_pipeline.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/tests/test_rgbd_pipeline.py",
+      "sha256": "aa5c682f76a4e76ea611248de8af7e98c69cbaec97fd32ed2ba69001d11bf36e",
+      "bytes": 17148
+    },
+    {
+      "path": "snapshots/tiles/tests/test_small_object_crop.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/tests/test_small_object_crop.py",
+      "sha256": "f11227e6ff496a02e6c6d3cf6fe71f4e65cc991e9cd9c7bbea9292f3a789c791",
+      "bytes": 11102
+    },
+    {
+      "path": "snapshots/tiles/tests/test_summarize_nyu_experiment.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/tests/test_summarize_nyu_experiment.py",
+      "sha256": "0cf6b28587a5bf9194431bc87bc54130d78c6addee04e7eec87f63c780fecd73",
+      "bytes": 11239
+    },
+    {
+      "path": "snapshots/tiles/tests/test_void_head.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/tests/test_void_head.py",
+      "sha256": "0ddae3b5d7bc5b7fe15f5e2878069b7b478bb9cb543589203d8c005bfb3c0b8e",
+      "bytes": 9213
+    },
+    {
+      "path": "snapshots/tiles/tests/test_void_metric.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/tests/test_void_metric.py",
+      "sha256": "6f9b2318c00847dd599d0639426b6ecc9271beddf5e9ac8b1d84c4846bf80c90",
+      "bytes": 6984
+    },
+    {
+      "path": "snapshots/tiles/tests/test_weighted_boundary_head.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/tests/test_weighted_boundary_head.py",
+      "sha256": "5d4f8dfe0100df5541623a548131a5160bd0aa1a304ec7207475d3544d57f4fe",
+      "bytes": 12531
+    },
+    {
+      "path": "snapshots/tiles/train_course_directions.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/train_course_directions.py",
+      "sha256": "4285ea1bb63a02b58bd29753b95fab27ecf96e36afed8ae57157c3f957e53f05",
+      "bytes": 20940
+    },
+    {
+      "path": "snapshots/tiles/verify_course_delivery.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/verify_course_delivery.py",
+      "sha256": "2189b6d9990d79fa7e0e1d070441e272452965366124de6a679e1f308e50f5ea",
+      "bytes": 2970
+    },
+    {
+      "path": "snapshots/tiles/verify_env.py",
+      "original_project_path": "outputs/course_m2f_tiles_20261019_v1/source/verify_env.py",
+      "sha256": "3ba9d2c76054f07b5e177cff1b785dfad0204d4d798e749d8e735620ce351d98",
+      "bytes": 1580
+    }
+  ],
+  "count": 538,
+  "total_bytes": 4670047
+}

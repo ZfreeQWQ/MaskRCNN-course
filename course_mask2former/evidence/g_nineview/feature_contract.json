@@ -1,0 +1,19 @@
+{
+  "status": "passed",
+  "four_heads_unchanged": true,
+  "decoder_query_features_used": false,
+  "functions": {
+    "score_area_pair_features": {
+      "function": "def features(global_row, local_row):\n    import numpy as np\n    from pycocotools import mask as mu\n    a, b = global_row[\"segmentation\"], local_row[\"segmentation\"]\n    aa, ab = float(mu.area(a)), float(mu.area(b))\n    assert 0 < aa <= 1024 and 0 < ab <= 1024\n    ba, bb = np.asarray(mu.toBbox(a), dtype=float), np.asarray(mu.toBbox(b), dtype=float)\n    overlap = float(mu.iou([a], [b], [0])[0, 0])\n    intersection = overlap * (aa + ab) / (1 + overlap)\n    distance = float(np.linalg.norm(ba[:2] + ba[2:] / 2 - bb[:2] - bb[2:] / 2))\n    value = [global_row[\"score\"], local_row[\"score\"], math.log1p(aa), math.log1p(ab),\n             math.log(ab / aa), overlap, intersection / aa, intersection / ab,\n             aa / (ba[2] * ba[3]), ab / (bb[2] * bb[3]),\n             math.log(ba[2] / ba[3]), math.log(bb[2] / bb[3]),\n             distance / float(np.linalg.norm(ba[2:]))]\n    assert len(value) == len(FEATURES) == 13 and np.isfinite(value).all()\n    return value\n",
+      "source_file_sha256": "126bcf0ad5d89b44686ca444f273aa54bad7efa753d173c61fb26fac8fb5dec2"
+    },
+    "RGBD_mask_patch": {
+      "function": "def patch_input(rgb, depth, valid, coarse):\n    \"\"\"Fixed unit conversion, not statistics estimated from val.\"\"\"\n    x = np.concatenate((rgb.astype(np.float32)/255.,\n                        np.log1p(depth)[..., None],\n                        valid[..., None].astype(np.float32),\n                        coarse[..., None].astype(np.float32)), axis=2)\n    assert x.shape == (PATCH, PATCH, 6) and np.isfinite(x).all()\n    return x.transpose(2, 0, 1).copy()\n",
+      "source_file_sha256": "4f32a7391f70558d49509fcb06670f35819176965cca3e5176655197981c0c13"
+    },
+    "tiny_patch": {
+      "function": "def patch(row, xy, rgbd):\n    rgb, depth, valid = rgbd\n    x, y = xy\n    mask = mu.decode(row[\"segmentation\"])[y:y+128, x:x+128].astype(bool)\n    assert mask.any()\n    return ref.patch_input(rgb[y:y+128, x:x+128], depth[y:y+128, x:x+128],\n                           valid[y:y+128, x:x+128], mask)\n",
+      "source_file_sha256": "3d49a39c79c220eedd7aac45668ad1e3a209badb77728562a3947d9f6d435846"
+    }
+  }
+}

@@ -1,0 +1,195 @@
+{
+  "files": [
+    {
+      "path": "evidence/g_single/new_exact.json",
+      "original_local_path": "gpu8/evidence/course_m2f_G_20261027_recovery2/final/new_exact.json",
+      "sha256": "013cae5a0605e413714a9072d8c85c082955d4bdfa90edd8eec1fda8286c3ec1"
+    },
+    {
+      "path": "evidence/g_single/comparison.json",
+      "original_local_path": "gpu8/evidence/course_m2f_G_20261027_recovery2/final/comparison.json",
+      "sha256": "ec5e3f21cec307d3e907ab3169aa3af2a4f00ce279e71a039e6910c5c5d13491"
+    },
+    {
+      "path": "evidence/g_single/independent_analysis.json",
+      "original_local_path": "gpu8/evidence/course_m2f_G_20261027_recovery2/final/independent_analysis.json",
+      "sha256": "035b74f21b2833b495f7b47fb5a442d408c17dc125b08f393f8baf7067c66cf9"
+    },
+    {
+      "path": "evidence/g_single/paired_timing.json",
+      "original_local_path": "gpu8/evidence/course_m2f_G_20261027_recovery2/final/paired_timing.json",
+      "sha256": "1fc306becf91da064034c91d9a1f2d4dc9f1d6efb200fd72a1c36c72a8ccc5a7"
+    },
+    {
+      "path": "evidence/g_single/terminal_acceptance.json",
+      "original_local_path": "gpu8/evidence/course_m2f_G_20261027_recovery2/final/terminal_acceptance.json",
+      "sha256": "47cbf2d7d98daf536d58209e4d0eccfca6d19b621aa18c409ae6a6abc4878b5f"
+    },
+    {
+      "path": "evidence/g_single/host_acceptance.json",
+      "original_local_path": "gpu8/evidence/course_m2f_G_20261027_recovery2/final/host_acceptance.json",
+      "sha256": "b32d03bd9e72a243bc7ce316a58ae93cfaae3222f01cb61719ca7b9f709ed9c2"
+    },
+    {
+      "path": "evidence/g_single/evaluate_1536/report.json",
+      "original_local_path": "gpu8/evidence/course_m2f_G_20261027_recovery2/final/evaluate_1536/report.json",
+      "sha256": "d406f56346ae0a5d255297b2090327ba0a82aa1b7799d0d88e552bafcd495ba9"
+    },
+    {
+      "path": "evidence/g_single/formal/runs/geometry_long/report.json",
+      "original_local_path": "gpu8/evidence/course_m2f_G_20261027_recovery2/final/formal/runs/geometry_long/report.json",
+      "sha256": "2ba8acc58ac2bd271c24663cafb8fdf07984819f4648df1d2b73d6761deb2178"
+    },
+    {
+      "path": "evidence/g_single/formal/runs/geometry_long/learning_curve.json",
+      "original_local_path": "gpu8/evidence/course_m2f_G_20261027_recovery2/final/formal/runs/geometry_long/learning_curve.json",
+      "sha256": "712491dd28a8c246ae015cd5cf5758c595b7e9eaa85ebe2b61836c9af772aab9"
+    },
+    {
+      "path": "evidence/g_nineview/report.json",
+      "original_local_path": "gpu8/evidence/course_m2f_G_system_20261027_recovery2/final/report.json",
+      "sha256": "1196c60a92bad34c5ec6039be210ba476104a41c2d6c5de5e7b8588f861a3506"
+    },
+    {
+      "path": "evidence/g_nineview/new_exact.json",
+      "original_local_path": "gpu8/evidence/course_m2f_G_system_20261027_recovery2/final/new_exact.json",
+      "sha256": "f3b68ba8bc4e37b2fb0f619376bfe42acdaa235c044e1d112fe33bd29aee713d"
+    },
+    {
+      "path": "evidence/g_nineview/comparison.json",
+      "original_local_path": "gpu8/evidence/course_m2f_G_system_20261027_recovery2/final/comparison.json",
+      "sha256": "05c476aa0025af79d1e56ef4e0a0d3276478025c91f0cd2c943a86ec63bd987c"
+    },
+    {
+      "path": "evidence/g_nineview/independent_analysis.json",
+      "original_local_path": "gpu8/evidence/course_m2f_G_system_20261027_recovery2/final/independent_analysis.json",
+      "sha256": "ae5235b95c03fc2275549660e6bae8023fe6bf27630634882e3585943a9b6ced"
+    },
+    {
+      "path": "evidence/g_nineview/paired_timing.json",
+      "original_local_path": "gpu8/evidence/course_m2f_G_system_20261027_recovery2/final/paired_timing.json",
+      "sha256": "be3f79d3a3159ff4f70fa5118d376538a6b7ee17142d2d9b073a7e97fc60ef05"
+    },
+    {
+      "path": "evidence/g_nineview/parity.json",
+      "original_local_path": "gpu8/evidence/course_m2f_G_system_20261027_recovery2/final/parity.json",
+      "sha256": "ce602ed8e4b293546f1854dbfe7ec82e0f0782c8c899ed6f9d74e5f712200737"
+    },
+    {
+      "path": "evidence/g_nineview/terminal_acceptance.json",
+      "original_local_path": "gpu8/evidence/course_m2f_G_system_20261027_recovery2/final/terminal_acceptance.json",
+      "sha256": "627e7f94886d09236f23ed5f4bc9f0aa5520403cd793b49c56d76d6ca000d7d3"
+    },
+    {
+      "path": "evidence/g_nineview/host_acceptance.json",
+      "original_local_path": "gpu8/evidence/course_m2f_G_system_20261027_recovery2/final/host_acceptance.json",
+      "sha256": "e32d6d25d205627d598b114fde2f982bafbe8781d88f66fdb100be08b61343cf"
+    },
+    {
+      "path": "evidence/g_nineview/gpu_report.json",
+      "original_local_path": "gpu8/evidence/course_m2f_G_system_20261027_recovery2/final/gpu_report.json",
+      "sha256": "b6300b0408891d31faab284d90d40f5e39b8e3edc7346a84c8121a4ae27f6217"
+    },
+    {
+      "path": "evidence/g_nineview/feature_contract.json",
+      "original_local_path": "gpu8/evidence/course_m2f_G_system_20261027_recovery2/final/feature_contract.json",
+      "sha256": "21656b9f12400bc980a6b018a527f97b8b52d62a8ad0860b806e3198079374f1"
+    },
+    {
+      "path": "evidence/g_nineview/numerical_functions.json",
+      "original_local_path": "gpu8/evidence/course_m2f_G_system_20261027_recovery2/final/numerical_functions.json",
+      "sha256": "d14d4152ad7c24b82508de0674eb170810c008555989c6f31fdb9827d3947797"
+    },
+    {
+      "path": "evidence/gq_single/new_exact.json",
+      "original_local_path": "gpu8/evidence/course_m2f_GQ_20261028_v1/final/new_exact.json",
+      "sha256": "eb912b4e79ba8324b77b42bb24a2bb229b51d35e87e732147237c1f069803807"
+    },
+    {
+      "path": "evidence/gq_single/comparison.json",
+      "original_local_path": "gpu8/evidence/course_m2f_GQ_20261028_v1/final/comparison.json",
+      "sha256": "105de84806c7f3adf09a7aea46239479054b34e7e5bb4135df31ff121d19c3cd"
+    },
+    {
+      "path": "evidence/gq_single/paired_timing.json",
+      "original_local_path": "gpu8/evidence/course_m2f_GQ_20261028_v1/final/paired_timing.json",
+      "sha256": "4256ea2c223ef6f38ab42e457d97244020b0a355cde53394f53aefc4dfb8dcef"
+    },
+    {
+      "path": "evidence/gq_single/formal/runs/geometry_query_long/learning_curve.json",
+      "original_local_path": "gpu8/evidence/course_m2f_GQ_20261028_v1/final/formal/runs/geometry_query_long/learning_curve.json",
+      "sha256": "58810d810f2009a8d6817e2496106d40d2ee1c41cdcb3d879b3ac58ffee8217b"
+    },
+    {
+      "path": "evidence/gq_nineview/report.json",
+      "original_local_path": "gpu8/evidence/course_m2f_GQ_system_20261029_v1/final/report.json",
+      "sha256": "5306d11371b79e378e92a98f16f305e986d8068a78292abc42f89a340d8c9df4"
+    },
+    {
+      "path": "evidence/gq_nineview/new_exact.json",
+      "original_local_path": "gpu8/evidence/course_m2f_GQ_system_20261029_v1/final/new_exact.json",
+      "sha256": "7b1effe7a69b247749e3b9c2cb5d3469890b9b67b9b68ac4893516984fc857f8"
+    },
+    {
+      "path": "evidence/gq_nineview/comparison.json",
+      "original_local_path": "gpu8/evidence/course_m2f_GQ_system_20261029_v1/final/comparison.json",
+      "sha256": "f89b7678d960f4885629d03ce9e09ba8d134b04404934ab962351fde1886af6f"
+    },
+    {
+      "path": "evidence/gq_nineview/analysis_summary.json",
+      "original_local_path": "gpu8/evidence/course_m2f_GQ_system_20261029_v1/final/analysis_summary.json",
+      "sha256": "d3288d0ab3328ebe671da9733c1fc9c1800007131476b84d65379994c68eb0b6"
+    },
+    {
+      "path": "evidence/gq_nineview/paired_timing.json",
+      "original_local_path": "gpu8/evidence/course_m2f_GQ_system_20261029_v1/final/paired_timing.json",
+      "sha256": "b53ab542762265e3076ba623c9aa5d6338090c8692dcffd665235375f2a3fef8"
+    },
+    {
+      "path": "evidence/submission/report.json",
+      "original_local_path": "gpu8/evidence/course_m2f_G_submission_gpu8_20261028_v1/final/report.json",
+      "sha256": "36fb46ceb963756aa884376d44680cd013682412b0f1e118bdde634064f005e8"
+    },
+    {
+      "path": "evidence/submission/host_acceptance.json",
+      "original_local_path": "gpu8/evidence/course_m2f_G_submission_gpu8_20261028_v1/final/host_acceptance.json",
+      "sha256": "cf9fde64cb15e85e1d7f5eee3f938d7e65005de4846d598eb40ed0484ad01ed1"
+    },
+    {
+      "path": "evidence/submission/parity.json",
+      "original_local_path": "gpu8/evidence/course_m2f_G_submission_gpu8_20261028_v1/final/parity.json",
+      "sha256": "6b48ef9c8e3bbf3de4ec5d615f200a9dd1031d9122d224969bc58b732b0b0a08"
+    },
+    {
+      "path": "evidence/submission/gpu_report.json",
+      "original_local_path": "gpu8/evidence/course_m2f_G_submission_gpu8_20261028_v1/final/gpu_report.json",
+      "sha256": "afe7c1ddbfd1470e78fdafec437d54dc2f5bc5282f35af84e723249123c28376"
+    },
+    {
+      "path": "configs/g_train_30k.py",
+      "original_local_path": "gpu8/evidence/course_m2f_G_20261027_recovery2/final/formal/runs/geometry_long/config.py",
+      "sha256": "6e19a5070a6806b91308074fe856643daaf2746fc221490442d1c6a6780b9d86"
+    },
+    {
+      "path": "configs/g_formal_template.py",
+      "original_local_path": "gpu8/evidence/course_m2f_G_20261027_recovery2/final/formal_template.py",
+      "sha256": "56aac589ddec6733776003983167253fe78b3f85f2ff44f87ee847592b5c9930"
+    },
+    {
+      "path": "configs/geometry_normalization.json",
+      "original_local_path": "gpu8/evidence/course_m2f_G_20261027_recovery2/final/geometry_normalization.json",
+      "sha256": "a2f2624901487d1eb95c1bb5ab603482dd9fddd08a5c451a45d097627dd8376d"
+    },
+    {
+      "path": "configs/local_quality_selector.json",
+      "original_local_path": "gpu8/evidence/course_m2f_G_system_20261027_recovery2/final/selector.json",
+      "sha256": "e5f3ef4e39d7f74a965a6d93301e279bbfda4d00f8964a89c5055f9b1ee41af8"
+    },
+    {
+      "path": "environment/requirements-lock.txt",
+      "original_local_path": "gpu8/requirements-lock.txt",
+      "sha256": "3c34eaf2c91e5f137104bd8c32aa880cb920519244e5bc6961a56e94955500f0"
+    }
+  ],
+  "note": "Existing accepted artifacts only; no new training, inference or AP calculation."
+}

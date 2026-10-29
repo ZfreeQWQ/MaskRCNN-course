@@ -1,0 +1,25 @@
+{
+  "status": "resource_interrupted_then_user_closed",
+  "last_persistent_step": 13300,
+  "completed_1024_validation": [
+    {
+      "iteration": 5000,
+      "G_APs": 35.1,
+      "GSwin_APs": 34.9,
+      "delta": -0.2
+    },
+    {
+      "iteration": 10000,
+      "G_APs": 41.5,
+      "GSwin_APs": 42.5,
+      "delta": 1.0
+    }
+  ],
+  "final_1536_APs": null,
+  "nineview_APs": null,
+  "recovery_implemented": false,
+  "recovery_GPU_seconds": 0,
+  "source_cancellation_sha256": "017f2b9ee6eaffad4b2b8fcd604a4510f287aa21118c2766e4aa93a11394f640",
+  "not_an_algorithm_negative_result": true,
+  "work_closed": true
+}

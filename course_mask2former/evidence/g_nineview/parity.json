@@ -1,0 +1,82 @@
+[
+  {
+    "arm": "baseline",
+    "image_id": 201960001,
+    "exact": true
+  },
+  {
+    "arm": "baseline",
+    "image_id": 201961001,
+    "exact": true
+  },
+  {
+    "arm": "baseline",
+    "image_id": 201962001,
+    "exact": true
+  },
+  {
+    "arm": "baseline",
+    "image_id": 201963001,
+    "exact": true
+  },
+  {
+    "arm": "baseline",
+    "image_id": 201964001,
+    "exact": true
+  },
+  {
+    "arm": "baseline",
+    "image_id": 201965001,
+    "exact": true
+  },
+  {
+    "arm": "baseline",
+    "image_id": 201966001,
+    "exact": true
+  },
+  {
+    "arm": "baseline",
+    "image_id": 201967001,
+    "exact": true
+  },
+  {
+    "arm": "A",
+    "image_id": 201960001,
+    "exact": true
+  },
+  {
+    "arm": "A",
+    "image_id": 201961001,
+    "exact": true
+  },
+  {
+    "arm": "A",
+    "image_id": 201962001,
+    "exact": true
+  },
+  {
+    "arm": "A",
+    "image_id": 201963001,
+    "exact": true
+  },
+  {
+    "arm": "A",
+    "image_id": 201964001,
+    "exact": true
+  },
+  {
+    "arm": "A",
+    "image_id": 201965001,
+    "exact": true
+  },
+  {
+    "arm": "A",
+    "image_id": 201966001,
+    "exact": true
+  },
+  {
+    "arm": "A",
+    "image_id": 201967001,
+    "exact": true
+  }
+]

@@ -1,0 +1,23 @@
+"""Approved post-ABC full-system acceptance. No training or head fitting."""
+START=1792953306
+DEADLINE=1792996506
+CPU_END=1792956906
+B_GPU_END=1792969506
+B_END=1792971306
+GPU_MAX=28800
+B_GPU_MAX=12600
+NAME='course_m2f_system_acceptance_20261026_v1'
+OWNER='2e0cb07187b84ea9841006bc87448f38'
+PRIOR='outputs/course_m2f_abc_20261025_v1/arms/A_recovery1'
+B='outputs/course_m2f_abc_20261025_v1/arms/B'
+C='outputs/course_m2f_abc_20261025_v1/arms/C_recovery1'
+BASE_WEIGHT='outputs/course_m2f_pointnoise_20261024_v1/formal/runs/pointnoise_long/iter_30000.pth'
+BASE_WEIGHT_SHA='e53ea799348ae53403d15fba07c7d763143f07879191778142a63c2002766ece'
+WEIGHT=B+'/formal/runs/tiny_matching_long/iter_30000.pth'
+WEIGHT_SHA='33e7c1667184d7325c1c404dc17ec3e7c3041d568976e571af3a1ee7153301e4'
+REF_SHA='3ea6cd2344fa752f9a22c35565279d288e79b4e374fb491b8740556079fb14ff'
+B_REPORT_SHA='963b806d90d7bb01a52dee7d24607be3b8468c1b2c6fb7391c1cddf43b244ed0'
+C_REPORT_SHA='5a02f8d720bd92aead50e0f6f3e152d1b985f8cf325aca6ecd8d2a01d24c69ba'
+IMAGE='sha256:eb5bed0d49efd109b91d5365131cc7f25391b8695347086d2e3dd12953d7702c'
+NEW=('system_spec.py','system_worker.py','system_launcher.py','test_system.py')
+B_CACHE_SHA='74d2660dadbdbaf43667158ae86120f5637aac296c10302989b65698aecc2b28'

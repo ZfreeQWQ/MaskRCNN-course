@@ -1,0 +1,40 @@
+{
+  "images": 2112,
+  "instances": 183734,
+  "original_instances": 211200,
+  "removed_zero_area_instances": 27466,
+  "remaining_masks_scores_order_unchanged": true,
+  "all_RLE_decode_reencode": true,
+  "CSV_JSON_roundtrip": true,
+  "mask_only": true,
+  "csv_sha256": "066b8098b1f8b9e6448d7117e69fe56abd1e7e99bf85b8e3fc635ebbbcf04342",
+  "csv_bytes": 87946334,
+  "status": "passed",
+  "real_test_images": 2112,
+  "test_labels_read": false,
+  "model_updates": 0,
+  "new_AP_runs": 0,
+  "uploaded": false,
+  "upload_attempts": 0,
+  "selected_system": "outputs/course_m2f_G_system_20261027_recovery2/arms/G",
+  "selected_system_APs": 56.68493022152318,
+  "weight_sha256": "a8f71442c289957744f1758e32670a1503c336625458d10201b0558ba3aa286f",
+  "prediction_manifest_sha256": "b9aaff61260945afc93a32ab3ca869be1814262799609b26637562340828587b",
+  "source_plan_sha256": "9f791c4eee97ad307e1206447b5a0655f1e190d5be8e9b5df89451815061d62f",
+  "gpu_lease": {
+    "total_seconds": 11104.913558959961,
+    "leases": [
+      {
+        "start": 1793195020.273136,
+        "finish": 1793206125.1866949,
+        "seconds": 11104.913558959961,
+        "gpu": 1,
+        "original_lock_released": true
+      }
+    ],
+    "original_lock_released": true
+  },
+  "start_unix": 1793194080,
+  "finish_unix": 1793207782.912037,
+  "deadline": 1793215680
+}
