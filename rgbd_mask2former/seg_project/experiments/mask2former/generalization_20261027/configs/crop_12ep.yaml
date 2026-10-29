@@ -1,0 +1,20 @@
+_BASE_: /private/rgzndzy/seg_project/experiments/mask2former/generalization_20261027/configs/crop_6ep.yaml
+MODEL:
+  WEIGHTS: /private/rgzndzy/seg_project/experiments/mask2former/round4_crop_6ep_20261027/model_final.pth
+PROJECT:
+  EXPERIMENT: CROP_12EP
+  EVAL_LIMIT: 0
+  SKIP_FINAL_EVAL: false
+SOLVER:
+  IMS_PER_BATCH: 8
+  BASE_LR: 1.0e-05
+  MAX_ITER: 21648
+  STEPS:
+  - 19483
+  - 20890
+  WARMUP_ITERS: 100
+  WARMUP_FACTOR: 0.1
+  CHECKPOINT_PERIOD: 902
+TEST:
+  EVAL_PERIOD: 1804
+OUTPUT_DIR: /private/rgzndzy/seg_project/experiments/mask2former/round4_crop_12ep_20261027

@@ -1,0 +1,13 @@
+# SH: S + I3 but the hires branch sees RGB only (no depth channels) -- isolates I3's own
+# contribution from I1's (docs/plan.md "证明 I3 中深度引导的作用").
+_BASE_: base.yaml
+PROJECT:
+  SMALL_OBJECT_POINTS:
+    ENABLED: True
+    NUM_POINTS: 256
+    BOX_EXPAND: 0.2
+    LOSS_POINT_FRACTION: 0.3
+  HIRES_MASK:
+    ENABLED: True
+    USE_DEPTH: False
+OUTPUT_DIR: /private/rgzndzy/seg_project/experiments/mask2former/sh

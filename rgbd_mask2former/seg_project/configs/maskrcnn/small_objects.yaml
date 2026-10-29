@@ -1,0 +1,13 @@
+_BASE_: base.yaml
+# P2 is present in every FPN baseline and is NOT claimed as a newly added module.
+# Geometry augmentation is identical to B0/B1 to isolate the architecture change.
+MODEL:
+  ANCHOR_GENERATOR:
+    SIZES: [[8], [16], [32], [64], [128]]
+  RPN:
+    PRE_NMS_TOPK_TRAIN: 4000
+    PRE_NMS_TOPK_TEST: 2000
+    POST_NMS_TOPK_TRAIN: 2000
+    POST_NMS_TOPK_TEST: 2000
+  ROI_MASK_HEAD:
+    POOLER_RESOLUTION: 28

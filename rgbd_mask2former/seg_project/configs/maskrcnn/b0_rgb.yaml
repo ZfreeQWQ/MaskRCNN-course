@@ -1,0 +1,5 @@
+_BASE_: base.yaml
+PROJECT:
+  EXPERIMENT: B0
+  USE_DEPTH: false
+OUTPUT_DIR: /private/rgzndzy/seg_project/experiments/maskrcnn/1x_b0

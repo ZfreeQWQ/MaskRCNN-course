@@ -1,0 +1,9 @@
+_BASE_: base.yaml
+MODEL:
+  PIXEL_MEAN: [103.530, 116.280, 123.675, 0.5]
+  PIXEL_STD: [1.0, 1.0, 1.0, 0.25]
+PROJECT:
+  EXPERIMENT: B1
+  USE_DEPTH: true
+  DEPTH_INIT: mean
+OUTPUT_DIR: /private/rgzndzy/seg_project/experiments/maskrcnn/1x_b1

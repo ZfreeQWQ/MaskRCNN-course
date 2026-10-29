@@ -1,0 +1,9 @@
+# Algorithm-priority run: D + mask-piloted all-layer training, no S/H.
+_BASE_: round2_d_control_20261026.yaml
+MODEL:
+  META_ARCHITECTURE: RGBDMPFormer
+  MASK_FORMER:
+    TRANSFORMER_DECODER_NAME: MaskPilotedDecoder
+PROJECT:
+  EXPERIMENT: ROUND2_D_MPFORMER
+OUTPUT_DIR: /private/rgzndzy/seg_project/experiments/mask2former/round2_mpformer_20261026

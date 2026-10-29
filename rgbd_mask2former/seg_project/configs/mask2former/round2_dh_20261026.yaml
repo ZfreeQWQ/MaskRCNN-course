@@ -1,0 +1,9 @@
+# Independent D+H ablation: S off; H initialized from zero residual, LR x10.
+_BASE_: round2_d_control_20261026.yaml
+PROJECT:
+  EXPERIMENT: ROUND2_DH
+  HIRES_MASK:
+    ENABLED: true
+    USE_DEPTH: true
+    MAX_PAIRS_PER_STEP: 16
+OUTPUT_DIR: /private/rgzndzy/seg_project/experiments/mask2former/round2_dh_20261026

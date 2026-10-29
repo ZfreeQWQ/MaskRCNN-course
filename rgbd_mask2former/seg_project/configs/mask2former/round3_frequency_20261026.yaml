@@ -1,0 +1,8 @@
+# Independent, two-epoch frequency-aware fusion screen from the frozen D.
+_BASE_: round2_d_control_20261026.yaml
+MODEL:
+  SEM_SEG_HEAD:
+    PIXEL_DECODER_NAME: FrequencyPixelDecoder
+PROJECT:
+  EXPERIMENT: ROUND3_FREQUENCY
+OUTPUT_DIR: /private/rgzndzy/seg_project/experiments/mask2former/round3_frequency_20261026

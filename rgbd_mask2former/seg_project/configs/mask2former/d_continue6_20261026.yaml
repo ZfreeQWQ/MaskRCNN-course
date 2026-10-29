@@ -1,0 +1,22 @@
+# Six additional epochs from the selected D checkpoint, weights-only fine-tuning.
+# This is a warm restart with a fresh optimizer, not a from-scratch 12-epoch control.
+_BASE_: ../../experiments/mask2former/d_screen/config.yaml
+MODEL:
+  WEIGHTS: /private/rgzndzy/seg_project/experiments/mask2former/d_screen/best_segm_APs.pth
+PROJECT:
+  EXPERIMENT: D_CONTINUE6
+  EVAL_LIMIT: 0
+  SKIP_FINAL_EVAL: false
+INPUT:
+  TEST_IMAGE_SIZE: 1536
+SOLVER:
+  IMS_PER_BATCH: 8
+  BASE_LR: 0.00003
+  MAX_ITER: 10824
+  STEPS: [8659, 10066]
+  WARMUP_FACTOR: 0.1
+  WARMUP_ITERS: 100
+  CHECKPOINT_PERIOD: 902
+TEST:
+  EVAL_PERIOD: 1804
+OUTPUT_DIR: /private/rgzndzy/seg_project/experiments/mask2former/d_continue6_20261026

@@ -1,0 +1,8 @@
+_BASE_: m1_rgbd_small.yaml
+# Leave one M1 change out: keep extra proposals and high-resolution masks.
+MODEL:
+  ANCHOR_GENERATOR:
+    SIZES: [[32], [64], [128], [256], [512]]
+PROJECT:
+  EXPERIMENT: M1_NO_SMALL_ANCHORS
+OUTPUT_DIR: /private/rgzndzy/seg_project/experiments/maskrcnn/ablate_no_small_anchors

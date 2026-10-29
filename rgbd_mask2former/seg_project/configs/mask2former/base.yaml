@@ -1,0 +1,56 @@
+# Shared base for all Mask2Former experiments (docs/plan.md §5/§6). Built on the official
+# COCO R50 instance-segmentation recipe; only dataset, schedule, augmentation and project knobs
+# are overridden here. Per-experiment configs (b.yaml, d.yaml, s.yaml, ds.yaml, dsh.yaml,
+# sh.yaml, b_early.yaml) set only PROJECT.* and OUTPUT_DIR on top of this file.
+_BASE_: /private/rgzndzy/seg_project/third_party/Mask2Former/configs/coco/instance-segmentation/maskformer2_R50_bs16_50ep.yaml
+MODEL:
+  META_ARCHITECTURE: "RGBDMaskFormer"  # identical to "MaskFormer" when all PROJECT.* features are off (rgbd_seg/m2f/model.py)
+  WEIGHTS: /private/rgzndzy/seg_project/weights/maskformer2_R50_bs16_50ep.pkl
+  SEM_SEG_HEAD:
+    NUM_CLASSES: 1  # single category: component
+  MASK_FORMER:
+    NUM_OBJECT_QUERIES: 200  # up to 96 instances/image (docs/plan.md §2); default 100 is too tight
+    TEST:
+      OBJECT_MASK_THRESHOLD: 0.0  # keep all 200 at test time; score-based filtering happens in tools/infer.py
+  # AMP left disabled pending a CoreX numerical check (docs/plan.md risk table); start FP32.
+  # (Base-COCO-InstanceSegmentation.yaml turns this on by default.)
+  # SOLVER block below restates this explicitly for clarity.
+DATASETS:
+  TRAIN: ("blender_train",)
+  TEST: ("blender_val",)
+SOLVER:
+  IMS_PER_BATCH: 8        # global batch, e.g. 4 GPU x 2 (docs/plan.md "全局 batch 8")
+  BASE_LR: 0.0001
+  AMP:
+    ENABLED: False
+  # MAX_ITER/STEPS/CHECKPOINT_PERIOD/EVAL_PERIOD are recomputed by tools/train_m2f.py's --stage
+  # from the chosen epoch count and the resolved IMS_PER_BATCH; the values below are placeholders
+  # for direct (no --stage) invocation and for the `--help`/dry-run config dump.
+  MAX_ITER: 10824          # 14432 images * 6 epoch / batch 8 ("screen" stage default)
+  STEPS: (8659, 10066)     # 80% / 93% of MAX_ITER
+  CHECKPOINT_PERIOD: 1804  # every 2 epochs at batch 8
+TEST:
+  EVAL_PERIOD: 1804        # every 2 epochs (docs/plan.md §7)
+  DETECTIONS_PER_IMAGE: 100
+INPUT:
+  FORMAT: "RGB"
+  IMAGE_SIZE: 1024
+  TEST_IMAGE_SIZE: 1024
+  MIN_SCALE: 0.8
+  MAX_SCALE: 1.6
+  RANDOM_FLIP: "both"      # horizontal + vertical (docs/plan.md's "水平 + 垂直翻转")
+  ROTATE_90: True
+  COLOR_AUG_SSD: True       # light brightness/contrast/saturation/hue jitter, RGB channels only
+DATALOADER:
+  NUM_WORKERS: 4
+  FILTER_EMPTY_ANNOTATIONS: True
+SEED: 20261020
+PROJECT:
+  USE_DEPTH: False
+  SMALL_OBJECT_POINTS:
+    ENABLED: False
+  HIRES_MASK:
+    ENABLED: False
+  EVAL_LIMIT: 0
+  SKIP_FINAL_EVAL: False
+OUTPUT_DIR: /private/rgzndzy/seg_project/experiments/mask2former/base

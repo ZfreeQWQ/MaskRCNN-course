@@ -1,0 +1,3 @@
+# B: Mask2Former R50 RGB baseline ("改进前"). No depth, no I2, no I3.
+_BASE_: base.yaml
+OUTPUT_DIR: /private/rgzndzy/seg_project/experiments/mask2former/b

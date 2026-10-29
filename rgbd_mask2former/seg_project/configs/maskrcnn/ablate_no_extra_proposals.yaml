@@ -1,0 +1,11 @@
+_BASE_: m1_rgbd_small.yaml
+# Leave one M1 change out: keep small anchors and high-resolution masks.
+MODEL:
+  RPN:
+    PRE_NMS_TOPK_TRAIN: 2000
+    PRE_NMS_TOPK_TEST: 1000
+    POST_NMS_TOPK_TRAIN: 1000
+    POST_NMS_TOPK_TEST: 1000
+PROJECT:
+  EXPERIMENT: M1_NO_EXTRA_PROPOSALS
+OUTPUT_DIR: /private/rgzndzy/seg_project/experiments/maskrcnn/ablate_no_extra_proposals

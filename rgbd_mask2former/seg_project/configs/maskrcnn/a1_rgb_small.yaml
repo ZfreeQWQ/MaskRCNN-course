@@ -1,0 +1,5 @@
+_BASE_: small_objects.yaml
+PROJECT:
+  EXPERIMENT: A1
+  USE_DEPTH: false
+OUTPUT_DIR: /private/rgzndzy/seg_project/experiments/maskrcnn/1x_a1

@@ -1,0 +1,15 @@
+# DS: D + S (I1 depth fusion + I2 small-object points).
+_BASE_: base.yaml
+MODEL:
+  BACKBONE:
+    NAME: "build_gated_rgbd_resnet_backbone"
+  PIXEL_MEAN: [123.675, 116.280, 103.530, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+  PIXEL_STD: [58.395, 57.120, 57.375, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+PROJECT:
+  USE_DEPTH: True
+  SMALL_OBJECT_POINTS:
+    ENABLED: True
+    NUM_POINTS: 256
+    BOX_EXPAND: 0.2
+    LOSS_POINT_FRACTION: 0.3
+OUTPUT_DIR: /private/rgzndzy/seg_project/experiments/mask2former/ds

@@ -1,0 +1,11 @@
+_BASE_: /private/rgzndzy/seg_project/experiments/mask2former/generalization_20261027/configs/crop_local.yaml
+SOLVER:
+  MAX_ITER: 60
+  STEPS:
+  - 48
+  - 56
+  WARMUP_ITERS: 5
+  CHECKPOINT_PERIOD: 60
+TEST:
+  EVAL_PERIOD: 60
+OUTPUT_DIR: /private/rgzndzy/seg_project/experiments/mask2former/round4_crop_local_smoke_v2_20261027

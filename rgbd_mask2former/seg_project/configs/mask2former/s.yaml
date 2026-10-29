@@ -1,0 +1,9 @@
+# S: B + I2 (small-object-aware point sampling in matcher/criterion). RGB only; no inference cost.
+_BASE_: base.yaml
+PROJECT:
+  SMALL_OBJECT_POINTS:
+    ENABLED: True
+    NUM_POINTS: 256
+    BOX_EXPAND: 0.2
+    LOSS_POINT_FRACTION: 0.3
+OUTPUT_DIR: /private/rgzndzy/seg_project/experiments/mask2former/s

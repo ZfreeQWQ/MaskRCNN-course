@@ -1,0 +1,20 @@
+_BASE_: /private/rgzndzy/seg_project/experiments/mask2former/generalization_20261027/configs/crop_local.yaml
+MODEL:
+  WEIGHTS: /private/rgzndzy/seg_project/experiments/mask2former/round4_control_20261027/model_final.pth
+PROJECT:
+  EXPERIMENT: LONG_RESUME_SMOKE
+  EVAL_LIMIT: 0
+  SKIP_FINAL_EVAL: false
+SOLVER:
+  IMS_PER_BATCH: 8
+  BASE_LR: 1.0e-05
+  MAX_ITER: 3668
+  STEPS:
+  - 3656
+  - 3664
+  WARMUP_ITERS: 5
+  WARMUP_FACTOR: 0.1
+  CHECKPOINT_PERIOD: 60
+TEST:
+  EVAL_PERIOD: 3668
+OUTPUT_DIR: /private/rgzndzy/seg_project/experiments/mask2former/round4_long_resume_smoke_20261027

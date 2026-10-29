@@ -1,0 +1,78 @@
+# Fair reference: B0/B1 change only input modality; M1/A1 share small-object settings.
+# 144320 iterations * global batch 1 = 10 complete training-set exposures.
+VERSION: 2
+MODEL:
+  META_ARCHITECTURE: GeneralizedRCNN
+  DEVICE: cuda
+  WEIGHTS: /private/rgzndzy/seg_project/weights/mask_rcnn_R_50_FPN_3x.pkl
+  MASK_ON: true
+  PIXEL_MEAN: [103.530, 116.280, 123.675]
+  PIXEL_STD: [1.0, 1.0, 1.0]
+  BACKBONE:
+    NAME: build_resnet_fpn_backbone
+    FREEZE_AT: 0
+  RESNETS:
+    DEPTH: 50
+    NORM: FrozenBN
+    OUT_FEATURES: [res2, res3, res4, res5]
+  FPN:
+    IN_FEATURES: [res2, res3, res4, res5]
+  ANCHOR_GENERATOR:
+    SIZES: [[32], [64], [128], [256], [512]]
+    ASPECT_RATIOS: [[0.5, 1.0, 2.0]]
+  RPN:
+    IN_FEATURES: [p2, p3, p4, p5, p6]
+    PRE_NMS_TOPK_TRAIN: 2000
+    PRE_NMS_TOPK_TEST: 1000
+    POST_NMS_TOPK_TRAIN: 1000
+    POST_NMS_TOPK_TEST: 1000
+  ROI_HEADS:
+    NAME: StandardROIHeads
+    NUM_CLASSES: 1
+    IN_FEATURES: [p2, p3, p4, p5]
+    BATCH_SIZE_PER_IMAGE: 512
+    SCORE_THRESH_TEST: 0.05
+    NMS_THRESH_TEST: 0.5
+  ROI_BOX_HEAD:
+    NAME: FastRCNNConvFCHead
+    NUM_FC: 2
+    POOLER_RESOLUTION: 7
+  ROI_MASK_HEAD:
+    NAME: MaskRCNNConvUpsampleHead
+    NUM_CONV: 4
+    POOLER_RESOLUTION: 14
+DATASETS:
+  TRAIN: [blender_train]
+  TEST: [blender_val]
+DATALOADER:
+  NUM_WORKERS: 4
+  FILTER_EMPTY_ANNOTATIONS: true
+  SAMPLER_TRAIN: TrainingSampler
+SOLVER:
+  IMS_PER_BATCH: 1
+  BASE_LR: 0.0025
+  MAX_ITER: 144320
+  STEPS: [108240, 129888]
+  WARMUP_ITERS: 1000
+  WARMUP_FACTOR: 0.001
+  CHECKPOINT_PERIOD: 4000
+  AMP:
+    ENABLED: false
+  REFERENCE_WORLD_SIZE: 0
+INPUT:
+  FORMAT: BGR
+  MASK_FORMAT: bitmask
+  MIN_SIZE_TRAIN: [896, 1024]
+  MAX_SIZE_TRAIN: 1024
+  MIN_SIZE_TEST: 1024
+  MAX_SIZE_TEST: 1024
+  RANDOM_FLIP: horizontal
+TEST:
+  EVAL_PERIOD: 4000
+  DETECTIONS_PER_IMAGE: 100
+SEED: 20261016
+CUDNN_BENCHMARK: false
+PROJECT:
+  EXPERIMENT: B0
+  USE_DEPTH: false
+OUTPUT_DIR: /private/rgzndzy/seg_project/experiments/maskrcnn/1x_b0

@@ -1,0 +1,8 @@
+_BASE_: m1_rgbd_small.yaml
+# Leave one M1 change out: keep small anchors and extra proposals.
+MODEL:
+  ROI_MASK_HEAD:
+    POOLER_RESOLUTION: 14
+PROJECT:
+  EXPERIMENT: M1_NO_HIGH_MASKPOOL
+OUTPUT_DIR: /private/rgzndzy/seg_project/experiments/maskrcnn/ablate_no_high_maskpool

@@ -1,0 +1,31 @@
+_BASE_: /private/rgzndzy/seg_project/experiments/mask2former/round3_best_algorithm_extend_20261026/config.yaml
+MODEL:
+  META_ARCHITECTURE: GeneralizationMPFormer
+  WEIGHTS: /private/rgzndzy/seg_project/experiments/mask2former/round3_best_algorithm_extend_20261026/best_segm_APs.pth
+PROJECT:
+  EXPERIMENT: GENERALIZATION_CROP_LOCAL
+  EVAL_LIMIT: 0
+  SKIP_FINAL_EVAL: false
+  GENERALIZATION:
+    CROP_PROBABILITY: 0.5
+    CROP_SIZES:
+    - 640
+    - 768
+    - 896
+    LOCAL_LOSS: true
+    LOCAL_WEIGHT: 0.5
+    MAX_LOCAL_PAIRS: 12
+SOLVER:
+  IMS_PER_BATCH: 8
+  BASE_LR: 1.0e-05
+  MAX_ITER: 3608
+  STEPS:
+  - 2886
+  - 3355
+  WARMUP_ITERS: 100
+  WARMUP_FACTOR: 0.1
+  CHECKPOINT_PERIOD: 902
+TEST:
+  EVAL_PERIOD: 1804
+SEED: 20261027
+OUTPUT_DIR: /private/rgzndzy/seg_project/experiments/mask2former/round4_crop_local_20261027
