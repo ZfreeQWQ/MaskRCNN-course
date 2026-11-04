@@ -1,6 +1,6 @@
 # ccc-dev: MaskDINO
 
-See [ccc/maskdino](ccc/maskdino/README.md) for the selected training and inference implementation.
+See [maskdino](maskdino/README.md) for the selected training and inference implementation.
 
 ---
 
