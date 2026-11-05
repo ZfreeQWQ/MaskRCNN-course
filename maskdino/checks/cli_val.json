@@ -1,0 +1,16 @@
+{
+  "status": "completed",
+  "images": 2,
+  "csv_sha256": "4b55c0a30a4fca8b09ff0f50c7daca9ae22cd44ddf801b72568c4051370eea6a",
+  "csv_validation": {
+    "rows": 2,
+    "instances": 176,
+    "empty_images": 0,
+    "max_instances_per_image": 100,
+    "all_rles_round_trip": true,
+    "csv_readback_exact": true
+  },
+  "validation_APs_0_to_1": 0.896947194719472,
+  "competition_score": null,
+  "complete_dataset_evaluation": false
+}

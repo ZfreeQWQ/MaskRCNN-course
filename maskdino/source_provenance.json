@@ -1,0 +1,27 @@
+{
+  "learned_edges.py": {
+    "production_sha256": "8b1dcc921154e708fbd01f337dd825a22144709e8e6dbbb0846e2d4baf8af6a5",
+    "portable_sha256": "b9dae6508bee3ad81c90cffbdbf8c3da14ccea373faf83dedcccbac2070b44c1",
+    "changes": "Only replace hardcoded weight path with settings.POSTPROCESS_WEIGHTS."
+  },
+  "quality_refinement_core.py": {
+    "production_sha256": "2fec84580d9614425d418f88eef367ca35fe15578910e787d286a638e607fd53",
+    "portable_sha256": "2fec84580d9614425d418f88eef367ca35fe15578910e787d286a638e607fd53",
+    "changes": "Byte-identical frozen algorithm."
+  },
+  "tiny_seed_boundary.py": {
+    "production_sha256": "e705c561b5a6754c860485875c1b6f3f97b03e192eeb020186c6628dbc81a687",
+    "portable_sha256": "e705c561b5a6754c860485875c1b6f3f97b03e192eeb020186c6628dbc81a687",
+    "changes": "Byte-identical frozen algorithm."
+  },
+  "native_quality_features.py": {
+    "production_sha256": "6cd2c7fc77d3155f67d4829424e2e8bf6a6351f43eb0c6a99b652ea333648662",
+    "portable_sha256": "6cd2c7fc77d3155f67d4829424e2e8bf6a6351f43eb0c6a99b652ea333648662",
+    "changes": "Byte-identical feature computation."
+  },
+  "soft_quality.py": {
+    "production_sha256": "e4f3d0003c6ccd06c8f387708d3ef7db9df1090422a699f9166743ab7ea49b43",
+    "portable_sha256": "1a5c07e388f15dc3cc6467d64d8a3150229f522ff3b6e15c51f72ed5bb260dea",
+    "changes": "Replace experiment imports with portable runtime; feature computation, original query selection, masks and NMS unchanged."
+  }
+}

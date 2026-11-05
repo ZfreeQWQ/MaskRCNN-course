@@ -1,0 +1,9 @@
+{
+  "status": "passed",
+  "images": 2112,
+  "instances": 203324,
+  "mask_and_order_exact": true,
+  "max_score_absolute_error": 2.500214968392811e-07,
+  "device": "cpu",
+  "scope": "Cached inference replay, not a new complete model/AP evaluation"
+}

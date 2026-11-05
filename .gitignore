@@ -60,3 +60,15 @@ pip-delete-this-directory.txt
 .venv
 venv/
 ENV/
+
+# Generated course inference output and external large checkpoints
+*.pth
+!maskdino/artifacts/edge_weights.pth
+!maskdino/artifacts/parent_ordinal_weights.pth
+!maskdino/artifacts/soft_quality_weights.pth
+maskdino/outputs/
+maskdino/blender/
+maskdino/MaskDINO/
+maskdino/geometry_stats.json
+maskdino/images.json
+submission.csv

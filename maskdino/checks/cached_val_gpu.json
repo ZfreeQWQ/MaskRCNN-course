@@ -1,0 +1,9 @@
+{
+  "status": "passed",
+  "images": 2584,
+  "instances": 244087,
+  "mask_and_order_exact": true,
+  "max_score_absolute_error": 0.0,
+  "device": "cuda",
+  "scope": "Cached inference replay, not a new complete model/AP evaluation"
+}

@@ -1,0 +1,20 @@
+{
+  "scope": "CPU/GPU numerical tie diagnostic, not AP",
+  "index": 181,
+  "maskset_exact": true,
+  "max_score_error": 1.1656852905161941e-07,
+  "order_changes": [
+    {
+      "position": 27,
+      "actual": 0.9416010366875298,
+      "expected": 0.9416010858677453,
+      "same_mask": false
+    },
+    {
+      "position": 28,
+      "actual": 0.941600971305526,
+      "expected": 0.941600921594727,
+      "same_mask": false
+    }
+  ]
+}

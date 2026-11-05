@@ -4,6 +4,7 @@ from pathlib import Path
 WORKDIR=Path(os.environ.get('CCC_WORKDIR','./outputs')).resolve()
 DATA_ROOT=Path(os.environ.get('CCC_DATA_ROOT','./blender')).resolve()
 WEIGHTS=Path(os.environ.get('CCC_WEIGHTS','./weights')).resolve()
+POSTPROCESS_WEIGHTS=Path(os.environ.get('CCC_POSTPROCESS_WEIGHTS',str(Path(__file__).parent/'artifacts'))).resolve()
 MASKDINO_SRC=Path(os.environ.get('CCC_MASKDINO_SRC','./MaskDINO')).resolve()
 GEOMETRY_STATS=Path(os.environ.get('CCC_GEOMETRY_STATS','./geometry_stats.json')).resolve()
 IMAGE_METADATA=Path(os.environ.get('CCC_IMAGE_METADATA','./images.json')).resolve()

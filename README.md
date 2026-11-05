@@ -1,6 +1,6 @@
 # ccc-dev: MaskDINO
 
-See [maskdino](maskdino/README.md) for the selected training and inference implementation.
+See [maskdino](maskdino/README.md) for the frozen RGB-D MaskDINO release: complete local test Mask AP_s **0.5838904562** and validation **0.7332437039**. The competition-platform score is unknown. The inference code, small refinement/scoring weights, checksums and reproduction instructions are included.
 
 ---
 

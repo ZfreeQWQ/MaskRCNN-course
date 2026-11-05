@@ -1,0 +1,46 @@
+{
+  "status": "passed",
+  "rows": [
+    {
+      "split": "val",
+      "index": 14,
+      "image_id": 201961007,
+      "instances": 100,
+      "raw_masks_scores_and_order_exact": true,
+      "feature_max_abs_error": 0.0,
+      "final_score_max_abs_error": 0.0,
+      "test_annotations_blocked": false
+    },
+    {
+      "split": "val",
+      "index": 117,
+      "image_id": 201974006,
+      "instances": 100,
+      "raw_masks_scores_and_order_exact": true,
+      "feature_max_abs_error": 0.0,
+      "final_score_max_abs_error": 0.0,
+      "test_annotations_blocked": false
+    },
+    {
+      "split": "test",
+      "index": 0,
+      "image_id": 202310001,
+      "instances": 87,
+      "raw_masks_scores_and_order_exact": true,
+      "feature_max_abs_error": 0.0,
+      "final_score_max_abs_error": 0.0,
+      "test_annotations_blocked": true
+    },
+    {
+      "split": "test",
+      "index": 1,
+      "image_id": 202310002,
+      "instances": 100,
+      "raw_masks_scores_and_order_exact": true,
+      "feature_max_abs_error": 0.0,
+      "final_score_max_abs_error": 0.0,
+      "test_annotations_blocked": true
+    }
+  ],
+  "scope": "Four raw-image inference checks; full historical metrics not recomputed"
+}
