@@ -10,7 +10,5 @@
     "all_rles_round_trip": true,
     "csv_readback_exact": true
   },
-  "validation_APs_0_to_1": 0.896947194719472,
-  "competition_score": null,
   "complete_dataset_evaluation": false
 }

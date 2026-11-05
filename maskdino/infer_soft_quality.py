@@ -1,4 +1,4 @@
-"""58.389 local AP_s release: RGB-D images -> frozen masks -> submission CSV."""
+"""RGB-D MaskDINO: RGB-D images -> frozen masks -> submission CSV."""
 import argparse
 import csv
 import hashlib
@@ -32,7 +32,7 @@ def main(a):
     data = GeometryData(a.split, 'geometry', settings.GEOMETRY_STATS, side=1024, limit=a.limit)
     ids = [row['id'] for row in data.index.records]
     assert ids and all(row['width'] == row['height'] == 1024 for row in data.index.records)
-    manifest = dict(release='soft_quality_APs_58.389045617875', split=a.split, ids=ids,
+    manifest = dict(release='soft_quality', split=a.split, ids=ids,
                     weights=verify_weights(), geometry_stats_sha256=h.d.sha(settings.GEOMETRY_STATS),
                     image_metadata_sha256=h.d.sha(settings.IMAGE_METADATA) if a.split == 'test' else None,
                     records_sha256=hashlib.sha256(json.dumps(data.index.records, sort_keys=True).encode()).hexdigest(),

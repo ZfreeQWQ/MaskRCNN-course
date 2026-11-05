@@ -1,18 +1,5 @@
 {
-  "release": "soft_quality_APs_58.389045617875",
-  "metric": "Mask AP_s@[0.50:0.95]",
-  "metric_scale": "0-1",
-  "validation": {
-    "images": 2584,
-    "APs": 0.7332437038824104
-  },
-  "exposed_local_test": {
-    "images": 2112,
-    "APs": 0.58389045617875,
-    "used_for_authorized_error_diagnosis": true,
-    "independent_blind_test": false
-  },
-  "competition_score": null,
+  "release": "soft_quality",
   "selection": "TRAIN-only fitting; fixed validation screen and disjoint confirmation; full validation improvement before export.",
   "submission": {
     "csv_sha256": "3accae775e8f0c26389d77523ba9c0fd28c454b6ca2717083c67c0c0b909c505",
@@ -32,22 +19,9 @@
   "input_side": 2048,
   "production_evaluator_sha256": "506918d8414c4a3a701c4138f78cd4666829af794a1b3fc89aaf75526334f6a6",
   "production_export_run_sha256": "442a1463729842e83abe060f4c7afc667bd15156255ef76ac932be2cdef1159d",
-  "validation_gates": {
-    "screen": {
-      "images": 256,
-      "APs_0_to_100": 74.46294542058934,
-      "gain_AP_points": 0.5233696289874956
-    },
-    "confirmation": {
-      "images": 512,
-      "APs_0_to_100": 70.2210719837196,
-      "gain_AP_points": 0.3331101928787632
-    }
-  },
   "weights": {
     "edge_weights.pth": "c06034a04101520359c02802ded3e3a9fd512737f2d70a8be467e786cb16533b",
     "parent_ordinal_weights.pth": "d433f356a495e46c51d33f6785d437237515e2a4e2133a6a062d0f6c09136680",
     "soft_quality_weights.pth": "dfa7ee8309a4b6a4528b3dc7730cbededd6370ec9b67fadbb04f124f8a9ce813"
-  },
-  "optimization_status": "Stopped by user; hourly automation deleted; no continuation scripts included."
+  }
 }

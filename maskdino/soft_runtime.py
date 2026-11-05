@@ -1,4 +1,4 @@
-"""Portable bindings for the frozen 58.389 AP_s inference implementation."""
+"""Portable bindings for the RGB-D MaskDINO inference implementation."""
 import functools
 from pathlib import Path
 
